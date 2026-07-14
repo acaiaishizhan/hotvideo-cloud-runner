@@ -1,0 +1,89 @@
+name: cloud-pipeline
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'queue/*.json'
+  workflow_dispatch:
+    inputs:
+      queue_file:
+        description: '要重跑的 queue JSON 路径'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      ARK_API_KEY: ${{ secrets.ARK_API_KEY }}
+      LARK_APP_ID: ${{ secrets.LARK_APP_ID }}
+      LARK_APP_SECRET: ${{ secrets.LARK_APP_SECRET }}
+      HOTVIDEO_FEISHU_BASE_TOKEN: ${{ secrets.HOTVIDEO_FEISHU_BASE_TOKEN }}
+      HOTVIDEO_FEISHU_TABLE_ID: ${{ secrets.HOTVIDEO_FEISHU_TABLE_ID }}
+      HOTVIDEO_FEISHU_ATTACHMENT_FIELD: fldgReMdHu
+      HOTVIDEO_ANALYZE_CONCURRENCY: '5'
+      HOTVIDEO_PIPELINE_ATTEMPTS: '3'
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install runtime
+        run: |
+          python -m pip install --disable-pip-version-check -e ./video-infra
+          npm install --global @larksuite/cli@1.0.53
+          ffmpeg -version | head -n 1
+
+      - name: Configure Feishu bot
+        shell: bash
+        run: |
+          test -n "$LARK_APP_ID"
+          test -n "$LARK_APP_SECRET"
+          printf '%s' "$LARK_APP_SECRET" | lark-cli config init \
+            --app-id "$LARK_APP_ID" \
+            --app-secret-stdin \
+            --brand feishu
+          lark-cli base +record-list \
+            --base-token "$HOTVIDEO_FEISHU_BASE_TOKEN" \
+            --table-id "$HOTVIDEO_FEISHU_TABLE_ID" \
+            --as bot \
+            --format json \
+            --field-id 视频链接 \
+            --limit 1 \
+            --jq '{ok: .ok}'
+
+      - name: Process queue manifests
+        shell: bash
+        env:
+          MANUAL_QUEUE_FILE: ${{ inputs.queue_file }}
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            files=("$MANUAL_QUEUE_FILE")
+          else
+            mapfile -t files < <(git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA" -- 'queue/*.json')
+          fi
+
+          if [[ ${#files[@]} -eq 0 ]]; then
+            echo 'No queue manifest found in this commit.'
+            exit 1
+          fi
+
+          for file in "${files[@]}"; do
+            [[ "$file" == queue/*.json ]]
+            test -f "$file"
+            node scripts/run-queue.mjs "$file"
+          done

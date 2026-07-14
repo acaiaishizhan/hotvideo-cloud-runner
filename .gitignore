@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+node_modules/
+videos/
+temp/
+*.part
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+.hotvideo-*.json

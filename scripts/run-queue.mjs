@@ -1,0 +1,122 @@
+#!/usr/bin/env node
+
+import { spawn } from 'node:child_process';
+import fs from 'node:fs';
+import path from 'node:path';
+import { setTimeout as sleep } from 'node:timers/promises';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const ALLOWED_HOSTS = new Set(['douyin.com', 'www.douyin.com']);
+
+export function validateManifest(value) {
+  if (!value || typeof value !== 'object') throw new Error('manifest 必须是 JSON 对象');
+  if (value.source !== 'douyin-hotspot') throw new Error(`不支持的 source: ${value.source || '(空)'}`);
+  if (!Array.isArray(value.items)) throw new Error('manifest.items 必须是数组');
+  if (value.items.length > 1000) throw new Error('单批最多 1000 条');
+
+  const ids = new Set();
+  for (const [index, item] of value.items.entries()) {
+    const id = String(item?.id || '');
+    if (!/^\d{8,32}$/.test(id)) throw new Error(`items[${index}].id 非法`);
+    if (ids.has(id)) throw new Error(`items[${index}].id 重复: ${id}`);
+    ids.add(id);
+
+    let url;
+    try { url = new URL(String(item?.url || '')); } catch { throw new Error(`items[${index}].url 非法`); }
+    if (url.protocol !== 'https:' || !ALLOWED_HOSTS.has(url.hostname)) {
+      throw new Error(`items[${index}].url 只允许 https://www.douyin.com`);
+    }
+  }
+  return value;
+}
+
+export function manifestScope(manifest) {
+  const contexts = manifest.items.map(item => item?.context || {});
+  const profiles = new Set(contexts.map(item => item.categoryProfile).filter(Boolean));
+  const windows = new Set(contexts.map(item => String(item.dateWindow || '')).filter(Boolean));
+  if (profiles.size > 1) throw new Error('同一 manifest 不能混用多个 categoryProfile');
+  if (windows.size > 1) throw new Error('同一 manifest 不能混用多个 dateWindow');
+  return {
+    categoryProfile: profiles.values().next().value || '',
+    dateWindow: windows.values().next().value || '',
+  };
+}
+
+function assertSecrets(env = process.env) {
+  const required = [
+    'ARK_API_KEY',
+    'HOTVIDEO_FEISHU_BASE_TOKEN',
+    'HOTVIDEO_FEISHU_TABLE_ID',
+  ];
+  const missing = required.filter(name => !env[name]);
+  if (missing.length) throw new Error(`缺少环境变量: ${missing.join(', ')}`);
+}
+
+function runPipeline(args) {
+  return new Promise(resolve => {
+    const child = spawn(process.execPath, args, {
+      cwd: ROOT,
+      env: process.env,
+      stdio: 'inherit',
+    });
+    child.on('error', error => resolve({ code: 1, error }));
+    child.on('exit', code => resolve({ code: code ?? 1 }));
+  });
+}
+
+export async function main(argv = process.argv.slice(2)) {
+  const queueArg = argv[0];
+  if (!queueArg) throw new Error('用法: node scripts/run-queue.mjs queue/<run-id>.json');
+  assertSecrets();
+
+  const queuePath = path.resolve(ROOT, queueArg);
+  const relative = path.relative(path.join(ROOT, 'queue'), queuePath);
+  if (relative.startsWith('..') || path.isAbsolute(relative)) throw new Error('queue 文件必须位于 queue/ 下');
+
+  const manifest = validateManifest(JSON.parse(fs.readFileSync(queuePath, 'utf-8')));
+  if (manifest.items.length === 0) {
+    console.log('manifest 没有待处理视频，结束');
+    return;
+  }
+
+  const scope = manifestScope(manifest);
+  const videosDir = path.join(ROOT, 'videos', 'douyin-hotspot');
+  fs.mkdirSync(videosDir, { recursive: true });
+  fs.writeFileSync(path.join(videosDir, 'pending.json'), `${JSON.stringify(manifest, null, 2)}\n`, 'utf-8');
+
+  process.env.HOTVIDEO_ANALYZER = 'doubao';
+  process.env.HOTVIDEO_ANALYZE_LANE = 'all';
+  process.env.HOTVIDEO_ANALYZE_CONCURRENCY ||= '5';
+  process.env.HOTVIDEO_FETCH_MAX_ATTEMPTS ||= '3';
+  process.env.HOTVIDEO_FEISHU_IDENTITY = 'bot';
+  if (scope.categoryProfile) process.env.HOTVIDEO_CATEGORY_PROFILE = scope.categoryProfile;
+  if (scope.dateWindow) process.env.HOTVIDEO_DATE_WINDOW = scope.dateWindow;
+
+  const pipelineArgs = [
+    'pipeline/orchestrator.mjs',
+    '--source', manifest.source,
+    '--skip-scrape',
+    '--analyzer', 'doubao',
+    '--analyze-lane', 'all',
+    '--analyze-concurrency', process.env.HOTVIDEO_ANALYZE_CONCURRENCY,
+  ];
+  if (scope.categoryProfile) pipelineArgs.push('--category-profile', scope.categoryProfile);
+  if (scope.dateWindow) pipelineArgs.push('--date-window', scope.dateWindow);
+
+  const attempts = Math.max(1, Number.parseInt(process.env.HOTVIDEO_PIPELINE_ATTEMPTS || '3', 10));
+  for (let attempt = 1; attempt <= attempts; attempt++) {
+    console.log(`云端管线 attempt ${attempt}/${attempts}: ${queueArg}`);
+    const result = await runPipeline(pipelineArgs);
+    if (result.code === 0) return;
+    if (attempt === attempts) throw result.error || new Error(`管线失败，exitCode=${result.code}`);
+    await sleep(30_000);
+  }
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch(error => {
+    console.error(error.message);
+    process.exit(1);
+  });
+}
