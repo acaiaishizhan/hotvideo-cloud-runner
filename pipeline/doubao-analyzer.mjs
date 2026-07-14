@@ -216,6 +216,24 @@ async function postChatCompletions(body, options) {
   if (!options.apiKey) {
     throw new Error('缺少 ARK_API_KEY 或 HOTVIDEO_DOUBAO_API_KEY');
   }
+  if (options.fetchImpl) {
+    const res = await options.fetchImpl(`${options.baseUrl}/chat/completions`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${options.apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    });
+    const text = await res.text();
+    if (!res.ok) {
+      const retryable = res.status === 429 || res.status >= 500;
+      const err = new Error(`Doubao 分析失败 HTTP ${res.status}: ${text.slice(0, 500)}`);
+      err.retryable = retryable;
+      throw err;
+    }
+    return JSON.parse(text);
+  }
   const response = await requestChatCompletions(`${options.baseUrl}/chat/completions`, body, options);
   if (response.status < 200 || response.status >= 300) {
     const retryable = response.status === 429 || response.status >= 500;
