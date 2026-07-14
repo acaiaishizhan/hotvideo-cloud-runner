@@ -28,7 +28,43 @@ export function validateManifest(value) {
       throw new Error(`items[${index}].url 只允许 https://www.douyin.com`);
     }
   }
+
+  const repeatItems = value.repeatUpdates?.items;
+  if (repeatItems !== undefined && !Array.isArray(repeatItems)) {
+    throw new Error('manifest.repeatUpdates.items 必须是数组');
+  }
+  if ((repeatItems?.length || 0) > 5000) throw new Error('单批最多 5000 条重复更新');
+  for (const [index, item] of (repeatItems || []).entries()) {
+    const id = String(item?.id || '');
+    if (!/^\d{8,32}$/.test(id)) throw new Error(`repeatUpdates.items[${index}].id 非法`);
+
+    let url;
+    try { url = new URL(String(item?.url || '')); } catch { throw new Error(`repeatUpdates.items[${index}].url 非法`); }
+    if (url.protocol !== 'https:' || !ALLOWED_HOSTS.has(url.hostname)) {
+      throw new Error(`repeatUpdates.items[${index}].url 只允许 https://www.douyin.com`);
+    }
+  }
   return value;
+}
+
+export function materializeManifest(manifest, videosDir) {
+  fs.mkdirSync(videosDir, { recursive: true });
+  const pending = {
+    source: manifest.source,
+    scrapedAt: manifest.scrapedAt,
+    items: manifest.items,
+  };
+  fs.writeFileSync(path.join(videosDir, 'pending.json'), `${JSON.stringify(pending, null, 2)}\n`, 'utf-8');
+
+  const repeatItems = manifest.repeatUpdates?.items || [];
+  if (repeatItems.length > 0) {
+    fs.writeFileSync(path.join(videosDir, 'repeat-updates.json'), `${JSON.stringify({
+      source: manifest.source,
+      scrapedAt: manifest.repeatUpdates?.scrapedAt || manifest.scrapedAt,
+      items: repeatItems,
+    }, null, 2)}\n`, 'utf-8');
+  }
+  return { newItems: manifest.items.length, repeatItems: repeatItems.length };
 }
 
 export function manifestScope(manifest) {
@@ -75,15 +111,16 @@ export async function main(argv = process.argv.slice(2)) {
   if (relative.startsWith('..') || path.isAbsolute(relative)) throw new Error('queue 文件必须位于 queue/ 下');
 
   const manifest = validateManifest(JSON.parse(fs.readFileSync(queuePath, 'utf-8')));
-  if (manifest.items.length === 0) {
-    console.log('manifest 没有待处理视频，结束');
+  const repeatCount = manifest.repeatUpdates?.items?.length || 0;
+  if (manifest.items.length === 0 && repeatCount === 0) {
+    console.log('manifest 没有待处理视频或重复更新，结束');
     return;
   }
 
   const scope = manifestScope(manifest);
   const videosDir = path.join(ROOT, 'videos', 'douyin-hotspot');
-  fs.mkdirSync(videosDir, { recursive: true });
-  fs.writeFileSync(path.join(videosDir, 'pending.json'), `${JSON.stringify(manifest, null, 2)}\n`, 'utf-8');
+  const counts = materializeManifest(manifest, videosDir);
+  console.log(`已装载队列: 新视频 ${counts.newItems} 条，重复更新 ${counts.repeatItems} 条`);
 
   process.env.HOTVIDEO_ANALYZER = 'doubao';
   process.env.HOTVIDEO_ANALYZE_LANE = 'all';
