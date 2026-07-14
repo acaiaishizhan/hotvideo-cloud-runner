@@ -5,7 +5,7 @@
 ```text
 Windows Chrome 登录态
   -> queue/<run-id>.json
-  -> push main
+  -> WSL gh（acaiaishizhan）push main
   -> GitHub Actions
   -> 下载视频
   -> 豆包分析
@@ -17,6 +17,8 @@ Windows Chrome 登录态
 - 仓库只保存公开网页 URL 和榜单上下文，不保存视频文件、飞书记录或运行结果。
 - 所有凭据只放 GitHub Actions Secrets。
 - 云端不抓取抖音热点宝，不需要也不接收 Chrome Cookie。
+- 一个 queue 可同时携带新视频和 `repeatUpdates`；同一次 push 的多个 queue 会顺序执行。
+- 视频分析请求使用可控的 15 分钟 HTTPS 超时，避免 Node 内置 fetch 的 300 秒响应头上限提前中断。
 - 请只处理你有权处理的视频，并遵守平台规则和所在地法律。
 
 ## Actions Secrets
