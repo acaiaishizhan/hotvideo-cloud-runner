@@ -5,6 +5,7 @@
 // ============================================================
 
 import fs from 'node:fs';
+import https from 'node:https';
 import path from 'node:path';
 import { setTimeout as sleep } from 'node:timers/promises';
 import { buildSystemPromptForMeta, CONTENT_TYPES, TOPICS } from './prompt.mjs';
@@ -183,33 +184,46 @@ export function buildDoubaoChatBody({ model, videoBase64, videoUrl, meta, maxTok
   };
 }
 
-async function postChatCompletions(body, options) {
-  if (!options.apiKey) {
-    throw new Error('缺少 ARK_API_KEY 或 HOTVIDEO_DOUBAO_API_KEY');
-  }
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), options.timeoutMs);
-  try {
-    const res = await fetch(`${options.baseUrl}/chat/completions`, {
+function requestChatCompletions(url, body, options) {
+  const payload = JSON.stringify(body);
+  return new Promise((resolve, reject) => {
+    const req = https.request(url, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${options.apiKey}`,
         'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(payload),
       },
-      body: JSON.stringify(body),
-      signal: controller.signal,
+    }, res => {
+      const chunks = [];
+      res.on('data', chunk => chunks.push(chunk));
+      res.on('end', () => resolve({
+        status: res.statusCode || 0,
+        text: Buffer.concat(chunks).toString('utf-8'),
+      }));
     });
-    const text = await res.text();
-    if (!res.ok) {
-      const retryable = res.status === 429 || res.status >= 500;
-      const err = new Error(`Doubao 分析失败 HTTP ${res.status}: ${text.slice(0, 500)}`);
-      err.retryable = retryable;
-      throw err;
-    }
-    return JSON.parse(text);
-  } finally {
-    clearTimeout(timer);
+    req.setTimeout(options.timeoutMs, () => {
+      const err = new Error(`Doubao 分析超时: ${options.timeoutMs}ms`);
+      err.name = 'AbortError';
+      req.destroy(err);
+    });
+    req.on('error', reject);
+    req.end(payload);
+  });
+}
+
+async function postChatCompletions(body, options) {
+  if (!options.apiKey) {
+    throw new Error('缺少 ARK_API_KEY 或 HOTVIDEO_DOUBAO_API_KEY');
   }
+  const response = await requestChatCompletions(`${options.baseUrl}/chat/completions`, body, options);
+  if (response.status < 200 || response.status >= 300) {
+    const retryable = response.status === 429 || response.status >= 500;
+    const err = new Error(`Doubao 分析失败 HTTP ${response.status}: ${response.text.slice(0, 500)}`);
+    err.retryable = retryable;
+    throw err;
+  }
+  return JSON.parse(response.text);
 }
 
 async function callDoubaoWithRetry(body, options) {
