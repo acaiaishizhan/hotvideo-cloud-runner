@@ -7,16 +7,14 @@
 
 import { execFileSync, execSync } from 'node:child_process';
 import fs from 'node:fs';
-import os from 'node:os';
 import path from 'node:path';
-import { setTimeout as sleep } from 'node:timers/promises';
 import { pathToFileURL } from 'node:url';
 import { writeJsonAtomic } from './json-file.mjs';
 import { videoRecordKey } from './video-url.mjs';
 
-const BASE_TOKEN = process.env.HOTVIDEO_FEISHU_BASE_TOKEN || '';
-const TABLE_ID = process.env.HOTVIDEO_FEISHU_TABLE_ID || '';
-const LARK_IDENTITY = process.env.HOTVIDEO_FEISHU_IDENTITY || 'bot';
+const BASE_TOKEN = process.env.HOTVIDEO_FEISHU_BASE_TOKEN || 'BEpkbvDBKaYlU8sM0dFcUpGMnTe';
+const TABLE_ID = process.env.HOTVIDEO_FEISHU_TABLE_ID || 'tblriyRwHWVF1IHt';
+const LARK_IDENTITY = process.env.HOTVIDEO_FEISHU_IDENTITY || 'user';
 const FULL_VIDEO_COPY_FIELD = '完整视频文案';
 const INTERACTION_FIELDS = [
   {
@@ -337,17 +335,72 @@ export function ensureInteractionFields() {
   }
 }
 
-// 返回 Map<url, record_id>。url 用 markdown 解出来的纯净 URL。
-export function loadExistingRecords() {
+function parseRecordRows(resp) {
+  if (!resp?.ok || !Array.isArray(resp.data?.fields) || !Array.isArray(resp.data?.data)) {
+    throw new Error(`飞书记录读取失败: ${JSON.stringify(resp).substring(0, 300)}`);
+  }
+  return {
+    fields: resp.data.fields,
+    fieldIds: resp.data.field_id_list || [],
+    rows: resp.data.data,
+    recordIds: resp.data.record_id_list || [],
+  };
+}
+
+export function recordFieldIndex(fields, fieldIds, fieldNameOrId) {
+  const nameIndex = fields.indexOf(fieldNameOrId);
+  return nameIndex !== -1 ? nameIndex : fieldIds.indexOf(fieldNameOrId);
+}
+
+function recordState(recordId, attachmentValue, attachmentKnown) {
+  return {
+    recordId,
+    attachmentKnown,
+    hasAttachment: attachmentKnown ? hasAttachmentFiles(attachmentValue) : false,
+  };
+}
+
+function extractRawUrl(value) {
+  let rawUrl = String(value || '');
+  const mdMatch = rawUrl.match(/\[([^\]]+)\]\(([^)]+)\)/);
+  if (mdMatch) rawUrl = mdMatch[2];
+  return rawUrl;
+}
+
+function mapRecordRows(resp, attachmentField = '') {
+  const { fields, fieldIds, rows, recordIds } = parseRecordRows(resp);
+  const urlIdx = recordFieldIndex(fields, fieldIds, '视频链接');
+  const attachmentIdx = attachmentField
+    ? recordFieldIndex(fields, fieldIds, attachmentField)
+    : -1;
+  if (urlIdx === -1) throw new Error('飞书记录响应缺少「视频链接」字段');
+  if (attachmentField && attachmentIdx === -1) {
+    throw new Error(`飞书记录响应缺少附件字段: ${attachmentField}`);
+  }
+
+  const map = new Map();
+  for (let i = 0; i < rows.length; i++) {
+    const rid = recordIds[i];
+    const key = videoRecordKey(extractRawUrl(rows[i]?.[urlIdx]));
+    if (!key || !rid) continue;
+    if (map.has(key) && map.get(key).recordId !== rid) {
+      throw new Error(`飞书存在重复视频记录，拒绝自动选择: ${key}`);
+    }
+    map.set(key, recordState(rid, rows[i]?.[attachmentIdx], Boolean(attachmentField)));
+  }
+  return map;
+}
+
+// 返回 Map<videoKey, { recordId, attachmentKnown, hasAttachment }>。
+export function loadExistingRecords(attachmentField = '') {
   log('加载飞书已有记录...');
   const map = new Map();
   let offset = 0;
   const limit = 200;
 
   while (true) {
-    const resp = larkExecArgs([
-      'base',
-      '+record-list',
+    const args = [
+      'base', '+record-list',
       '--base-token', BASE_TOKEN,
       '--table-id', TABLE_ID,
       '--as', LARK_IDENTITY,
@@ -355,21 +408,15 @@ export function loadExistingRecords() {
       '--field-id', '视频链接',
       '--limit', String(limit),
       '--offset', String(offset),
-    ]);
-    if (!resp.ok || !resp.data?.data) break;
-
-    const urlIdx = resp.data.fields.indexOf('视频链接');
-    const recordIds = resp.data.record_id_list || [];
-    for (let i = 0; i < resp.data.data.length; i++) {
-      const row = resp.data.data[i];
-      const rid = recordIds[i];
-      if (urlIdx !== -1 && row[urlIdx] && rid) {
-        let rawUrl = row[urlIdx];
-        const mdMatch = rawUrl.match(/\[([^\]]+)\]\(([^)]+)\)/);
-        if (mdMatch) rawUrl = mdMatch[2];
-        const key = videoRecordKey(rawUrl);
-        if (key) map.set(key, rid);
+    ];
+    if (attachmentField) args.push('--field-id', attachmentField);
+    const resp = larkExecArgs(args);
+    const page = mapRecordRows(resp, attachmentField);
+    for (const [key, value] of page) {
+      if (map.has(key) && map.get(key).recordId !== value.recordId) {
+        throw new Error(`飞书存在重复视频记录，拒绝自动选择: ${key}`);
       }
+      map.set(key, value);
     }
 
     if (!resp.data.has_more) break;
@@ -380,16 +427,56 @@ export function loadExistingRecords() {
   return map;
 }
 
-function larkUpsert(record, recordId = '') {
+function findExistingRecordByUrl(url, attachmentField = '') {
+  const key = videoRecordKey(url);
+  const keyword = key.startsWith('douyin:') ? key.slice('douyin:'.length) : url;
   const args = [
-    'base',
-    '+record-upsert',
+    'base', '+record-search',
     '--base-token', BASE_TOKEN,
     '--table-id', TABLE_ID,
     '--as', LARK_IDENTITY,
+    '--format', 'json',
+    '--keyword', keyword,
+    '--search-field', '视频链接',
+    '--field-id', '视频链接',
+    '--limit', '20',
   ];
-  if (recordId) args.push('--record-id', recordId);
-  return larkExecJsonArgs(args, record);
+  if (attachmentField) args.push('--field-id', attachmentField);
+  return mapRecordRows(larkExecArgs(args), attachmentField).get(key) || null;
+}
+
+function loadRecordAttachmentState(recordId, attachmentField) {
+  const resp = larkExecArgs([
+    'base', '+record-get',
+    '--base-token', BASE_TOKEN,
+    '--table-id', TABLE_ID,
+    '--as', LARK_IDENTITY,
+    '--format', 'json',
+    '--record-id', recordId,
+    '--field-id', attachmentField,
+  ]);
+  const { fields, fieldIds, rows, recordIds } = parseRecordRows(resp);
+  const attachmentIdx = recordFieldIndex(fields, fieldIds, attachmentField);
+  if (attachmentIdx === -1) throw new Error(`飞书记录响应缺少附件字段: ${attachmentField}`);
+  const rowIdx = recordIds.indexOf(recordId);
+  if (rowIdx === -1 || !rows[rowIdx]) throw new Error(`飞书记录不存在: ${recordId}`);
+  return recordState(recordId, rows[rowIdx][attachmentIdx], true);
+}
+
+function larkUpsert(record, recordId = '') {
+  // lark-cli --json @file 要求"cwd 下的相对路径"，不接受绝对路径。
+  // 临时文件名加 . 前缀 + pid + ts 避免冲突，finally 一定清理。
+  const tmpName = `.hotvideo-record-${process.pid}-${Date.now()}.json`;
+  fs.writeFileSync(tmpName, JSON.stringify(record), 'utf-8');
+
+  try {
+    const recordArg = recordId ? ` --record-id ${recordId}` : '';
+    const cmd = `lark-cli base +record-upsert --base-token ${BASE_TOKEN} --table-id ${TABLE_ID} --as ${LARK_IDENTITY}${recordArg} --json @${tmpName}`;
+    const result = execSync(cmd, { encoding: 'utf-8', timeout: 30000 });
+    return JSON.parse(result);
+  } finally {
+    try { fs.unlinkSync(tmpName); } catch (_) {}
+  }
 }
 
 export function updateFeishuRecordFields(recordId, fields) {
@@ -412,16 +499,9 @@ function larkUploadAttachment(recordId, fieldId, filePath) {
   const cwdBefore = process.cwd();
   try {
     process.chdir(fileDir);
-    return larkExecArgs([
-      'base',
-      '+record-upload-attachment',
-      '--base-token', BASE_TOKEN,
-      '--table-id', TABLE_ID,
-      '--as', LARK_IDENTITY,
-      '--record-id', recordId,
-      '--field-id', fieldId,
-      '--file', `./${fileName}`,
-    ], 600000);
+    const cmd = `lark-cli base +record-upload-attachment --base-token ${BASE_TOKEN} --table-id ${TABLE_ID} --as ${LARK_IDENTITY} --record-id ${recordId} --field-id ${fieldId} --file "./${fileName}"`;
+    const result = execSync(cmd, { encoding: 'utf-8', timeout: 600000 });
+    return JSON.parse(result);
   } finally {
     process.chdir(cwdBefore);
   }
@@ -433,8 +513,12 @@ export function isAttachmentUploadAccepted(resp) {
   return hasAttachmentFiles(resp.data?.attachments);
 }
 
-function hasAttachmentFiles(value) {
+export function hasAttachmentFiles(value) {
   if (!value) return false;
+  if (typeof value === 'string') {
+    const trimmed = value.trim();
+    return Boolean(trimmed && trimmed !== '[]' && trimmed !== '{}');
+  }
   if (Array.isArray(value)) {
     return value.some(item => item?.file_token || item?.name);
   }
@@ -442,6 +526,13 @@ function hasAttachmentFiles(value) {
     return Object.values(value).some(hasAttachmentFiles);
   }
   return false;
+}
+
+export function shouldUploadAttachment(state) {
+  if (!state || state.attachmentKnown !== true) {
+    throw new Error('飞书附件状态不明确，拒绝上传');
+  }
+  return state.hasAttachment !== true;
 }
 
 function attachmentUploadError(resp) {
@@ -453,32 +544,8 @@ function attachmentUploadError(resp) {
   return JSON.stringify(resp).substring(0, 200);
 }
 
-export async function uploadAttachmentWithRetry(uploadFn, opts = {}) {
-  const attempts = Math.max(1, Number.parseInt(String(opts.attempts || 3), 10));
-  const delayMs = Math.max(0, Number.parseInt(String(opts.delayMs ?? 15_000), 10));
-  const isAccepted = opts.isAccepted || (() => true);
-  const sleepImpl = opts.sleepImpl || sleep;
-  let lastError = null;
-  let lastResponse = null;
-
-  for (let attempt = 1; attempt <= attempts; attempt++) {
-    try {
-      lastResponse = await uploadFn();
-      if (isAccepted(lastResponse)) return { ok: true, response: lastResponse, attempt };
-      lastError = new Error(opts.responseError?.(lastResponse) || '附件上传响应未被接受');
-    } catch (error) {
-      lastError = error;
-    }
-    if (attempt < attempts && delayMs > 0) await sleepImpl(delayMs);
-  }
-  return { ok: false, response: lastResponse, error: lastError, attempts };
-}
-
 export async function runPublish(sourceName) {
-  if (!BASE_TOKEN || !TABLE_ID) {
-    throw new Error('缺少 HOTVIDEO_FEISHU_BASE_TOKEN 或 HOTVIDEO_FEISHU_TABLE_ID');
-  }
-  if (!['bot', 'user'].includes(LARK_IDENTITY)) {
+  if (!['user', 'bot'].includes(LARK_IDENTITY)) {
     throw new Error(`不支持的 HOTVIDEO_FEISHU_IDENTITY: ${LARK_IDENTITY}`);
   }
   const config = await loadSourceConfig(sourceName);
@@ -493,7 +560,7 @@ export async function runPublish(sourceName) {
 
   ensureFullVideoCopyField();
   ensureInteractionFields();
-  const existingRecords = loadExistingRecords();
+  const existingRecords = loadExistingRecords(config.feishuAttachmentField);
 
   const dirs = fs.readdirSync(videosDir).filter(d => {
     const metaPath = path.join(videosDir, d, 'meta.json');
@@ -509,42 +576,56 @@ export async function runPublish(sourceName) {
   let processed = 0;
   const limit = runLimit();
 
-  // 给指定 record 上传视频附件，幂等：已上传过则跳过
-  async function tryUploadAttachment(meta, recordId, videoDir) {
+  // 远端附件单元格是唯一真源；每次上传前重新读取，未知状态一律不上传。
+  function tryUploadAttachment(meta, state, videoDir) {
     if (!config.feishuAttachmentField) return true;
-    if (meta.attachment_uploaded === true) return true;
+
+    try {
+      const remoteState = loadRecordAttachmentState(state.recordId, config.feishuAttachmentField);
+      Object.assign(state, remoteState);
+      if (!shouldUploadAttachment(state)) {
+        meta.attachment_uploaded = true;
+        return true;
+      }
+    } catch (readErr) {
+      log(`  ⚠ 附件状态读取失败，已停止上传: ${readErr.message}`);
+      meta.attachment_uploaded = false;
+      failed++;
+      return false;
+    }
 
     const videoPath = meta.files?.videoPath
       ? path.resolve(meta.files.videoPath)
       : path.join(videoDir, 'video.mp4');
     if (!fs.existsSync(videoPath)) return true;
 
-    log(`  上传视频附件 → ${config.feishuAttachmentField}`);
-    const result = await uploadAttachmentWithRetry(
-      () => larkUploadAttachment(recordId, config.feishuAttachmentField, videoPath),
-      {
-        attempts: process.env.HOTVIDEO_FEISHU_ATTACHMENT_ATTEMPTS || 3,
-        delayMs: process.env.HOTVIDEO_FEISHU_ATTACHMENT_RETRY_DELAY_MS || 15_000,
-        isAccepted: isAttachmentUploadAccepted,
-        responseError: attachmentUploadError,
-      },
-    );
-    if (!result.ok) {
-      log(`  ⚠ 附件上传最终失败: ${result.error?.message || '未知错误'}`);
+    try {
+      log(`  上传视频附件 → ${config.feishuAttachmentField}`);
+      const upResp = larkUploadAttachment(state.recordId, config.feishuAttachmentField, videoPath);
+      if (!isAttachmentUploadAccepted(upResp)) {
+        log(`  ⚠ 附件上传失败: ${attachmentUploadError(upResp)}`);
+        meta.attachment_uploaded = false;
+        failed++;
+        return false;
+      } else {
+        meta.attachment_uploaded = true;
+        state.hasAttachment = true;
+        attachmentsUploaded++;
+        return true;
+      }
+    } catch (uErr) {
+      log(`  ⚠ 附件上传异常: ${uErr.message}`);
       meta.attachment_uploaded = false;
       failed++;
       return false;
     }
-    meta.attachment_uploaded = true;
-    attachmentsUploaded++;
-    return true;
   }
 
   if (fs.existsSync(repeatUpdatePath)) {
     const repeatUpdates = JSON.parse(fs.readFileSync(repeatUpdatePath, 'utf-8'));
     const remainingRepeatItems = [];
     for (const item of repeatUpdates.items || []) {
-      const rid = existingRecords.get(videoRecordKey(item.url));
+      const rid = existingRecords.get(videoRecordKey(item.url))?.recordId;
       if (!rid) {
         skipped++;
         log(`  重复更新跳过（飞书未找到记录）: ${(item.title || item.id || '').substring(0, 40)}...`);
@@ -597,7 +678,12 @@ export async function runPublish(sourceName) {
         continue;
       }
       const recordKey = videoRecordKey(meta.url);
-      const existingRid = existingRecords.get(recordKey);
+      let existingState = existingRecords.get(recordKey);
+      if (!existingState) {
+        existingState = findExistingRecordByUrl(meta.url, config.feishuAttachmentField);
+        if (existingState) existingRecords.set(recordKey, existingState);
+      }
+      const existingRid = existingState?.recordId || '';
       if (existingRid && !meta.feishu_record_id) {
         meta.feishu_record_id = existingRid;
       }
@@ -620,7 +706,8 @@ export async function runPublish(sourceName) {
           rid = createdRecordId;
           meta.feishu_record_id = createdRecordId;
           meta.attachment_uploaded = false;
-          existingRecords.set(recordKey, rid);
+          existingState = recordState(rid, null, true);
+          existingRecords.set(recordKey, existingState);
           updated++;
           log(`  已重建缺失记录 old_record_id=${repair.recordId || '(无)'} new_record_id=${rid}: ${(meta.title || '').substring(0, 40)}...`);
         } catch (err) {
@@ -629,9 +716,9 @@ export async function runPublish(sourceName) {
           continue;
         }
       }
-      if (rid && config.feishuAttachmentField && meta.attachment_uploaded !== true) {
+      if (rid && config.feishuAttachmentField) {
         log(`补附件: ${(meta.title || '').substring(0, 40)}...`);
-        await tryUploadAttachment(meta, rid, videoDir);
+        tryUploadAttachment(meta, existingState || recordState(rid, null, false), videoDir);
         writeJsonAtomic(metaPath, meta);
       } else if (repair.shouldRepair) {
         writeJsonAtomic(metaPath, meta);
@@ -655,8 +742,13 @@ export async function runPublish(sourceName) {
     processed++;
 
     const recordKey = videoRecordKey(meta.url);
-    if (existingRecords.has(recordKey)) {
-      const rid = existingRecords.get(recordKey);
+    let existingState = existingRecords.get(recordKey);
+    if (!existingState) {
+      existingState = findExistingRecordByUrl(meta.url, config.feishuAttachmentField);
+      if (existingState) existingRecords.set(recordKey, existingState);
+    }
+    if (existingState) {
+      const rid = existingState.recordId;
       try {
         const resp = larkUpsert(buildRecord(meta), rid);
         if (!resp.ok) {
@@ -667,7 +759,7 @@ export async function runPublish(sourceName) {
         meta.status = 'published';
         meta.published_to_feishu = true;
         meta.feishu_record_id = rid;
-        await tryUploadAttachment(meta, rid, videoDir);
+        tryUploadAttachment(meta, existingState, videoDir);
         writeJsonAtomic(metaPath, meta);
         deduped++;
         updated++;
@@ -699,14 +791,15 @@ export async function runPublish(sourceName) {
         continue;
       }
 
+      const createdState = recordState(recordId, null, true);
       meta.feishu_record_id = recordId;
-      await tryUploadAttachment(meta, recordId, videoDir);
+      tryUploadAttachment(meta, createdState, videoDir);
 
       meta.status = 'published';
       meta.published_to_feishu = true;
       meta.published_at = new Date().toISOString();
       writeJsonAtomic(metaPath, meta);
-      existingRecords.set(recordKey, recordId);
+      existingRecords.set(recordKey, createdState);
       published++;
       log(`  完成 record_id=${recordId}`);
     } catch (err) {

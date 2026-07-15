@@ -48,6 +48,73 @@ export function summarizeStageFailures(stageResults) {
     .map(item => ({ stage: item.stage, failed: Number(item.result.failed) }));
 }
 
+export function isRetryableAgyAnalyzeResult(result) {
+  if (Number(result?.failed || 0) <= 0) return false;
+  const text = (result?.failureReasons || []).map(item => String(item || '')).join('\n');
+  if (!text) return false;
+  return /hotvideo-agy|analysis\.json|timeout waiting for response|无法解析 JSON|JSON/.test(text);
+}
+
+export function isAgyAuthFailureResult(result) {
+  if (Number(result?.failed || 0) <= 0) return false;
+  const text = (result?.failureReasons || []).map(item => String(item || '')).join('\n');
+  return /authentication failed|authentication timed out|auth timed out|keyringAuth/i.test(text);
+}
+
+function analyzeRetryCount() {
+  const raw = Number.parseInt(process.env.HOTVIDEO_AGY_ANALYZE_RETRY_COUNT || '', 10);
+  return Number.isFinite(raw) && raw >= 0 ? raw : 2;
+}
+
+function analyzeRetryDelayMs() {
+  const raw = Number.parseInt(process.env.HOTVIDEO_AGY_ANALYZE_RETRY_DELAY_MS || '', 10);
+  return Number.isFinite(raw) && raw >= 0 ? raw : 30000;
+}
+
+export function agyRetryDelayMsForResult(result, env = process.env) {
+  if (isAgyAuthFailureResult(result)) {
+    const raw = Number.parseInt(env.HOTVIDEO_AGY_AUTH_RETRY_DELAY_MS || '', 10);
+    return Number.isFinite(raw) && raw >= 0 ? raw : 60000;
+  }
+  const raw = Number.parseInt(env.HOTVIDEO_AGY_ANALYZE_RETRY_DELAY_MS || '', 10);
+  return Number.isFinite(raw) && raw >= 0 ? raw : analyzeRetryDelayMs();
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function runAnalyzeWithAgyRetry(sourceName) {
+  const maxAttempts = analyzeRetryCount() + 1;
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    if (attempt > 1) {
+      log(`>>> [${sourceName}] 3/4 分析重试 ${attempt}/${maxAttempts}`);
+    }
+    const result = await runAnalyze(sourceName);
+    if (!isRetryableAgyAnalyzeResult(result)) {
+      return result;
+    }
+    if (attempt >= maxAttempts) {
+      return result;
+    }
+    const delayMs = agyRetryDelayMsForResult(result);
+    const reason = isAgyAuthFailureResult(result) ? 'agy 登录态抖动' : 'agy 分析失败';
+    log(`>>> [${sourceName}] ${reason}，${Math.round(delayMs / 1000)} 秒后重试`);
+    if (delayMs > 0) {
+      await sleep(delayMs);
+    }
+  }
+  return { failed: 1, failureReasons: ['unreachable analyze retry state'] };
+}
+
+async function runAnalyzeWithRetry(sourceName) {
+  const analyzer = (process.env.HOTVIDEO_ANALYZER || 'doubao').trim().toLowerCase();
+  if (analyzer !== 'agy') {
+    return runAnalyze(sourceName);
+  }
+  return runAnalyzeWithAgyRetry(sourceName);
+}
+
 async function loadSource(name) {
   const indexPath = path.join(SOURCES_DIR, name, 'index.mjs');
   if (!fs.existsSync(indexPath)) {
@@ -78,7 +145,7 @@ async function runOneSource(sourceName, flags) {
 
   if (!flags.skipAnalyze) {
     log(`>>> [${sourceName}] 3/4 分析`);
-    stageResults.push({ stage: 'analyze', result: await runAnalyze(sourceName) });
+    stageResults.push({ stage: 'analyze', result: await runAnalyzeWithRetry(sourceName) });
   } else {
     log(`>>> [${sourceName}] 3/4 跳过分析`);
   }
@@ -111,9 +178,6 @@ async function main() {
   }
   const analyzer = getArg('--analyzer');
   if (analyzer && analyzer !== true) {
-    if (String(analyzer).toLowerCase() !== 'doubao') {
-      throw new Error(`云端只支持 doubao analyzer: ${analyzer}`);
-    }
     process.env.HOTVIDEO_ANALYZER = String(analyzer);
   }
   const analyzeConcurrency = getArg('--analyze-concurrency');

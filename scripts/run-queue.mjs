@@ -3,9 +3,7 @@
 import { spawn } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
-import { setTimeout as sleep } from 'node:timers/promises';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { runFetch } from '../pipeline/fetch.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const ALLOWED_HOSTS = new Set(['douyin.com', 'www.douyin.com']);
@@ -102,27 +100,18 @@ function runPipeline(args) {
   });
 }
 
-function hasPendingItems(videosDir) {
-  const pendingPath = path.join(videosDir, 'pending.json');
-  if (!fs.existsSync(pendingPath)) return false;
-  const pending = JSON.parse(fs.readFileSync(pendingPath, 'utf-8'));
-  return Array.isArray(pending.items) && pending.items.length > 0;
-}
-
-export async function runFetchUntilSettled(sourceName, videosDir, opts = {}) {
-  const attempts = Math.max(1, Number.parseInt(String(opts.attempts || 3), 10));
-  const delayMs = Math.max(0, Number.parseInt(String(opts.delayMs ?? 10_000), 10));
-  const runFetchImpl = opts.runFetchImpl || runFetch;
-  const hasPendingItemsImpl = opts.hasPendingItemsImpl || hasPendingItems;
-  const sleepImpl = opts.sleepImpl || sleep;
-
-  for (let attempt = 1; attempt <= attempts; attempt++) {
-    console.log(`云端下载 attempt ${attempt}/${attempts}`);
-    await runFetchImpl(sourceName);
-    if (!hasPendingItemsImpl(videosDir)) return;
-    if (attempt < attempts && delayMs > 0) await sleepImpl(delayMs);
-  }
-  throw new Error(`下载重试 ${attempts} 次后仍有 pending.json 待处理项`);
+export function buildPipelineArgs(manifest, scope) {
+  const args = [
+    'pipeline/orchestrator.mjs',
+    '--source', manifest.source,
+    '--skip-scrape',
+    '--analyzer', 'doubao',
+    '--analyze-lane', 'fast',
+    '--analyze-concurrency', process.env.HOTVIDEO_ANALYZE_CONCURRENCY || '5',
+  ];
+  if (scope.categoryProfile) args.push('--category-profile', scope.categoryProfile);
+  if (scope.dateWindow) args.push('--date-window', scope.dateWindow);
+  return args;
 }
 
 export async function main(argv = process.argv.slice(2)) {
@@ -147,37 +136,16 @@ export async function main(argv = process.argv.slice(2)) {
   console.log(`已装载队列: 新视频 ${counts.newItems} 条，重复更新 ${counts.repeatItems} 条`);
 
   process.env.HOTVIDEO_ANALYZER = 'doubao';
-  process.env.HOTVIDEO_ANALYZE_LANE = 'all';
+  process.env.HOTVIDEO_ANALYZE_LANE = 'fast';
   process.env.HOTVIDEO_ANALYZE_CONCURRENCY ||= '5';
-  process.env.HOTVIDEO_FETCH_MAX_ATTEMPTS ||= '3';
   process.env.HOTVIDEO_FEISHU_IDENTITY = 'bot';
   if (scope.categoryProfile) process.env.HOTVIDEO_CATEGORY_PROFILE = scope.categoryProfile;
   if (scope.dateWindow) process.env.HOTVIDEO_DATE_WINDOW = scope.dateWindow;
 
-  await runFetchUntilSettled(manifest.source, videosDir, {
-    attempts: process.env.HOTVIDEO_FETCH_MAX_ATTEMPTS,
-  });
-
-  const pipelineArgs = [
-    'pipeline/orchestrator.mjs',
-    '--source', manifest.source,
-    '--skip-scrape',
-    '--skip-fetch',
-    '--analyzer', 'doubao',
-    '--analyze-lane', 'all',
-    '--analyze-concurrency', process.env.HOTVIDEO_ANALYZE_CONCURRENCY,
-  ];
-  if (scope.categoryProfile) pipelineArgs.push('--category-profile', scope.categoryProfile);
-  if (scope.dateWindow) pipelineArgs.push('--date-window', scope.dateWindow);
-
-  const attempts = Math.max(1, Number.parseInt(process.env.HOTVIDEO_PIPELINE_ATTEMPTS || '3', 10));
-  for (let attempt = 1; attempt <= attempts; attempt++) {
-    console.log(`云端管线 attempt ${attempt}/${attempts}: ${queueArg}`);
-    const result = await runPipeline(pipelineArgs);
-    if (result.code === 0) return;
-    if (attempt === attempts) throw result.error || new Error(`管线失败，exitCode=${result.code}`);
-    await sleep(30_000);
-  }
+  const pipelineArgs = buildPipelineArgs(manifest, scope);
+  console.log(`云端管线 attempt 1/1: ${queueArg}`);
+  const result = await runPipeline(pipelineArgs);
+  if (result.code !== 0) throw result.error || new Error(`管线失败，exitCode=${result.code}`);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

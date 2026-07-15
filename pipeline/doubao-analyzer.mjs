@@ -9,16 +9,15 @@ import https from 'node:https';
 import path from 'node:path';
 import { setTimeout as sleep } from 'node:timers/promises';
 import { buildSystemPromptForMeta, CONTENT_TYPES, TOPICS } from './prompt.mjs';
-import { isValidVideoFile, resolveVideoPath } from './video-file.mjs';
+import { isValidVideoFile, resolveVideoPath } from './transcribe-video-copy.mjs';
 import {
   deleteDoubaoFile,
-  isRetryableDoubaoOperationError,
   resolveDoubaoFilesOptions,
   uploadDoubaoVideoFile,
   waitForDoubaoFileActive,
 } from './doubao-files.mjs';
 
-const WORKSPACE_ROOT = path.resolve(import.meta.dirname, '..');
+const WORKSPACE_ROOT = path.resolve(import.meta.dirname, '..', '..');
 const DEFAULT_BASE_URL = 'https://ark.cn-beijing.volces.com/api/coding/v3';
 const DEFAULT_MODEL = 'doubao-seed-2.0-pro';
 const DEFAULT_FAST_TIMEOUT_MS = 360000;
@@ -228,31 +227,21 @@ async function postChatCompletions(body, options) {
     });
     const text = await res.text();
     if (!res.ok) {
-      const retryable = isRetryableDoubaoResponse(res.status, text);
+      const retryable = res.status === 429 || res.status >= 500;
       const err = new Error(`Doubao 分析失败 HTTP ${res.status}: ${text.slice(0, 500)}`);
       err.retryable = retryable;
-      err.fileFallback = isDoubaoVideoParseFailure(res.status, text);
       throw err;
     }
     return JSON.parse(text);
   }
   const response = await requestChatCompletions(`${options.baseUrl}/chat/completions`, body, options);
   if (response.status < 200 || response.status >= 300) {
-    const retryable = isRetryableDoubaoResponse(response.status, response.text);
+    const retryable = response.status === 429 || response.status >= 500;
     const err = new Error(`Doubao 分析失败 HTTP ${response.status}: ${response.text.slice(0, 500)}`);
     err.retryable = retryable;
-    err.fileFallback = isDoubaoVideoParseFailure(response.status, response.text);
     throw err;
   }
   return JSON.parse(response.text);
-}
-
-export function isRetryableDoubaoResponse(status, text = '') {
-  return status === 429 || status >= 500;
-}
-
-export function isDoubaoVideoParseFailure(status, text = '') {
-  return status === 400 && /error when parsing request/i.test(String(text));
 }
 
 async function callDoubaoWithRetry(body, options) {
@@ -262,20 +251,12 @@ async function callDoubaoWithRetry(body, options) {
       return await postChatCompletions(body, options);
     } catch (err) {
       lastErr = err;
-      const retryable = isRetryableDoubaoOperationError(err);
+      const retryable = err?.retryable || err?.name === 'AbortError';
       if (!retryable || attempt >= options.retries) break;
       await sleep(options.retryDelayMs * (attempt + 1));
     }
   }
   throw lastErr;
-}
-
-let fileUploadTail = Promise.resolve();
-
-function serializeFileUpload(operation) {
-  const current = fileUploadTail.then(operation, operation);
-  fileUploadTail = current.then(() => undefined, () => undefined);
-  return current;
 }
 
 async function buildVideoUrlForChat(videoPath, stat, options) {
@@ -287,14 +268,10 @@ async function buildVideoUrlForChat(videoPath, stat, options) {
     };
   }
 
-  return uploadVideoForChat(videoPath, options);
-}
-
-async function uploadVideoForChat(videoPath, options) {
-  const uploaded = await serializeFileUpload(() => uploadDoubaoVideoFile(videoPath, {
+  const uploaded = await uploadDoubaoVideoFile(videoPath, {
     ...options.files,
     apiKey: options.apiKey,
-  }));
+  });
   try {
     await waitForDoubaoFileActive(uploaded.fileId, {
       ...options.files,
@@ -318,12 +295,6 @@ async function uploadVideoForChat(videoPath, options) {
   };
 }
 
-export function shouldFallbackToFileId(error, inputMode) {
-  return inputMode === 'data_url'
-    && (error?.fileFallback === true
-      || /error when parsing request/i.test(String(error?.message || '')));
-}
-
 export async function analyzeVideoWithDoubao(videoDir, meta = {}, opts = {}) {
   const videoPath = resolveVideoPath(videoDir, meta);
   if (!isValidVideoFile(videoPath)) {
@@ -332,30 +303,15 @@ export async function analyzeVideoWithDoubao(videoDir, meta = {}, opts = {}) {
 
   const options = { ...resolveDoubaoAnalyzerOptions(), ...opts };
   const stat = fs.statSync(videoPath);
-  let input = await buildVideoUrlForChat(videoPath, stat, options);
+  const input = await buildVideoUrlForChat(videoPath, stat, options);
   try {
-    let body = buildDoubaoChatBody({
+    const body = buildDoubaoChatBody({
       model: options.model,
       videoUrl: input.videoUrl,
       meta,
       maxTokens: options.maxTokens,
     });
-    let data;
-    try {
-      data = await callDoubaoWithRetry(body, options);
-    } catch (error) {
-      if (process.env.HOTVIDEO_DOUBAO_FILE_FALLBACK_ENABLED === '0'
-        || !shouldFallbackToFileId(error, input.inputMode)) throw error;
-      console.warn(`Doubao data URL 解析失败，切换 Files API: ${path.basename(videoPath)}`);
-      input = await uploadVideoForChat(videoPath, options);
-      body = buildDoubaoChatBody({
-        model: options.model,
-        videoUrl: input.videoUrl,
-        meta,
-        maxTokens: options.maxTokens,
-      });
-      data = await callDoubaoWithRetry(body, options);
-    }
+    let data = await callDoubaoWithRetry(body, options);
     let lengthRetried = false;
     if (data?.choices?.[0]?.finish_reason === 'length') {
       lengthRetried = true;

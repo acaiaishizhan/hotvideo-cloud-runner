@@ -1,42 +1,76 @@
 #!/usr/bin/env node
+// ============================================================
+//  WSL agy 视频分析（平台无关）
+//  用法: node analyze.mjs <sourceName>
+//  分析 status=new 的视频，更新 meta.json 中的 analysis 字段
+// ============================================================
 
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import {
-  prepareAnalysisVideoChunks,
-  prepareAnalysisVideoProxy,
-} from './analysis-video-proxy.mjs';
-import {
-  analyzeVideoWithDoubao,
-  shouldFallbackToFileId,
-} from './doubao-analyzer.mjs';
 import { writeJsonAtomic } from './json-file.mjs';
-import { CONTENT_TYPES, TOPICS } from './prompt.mjs';
-import { isValidVideoFile, resolveVideoPath } from './video-file.mjs';
+import {
+  buildSystemPromptForMeta,
+  USER_PROMPT_TEMPLATE,
+  CONTENT_TYPES,
+  TOPICS,
+} from './prompt.mjs';
+import {
+  hasFullVideoCopy,
+  isValidVideoFile,
+  mergeFullVideoCopy,
+  resolveVideoPath,
+} from './transcribe-video-copy.mjs';
+import {
+  mapWithConcurrency,
+  transcriptMetaFromResult,
+  transcribeVideoCopyAuto,
+} from './video-copy-provider.mjs';
+import { analyzeVideoWithDoubao } from './doubao-analyzer.mjs';
+import { prepareAnalysisVideoProxy } from './analysis-video-proxy.mjs';
 
+const WORKSPACE_ROOT = path.resolve(import.meta.dirname, '..', '..');
+const DEFAULT_AGY_TIMEOUT_MS = 360000;
+const DEFAULT_AGY_CWD_WSL = '/home/openclaw';
+const DEFAULT_AGY_MODEL = 'Gemini 3.1 Pro (High)';
 const DEFAULT_SLOW_VIDEO_DURATION_SEC = 600;
 const DEFAULT_SLOW_VIDEO_BYTES = 32 * 1024 * 1024;
 
-function log(message) {
+function log(msg) {
   const ts = new Date().toLocaleString('zh-CN', { hour12: false });
-  console.log(`[${ts}] ${message}`);
+  console.log(`[${ts}] ${msg}`);
+}
+
+function runLimit() {
+  const n = Number.parseInt(process.env.HOTVIDEO_LIMIT || '', 10);
+  return Number.isFinite(n) && n > 0 ? n : 0;
 }
 
 function analyzeLimit() {
-  const raw = process.env.HOTVIDEO_ANALYZE_LIMIT || process.env.HOTVIDEO_LIMIT || '';
-  const value = Number.parseInt(raw, 10);
-  return Number.isFinite(value) && value > 0 ? value : 0;
+  const n = Number.parseInt(process.env.HOTVIDEO_ANALYZE_LIMIT || '', 10);
+  return Number.isFinite(n) && n > 0 ? n : runLimit();
 }
 
-export function resolveAnalyzeConcurrency(env = process.env) {
-  const value = Number.parseInt(env.HOTVIDEO_ANALYZE_CONCURRENCY || '', 10);
-  return Number.isFinite(value) && value > 0 ? value : 5;
+function needsVideoCopy(meta) {
+  return !hasFullVideoCopy(meta) && meta.transcript?.status !== 'done';
+}
+
+export function resolveAnalyzerProvider(env = process.env) {
+  const provider = (env.HOTVIDEO_ANALYZER || 'doubao').trim().toLowerCase();
+  if (provider === 'doubao' || provider === 'agy') return provider;
+  throw new Error(`不支持的 HOTVIDEO_ANALYZER: ${provider}`);
+}
+
+export function resolveAnalyzeConcurrency(env = process.env, analyzer = resolveAnalyzerProvider(env)) {
+  const raw = Number.parseInt(env.HOTVIDEO_ANALYZE_CONCURRENCY || '', 10);
+  if (Number.isFinite(raw) && raw > 0) return raw;
+  return analyzer === 'doubao' ? 5 : 1;
 }
 
 export function resolveAnalyzeLane(env = process.env) {
-  const lane = (env.HOTVIDEO_ANALYZE_LANE || 'all').trim().toLowerCase();
-  if (['fast', 'slow', 'all'].includes(lane)) return lane;
+  const lane = (env.HOTVIDEO_ANALYZE_LANE || 'fast').trim().toLowerCase();
+  if (lane === 'fast' || lane === 'slow' || lane === 'all') return lane;
   throw new Error(`不支持的 HOTVIDEO_ANALYZE_LANE: ${lane}`);
 }
 
@@ -56,63 +90,177 @@ export function resolveAnalyzeLaneThresholds(env = process.env) {
 export function classifyAnalyzeLane(meta = {}, videoBytes = 0, thresholds = resolveAnalyzeLaneThresholds()) {
   const durationSec = meta.durationSec
     ?? (typeof meta.duration === 'number' ? Math.round(meta.duration / 1000) : 0);
-  return durationSec > thresholds.durationSec || videoBytes > thresholds.videoBytes ? 'slow' : 'fast';
+  return durationSec > thresholds.durationSec || videoBytes > thresholds.videoBytes
+    ? 'slow'
+    : 'fast';
 }
 
-function formatDuration(seconds) {
-  const total = Math.round(seconds || 0);
-  return `${String(Math.floor(total / 60)).padStart(2, '0')}:${String(total % 60).padStart(2, '0')}`;
+function formatDuration(sec) {
+  const totalSec = Math.round(sec || 0);
+  const min = Math.floor(totalSec / 60);
+  const s = totalSec % 60;
+  return `${String(min).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+}
+
+function firstPositiveNumber(...values) {
+  for (const value of values) {
+    if (value == null || value === '') continue;
+    const n = Number(value);
+    if (Number.isFinite(n) && n > 0) return n;
+  }
+  return 0;
+}
+
+export function toWslPath(inputPath) {
+  const normalized = String(inputPath).replace(/\\/g, '/');
+  const driveMatch = normalized.match(/^([A-Za-z]):\/(.*)$/);
+  if (driveMatch) {
+    return `/mnt/${driveMatch[1].toLowerCase()}/${driveMatch[2]}`;
+  }
+  return normalized;
 }
 
 async function loadSourceConfig(sourceName) {
   const configPath = path.resolve(import.meta.dirname, '..', 'sources', sourceName, 'config.mjs');
-  if (!fs.existsSync(configPath)) throw new Error(`source 配置不存在: ${configPath}`);
-  return (await import(pathToFileURL(configPath).href)).default;
+  if (!fs.existsSync(configPath)) {
+    throw new Error(`source 配置不存在: ${configPath}`);
+  }
+  const mod = await import(pathToFileURL(configPath).href);
+  return mod.default;
 }
 
-function stringValue(value) {
+// 兼容两种 schema：
+//   - 当前: camelCase（fetch.mjs 写出，meta.scraped.billboards / meta.author.name / meta.stats.viewCount 等）
+//   - 早期: snake_case（早期 scrape 直写的 11 条存量，meta.billboards / meta.author 字符串 / meta.metrics.play_count）
+function readMeta(meta) {
+  const billboards = meta.scraped?.billboards || meta.billboards || [];
+  const author = typeof meta.author === 'object' && meta.author !== null
+    ? meta.author.name || ''
+    : (meta.author || '');
+  const scraped = meta.scraped || {};
+  const view = firstPositiveNumber(
+    meta.stats?.viewCount,
+    meta.metrics?.play_count,
+    meta.metrics?.playCount,
+    scraped.playCount,
+    scraped.play_count,
+  );
+  const like = firstPositiveNumber(
+    meta.stats?.likeCount,
+    meta.metrics?.like_count,
+    meta.metrics?.likeCount,
+    scraped.likeCount,
+    scraped.like_count,
+  );
+  // 新格式 durationSec 是秒；旧格式 duration 是毫秒
+  const durationSec = meta.durationSec
+    ?? (typeof meta.duration === 'number' ? Math.round(meta.duration / 1000) : 0);
+  const fullVideoCopy = typeof meta.analysis?.full_video_copy === 'string'
+    ? meta.analysis.full_video_copy
+    : '';
+  return { author, view, like, durationSec, billboards, fullVideoCopy };
+}
+
+export function buildUserPrompt(meta) {
+  const m = readMeta(meta);
+  const bbNames = m.billboards.map(b => b.name).join('、') || '无';
+  const fullVideoCopy = m.fullVideoCopy.trim()
+    ? m.fullVideoCopy.trim().slice(0, 6000)
+    : '无';
+  return USER_PROMPT_TEMPLATE
+    .replace('{title}', meta.title || '')
+    .replace('{author}', m.author)
+    .replace('{play_count}', m.view)
+    .replace('{like_count}', m.like)
+    .replace('{duration_text}', formatDuration(m.durationSec))
+    .replace('{billboard_names}', bbNames)
+    .replace('{full_video_copy}', fullVideoCopy);
+}
+
+function buildAgyPrompt({ videoPathWsl, meta, outputPathWsl }) {
+  return [
+    buildSystemPromptForMeta(meta),
+    '',
+    `你必须先读取并分析这个本地视频文件: ${videoPathWsl}`,
+    '',
+    buildUserPrompt(meta),
+    '',
+    '只把一个合法 JSON 对象写入下面这个 UTF-8 文本文件。',
+    '不要输出 markdown 代码块，不要输出解释文字，不要把结果只写到 stdout。',
+    `输出文件: ${outputPathWsl}`,
+    '',
+    '为了证明你确实读取了视频，请在 JSON 中额外加入 read_evidence 字段，用一句话写出你看见或听见的具体内容。',
+  ].join('\n');
+}
+
+export function extractJsonObject(rawText) {
+  const text = String(rawText || '').trim();
+  const start = text.indexOf('{');
+  const end = text.lastIndexOf('}');
+  if (start === -1 || end === -1 || end <= start) {
+    throw new Error(`无法解析 JSON: ${text.substring(0, 200)}`);
+  }
+  return JSON.parse(text.slice(start, end + 1));
+}
+
+function asString(value) {
   return typeof value === 'string' ? value : '';
 }
 
-function stringArray(value) {
+function asStringArray(value) {
   return Array.isArray(value) ? value.filter(item => typeof item === 'string') : [];
 }
 
-export function normalizeDoubaoAnalysis(result) {
-  if (typeof result?.relevant !== 'boolean') throw new Error('分析结果 relevant 必须是 boolean');
-  if (typeof result?.has_spoken_audio !== 'boolean') {
-    throw new Error('分析结果 has_spoken_audio 必须是 boolean');
+export function normalizeAgyAnalysis(result) {
+  if (typeof result?.relevant !== 'boolean') {
+    throw new Error('分析结果 relevant 必须是 boolean');
   }
-
-  const analysis = {
+  const normalized = {
     relevant: result.relevant,
-    has_spoken_audio: result.has_spoken_audio,
-    filter_reason: stringValue(result.filter_reason),
-    summary: stringValue(result.summary),
-    content_type: stringValue(result.content_type),
-    topics: stringArray(result.topics),
-    tags: stringArray(result.tags),
-    hook: stringValue(result.hook),
-    viral_reason: stringValue(result.viral_reason),
-    imitation_angle: stringValue(result.imitation_angle),
-    read_evidence: stringValue(result.read_evidence),
-    full_video_copy: stringValue(result.full_video_copy),
+    filter_reason: asString(result?.filter_reason),
+    summary: asString(result?.summary),
+    content_type: asString(result?.content_type),
+    topics: asStringArray(result?.topics),
+    tags: asStringArray(result?.tags),
+    hook: asString(result?.hook),
+    viral_reason: asString(result?.viral_reason),
+    imitation_angle: asString(result?.imitation_angle),
+    read_evidence: asString(result?.read_evidence),
+    full_video_copy: asString(result?.full_video_copy),
   };
 
-  if (!CONTENT_TYPES.includes(analysis.content_type)) analysis.content_type = '其他';
-  analysis.topics = analysis.topics.filter(topic => TOPICS.includes(topic));
-  if (analysis.topics.length === 0) analysis.topics = ['其他'];
-
-  if (!analysis.has_spoken_audio) {
-    analysis.relevant = false;
-    analysis.filter_reason = '无有效口播';
-    analysis.full_video_copy = '';
-  } else if (!analysis.full_video_copy.trim()) {
-    throw new Error('豆包标记存在口播，但 full_video_copy 为空');
+  if (!CONTENT_TYPES.includes(normalized.content_type)) {
+    normalized.content_type = '其他';
   }
 
-  if (analysis.relevant) analysis.filter_reason = '';
-  return analysis;
+  normalized.topics = normalized.topics.filter(t => TOPICS.includes(t));
+  if (normalized.topics.length === 0) normalized.topics = ['其他'];
+
+  return normalized;
+}
+
+export function normalizeDoubaoAnalysis(result) {
+  if (typeof result?.has_spoken_audio !== 'boolean') {
+    throw new Error('Doubao 分析结果 has_spoken_audio 必须是 boolean');
+  }
+
+  const normalized = {
+    ...normalizeAgyAnalysis(result),
+    has_spoken_audio: result.has_spoken_audio,
+  };
+
+  if (!normalized.has_spoken_audio) {
+    normalized.relevant = false;
+    normalized.filter_reason = '无有效口播';
+    normalized.full_video_copy = '';
+    return normalized;
+  }
+
+  if (!normalized.full_video_copy.trim()) {
+    throw new Error('Doubao 标记存在口播，但 full_video_copy 为空');
+  }
+
+  return normalized;
 }
 
 export function buildInvalidVideoMeta(meta, videoPath, now = new Date().toISOString()) {
@@ -123,238 +271,358 @@ export function buildInvalidVideoMeta(meta, videoPath, now = new Date().toISOStr
     filteredAt: now,
     analysis: {
       relevant: false,
-      has_spoken_audio: false,
-      filter_reason: `video.mp4 缺失或小于 1KB: ${path.basename(videoPath)}`,
-      summary: meta.title || '无效视频记录',
+      filter_reason: `本地 video.mp4 缺失或无效，跳过视频分析: ${videoPath}`,
+      summary: meta.title || '历史缺失视频记录',
       content_type: '其他',
       topics: ['其他'],
       tags: ['缺失视频'],
       hook: '',
       viral_reason: '',
       imitation_angle: '',
-      read_evidence: '未读取视频：下载阶段没有产出有效视频文件。',
-      full_video_copy: '',
+      read_evidence: '未读取视频：本地 video.mp4 缺失或小于 1KB。',
+      full_video_copy: typeof meta.analysis?.full_video_copy === 'string' ? meta.analysis.full_video_copy : '',
     },
   };
 }
 
-export async function mapWithConcurrency(items, concurrency, worker) {
-  const limit = Math.max(1, Number.parseInt(String(concurrency || 1), 10) || 1);
-  const results = new Array(items.length);
-  let nextIndex = 0;
+export function resolveAgyCwd(env = process.env) {
+  return (env.HOTVIDEO_AGY_CWD || DEFAULT_AGY_CWD_WSL).trim();
+}
 
-  async function runWorker() {
-    while (nextIndex < items.length) {
-      const index = nextIndex++;
-      results[index] = await worker(items[index], index);
-    }
+export function resolveAgyModel(env = process.env) {
+  return (env.HOTVIDEO_AGY_MODEL || DEFAULT_AGY_MODEL).trim();
+}
+
+function shellQuote(value) {
+  return `'${String(value).replace(/'/g, `'\\''`)}'`;
+}
+
+export function buildAgyShellScript({
+  promptPathWsl,
+  outputPathWsl,
+  logPathWsl,
+  stdoutPathWsl,
+  stderrPathWsl,
+  timeoutSec,
+  model,
+}) {
+  const modelLine = model ? `agy_cmd+=(--model ${shellQuote(model)})` : '';
+  return [
+    'set -euo pipefail',
+    'export PATH="$HOME/.local/bin:$PATH"',
+    `prompt="$(cat ${shellQuote(promptPathWsl)})"`,
+    'agy_pid=""',
+    'cleanup() {',
+    '  if test -n "${agy_pid:-}" && kill -0 "$agy_pid" 2>/dev/null; then',
+    '    kill "$agy_pid" 2>/dev/null || true',
+    '    wait "$agy_pid" 2>/dev/null || true',
+    '  fi',
+    '}',
+    'trap cleanup INT TERM',
+    'agy_cmd=(agy -p "$prompt")',
+    modelLine,
+    `agy_cmd+=(--print-timeout ${shellQuote(`${timeoutSec}s`)})`,
+    `agy_cmd+=(--log-file ${shellQuote(logPathWsl)})`,
+    'agy_cmd+=(--dangerously-skip-permissions)',
+    `"${'${agy_cmd[@]}'}" > ${shellQuote(stdoutPathWsl)} 2> ${shellQuote(stderrPathWsl)} &`,
+    'agy_pid=$!',
+    `for i in $(seq 1 ${shellQuote(timeoutSec)}); do`,
+    `  if test -s ${shellQuote(outputPathWsl)}; then`,
+    '    trap - INT TERM',
+    '    kill "$agy_pid" 2>/dev/null || true',
+    '    wait "$agy_pid" 2>/dev/null || true',
+    '    exit 0',
+    '  fi',
+    '  if ! kill -0 "$agy_pid" 2>/dev/null; then',
+    '    agy_status=0',
+    '    wait "$agy_pid" || agy_status=$?',
+    `    if test -s ${shellQuote(outputPathWsl)}; then exit 0; fi`,
+    `    if test -s ${shellQuote(stdoutPathWsl)}; then cp ${shellQuote(stdoutPathWsl)} ${shellQuote(outputPathWsl)}; exit 0; fi`,
+    '    exit "$agy_status"',
+    '  fi',
+    '  sleep 1',
+    'done',
+    'cleanup',
+    `if test -s ${shellQuote(stdoutPathWsl)}; then cp ${shellQuote(stdoutPathWsl)} ${shellQuote(outputPathWsl)}; fi`,
+    `test -s ${shellQuote(outputPathWsl)}`,
+  ].join('\n');
+}
+
+function runAgyPrompt({ promptPath, outputPath, logPath, stdoutPath, stderrPath, timeoutMs }) {
+  const timeoutSec = String(Math.max(1, Math.ceil(timeoutMs / 1000)));
+  const promptPathWsl = toWslPath(promptPath);
+  const outputPathWsl = toWslPath(outputPath);
+  const logPathWsl = toWslPath(logPath);
+  const stdoutPathWsl = toWslPath(stdoutPath);
+  const stderrPathWsl = toWslPath(stderrPath);
+  const cwdWsl = resolveAgyCwd();
+  const scriptPath = path.join(path.dirname(promptPath), 'run.sh');
+  const scriptPathWsl = toWslPath(scriptPath);
+  const script = buildAgyShellScript({
+    promptPathWsl,
+    outputPathWsl,
+    logPathWsl,
+    stdoutPathWsl,
+    stderrPathWsl,
+    timeoutSec,
+    model: resolveAgyModel(),
+  });
+  fs.writeFileSync(scriptPath, `${script}\n`, 'utf-8');
+
+  execFileSync('wsl.exe', [
+    '--cd',
+    cwdWsl,
+    '--',
+    'bash',
+    scriptPathWsl,
+  ], {
+    encoding: 'utf-8',
+    timeout: timeoutMs + 30000,
+    stdio: ['ignore', 'pipe', 'pipe'],
+  });
+}
+
+function readTail(filePath, maxChars = 1600) {
+  try {
+    const text = fs.readFileSync(filePath, 'utf-8').trim();
+    return text.length > maxChars ? text.slice(-maxChars) : text;
+  } catch {
+    return '';
+  }
+}
+
+async function analyzeVideo(videoDir, meta) {
+  const videoPath = meta.files?.videoPath
+    ? path.resolve(meta.files.videoPath)
+    : path.join(videoDir, 'video.mp4');
+  if (!fs.existsSync(videoPath)) {
+    log(`  跳过，视频文件不存在: ${videoPath}`);
+    return null;
   }
 
-  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, () => runWorker()));
-  return results;
-}
+  const tempParent = path.join(WORKSPACE_ROOT, 'temp', 'hotvideo-agy');
+  fs.mkdirSync(tempParent, { recursive: true });
+  const tempDir = fs.mkdtempSync(path.join(tempParent, 'run-'));
+  const promptPath = path.join(tempDir, 'prompt.txt');
+  const outputPath = path.join(tempDir, 'analysis.json');
+  const logPath = path.join(tempDir, 'agy.log');
+  const stdoutPath = path.join(tempDir, 'stdout.txt');
+  const stderrPath = path.join(tempDir, 'stderr.txt');
+  const timeoutMs = Number(process.env.HOTVIDEO_AGY_TIMEOUT_MS || DEFAULT_AGY_TIMEOUT_MS);
 
-export function mergeChunkDoubaoOutputs(outputs) {
-  const results = outputs.map(output => output.result);
-  const spoken = results.filter(result => result?.has_spoken_audio === true);
-  const relevant = results.filter(result => result?.relevant === true);
-  const primary = relevant[0] || spoken[0] || results[0] || {};
-  const unique = values => [...new Set(values.flat().filter(Boolean))];
-  return {
-    result: {
-      has_spoken_audio: spoken.length > 0,
-      relevant: relevant.length > 0,
-      filter_reason: relevant.length > 0
-        ? ''
-        : unique(results.map(result => result?.filter_reason || '')).join('；') || '分段均不符合收录标准',
-      summary: primary.summary || '',
-      content_type: primary.content_type || '其他',
-      topics: unique(results.map(result => result?.topics || [])).slice(0, 3),
-      tags: unique(results.map(result => result?.tags || [])).slice(0, 5),
-      hook: primary.hook || '',
-      viral_reason: primary.viral_reason || '',
-      imitation_angle: primary.imitation_angle || '',
-      read_evidence: results.map(result => result?.read_evidence || '').filter(Boolean).join('；'),
-      full_video_copy: spoken.map(result => result.full_video_copy || '').filter(Boolean).join('\n'),
-    },
-    runtime: {
-      provider: 'doubao',
-      model: outputs[0]?.runtime?.model || '',
-      baseUrl: outputs[0]?.runtime?.baseUrl || '',
-      videoInput: 'chunked_data_url',
-      chunkCount: outputs.length,
-    },
-  };
-}
-
-async function analyzeWithChunkFallback(videoDir, analysisMeta, error) {
-  if (process.env.HOTVIDEO_DOUBAO_CHUNK_FALLBACK_ENABLED !== '1'
-    || !shouldFallbackToFileId(error, 'data_url')) throw error;
-  const videoPath = resolveVideoPath(videoDir, analysisMeta);
-  const chunks = prepareAnalysisVideoChunks(videoPath);
-  const concurrency = Number.parseInt(process.env.HOTVIDEO_ANALYZE_CHUNK_CONCURRENCY || '2', 10);
-  log(`  整段解析失败，切为 ${chunks.length} 个视频分段，concurrency=${concurrency}`);
-  const outputs = await mapWithConcurrency(chunks, concurrency, async (chunkPath, index) => {
-    const chunkMeta = {
-      ...analysisMeta,
-      title: `${analysisMeta.title || ''} [分段 ${index + 1}/${chunks.length}]`,
-      files: { ...(analysisMeta.files || {}), videoPath: chunkPath },
-    };
-    try {
-      return await analyzeVideoWithDoubao(videoDir, chunkMeta);
-    } catch (chunkError) {
-      if (!shouldFallbackToFileId(chunkError, 'data_url')) throw chunkError;
-      const retrySeconds = Number.parseInt(process.env.HOTVIDEO_ANALYZE_RETRY_CHUNK_SECONDS || '60', 10);
-      const subchunks = prepareAnalysisVideoChunks(chunkPath, {
-        ...process.env,
-        HOTVIDEO_ANALYZE_CHUNK_SECONDS: String(retrySeconds),
-      });
-      if (subchunks.length <= 1) throw chunkError;
-      log(`  分段 ${index + 1}/${chunks.length} 仍解析失败，再切为 ${subchunks.length} 个 ${retrySeconds}s 小段`);
-      const suboutputs = await mapWithConcurrency(subchunks, 1, (subchunkPath, subindex) => (
-        analyzeVideoWithDoubao(videoDir, {
-          ...chunkMeta,
-          title: `${analysisMeta.title || ''} [分段 ${index + 1}.${subindex + 1}]`,
-          files: { ...(analysisMeta.files || {}), videoPath: subchunkPath },
-        })
-      ));
-      return mergeChunkDoubaoOutputs(suboutputs);
-    }
+  const prompt = buildAgyPrompt({
+    videoPathWsl: toWslPath(videoPath),
+    meta,
+    outputPathWsl: toWslPath(outputPath),
   });
-  return mergeChunkDoubaoOutputs(outputs);
+  fs.writeFileSync(promptPath, prompt, 'utf-8');
+
+  try {
+    runAgyPrompt({ promptPath, outputPath, logPath, stdoutPath, stderrPath, timeoutMs });
+    const rawText = fs.readFileSync(outputPath, 'utf-8');
+    return normalizeAgyAnalysis(extractJsonObject(rawText));
+  } catch (err) {
+    const parts = [
+      ['agy log', readTail(logPath)],
+      ['stdout', readTail(stdoutPath)],
+      ['stderr', readTail(stderrPath)],
+    ].filter(([, text]) => text);
+    const detail = parts.length
+      ? ` | ${parts.map(([name, text]) => `${name}: ${text}`).join(' | ')}`
+      : '';
+    throw new Error(`${err.message}${detail}`);
+  } finally {
+    if (process.env.HOTVIDEO_KEEP_AGY_TEMP !== '1') {
+      fs.rmSync(tempDir, { recursive: true, force: true });
+    }
+  }
+}
+
+async function analyzeVideoByProvider(videoDir, meta, provider) {
+  if (provider === 'doubao') {
+    const output = await analyzeVideoWithDoubao(videoDir, meta);
+    const analysis = normalizeDoubaoAnalysis(output.result);
+    analysis.filter_reason = analysis.relevant ? '' : analysis.filter_reason;
+    return {
+      analysis,
+      runtime: output.runtime,
+      transcript: {
+        ...(meta.transcript || {}),
+        status: 'done',
+        transcribedAt: new Date().toISOString(),
+        provider: output.runtime.provider,
+        model: output.runtime.model,
+        audioAccess: analysis.has_spoken_audio,
+      },
+    };
+  }
+
+  let workingMeta = meta;
+  if (needsVideoCopy(workingMeta)) {
+    const transcript = await transcribeVideoCopyAuto(videoDir, workingMeta, { provider: 'whisper' });
+    workingMeta = mergeFullVideoCopy(workingMeta, transcript.fullVideoCopy, {
+      ...transcriptMetaFromResult(transcript),
+    });
+  }
+
+  const analysis = await analyzeVideo(videoDir, workingMeta);
+  if (analysis && typeof workingMeta.analysis?.full_video_copy === 'string') {
+    analysis.full_video_copy = workingMeta.analysis.full_video_copy;
+  }
+  return {
+    analysis,
+    runtime: { provider: 'agy' },
+    transcript: workingMeta.transcript,
+  };
 }
 
 export async function runAnalyze(sourceName) {
   const config = await loadSourceConfig(sourceName);
+  const videosDir = config.videosDir;
+  const analyzer = resolveAnalyzerProvider();
+  const concurrency = resolveAnalyzeConcurrency(process.env, analyzer);
   const lane = resolveAnalyzeLane();
-  const concurrency = resolveAnalyzeConcurrency();
-  const thresholds = resolveAnalyzeLaneThresholds();
-  const limit = analyzeLimit();
+  const laneThresholds = resolveAnalyzeLaneThresholds();
 
-  log(`====== 视频分析开始 [${sourceName}] analyzer=doubao concurrency=${concurrency} lane=${lane} ======`);
-  if (!fs.existsSync(config.videosDir)) return { analyzed: 0, filtered: 0, skipped: 0, failed: 0 };
+  log(`====== 视频分析开始 [${sourceName}] analyzer=${analyzer} concurrency=${concurrency} lane=${lane} ======`);
 
-  const targets = [];
+  const dirs = fs.readdirSync(videosDir).filter(d => {
+    const metaPath = path.join(videosDir, d, 'meta.json');
+    return fs.existsSync(metaPath);
+  });
+
+  let analyzed = 0;
+  let filtered = 0;
   let skipped = 0;
+  let failed = 0;
   let deferredSlow = 0;
   let laneSkipped = 0;
+  const failureReasons = [];
+  const limit = analyzeLimit();
+  const targets = [];
 
-  for (const dir of fs.readdirSync(config.videosDir)) {
-    const metaPath = path.join(config.videosDir, dir, 'meta.json');
-    if (!fs.existsSync(metaPath)) continue;
+  for (const dir of dirs) {
+    const metaPath = path.join(videosDir, dir, 'meta.json');
     const meta = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
-    if (meta.status !== 'new' || (limit && targets.length >= limit)) {
+
+    if (meta.status !== 'new') {
+      skipped++;
+      continue;
+    }
+    if (limit && targets.length >= limit) {
       skipped++;
       continue;
     }
 
-    const videoDir = path.join(config.videosDir, dir);
+    const videoDir = path.join(videosDir, dir);
     const videoPath = resolveVideoPath(videoDir, meta);
     let videoBytes = 0;
-    try { videoBytes = fs.statSync(videoPath).size; } catch {}
-    const itemLane = classifyAnalyzeLane(meta, videoBytes, thresholds);
+    try {
+      videoBytes = fs.statSync(videoPath).size;
+    } catch { /* invalid files stay in the fast lane for terminal filtering */ }
+    const itemLane = classifyAnalyzeLane(meta, videoBytes, laneThresholds);
     if (lane !== 'all' && itemLane !== lane) {
       if (lane === 'fast' && itemLane === 'slow') deferredSlow++;
       else laneSkipped++;
       continue;
     }
-    targets.push({ metaPath, meta, videoDir, videoPath, videoBytes, itemLane });
+
+    targets.push({ dir, metaPath, meta, videoDir, videoPath, videoBytes, itemLane });
   }
 
   log(`分析候选: ${targets.length} 条，慢车道延后 ${deferredSlow} 条，其他车道跳过 ${laneSkipped} 条`);
 
-  const results = await mapWithConcurrency(targets, concurrency, async target => {
-    const { metaPath, meta, videoDir, videoPath, videoBytes, itemLane } = target;
+  const processItem = async ({ metaPath, meta, videoDir, videoPath, videoBytes, itemLane }) => {
     const startedAt = Date.now();
-    const durationSec = meta.durationSec
-      ?? (typeof meta.duration === 'number' ? Math.round(meta.duration / 1000) : 0);
+    const durationSec = readMeta(meta).durationSec;
     const profile = `lane=${itemLane} duration=${formatDuration(durationSec)} size=${(videoBytes / 1024 / 1024).toFixed(1)}MB`;
     log(`分析: ${(meta.title || '').substring(0, 50)}... (${profile})`);
-
     try {
       if (!isValidVideoFile(videoPath)) {
-        const next = buildInvalidVideoMeta(meta, videoPath);
-        writeJsonAtomic(metaPath, next);
+        const nextMeta = buildInvalidVideoMeta(meta, videoPath);
+        writeJsonAtomic(metaPath, nextMeta);
+        log(`  过滤: ${nextMeta.analysis.filter_reason}`);
         return { status: 'filtered' };
       }
 
       let analysisMeta = meta;
       let proxyRuntime = null;
-      const proxyAllVideos = process.env.HOTVIDEO_ANALYZE_PROXY_ALL === '1';
-      if ((proxyAllVideos || itemLane === 'slow') && process.env.HOTVIDEO_ANALYZE_PROXY_ENABLED !== '0') {
+      if (analyzer === 'doubao' && itemLane === 'slow' && process.env.HOTVIDEO_ANALYZE_PROXY_ENABLED !== '0') {
+        log(`  生成长视频分析副本: ${profile}`);
         proxyRuntime = prepareAnalysisVideoProxy(videoPath, durationSec);
-        log(`  标准分析副本${proxyRuntime.cached ? '命中缓存' : '生成完成'}: ${(proxyRuntime.proxyBytes / 1024 / 1024).toFixed(1)}MB`);
+        log(`  分析副本${proxyRuntime.cached ? '命中缓存' : '生成完成'}: ${(proxyRuntime.proxyBytes / 1024 / 1024).toFixed(1)}MB`);
         analysisMeta = {
           ...meta,
-          files: { ...(meta.files || {}), videoPath: proxyRuntime.path },
+          files: {
+            ...(meta.files || {}),
+            videoPath: proxyRuntime.path,
+          },
         };
       }
 
-      let output;
-      try {
-        output = await analyzeVideoWithDoubao(videoDir, analysisMeta);
-      } catch (error) {
-        output = await analyzeWithChunkFallback(videoDir, analysisMeta, error);
-      }
-      const analysis = normalizeDoubaoAnalysis(output.result);
-      const elapsedMs = Date.now() - startedAt;
-      const next = {
-        ...meta,
-        analysis,
-        status: analysis.relevant ? 'analyzed' : 'filtered',
-        analyzed_at: new Date().toISOString(),
-        analyzer: 'doubao',
-        transcript: {
-          ...(meta.transcript || {}),
-          status: 'done',
-          transcribedAt: new Date().toISOString(),
-          provider: output.runtime?.provider,
-          model: output.runtime?.model,
-          audioAccess: analysis.has_spoken_audio,
-        },
-        analysisRuntime: {
-          ...(output.runtime || {}),
+      const { analysis, runtime, transcript } = await analyzeVideoByProvider(videoDir, analysisMeta, analyzer);
+      if (analysis) {
+        const elapsedMs = Date.now() - startedAt;
+        meta.analysis = analysis;
+        if (transcript) meta.transcript = transcript;
+        meta.analyzed_at = new Date().toISOString();
+        meta.analyzer = analyzer;
+        meta.analysisRuntime = {
+          ...(runtime || {}),
           lane: itemLane,
           durationSec,
           videoBytes,
           elapsedMs,
-          ...(proxyRuntime ? { proxy: {
-            cached: proxyRuntime.cached,
-            sourceBytes: proxyRuntime.sourceBytes,
-            proxyBytes: proxyRuntime.proxyBytes,
-          } } : {}),
-        },
-      };
-      writeJsonAtomic(metaPath, next);
-      log(`  ${analysis.relevant ? '完成' : '过滤'} [${(elapsedMs / 1000).toFixed(1)}s]: ${analysis.summary || analysis.filter_reason}`);
-      return { status: next.status };
-    } catch (error) {
-      const elapsedMs = Date.now() - startedAt;
-      log(`  失败 [${(elapsedMs / 1000).toFixed(1)}s] (${profile}): ${error.message}`);
-      return { status: 'failed', reason: String(error?.message || error) };
-    }
-  });
+          ...(proxyRuntime ? {
+            proxy: {
+              cached: proxyRuntime.cached,
+              sourceBytes: proxyRuntime.sourceBytes,
+              proxyBytes: proxyRuntime.proxyBytes,
+            },
+          } : {}),
+        };
 
-  let analyzed = 0;
-  let filtered = 0;
-  let failed = 0;
-  const failureReasons = [];
+        if (analysis.relevant === false) {
+          meta.status = 'filtered';
+          log(`  过滤 [${(elapsedMs / 1000).toFixed(1)}s]: ${analysis.filter_reason || '不符合收录标准'}`);
+          writeJsonAtomic(metaPath, meta);
+          return { status: 'filtered' };
+        } else {
+          meta.status = 'analyzed';
+          log(`  完成 [${(elapsedMs / 1000).toFixed(1)}s]: ${analysis.summary}`);
+          writeJsonAtomic(metaPath, meta);
+          return { status: 'analyzed' };
+        }
+      }
+
+      return { status: 'skipped' };
+    } catch (err) {
+      const elapsedMs = Date.now() - startedAt;
+      log(`  失败 [${(elapsedMs / 1000).toFixed(1)}s] (${profile}): ${err.message}`);
+      return { status: 'failed', reason: String(err?.message || err) };
+    }
+  };
+
+  const results = await mapWithConcurrency(targets, concurrency, processItem);
   for (const result of results) {
-    if (result.status === 'analyzed') analyzed++;
-    else if (result.status === 'filtered') filtered++;
-    else if (result.status === 'failed') {
+    if (result?.status === 'analyzed') analyzed++;
+    else if (result?.status === 'filtered') filtered++;
+    else if (result?.status === 'failed') {
       failed++;
       failureReasons.push(result.reason);
-    } else skipped++;
+    } else {
+      skipped++;
+    }
   }
 
-  log(`====== 分析完成: ${analyzed} 收录, ${filtered} 过滤, ${skipped} 跳过, ${failed} 失败 ======`);
+  log(`====== 分析完成: ${analyzed} 收录, ${filtered} 过滤, ${skipped} 跳过, ${deferredSlow} 慢车道延后, ${failed} 失败 ======`);
   return { analyzed, filtered, skipped, deferredSlow, laneSkipped, failed, failureReasons };
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  runAnalyze(process.argv[2] || 'douyin-hotspot').catch(error => {
-    console.error('分析失败:', error);
+  const sourceName = process.argv[2] || 'douyin-hotspot';
+  runAnalyze(sourceName).catch(err => {
+    console.error('分析失败:', err);
     process.exit(1);
   });
 }
