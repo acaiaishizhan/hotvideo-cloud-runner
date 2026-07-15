@@ -44,6 +44,10 @@ export function resolveDoubaoAnalyzerOptions(env = process.env) {
     env.HOTVIDEO_DOUBAO_ANALYZE_LENGTH_RETRY_MAX_TOKENS || '',
     10,
   );
+  const transport = (env.HOTVIDEO_DOUBAO_HTTP_TRANSPORT || 'https').trim().toLowerCase();
+  if (transport !== 'https' && transport !== 'fetch') {
+    throw new Error(`不支持的 HOTVIDEO_DOUBAO_HTTP_TRANSPORT: ${transport}`);
+  }
   const lane = (env.HOTVIDEO_ANALYZE_LANE || 'fast').trim().toLowerCase();
   const defaultTimeoutMs = lane === 'slow' || lane === 'all'
     ? DEFAULT_SLOW_TIMEOUT_MS
@@ -52,6 +56,7 @@ export function resolveDoubaoAnalyzerOptions(env = process.env) {
     apiKey: env.HOTVIDEO_DOUBAO_API_KEY || env.ARK_API_KEY || readArkKeyFromDotEnv(),
     baseUrl: (env.HOTVIDEO_DOUBAO_BASE_URL || DEFAULT_BASE_URL).replace(/\/+$/, ''),
     model: env.HOTVIDEO_DOUBAO_ANALYZE_MODEL || env.HOTVIDEO_DOUBAO_MODEL || DEFAULT_MODEL,
+    transport,
     timeoutMs: Number.isFinite(timeoutMs) && timeoutMs > 0 ? timeoutMs : defaultTimeoutMs,
     retries: Number.isFinite(retries) && retries >= 0 ? retries : 0,
     retryDelayMs: Number.isFinite(retryDelayMs) && retryDelayMs >= 0 ? retryDelayMs : 2500,
@@ -190,6 +195,7 @@ export function buildDoubaoRequestDigest(body, input = {}) {
   return {
     payloadBytes: Buffer.byteLength(payload),
     payloadSha256: crypto.createHash('sha256').update(payload).digest('hex'),
+    httpTransport: input.httpTransport || '',
     videoInput: input.inputMode || '',
     videoBytes: input.videoBytes || 0,
     videoSha256: input.videoSha256 || '',
@@ -228,14 +234,16 @@ async function postChatCompletions(body, options) {
   if (!options.apiKey) {
     throw new Error('缺少 ARK_API_KEY 或 HOTVIDEO_DOUBAO_API_KEY');
   }
-  if (options.fetchImpl) {
-    const res = await options.fetchImpl(`${options.baseUrl}/chat/completions`, {
+  if (options.fetchImpl || options.transport === 'fetch') {
+    const fetchImpl = options.fetchImpl || globalThis.fetch;
+    const res = await fetchImpl(`${options.baseUrl}/chat/completions`, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${options.apiKey}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(body),
+      signal: AbortSignal.timeout(options.timeoutMs),
     });
     const text = await res.text();
     if (!res.ok) {
@@ -326,7 +334,11 @@ export async function analyzeVideoWithDoubao(videoDir, meta = {}, opts = {}) {
       meta,
       maxTokens: options.maxTokens,
     });
-    console.log(`Doubao request digest: ${JSON.stringify(buildDoubaoRequestDigest(body, input))}`);
+    const httpTransport = options.fetchImpl || options.transport === 'fetch' ? 'fetch' : 'https';
+    console.log(`Doubao request digest: ${JSON.stringify(buildDoubaoRequestDigest(body, {
+      ...input,
+      httpTransport,
+    }))}`);
     let data = await callDoubaoWithRetry(body, options);
     let lengthRetried = false;
     if (data?.choices?.[0]?.finish_reason === 'length') {
@@ -354,6 +366,7 @@ export async function analyzeVideoWithDoubao(videoDir, meta = {}, opts = {}) {
         provider: 'doubao',
         model: options.model,
         baseUrl: options.baseUrl,
+        httpTransport,
         finishReason: data?.choices?.[0]?.finish_reason || '',
         videoInput: input.inputMode,
         fileId: input.uploadedFileId,

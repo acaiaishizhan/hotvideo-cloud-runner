@@ -61,11 +61,13 @@ test('buildDoubaoRequestDigest reports comparable hashes without exposing video 
   });
   const digest = buildDoubaoRequestDigest(body, {
     inputMode: 'data_url',
+    httpTransport: 'https',
     videoBytes: 3,
     videoSha256: 'video-sha',
   });
 
   assert.equal(digest.videoInput, 'data_url');
+  assert.equal(digest.httpTransport, 'https');
   assert.equal(digest.videoBytes, 3);
   assert.equal(digest.videoSha256, 'video-sha');
   assert.equal(digest.payloadSha256.length, 64);
@@ -87,6 +89,7 @@ test('resolveDoubaoAnalyzerOptions reads explicit env settings', () => {
     HOTVIDEO_DOUBAO_API_KEY: 'test-key',
     HOTVIDEO_DOUBAO_BASE_URL: 'https://example.test/api/',
     HOTVIDEO_DOUBAO_ANALYZE_MODEL: 'doubao-test',
+    HOTVIDEO_DOUBAO_HTTP_TRANSPORT: 'fetch',
     HOTVIDEO_DOUBAO_ANALYZE_TIMEOUT_MS: '1234',
     HOTVIDEO_DOUBAO_ANALYZE_RETRIES: '4',
     HOTVIDEO_DOUBAO_ANALYZE_RETRY_DELAY_MS: '50',
@@ -97,6 +100,7 @@ test('resolveDoubaoAnalyzerOptions reads explicit env settings', () => {
   assert.equal(options.apiKey, 'test-key');
   assert.equal(options.baseUrl, 'https://example.test/api');
   assert.equal(options.model, 'doubao-test');
+  assert.equal(options.transport, 'fetch');
   assert.equal(options.timeoutMs, 1234);
   assert.equal(options.retries, 4);
   assert.equal(options.retryDelayMs, 50);
@@ -111,6 +115,7 @@ test('resolveDoubaoAnalyzerOptions uses bounded fast-lane requests without inlin
 
   assert.equal(options.timeoutMs, 360000);
   assert.equal(options.retries, 0);
+  assert.equal(options.transport, 'https');
 });
 
 test('resolveDoubaoAnalyzerOptions keeps a longer timeout for the slow lane', () => {

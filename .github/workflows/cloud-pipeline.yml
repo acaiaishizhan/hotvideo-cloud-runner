@@ -74,6 +74,7 @@ jobs:
       HOTVIDEO_ANALYZE_LANE: fast
       HOTVIDEO_ANALYZE_CONCURRENCY: '5'
       HOTVIDEO_PIPELINE_ATTEMPTS: '1'
+      HOTVIDEO_DOUBAO_HTTP_TRANSPORT: fetch
 
     steps:
       - uses: actions/checkout@v4
