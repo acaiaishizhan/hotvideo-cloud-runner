@@ -40,7 +40,7 @@ export function buildAnalysisProxyArgs(inputPath, outputPath, options) {
     '-i', inputPath,
     '-map', '0:v:0?',
     '-map', '0:a:0?',
-    '-vf', 'scale=-2:240:force_original_aspect_ratio=decrease,fps=1',
+    '-vf', 'scale=-2:240:force_original_aspect_ratio=decrease,pad=ceil(iw/2)*2:ceil(ih/2)*2,fps=1',
     '-c:v', 'libx264',
     '-preset', 'veryfast',
     '-b:v', `${options.videoKbps}k`,
