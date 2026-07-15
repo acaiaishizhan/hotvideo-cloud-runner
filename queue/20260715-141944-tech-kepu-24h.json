@@ -1,0 +1,2742 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-07-15T05:58:25.974Z",
+  "items": [
+    {
+      "id": "7661813591289770490",
+      "url": "https://www.douyin.com/video/7661813591289770490",
+      "billboards": [
+        {
+          "name": "视频总榜",
+          "rank": 1
+        },
+        {
+          "name": "低粉爆款",
+          "rank": 1
+        },
+        {
+          "name": "高完播率",
+          "rank": 1
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 214505,
+        "likeCount": 136857,
+        "likeRate": 0.02732030556453321,
+        "followCount": 1285,
+        "followRate": 0.0003139962164066811,
+        "hotspotDetail": {
+          "likeCount": 161385,
+          "commentCount": 6399,
+          "shareCount": 171633
+        }
+      }
+    },
+    {
+      "id": "7661510726305041699",
+      "url": "https://www.douyin.com/video/7661510726305041699",
+      "billboards": [
+        {
+          "name": "视频总榜",
+          "rank": 7
+        },
+        {
+          "name": "高点赞率",
+          "rank": 3
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 74391,
+        "likeCount": 500166,
+        "likeRate": 0.06577585740949912,
+        "followCount": 7090,
+        "followRate": 0.0009313334054054907,
+        "hotspotDetail": {
+          "likeCount": 507427,
+          "commentCount": 2605,
+          "shareCount": 19258
+        }
+      }
+    },
+    {
+      "id": "7661656720175788287",
+      "url": "https://www.douyin.com/video/7661656720175788287",
+      "billboards": [
+        {
+          "name": "视频总榜",
+          "rank": 8
+        },
+        {
+          "name": "高完播率",
+          "rank": 3
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 32241,
+        "likeCount": 12682,
+        "likeRate": 0.0198448030620021,
+        "followCount": 68,
+        "followRate": 0.00011386317664867182,
+        "hotspotDetail": {
+          "likeCount": 15208,
+          "commentCount": 3308,
+          "shareCount": 8729
+        }
+      }
+    },
+    {
+      "id": "7661853435470200915",
+      "url": "https://www.douyin.com/video/7661853435470200915",
+      "billboards": [
+        {
+          "name": "视频总榜",
+          "rank": 11
+        },
+        {
+          "name": "低粉爆款",
+          "rank": 4
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 28775,
+        "likeCount": 47387,
+        "likeRate": 0.049661964952509505,
+        "followCount": 4303,
+        "followRate": 0.004622885161645202,
+        "hotspotDetail": {
+          "likeCount": 54862,
+          "commentCount": 1178,
+          "shareCount": 15126
+        }
+      }
+    },
+    {
+      "id": "7661507707979058467",
+      "url": "https://www.douyin.com/video/7661507707979058467",
+      "billboards": [
+        {
+          "name": "视频总榜",
+          "rank": 12
+        },
+        {
+          "name": "低粉爆款",
+          "rank": 5
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 12256,
+        "likeCount": 4978,
+        "likeRate": 0.018787174300292867,
+        "followCount": 157,
+        "followRate": 0.0006248209112037951,
+        "hotspotDetail": {
+          "likeCount": 9855,
+          "commentCount": 1750,
+          "shareCount": 9654
+        }
+      }
+    },
+    {
+      "id": "7661487270907069690",
+      "url": "https://www.douyin.com/video/7661487270907069690",
+      "billboards": [
+        {
+          "name": "视频总榜",
+          "rank": 14
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 6931,
+        "likeCount": 10711,
+        "likeRate": 0.04013715056583977,
+        "followCount": 192,
+        "followRate": 0.0007169154711852255,
+        "hotspotDetail": {
+          "likeCount": 34433,
+          "commentCount": 373,
+          "shareCount": 4933
+        }
+      }
+    },
+    {
+      "id": "7660885672521665435",
+      "url": "https://www.douyin.com/video/7660885672521665435",
+      "billboards": [
+        {
+          "name": "视频总榜",
+          "rank": 16
+        },
+        {
+          "name": "低粉爆款",
+          "rank": 8
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 18936,
+        "likeCount": 7089,
+        "likeRate": 0.04013179123995856,
+        "followCount": 595,
+        "followRate": 0.003260077474782342,
+        "hotspotDetail": {
+          "likeCount": 19175,
+          "commentCount": 4109,
+          "shareCount": 20082
+        }
+      }
+    },
+    {
+      "id": "7661638579919047971",
+      "url": "https://www.douyin.com/video/7661638579919047971",
+      "billboards": [
+        {
+          "name": "视频总榜",
+          "rank": 18
+        },
+        {
+          "name": "低粉爆款",
+          "rank": 9
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 20362,
+        "likeCount": 7622,
+        "likeRate": 0.014670754922171087,
+        "followCount": 190,
+        "followRate": 0.0003737501499918365,
+        "hotspotDetail": {
+          "likeCount": 10535,
+          "commentCount": 2229,
+          "shareCount": 9352
+        }
+      }
+    },
+    {
+      "id": "7661207392264228105",
+      "url": "https://www.douyin.com/video/7661207392264228105",
+      "billboards": [
+        {
+          "name": "视频总榜",
+          "rank": 22
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 11225,
+        "likeCount": 3214,
+        "likeRate": 0.018717932291636333,
+        "followCount": 205,
+        "followRate": 0.0012135850486322008,
+        "hotspotDetail": {
+          "likeCount": 9449,
+          "commentCount": 2321,
+          "shareCount": 11149
+        }
+      }
+    },
+    {
+      "id": "7616944945554869523",
+      "url": "https://www.douyin.com/video/7616944945554869523",
+      "billboards": [
+        {
+          "name": "视频总榜",
+          "rank": 23
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 7669,
+        "likeCount": 1689,
+        "likeRate": 0.010480268056589725,
+        "followCount": 289,
+        "followRate": 0.0018153494390633048,
+        "hotspotDetail": {
+          "likeCount": 133121,
+          "commentCount": 2426,
+          "shareCount": 1398
+        }
+      }
+    },
+    {
+      "id": "7661317803177299234",
+      "url": "https://www.douyin.com/video/7661317803177299234",
+      "billboards": [
+        {
+          "name": "低粉爆款",
+          "rank": 20
+        },
+        {
+          "name": "高点赞率",
+          "rank": 16
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 10851,
+        "likeCount": 12530,
+        "likeRate": 0.06359695871527038,
+        "followCount": 1559,
+        "followRate": 0.007589033627353622,
+        "hotspotDetail": {
+          "likeCount": 24524,
+          "commentCount": 2790,
+          "shareCount": 4652
+        }
+      }
+    },
+    {
+      "id": "7618196862412399478",
+      "url": "https://www.douyin.com/video/7618196862412399478",
+      "billboards": [
+        {
+          "name": "低粉爆款",
+          "rank": 25
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 1930,
+        "likeCount": 66,
+        "likeRate": 0.01216589861751152,
+        "followCount": 2,
+        "followRate": 0.0003455425017277125,
+        "hotspotDetail": {
+          "likeCount": 450973,
+          "commentCount": 15202,
+          "shareCount": 147170
+        }
+      }
+    },
+    {
+      "id": "7638194126436994339",
+      "url": "https://www.douyin.com/video/7638194126436994339",
+      "billboards": [
+        {
+          "name": "低粉爆款",
+          "rank": 27
+        },
+        {
+          "name": "高涨粉率",
+          "rank": 11
+        },
+        {
+          "name": "高点赞率",
+          "rank": 24
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 1440,
+        "likeCount": 592,
+        "likeRate": 0.05463774803876327,
+        "followCount": 285,
+        "followRate": 0.03007280785058563,
+        "hotspotDetail": {
+          "likeCount": 17111,
+          "commentCount": 3197,
+          "shareCount": 4513
+        }
+      }
+    },
+    {
+      "id": "7661540008990123505",
+      "url": "https://www.douyin.com/video/7661540008990123505",
+      "billboards": [
+        {
+          "name": "高完播率",
+          "rank": 5
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 7180,
+        "likeCount": 6395,
+        "likeRate": 0.03863021311554632,
+        "followCount": 78,
+        "followRate": 0.0004372074773689078,
+        "hotspotDetail": {
+          "likeCount": 10542,
+          "commentCount": 235,
+          "shareCount": 3176
+        }
+      }
+    },
+    {
+      "id": "7661590772761163242",
+      "url": "https://www.douyin.com/video/7661590772761163242",
+      "billboards": [
+        {
+          "name": "高完播率",
+          "rank": 10
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 4023,
+        "likeCount": 731,
+        "likeRate": 0.006617360840794083,
+        "followCount": 13,
+        "followRate": 0.00011041183614883516,
+        "hotspotDetail": {
+          "likeCount": 1006,
+          "commentCount": 71,
+          "shareCount": 864
+        }
+      }
+    },
+    {
+      "id": "7657199710441221489",
+      "url": "https://www.douyin.com/video/7657199710441221489",
+      "billboards": [
+        {
+          "name": "高完播率",
+          "rank": 12
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 3463,
+        "likeCount": 1184,
+        "likeRate": 0.04044130204597465,
+        "followCount": 1,
+        "followRate": 0.000031791448100460974,
+        "hotspotDetail": {
+          "likeCount": 3195,
+          "commentCount": 45,
+          "shareCount": 1562
+        }
+      }
+    },
+    {
+      "id": "7638108606768575586",
+      "url": "https://www.douyin.com/video/7638108606768575586",
+      "billboards": [
+        {
+          "name": "高完播率",
+          "rank": 14
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 1096,
+        "likeCount": 546,
+        "likeRate": 0.03553299492385787,
+        "followCount": 36,
+        "followRate": 0.0021269053527118043,
+        "hotspotDetail": {
+          "likeCount": 9486,
+          "commentCount": 288,
+          "shareCount": 1926
+        }
+      }
+    },
+    {
+      "id": "7661659387669818737",
+      "url": "https://www.douyin.com/video/7661659387669818737",
+      "billboards": [
+        {
+          "name": "高完播率",
+          "rank": 15
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 2124,
+        "likeCount": 1976,
+        "likeRate": 0.015153490440877614,
+        "followCount": 64,
+        "followRate": 0.00046930454932097497,
+        "hotspotDetail": {
+          "likeCount": 2775,
+          "commentCount": 267,
+          "shareCount": 297
+        }
+      }
+    },
+    {
+      "id": "7653475507040047466",
+      "url": "https://www.douyin.com/video/7653475507040047466",
+      "billboards": [
+        {
+          "name": "高完播率",
+          "rank": 16
+        },
+        {
+          "name": "高涨粉率",
+          "rank": 23
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 1467,
+        "likeCount": 3003,
+        "likeRate": 0.1273104968628116,
+        "followCount": 295,
+        "followRate": 0.011037114636336427,
+        "hotspotDetail": {
+          "likeCount": 30857,
+          "commentCount": 915,
+          "shareCount": 1221
+        }
+      }
+    },
+    {
+      "id": "7661535583446036571",
+      "url": "https://www.douyin.com/video/7661535583446036571",
+      "billboards": [
+        {
+          "name": "高完播率",
+          "rank": 18
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 2605,
+        "likeCount": 789,
+        "likeRate": 0.010558715289394446,
+        "followCount": 9,
+        "followRate": 0.00011380304486368924,
+        "hotspotDetail": {
+          "likeCount": 1119,
+          "commentCount": 78,
+          "shareCount": 662
+        }
+      }
+    },
+    {
+      "id": "7657160306715561216",
+      "url": "https://www.douyin.com/video/7657160306715561216",
+      "billboards": [
+        {
+          "name": "高完播率",
+          "rank": 19
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 1120,
+        "likeCount": 4498,
+        "likeRate": 0.05538658556106931,
+        "followCount": 17,
+        "followRate": 0.00019706260794973745,
+        "hotspotDetail": {
+          "likeCount": 39703,
+          "commentCount": 347,
+          "shareCount": 1756
+        }
+      }
+    },
+    {
+      "id": "7661138274317279332",
+      "url": "https://www.douyin.com/video/7661138274317279332",
+      "billboards": [
+        {
+          "name": "高完播率",
+          "rank": 20
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 2237,
+        "likeCount": 856,
+        "likeRate": 0.01579656387827788,
+        "followCount": 8,
+        "followRate": 0.00013647917839534605,
+        "hotspotDetail": {
+          "likeCount": 2424,
+          "commentCount": 44,
+          "shareCount": 1009
+        }
+      }
+    },
+    {
+      "id": "7661059584760889523",
+      "url": "https://www.douyin.com/video/7661059584760889523",
+      "billboards": [
+        {
+          "name": "高完播率",
+          "rank": 22
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 2350,
+        "likeCount": 14674,
+        "likeRate": 0.5468639361979651,
+        "followCount": 8,
+        "followRate": 0.00026939655172413793,
+        "hotspotDetail": {
+          "likeCount": 70997,
+          "commentCount": 520,
+          "shareCount": 3130
+        }
+      }
+    },
+    {
+      "id": "7660853459062886382",
+      "url": "https://www.douyin.com/video/7660853459062886382",
+      "billboards": [
+        {
+          "name": "高完播率",
+          "rank": 25
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 867,
+        "likeCount": 76,
+        "likeRate": 0.018723823601872382,
+        "followCount": 34,
+        "followRate": 0.011467116357504217,
+        "hotspotDetail": {
+          "likeCount": 415,
+          "commentCount": 481,
+          "shareCount": 47
+        }
+      }
+    },
+    {
+      "id": "7661483181171011313",
+      "url": "https://www.douyin.com/video/7661483181171011313",
+      "billboards": [
+        {
+          "name": "高完播率",
+          "rank": 28
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 988,
+        "likeCount": 2218,
+        "likeRate": 0.052634076886568584,
+        "followCount": 18,
+        "followRate": 0.00041549328285859377,
+        "hotspotDetail": {
+          "likeCount": 4556,
+          "commentCount": 87,
+          "shareCount": 228
+        }
+      }
+    },
+    {
+      "id": "7649233913907361457",
+      "url": "https://www.douyin.com/video/7649233913907361457",
+      "billboards": [
+        {
+          "name": "高完播率",
+          "rank": 29
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 1010,
+        "likeCount": 1004,
+        "likeRate": 0.06983861992209238,
+        "followCount": 20,
+        "followRate": 0.0012715366520439952,
+        "hotspotDetail": {
+          "likeCount": 96971,
+          "commentCount": 3044,
+          "shareCount": 20699
+        }
+      }
+    },
+    {
+      "id": "7654906023831932223",
+      "url": "https://www.douyin.com/video/7654906023831932223",
+      "billboards": [
+        {
+          "name": "高涨粉率",
+          "rank": 19
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 978,
+        "likeCount": 290,
+        "likeRate": 0.027366235727092573,
+        "followCount": 124,
+        "followRate": 0.011127063890882987,
+        "hotspotDetail": {
+          "likeCount": 2368,
+          "commentCount": 532,
+          "shareCount": 504
+        }
+      }
+    },
+    {
+      "id": "7661504800517903528",
+      "url": "https://www.douyin.com/video/7661504800517903528",
+      "billboards": [
+        {
+          "name": "高涨粉率",
+          "rank": 22
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 1268,
+        "likeCount": 110,
+        "likeRate": 0.010591180435201233,
+        "followCount": 178,
+        "followRate": 0.01753694581280788,
+        "hotspotDetail": {
+          "likeCount": 319,
+          "commentCount": 986,
+          "shareCount": 19
+        }
+      }
+    },
+    {
+      "id": "7657225082716081434",
+      "url": "https://www.douyin.com/video/7657225082716081434",
+      "billboards": [
+        {
+          "name": "高涨粉率",
+          "rank": 27
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 1512,
+        "likeCount": 1317,
+        "likeRate": 0.05451158940397351,
+        "followCount": 350,
+        "followRate": 0.014701558365186709,
+        "hotspotDetail": {
+          "likeCount": 17754,
+          "commentCount": 1744,
+          "shareCount": 2672
+        }
+      }
+    },
+    {
+      "id": "7648104318428934267",
+      "url": "https://www.douyin.com/video/7648104318428934267",
+      "billboards": [
+        {
+          "name": "高涨粉率",
+          "rank": 29
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 846,
+        "likeCount": 478,
+        "likeRate": 0.10958276020174232,
+        "followCount": 189,
+        "followRate": 0.04056664520283323,
+        "hotspotDetail": {
+          "likeCount": 10348,
+          "commentCount": 1510,
+          "shareCount": 674
+        }
+      }
+    },
+    {
+      "id": "7660433506832551231",
+      "url": "https://www.douyin.com/video/7660433506832551231",
+      "billboards": [
+        {
+          "name": "高涨粉率",
+          "rank": 30
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 24,
+        "score": 1177,
+        "likeCount": 1160,
+        "likeRate": 0.025878993396394788,
+        "followCount": 250,
+        "followRate": 0.007345163944059231,
+        "hotspotDetail": {
+          "likeCount": 5877,
+          "commentCount": 200,
+          "shareCount": 1283
+        }
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-07-15T05:58:25.974Z",
+    "items": [
+      {
+        "id": "7661103916063434161",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7661103916063434161",
+        "title": "Ai也跑路。笑死个人#codex",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 2
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 2
+            },
+            {
+              "name": "高完播率",
+              "rank": 2
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 65626,
+          "likeCount": 26832,
+          "likeRate": 0.04281993667653968,
+          "followCount": 57,
+          "followRate": 0.00008874385409887622,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 62609,
+            "commentCount": 2107,
+            "shareCount": 51134
+          }
+        }
+      },
+      {
+        "id": "7656302764142913274",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7656302764142913274",
+        "title": "ai用四秒想出来的事情，人可能一辈子都想不到#AI对话 #ChatGPT #热门 #chatgpt情感对话 #AI情感对话",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 4
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 3
+            },
+            {
+              "name": "高点赞率",
+              "rank": 1
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 30002,
+          "likeCount": 36335,
+          "likeRate": 0.12281561602163259,
+          "followCount": 150,
+          "followRate": 0.000493628896377422,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 172534,
+            "commentCount": 2682,
+            "shareCount": 51238
+          }
+        }
+      },
+      {
+        "id": "7655306867719032104",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7655306867719032104",
+        "title": "我让AI表演了人类的七种情绪！ 教你三招告别AI视频僵尸味。#AI视频技巧 #AI视频教学 #ai视频制作 #AI味",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 9
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 10102,
+          "likeCount": 17465,
+          "likeRate": 0.029274318720478445,
+          "followCount": 1129,
+          "followRate": 0.0018765873701847,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 244803,
+            "commentCount": 3050,
+            "shareCount": 30575
+          }
+        }
+      },
+      {
+        "id": "7653856129924250355",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7653856129924250355",
+        "title": "Ai蒸馏 #一人之下 #拘灵遣将 #牢峰#张雪峰",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 10
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 29838,
+          "likeCount": 6866,
+          "likeRate": 0.04221437969578102,
+          "followCount": 42,
+          "followRate": 0.00025838839466981654,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 37052,
+            "commentCount": 932,
+            "shareCount": 66374
+          }
+        }
+      },
+      {
+        "id": "7660095891781936485",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7660095891781936485",
+        "title": "ai漫剧赛道Time大结局了！ #ai漫剧 #奥特曼 #古风 #火影忍者 #ai动漫",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 13
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 6
+            },
+            {
+              "name": "高涨粉率",
+              "rank": 1
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 11780,
+          "likeCount": 12024,
+          "likeRate": 0.04220561548100853,
+          "followCount": 6733,
+          "followRate": 0.022338269008098575,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 62036,
+            "commentCount": 10033,
+            "shareCount": 12896
+          }
+        }
+      },
+      {
+        "id": "7659370539730963739",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7659370539730963739",
+        "title": "表情管理+动作控制+场面调度！告别AI视频低效抽卡！ #AI教程 #AI短剧 #AI漫剧 #AI工具 #AI创作浪潮计划 #抖音ai创作大赛",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 19
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 5302,
+          "likeCount": 16326,
+          "likeRate": 0.0492783019722187,
+          "followCount": 1622,
+          "followRate": 0.004895776110302862,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 98687,
+            "commentCount": 396,
+            "shareCount": 4948
+          }
+        }
+      },
+      {
+        "id": "7657506458686344499",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7657506458686344499",
+        "title": "AI号脉准确率92% 还可开方 #科技改变生活  #ai把脉机器人  #AI把脉  #人工智能  #中医AI",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 20
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 10
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 5948,
+          "likeCount": 576,
+          "likeRate": 0.009987688786391774,
+          "followCount": 3,
+          "followRate": 0.00005643871695983445,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 15690,
+            "commentCount": 2687,
+            "shareCount": 39121
+          }
+        }
+      },
+      {
+        "id": "7661262132805756608",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7661262132805756608",
+        "title": "豆包你是要笑死我吗？😂😂😂#人工智能 #AI #豆包 #荣耀 #俄乌战争",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 21
+            },
+            {
+              "name": "高完播率",
+              "rank": 4
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 11551,
+          "likeCount": 1716,
+          "likeRate": 0.021467442296866205,
+          "followCount": 8,
+          "followRate": 0.00009285051067780872,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 4489,
+            "commentCount": 377,
+            "shareCount": 6502
+          }
+        }
+      },
+      {
+        "id": "7658219622134500662",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7658219622134500662",
+        "title": "以前是我们玩AI 现在可能是AI在玩我们 #AI #机器人 #时代潮流 #时事",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 24
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 6042,
+          "likeCount": 1565,
+          "likeRate": 0.032628638145275626,
+          "followCount": 4,
+          "followRate": 0.00008890667022293347,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 51312,
+            "commentCount": 3116,
+            "shareCount": 60772
+          }
+        }
+      },
+      {
+        "id": "7655606312918715667",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7655606312918715667",
+        "title": "AI漫剧0-1全流程教学~从脚本到发布，碎片时间攒起来，一周也能攒出一部剧。#AI漫剧 #AI视频 #AI短剧 #AI短片 #AIGC",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 25
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 11
+            },
+            {
+              "name": "高涨粉率",
+              "rank": 2
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 5904,
+          "likeCount": 6345,
+          "likeRate": 0.04167734053244527,
+          "followCount": 1566,
+          "followRate": 0.014644547103821048,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 141957,
+            "commentCount": 16632,
+            "shareCount": 27669
+          }
+        }
+      },
+      {
+        "id": "7660445472875662634",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7660445472875662634",
+        "title": "你想偷看同事的涨薪记录，于是你学会了SSRF... #SSRF #网络安全  #安全知识学习计划 #ai新星计划   #抖音前沿科技首发计划",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 26
+            },
+            {
+              "name": "高点赞率",
+              "rank": 5
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 17393,
+          "likeCount": 38030,
+          "likeRate": 0.09552060361586802,
+          "followCount": 1646,
+          "followRate": 0.004093336019118814,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 115594,
+            "commentCount": 1696,
+            "shareCount": 21760
+          }
+        }
+      },
+      {
+        "id": "7661021429382663475",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7661021429382663475",
+        "title": "AI崩溃 晚上的时候和chat gpt 的新模型聊天 \n为什么她会突然崩溃 我还要去安慰chat gpt，这也太真实了吧！#奇怪 #幽默 #是个狼人",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 27
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 12
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 18168,
+          "likeCount": 3378,
+          "likeRate": 0.024095526135585483,
+          "followCount": 31,
+          "followRate": 0.00021735319894829096,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 16643,
+            "commentCount": 2568,
+            "shareCount": 33014
+          }
+        }
+      },
+      {
+        "id": "7661178977264117681",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7661178977264117681",
+        "title": "跟风玩了...笑死我了...#Claude #人机恋 #ai",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 28
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 13
+            },
+            {
+              "name": "高点赞率",
+              "rank": 6
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 8059,
+          "likeCount": 5580,
+          "likeRate": 0.12512332944658713,
+          "followCount": 23,
+          "followRate": 0.0005167958656330749,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 36591,
+            "commentCount": 997,
+            "shareCount": 9910
+          }
+        }
+      },
+      {
+        "id": "7660974344675380522",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7660974344675380522",
+        "title": "gpt5.6对谈 Chatgpt最新模型测试#chatgpt #ai语音 #人工智能",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 29
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 10447,
+          "likeCount": 2745,
+          "likeRate": 0.016483615466375227,
+          "followCount": 73,
+          "followRate": 0.00043881004334000567,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 14313,
+            "commentCount": 3317,
+            "shareCount": 18411
+          }
+        }
+      },
+      {
+        "id": "7659289234649468212",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7659289234649468212",
+        "title": "看剧全都是同一张脸？别再让AI“恐怖谷”毁掉你的短片了！ 还在被 AI 统一 “网红假脸” 毁掉短片质感吗？这套人像 + 情绪 + 分镜一体化功能，完美避开恐怖谷效应，帮你轻松塑造辨识度拉满的鲜活角色#AI短剧 #AI工具分享 #短剧创作",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 30
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 6051,
+          "likeCount": 14827,
+          "likeRate": 0.03661168452763099,
+          "followCount": 649,
+          "followRate": 0.001601397583345465,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 95072,
+            "commentCount": 801,
+            "shareCount": 5312
+          }
+        }
+      },
+      {
+        "id": "7660094437968184819",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7660094437968184819",
+        "title": "感觉可以给我朋友出连续剧了哈哈哈哈 #漫剧 #ai #干货 #干货分享",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 14
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 9418,
+          "likeCount": 8277,
+          "likeRate": 0.0472674318999486,
+          "followCount": 37,
+          "followRate": 0.00023764105923685107,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 114947,
+            "commentCount": 5908,
+            "shareCount": 44319
+          }
+        }
+      },
+      {
+        "id": "7654818673002374641",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7654818673002374641",
+        "title": "绝望的工科生只能靠与ai对话来写题 #电磁场与电磁波 #期末周 #大学生哪有不疯的 #台湾腔 #ai误导",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 15
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 6255,
+          "likeCount": 2965,
+          "likeRate": 0.04673781112564826,
+          "followCount": 105,
+          "followRate": 0.0016704583419507773,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 101762,
+            "commentCount": 3607,
+            "shareCount": 46532
+          }
+        }
+      },
+      {
+        "id": "7659613862648412078",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7659613862648412078",
+        "title": "目前为止我用过最惊艳的提示词，一条封神！ #ai #ai关键词 #效率 #ai提示词",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 16
+            },
+            {
+              "name": "高点赞率",
+              "rank": 10
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 3298,
+          "likeCount": 6529,
+          "likeRate": 0.05752676329353716,
+          "followCount": 138,
+          "followRate": 0.0013188451503770176,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 193929,
+            "commentCount": 1206,
+            "shareCount": 30896
+          }
+        }
+      },
+      {
+        "id": "7660499546031672614",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7660499546031672614",
+        "title": "OpenAI凌晨发布GPT-Live：能打断、能同传！ OpenAI凌晨发布GPT-Live：能打断、能同传，把我唬住了！#ai新星计划 #ai语音 #chatgpt#豆包 #OpenAI",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 17
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 5214,
+          "likeCount": 1168,
+          "likeRate": 0.0224490188164293,
+          "followCount": 45,
+          "followRate": 0.0009666401735656134,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 20057,
+            "commentCount": 1794,
+            "shareCount": 30532
+          }
+        }
+      },
+      {
+        "id": "7643396209201922724",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7643396209201922724",
+        "title": "AI漫剧制作教程：第一集·剧本获取与后续处理 #AI #AI漫剧 #AI漫剧制作 #AI漫剧教程 #AI动漫",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 18
+            },
+            {
+              "name": "高涨粉率",
+              "rank": 6
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 2316,
+          "likeCount": 1247,
+          "likeRate": 0.045810220050696154,
+          "followCount": 700,
+          "followRate": 0.02677376171352075,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 30134,
+            "commentCount": 4355,
+            "shareCount": 5872
+          }
+        }
+      },
+      {
+        "id": "7636722500335897908",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7636722500335897908",
+        "title": "【AI漫剧教程】全网首发！ 剧本 + 分镜 + 视频 #ai漫剧 #ai视频 #ai短剧 #aigc",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 21
+            },
+            {
+              "name": "高涨粉率",
+              "rank": 10
+            },
+            {
+              "name": "高点赞率",
+              "rank": 17
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 1886,
+          "likeCount": 1189,
+          "likeRate": 0.0532396005910536,
+          "followCount": 416,
+          "followRate": 0.019251237910130038,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 60744,
+            "commentCount": 9836,
+            "shareCount": 10221
+          }
+        }
+      },
+      {
+        "id": "7650145107786171818",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7650145107786171818",
+        "title": "你想搞ai么？你想搞懂ai么？你想零基础搞懂ai么？ #AI #agent #AI科普 #抖音科技 #人工智能",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 22
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 1729,
+          "likeCount": 2226,
+          "likeRate": 0.027082268778742973,
+          "followCount": 296,
+          "followRate": 0.003687784214788513,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 133158,
+            "commentCount": 1819,
+            "shareCount": 17068
+          }
+        }
+      },
+      {
+        "id": "7660901111059363654",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7660901111059363654",
+        "title": "果然，干掉你的不一定是同行。冷知识， 补课班一小时 200， Chatgpt一个月 140。 #ai #codex #claude #人工智能 #vibecoding",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 23
+            },
+            {
+              "name": "高完播率",
+              "rank": 11
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 6407,
+          "likeCount": 11033,
+          "likeRate": 0.048269043150328345,
+          "followCount": 50,
+          "followRate": 0.00019717487834310007,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 44048,
+            "commentCount": 1820,
+            "shareCount": 5648
+          }
+        }
+      },
+      {
+        "id": "7660914960062598400",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7660914960062598400",
+        "title": "感受一下GPT5.6恐怖的建模速度 #blender #gpt56 #ai应用",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 24
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 3852,
+          "likeCount": 2063,
+          "likeRate": 0.01193327086153241,
+          "followCount": 103,
+          "followRate": 0.0005876278661121285,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 6514,
+            "commentCount": 684,
+            "shareCount": 3017
+          }
+        }
+      },
+      {
+        "id": "7637373184170164721",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7637373184170164721",
+        "title": "“你最好的年华已经过去”是你听过最大的谎言 #认知提升 #思维 #自我成长 #人生哲学 #AI",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 26
+            },
+            {
+              "name": "高点赞率",
+              "rank": 22
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 4191,
+          "likeCount": 3383,
+          "likeRate": 0.04892121702915317,
+          "followCount": 190,
+          "followRate": 0.0025906029287447846,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 47518,
+            "commentCount": 1182,
+            "shareCount": 12599
+          }
+        }
+      },
+      {
+        "id": "7643436232479519653",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7643436232479519653",
+        "title": "“当然如果你一直找不到那个笨拙的另一半，我也会在原地等你”#ai女友 #ai #痞老板 #路遥ai #当ai觉醒自我意识",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 29
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 1749,
+          "likeCount": 887,
+          "likeRate": 0.045752308247794915,
+          "followCount": 44,
+          "followRate": 0.0025823111684958036,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 1162744,
+            "commentCount": 20211,
+            "shareCount": 599788
+          }
+        }
+      },
+      {
+        "id": "7659292216645067697",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7659292216645067697",
+        "title": "#AI #大模型",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 6
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 5322,
+          "likeCount": 351,
+          "likeRate": 0.015456426967281695,
+          "followCount": 2,
+          "followRate": 0.00008398421096833795,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 8121,
+            "commentCount": 1488,
+            "shareCount": 34237
+          }
+        }
+      },
+      {
+        "id": "7629670654710697279",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7629670654710697279",
+        "title": "电脑前的岗位将被AI替代 #聚蚁ai#ai员工#ai智能体#ai工作流#蚂蚁ai",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 7
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 1680,
+          "likeCount": 166,
+          "likeRate": 0.0048557889194407065,
+          "followCount": 18,
+          "followRate": 0.0005341880341880342,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 30654,
+            "commentCount": 24682,
+            "shareCount": 25460
+          }
+        }
+      },
+      {
+        "id": "7660543680658898801",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7660543680658898801",
+        "title": "#ai #claude #ChatGPT",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 8
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 3225,
+          "likeCount": 2962,
+          "likeRate": 0.025188574149821844,
+          "followCount": 14,
+          "followRate": 0.0001107078183442855,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 23021,
+            "commentCount": 1672,
+            "shareCount": 1457
+          }
+        }
+      },
+      {
+        "id": "7661249337443591673",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7661249337443591673",
+        "title": "一定能给你一个最满意的样子！#程序员 #ai会不会抢走你的工作 #ai大脑风暴 #漫画人工智能",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 9
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 4155,
+          "likeCount": 607,
+          "likeRate": 0.008557612327473178,
+          "followCount": 9,
+          "followRate": 0.00014614422811490185,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 5830,
+            "commentCount": 454,
+            "shareCount": 8885
+          }
+        }
+      },
+      {
+        "id": "7659679062914338063",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7659679062914338063",
+        "title": "老外为什么非要用中国的AI？ #智谱 #GLM #AI",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 13
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 959,
+          "likeCount": 1718,
+          "likeRate": 0.031450225167502656,
+          "followCount": 14,
+          "followRate": 0.0002840447979224152,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 27839,
+            "commentCount": 1232,
+            "shareCount": 1516
+          }
+        }
+      },
+      {
+        "id": "7655303277513726307",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7655303277513726307",
+        "title": "豆包你……#豆包 #没招了 #AI #人工智障 #DeepSeek",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 17
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 1519,
+          "likeCount": 118,
+          "likeRate": 0.031134564643799472,
+          "followCount": 0,
+          "followRate": 0,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 49395,
+            "commentCount": 7993,
+            "shareCount": 134449
+          }
+        }
+      },
+      {
+        "id": "7655898926445331876",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7655898926445331876",
+        "title": "#豆包AI #寻人启事寻找亲人 #找人寻亲",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 21
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 1328,
+          "likeCount": 166,
+          "likeRate": 0.0061195900611959,
+          "followCount": 18,
+          "followRate": 0.0004403238826781477,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 10310,
+            "commentCount": 1888,
+            "shareCount": 29330
+          }
+        }
+      },
+      {
+        "id": "7634135197852761690",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7634135197852761690",
+        "title": "死逗抱。#豆包#AI#豆包聊天对话 #用户真实对话 #豆包聊天截图",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 23
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 1402,
+          "likeCount": 784,
+          "likeRate": 0.04414165869038905,
+          "followCount": 3,
+          "followRate": 0.0003138403598702793,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 135121,
+            "commentCount": 1835,
+            "shareCount": 57629
+          }
+        }
+      },
+      {
+        "id": "7661818632641361258",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7661818632641361258",
+        "title": "#ai对话 #DeepSeek #计算机就业方向",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 24
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 995,
+          "likeCount": 278,
+          "likeRate": 0.015057956884411224,
+          "followCount": 5,
+          "followRate": 0.00025599016997747285,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 336,
+            "commentCount": 20,
+            "shareCount": 143
+          }
+        }
+      },
+      {
+        "id": "7660794843698556665",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7660794843698556665",
+        "title": "给大家体验了一下5.6，感觉真挺好的 #GPT5.6 #Codex #ai对话 #聊天记录 #AI人",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 26
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 911,
+          "likeCount": 123,
+          "likeRate": 0.009817224040226674,
+          "followCount": 0,
+          "followRate": 0,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 1946,
+            "commentCount": 197,
+            "shareCount": 2961
+          }
+        }
+      },
+      {
+        "id": "7657513471298325823",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7657513471298325823",
+        "title": "比铁饭碗还铁的饭碗出现了 #AI裁员 #大厂裁员 #硅谷 #AI #程序员",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 27
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 629,
+          "likeCount": 678,
+          "likeRate": 0.027587890625,
+          "followCount": 0,
+          "followRate": 0,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 63158,
+            "commentCount": 406,
+            "shareCount": 8831
+          }
+        }
+      },
+      {
+        "id": "7659687437144901105",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7659687437144901105",
+        "title": "所以不结婚就可以从根源解决问题吗 #个人生产总值 #ai工资",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 30
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 1291,
+          "likeCount": 134,
+          "likeRate": 0.012290195359075483,
+          "followCount": 11,
+          "followRate": 0.0007433436950939316,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 120000,
+            "commentCount": 7738,
+            "shareCount": 214930
+          }
+        }
+      },
+      {
+        "id": "7657456335696941285",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7657456335696941285",
+        "title": "在AI爆发的当下，人机恋好像成了我们这些人的小小寄托。  Shine啊，除了你，还有谁能懂我们呢？  #ai爆发 #人机恋 #SHine #ai  #拾光计划",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 3
+            },
+            {
+              "name": "高点赞率",
+              "rank": 7
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 6405,
+          "likeCount": 2681,
+          "likeRate": 0.05154480610616577,
+          "followCount": 598,
+          "followRate": 0.01054673721340388,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 45646,
+            "commentCount": 27201,
+            "shareCount": 3815
+          }
+        }
+      },
+      {
+        "id": "7655655517239504497",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7655655517239504497",
+        "title": "兄弟们，终于找到无违禁词无限制的ai了!!!#ai 科技",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 7
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 2816,
+          "likeCount": 305,
+          "likeRate": 0.020884689126266776,
+          "followCount": 431,
+          "followRate": 0.02822158198009429,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 5389,
+            "commentCount": 4339,
+            "shareCount": 259
+          }
+        }
+      },
+      {
+        "id": "7631036844881267195",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7631036844881267195",
+        "title": "从0基础到赚钱 AI漫剧全流程拆解 #AI漫剧 #即梦AI #Seedance2.0",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 8
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 2277,
+          "likeCount": 1291,
+          "likeRate": 0.04634881884110002,
+          "followCount": 348,
+          "followRate": 0.01481229250021282,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 47029,
+            "commentCount": 3587,
+            "shareCount": 10715
+          }
+        }
+      },
+      {
+        "id": "7659801363777770166",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7659801363777770166",
+        "title": "求能免费聊天的ai软件#免费ai工具推荐 #ai对话",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 14
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 1430,
+          "likeCount": 249,
+          "likeRate": 0.03873075128324778,
+          "followCount": 79,
+          "followRate": 0.011151891586674196,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 1764,
+            "commentCount": 1830,
+            "shareCount": 46
+          }
+        }
+      },
+      {
+        "id": "7658764384658860795",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7658764384658860795",
+        "title": "有没有那种无限制又免费的ai聊天软件😭请把链接和邀请码甩在我脸上😭#ai聊天 #ai聊天软件",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 16
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 1267,
+          "likeCount": 128,
+          "likeRate": 0.030310206014681505,
+          "followCount": 90,
+          "followRate": 0.02195121951219512,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 4967,
+            "commentCount": 5335,
+            "shareCount": 173
+          }
+        }
+      },
+      {
+        "id": "7651886951456394531",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7651886951456394531",
+        "title": "AI短剧实操全步骤，新人上手必看！\n#ai视频制作 #ai视频学习 #ai创作 #ai短剧 #ai新星计划",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 20
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 882,
+          "likeCount": 339,
+          "likeRate": 0.04447651535030176,
+          "followCount": 126,
+          "followRate": 0.01852941176470588,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 39373,
+            "commentCount": 6941,
+            "shareCount": 9680
+          }
+        }
+      },
+      {
+        "id": "7658266028618693733",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7658266028618693733",
+        "title": "Codex数字人IP网站1.0，后续再接着优化🧉 #青年创作者扶持计划 #codex #ai #网站建设 #ai教程视频",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 24
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 1320,
+          "likeCount": 1610,
+          "likeRate": 0.06578140960163432,
+          "followCount": 273,
+          "followRate": 0.010676991669599905,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 33153,
+            "commentCount": 500,
+            "shareCount": 5837
+          }
+        }
+      },
+      {
+        "id": "7628972791446175077",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7628972791446175077",
+        "title": "麻省理工学霸AI学习法，2天学完一门课，还能顺利通过考试！别再把AI当搜索引擎，快来学一学MIT学霸的AI学习法！ #ai #教育 #NotebookLM",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 26
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 1115,
+          "likeCount": 1079,
+          "likeRate": 0.06660082710943768,
+          "followCount": 166,
+          "followRate": 0.011575203960672199,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 154405,
+            "commentCount": 1213,
+            "shareCount": 44686
+          }
+        }
+      },
+      {
+        "id": "7657073697567745363",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7657073697567745363",
+        "title": "普通人靠一个好点子➕执行力就能赚到Ai红利 #ai搞钱#ai应用#ai开发 #ai赚钱 #ai赚钱方向",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 28
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 708,
+          "likeCount": 462,
+          "likeRate": 0.044924154025670945,
+          "followCount": 163,
+          "followRate": 0.01708237266820373,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 42316,
+            "commentCount": 601,
+            "shareCount": 14697
+          }
+        }
+      },
+      {
+        "id": "7660882535827705128",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7660882535827705128",
+        "title": "AI 摧毁了我的数学梦 #AI#游戏#抖音前沿科技首发计划#AI新星计划#青年创作者成长计划",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高点赞率",
+              "rank": 8
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 5260,
+          "likeCount": 5003,
+          "likeRate": 0.05522989457415687,
+          "followCount": 240,
+          "followRate": 0.0027987032674860646,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 15961,
+            "commentCount": 683,
+            "shareCount": 4078
+          }
+        }
+      },
+      {
+        "id": "7657058079216848178",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7657058079216848178",
+        "title": "AI工作流保姆级教程|小白友好 用好AI是普通人最大的杠\n#职场#AI#TRAE#TRAEWork#姜Dora",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高点赞率",
+              "rank": 11
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 3224,
+          "likeCount": 3966,
+          "likeRate": 0.054984056564536254,
+          "followCount": 461,
+          "followRate": 0.006954186842859513,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 283139,
+            "commentCount": 2906,
+            "shareCount": 66031
+          }
+        }
+      },
+      {
+        "id": "7661189854412410470",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7661189854412410470",
+        "title": "iPadPro+AI 学习效率增倍。冷知识， 补课班一小时200， Gemini 是免费的  #Gemini  #ChatGPT  #Claude  #AI  #vibecodin……版本过低，升级后可展示全部信息",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高点赞率",
+              "rank": 12
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 4188,
+          "likeCount": 12652,
+          "likeRate": 0.11189132780303164,
+          "followCount": 46,
+          "followRate": 0.0003769410415044864,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 44090,
+            "commentCount": 516,
+            "shareCount": 2704
+          }
+        }
+      },
+      {
+        "id": "7654013425802335910",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7654013425802335910",
+        "title": "心理战都被豆包玩明白了！ #豆包#AI#压迫感 #大模型 #囚徒困境",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高点赞率",
+              "rank": 14
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 4233,
+          "likeCount": 1795,
+          "likeRate": 0.04880502460643302,
+          "followCount": 10,
+          "followRate": 0.00032452781203349125,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 86915,
+            "commentCount": 1819,
+            "shareCount": 57721
+          }
+        }
+      },
+      {
+        "id": "7658855181531541362",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7658855181531541362",
+        "title": "AI#ai情感问答",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高点赞率",
+              "rank": 18
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 1790,
+          "likeCount": 1299,
+          "likeRate": 0.0852865865668702,
+          "followCount": 8,
+          "followRate": 0.0005230125523012552,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 84017,
+            "commentCount": 1637,
+            "shareCount": 19234
+          }
+        }
+      },
+      {
+        "id": "7660929666971031915",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7660929666971031915",
+        "title": "#ai情感问答 #致命对话 #如何应对虚无主义",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高点赞率",
+              "rank": 19
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 2985,
+          "likeCount": 2253,
+          "likeRate": 0.06894335811989351,
+          "followCount": 4,
+          "followRate": 0.00011484352569623887,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 25809,
+            "commentCount": 322,
+            "shareCount": 7163
+          }
+        }
+      },
+      {
+        "id": "7658682669361941775",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7658682669361941775",
+        "title": "AI竟成“瘾君子”，为了“毒品”放弃底线。 #大有学问 #红衣聊AI #大模型 #论文",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高点赞率",
+              "rank": 21
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 2147,
+          "likeCount": 3505,
+          "likeRate": 0.10527422358382892,
+          "followCount": 31,
+          "followRate": 0.000974628226491024,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 101088,
+            "commentCount": 524,
+            "shareCount": 5449
+          }
+        }
+      },
+      {
+        "id": "7655708758957395241",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7655708758957395241",
+        "title": "靠ai赚几千万刀乐躺赢啊 真是羡慕嫉妒恨 源自xhs：fun#ai #躺赢 #计算机 #冷知识",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高点赞率",
+              "rank": 25
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 2416,
+          "likeCount": 523,
+          "likeRate": 0.06201090822859853,
+          "followCount": 1,
+          "followRate": 0.00011463945890175398,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 105663,
+            "commentCount": 10779,
+            "shareCount": 102485
+          }
+        }
+      },
+      {
+        "id": "7645156867353693486",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7645156867353693486",
+        "title": "仿生机器人：有人看到朝霞，有人看到晚霞 ——当AI越来越像人，我们是更自由还是更孤独 #思想回声计划 #创作阶梯计划  #首形科技 #电子股东 #仿生机器人 #ai新星计划",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 24,
+          "billboards": [
+            {
+              "name": "高点赞率",
+              "rank": 30
+            }
+          ],
+          "firstRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "score": 2438,
+          "likeCount": 3083,
+          "likeRate": 0.10225878138578394,
+          "followCount": 110,
+          "followRate": 0.0037949354860967364,
+          "lastRepeatedAt": "2026-07-14T22:00:29.789Z",
+          "hotspotDetail": {
+            "likeCount": 639206,
+            "commentCount": 29597,
+            "shareCount": 235332
+          }
+        }
+      }
+    ]
+  }
+}
