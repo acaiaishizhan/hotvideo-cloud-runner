@@ -3,7 +3,9 @@
 //  Doubao Files API helper: large local video -> temporary file_id
 // ============================================================
 
+import crypto from 'node:crypto';
 import fs from 'node:fs';
+import https from 'node:https';
 import path from 'node:path';
 
 const DEFAULT_FILES_BASE_URL = 'https://ark.cn-beijing.volces.com/api/v3';
@@ -25,9 +27,14 @@ export function resolveDoubaoFilesOptions(env = process.env) {
   const activeTimeoutMs = Number.parseInt(env.HOTVIDEO_DOUBAO_FILE_ACTIVE_TIMEOUT_MS || '', 10);
   const pollIntervalMs = Number.parseInt(env.HOTVIDEO_DOUBAO_FILE_POLL_INTERVAL_MS || '', 10);
   const preprocessFps = Number.parseFloat(env.HOTVIDEO_DOUBAO_FILE_PREPROCESS_FPS || '');
+  const uploadTransport = (env.HOTVIDEO_DOUBAO_FILE_UPLOAD_TRANSPORT || 'fetch').trim().toLowerCase();
+  if (uploadTransport !== 'fetch' && uploadTransport !== 'https') {
+    throw new Error(`不支持的 HOTVIDEO_DOUBAO_FILE_UPLOAD_TRANSPORT: ${uploadTransport}`);
+  }
   return {
     apiKey: env.HOTVIDEO_DOUBAO_API_KEY || env.ARK_API_KEY || '',
     filesBaseUrl: (env.HOTVIDEO_DOUBAO_FILES_BASE_URL || DEFAULT_FILES_BASE_URL).replace(/\/+$/, ''),
+    uploadTransport,
     uploadTimeoutMs: Number.isFinite(uploadTimeoutMs) && uploadTimeoutMs > 0
       ? uploadTimeoutMs
       : DEFAULT_UPLOAD_TIMEOUT_MS,
@@ -41,6 +48,68 @@ export function resolveDoubaoFilesOptions(env = process.env) {
       ? preprocessFps
       : DEFAULT_PREPROCESS_FPS,
   };
+}
+
+export function buildDoubaoMultipartBody(videoPath, options, boundary = `----hotvideo-${crypto.randomUUID()}`) {
+  const video = fs.readFileSync(videoPath);
+  const filename = path.basename(videoPath).replace(/["\r\n]/g, '_');
+  const prefix = Buffer.from([
+    `--${boundary}\r\n`,
+    'Content-Disposition: form-data; name="purpose"\r\n\r\n',
+    'user_data\r\n',
+    `--${boundary}\r\n`,
+    'Content-Disposition: form-data; name="preprocess_configs[video][fps]"\r\n\r\n',
+    `${options.preprocessFps}\r\n`,
+    `--${boundary}\r\n`,
+    `Content-Disposition: form-data; name="file"; filename="${filename}"\r\n`,
+    'Content-Type: video/mp4\r\n\r\n',
+  ].join(''), 'utf-8');
+  const suffix = Buffer.from(`\r\n--${boundary}--\r\n`, 'utf-8');
+  return {
+    body: Buffer.concat([prefix, video, suffix]),
+    boundary,
+    videoBytes: video.length,
+    videoSha256: crypto.createHash('sha256').update(video).digest('hex'),
+  };
+}
+
+function uploadWithHttpsMultipart(url, videoPath, options) {
+  const multipart = buildDoubaoMultipartBody(videoPath, options);
+  console.log(`Doubao Files upload digest: ${JSON.stringify({
+    transport: 'https',
+    videoBytes: multipart.videoBytes,
+    videoSha256: multipart.videoSha256,
+    contentLength: multipart.body.length,
+  })}`);
+  return new Promise((resolve, reject) => {
+    const req = https.request(url, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${options.apiKey}`,
+        'Content-Type': `multipart/form-data; boundary=${multipart.boundary}`,
+        'Content-Length': multipart.body.length,
+      },
+    }, res => {
+      const chunks = [];
+      res.on('data', chunk => chunks.push(chunk));
+      res.on('end', () => {
+        const status = res.statusCode || 0;
+        const text = Buffer.concat(chunks).toString('utf-8');
+        resolve({
+          ok: status >= 200 && status < 300,
+          status,
+          text: async () => text,
+        });
+      });
+    });
+    req.setTimeout(options.uploadTimeoutMs, () => {
+      const error = new Error(`Doubao Files 上传超时: ${options.uploadTimeoutMs}ms`);
+      error.name = 'AbortError';
+      req.destroy(error);
+    });
+    req.on('error', reject);
+    req.end(multipart.body);
+  });
 }
 
 async function fetchWithTimeout(url, init, timeoutMs) {
@@ -75,17 +144,22 @@ export async function uploadDoubaoVideoFile(videoPath, opts = {}) {
     throw new Error('缺少 ARK_API_KEY 或 HOTVIDEO_DOUBAO_API_KEY');
   }
 
-  const buffer = fs.readFileSync(videoPath);
-  const form = new FormData();
-  form.append('purpose', 'user_data');
-  form.append('preprocess_configs[video][fps]', String(options.preprocessFps));
-  form.append('file', new Blob([buffer], { type: 'video/mp4' }), path.basename(videoPath));
-
-  const res = await fetchWithTimeout(`${options.filesBaseUrl}/files`, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${options.apiKey}` },
-    body: form,
-  }, options.uploadTimeoutMs);
+  let res;
+  if (options.uploadTransport === 'https') {
+    const uploadImpl = options.uploadHttpsImpl || uploadWithHttpsMultipart;
+    res = await uploadImpl(`${options.filesBaseUrl}/files`, videoPath, options);
+  } else {
+    const buffer = fs.readFileSync(videoPath);
+    const form = new FormData();
+    form.append('purpose', 'user_data');
+    form.append('preprocess_configs[video][fps]', String(options.preprocessFps));
+    form.append('file', new Blob([buffer], { type: 'video/mp4' }), path.basename(videoPath));
+    res = await fetchWithTimeout(`${options.filesBaseUrl}/files`, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${options.apiKey}` },
+      body: form,
+    }, options.uploadTimeoutMs);
+  }
   const data = await parseJsonResponse(res, 'Doubao Files 上传失败');
   const fileId = pickFileId(data);
   if (!fileId) {
