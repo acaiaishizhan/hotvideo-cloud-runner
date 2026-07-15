@@ -204,8 +204,10 @@ export async function runAnalyze(sourceName) {
 
       let analysisMeta = meta;
       let proxyRuntime = null;
-      if (itemLane === 'slow' && process.env.HOTVIDEO_ANALYZE_PROXY_ENABLED !== '0') {
+      const proxyAllVideos = process.env.HOTVIDEO_ANALYZE_PROXY_ALL === '1';
+      if ((proxyAllVideos || itemLane === 'slow') && process.env.HOTVIDEO_ANALYZE_PROXY_ENABLED !== '0') {
         proxyRuntime = prepareAnalysisVideoProxy(videoPath, durationSec);
+        log(`  标准分析副本${proxyRuntime.cached ? '命中缓存' : '生成完成'}: ${(proxyRuntime.proxyBytes / 1024 / 1024).toFixed(1)}MB`);
         analysisMeta = {
           ...meta,
           files: { ...(meta.files || {}), videoPath: proxyRuntime.path },

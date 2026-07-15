@@ -344,7 +344,8 @@ export async function analyzeVideoWithDoubao(videoDir, meta = {}, opts = {}) {
     try {
       data = await callDoubaoWithRetry(body, options);
     } catch (error) {
-      if (!shouldFallbackToFileId(error, input.inputMode)) throw error;
+      if (process.env.HOTVIDEO_DOUBAO_FILE_FALLBACK_ENABLED === '0'
+        || !shouldFallbackToFileId(error, input.inputMode)) throw error;
       console.warn(`Doubao data URL 解析失败，切换 Files API: ${path.basename(videoPath)}`);
       input = await uploadVideoForChat(videoPath, options);
       body = buildDoubaoChatBody({

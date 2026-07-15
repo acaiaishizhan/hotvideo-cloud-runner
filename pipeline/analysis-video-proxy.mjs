@@ -2,10 +2,10 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 
-const DEFAULT_TARGET_BYTES = 64 * 1024 * 1024;
-const DEFAULT_AUDIO_KBPS = 24;
-const DEFAULT_MIN_VIDEO_KBPS = 32;
-const DEFAULT_MAX_VIDEO_KBPS = 200;
+const DEFAULT_TARGET_BYTES = 20 * 1024 * 1024;
+const DEFAULT_AUDIO_KBPS = 32;
+const DEFAULT_MIN_VIDEO_KBPS = 48;
+const DEFAULT_MAX_VIDEO_KBPS = 300;
 const DEFAULT_TIMEOUT_MS = 1800000;
 const MIN_VALID_BYTES = 1024;
 
@@ -40,9 +40,11 @@ export function buildAnalysisProxyArgs(inputPath, outputPath, options) {
     '-i', inputPath,
     '-map', '0:v:0?',
     '-map', '0:a:0?',
-    '-vf', 'scale=-2:240:force_original_aspect_ratio=decrease,pad=ceil(iw/2)*2:ceil(ih/2)*2,fps=1',
+    '-vf', 'scale=-2:360:force_original_aspect_ratio=decrease,pad=ceil(iw/2)*2:ceil(ih/2)*2,fps=4',
     '-c:v', 'libx264',
     '-preset', 'veryfast',
+    '-profile:v', 'main',
+    '-pix_fmt', 'yuv420p',
     '-b:v', `${options.videoKbps}k`,
     '-maxrate', `${options.videoKbps}k`,
     '-bufsize', `${options.videoKbps * 2}k`,
