@@ -16,9 +16,50 @@ permissions:
   contents: read
 
 jobs:
-  process:
+  prepare:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    outputs:
+      files: ${{ steps.queue_files.outputs.files }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Select queue manifests
+        id: queue_files
+        shell: bash
+        env:
+          MANUAL_QUEUE_FILE: ${{ inputs.queue_file }}
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            files=("$MANUAL_QUEUE_FILE")
+          else
+            mapfile -t files < <(git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA" -- 'queue/*.json')
+          fi
+
+          if [[ ${#files[@]} -eq 0 ]]; then
+            echo 'No queue manifest found in this commit.'
+            exit 1
+          fi
+
+          for file in "${files[@]}"; do
+            [[ "$file" == queue/*.json ]]
+            test -f "$file"
+          done
+
+          json="$(printf '%s\n' "${files[@]}" | jq -Rsc 'split("\n") | map(select(length > 0))')"
+          echo "files=$json" >> "$GITHUB_OUTPUT"
+
+  process:
+    needs: prepare
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        queue_file: ${{ fromJSON(needs.prepare.outputs.files) }}
     env:
       ARK_API_KEY: ${{ secrets.ARK_API_KEY }}
       LARK_APP_ID: ${{ secrets.LARK_APP_ID }}
@@ -27,7 +68,9 @@ jobs:
       HOTVIDEO_FEISHU_TABLE_ID: ${{ secrets.HOTVIDEO_FEISHU_TABLE_ID }}
       HOTVIDEO_FEISHU_ATTACHMENT_FIELD: fldgReMdHu
       HOTVIDEO_ANALYZE_CONCURRENCY: '5'
-      HOTVIDEO_PIPELINE_ATTEMPTS: '3'
+      HOTVIDEO_DOUBAO_ANALYZE_RETRIES: '2'
+      HOTVIDEO_DOUBAO_ANALYZE_RETRY_DELAY_MS: '30000'
+      HOTVIDEO_PIPELINE_ATTEMPTS: '1'
 
     steps:
       - uses: actions/checkout@v4
@@ -74,22 +117,5 @@ jobs:
 
       - name: Process queue manifests
         shell: bash
-        env:
-          MANUAL_QUEUE_FILE: ${{ inputs.queue_file }}
         run: |
-          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-            files=("$MANUAL_QUEUE_FILE")
-          else
-            mapfile -t files < <(git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA" -- 'queue/*.json')
-          fi
-
-          if [[ ${#files[@]} -eq 0 ]]; then
-            echo 'No queue manifest found in this commit.'
-            exit 1
-          fi
-
-          for file in "${files[@]}"; do
-            [[ "$file" == queue/*.json ]]
-            test -f "$file"
-            node scripts/run-queue.mjs "$file"
-          done
+          node scripts/run-queue.mjs "${{ matrix.queue_file }}"
