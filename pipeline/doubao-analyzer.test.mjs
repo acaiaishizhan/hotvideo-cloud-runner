@@ -10,6 +10,7 @@ import {
   buildDoubaoRequestDigest,
   extractDoubaoChatJson,
   resolveDoubaoAnalyzerOptions,
+  shouldInlineDoubaoVideo,
 } from './doubao-analyzer.mjs';
 
 test('buildDoubaoAnalyzePrompt requires an explicit spoken-audio mark and forbids OCR fallback', () => {
@@ -90,6 +91,7 @@ test('resolveDoubaoAnalyzerOptions reads explicit env settings', () => {
     HOTVIDEO_DOUBAO_BASE_URL: 'https://example.test/api/',
     HOTVIDEO_DOUBAO_ANALYZE_MODEL: 'doubao-test',
     HOTVIDEO_DOUBAO_HTTP_TRANSPORT: 'fetch',
+    HOTVIDEO_DOUBAO_FORCE_FILE_INPUT_ON_CLOUD: '1',
     HOTVIDEO_DOUBAO_ANALYZE_TIMEOUT_MS: '1234',
     HOTVIDEO_DOUBAO_ANALYZE_RETRIES: '4',
     HOTVIDEO_DOUBAO_ANALYZE_RETRY_DELAY_MS: '50',
@@ -101,6 +103,7 @@ test('resolveDoubaoAnalyzerOptions reads explicit env settings', () => {
   assert.equal(options.baseUrl, 'https://example.test/api');
   assert.equal(options.model, 'doubao-test');
   assert.equal(options.transport, 'fetch');
+  assert.equal(options.forceFileInput, true);
   assert.equal(options.timeoutMs, 1234);
   assert.equal(options.retries, 4);
   assert.equal(options.retryDelayMs, 50);
@@ -116,6 +119,7 @@ test('resolveDoubaoAnalyzerOptions uses bounded fast-lane requests without inlin
   assert.equal(options.timeoutMs, 360000);
   assert.equal(options.retries, 0);
   assert.equal(options.transport, 'https');
+  assert.equal(options.forceFileInput, false);
 });
 
 test('resolveDoubaoAnalyzerOptions keeps a longer timeout for the slow lane', () => {
@@ -126,6 +130,21 @@ test('resolveDoubaoAnalyzerOptions keeps a longer timeout for the slow lane', ()
 
   assert.equal(options.timeoutMs, 900000);
   assert.equal(options.retries, 0);
+});
+
+test('shouldInlineDoubaoVideo keeps local size behavior and allows cloud file input', () => {
+  assert.equal(shouldInlineDoubaoVideo({ size: 1024 }, {
+    forceFileInput: false,
+    maxVideoBytes: 2048,
+  }), true);
+  assert.equal(shouldInlineDoubaoVideo({ size: 1024 }, {
+    forceFileInput: true,
+    maxVideoBytes: 2048,
+  }), false);
+  assert.equal(shouldInlineDoubaoVideo({ size: 4096 }, {
+    forceFileInput: false,
+    maxVideoBytes: 2048,
+  }), false);
 });
 
 test('analyzeVideoWithDoubao uploads oversized videos through Files API and cleans up', async (t) => {

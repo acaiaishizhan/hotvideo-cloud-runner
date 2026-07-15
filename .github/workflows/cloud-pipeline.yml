@@ -75,6 +75,7 @@ jobs:
       HOTVIDEO_ANALYZE_CONCURRENCY: '5'
       HOTVIDEO_PIPELINE_ATTEMPTS: '1'
       HOTVIDEO_DOUBAO_HTTP_TRANSPORT: fetch
+      HOTVIDEO_DOUBAO_FORCE_FILE_INPUT_ON_CLOUD: '1'
 
     steps:
       - uses: actions/checkout@v4

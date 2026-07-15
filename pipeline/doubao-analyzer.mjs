@@ -57,6 +57,7 @@ export function resolveDoubaoAnalyzerOptions(env = process.env) {
     baseUrl: (env.HOTVIDEO_DOUBAO_BASE_URL || DEFAULT_BASE_URL).replace(/\/+$/, ''),
     model: env.HOTVIDEO_DOUBAO_ANALYZE_MODEL || env.HOTVIDEO_DOUBAO_MODEL || DEFAULT_MODEL,
     transport,
+    forceFileInput: env.HOTVIDEO_DOUBAO_FORCE_FILE_INPUT_ON_CLOUD === '1',
     timeoutMs: Number.isFinite(timeoutMs) && timeoutMs > 0 ? timeoutMs : defaultTimeoutMs,
     retries: Number.isFinite(retries) && retries >= 0 ? retries : 0,
     retryDelayMs: Number.isFinite(retryDelayMs) && retryDelayMs >= 0 ? retryDelayMs : 2500,
@@ -279,8 +280,12 @@ async function callDoubaoWithRetry(body, options) {
   throw lastErr;
 }
 
+export function shouldInlineDoubaoVideo(stat, options) {
+  return !options.forceFileInput && stat.size <= options.maxVideoBytes;
+}
+
 async function buildVideoUrlForChat(videoPath, stat, options) {
-  if (stat.size <= options.maxVideoBytes) {
+  if (shouldInlineDoubaoVideo(stat, options)) {
     const video = fs.readFileSync(videoPath);
     return {
       videoUrl: { url: `data:video/mp4;base64,${video.toString('base64')}` },
