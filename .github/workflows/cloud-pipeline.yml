@@ -44,6 +44,8 @@ jobs:
 
       - name: Install runtime
         run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends ffmpeg
           python -m pip install --disable-pip-version-check -e ./video-infra
           npm install --global @larksuite/cli@1.0.53
           FFMPEG_PATH="$(command -v ffmpeg)"
