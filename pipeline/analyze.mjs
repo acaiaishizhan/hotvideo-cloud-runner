@@ -194,13 +194,33 @@ async function analyzeWithChunkFallback(videoDir, analysisMeta, error) {
   const chunks = prepareAnalysisVideoChunks(videoPath);
   const concurrency = Number.parseInt(process.env.HOTVIDEO_ANALYZE_CHUNK_CONCURRENCY || '2', 10);
   log(`  整段解析失败，切为 ${chunks.length} 个视频分段，concurrency=${concurrency}`);
-  const outputs = await mapWithConcurrency(chunks, concurrency, (chunkPath, index) => (
-    analyzeVideoWithDoubao(videoDir, {
+  const outputs = await mapWithConcurrency(chunks, concurrency, async (chunkPath, index) => {
+    const chunkMeta = {
       ...analysisMeta,
       title: `${analysisMeta.title || ''} [分段 ${index + 1}/${chunks.length}]`,
       files: { ...(analysisMeta.files || {}), videoPath: chunkPath },
-    })
-  ));
+    };
+    try {
+      return await analyzeVideoWithDoubao(videoDir, chunkMeta);
+    } catch (chunkError) {
+      if (!shouldFallbackToFileId(chunkError, 'data_url')) throw chunkError;
+      const retrySeconds = Number.parseInt(process.env.HOTVIDEO_ANALYZE_RETRY_CHUNK_SECONDS || '60', 10);
+      const subchunks = prepareAnalysisVideoChunks(chunkPath, {
+        ...process.env,
+        HOTVIDEO_ANALYZE_CHUNK_SECONDS: String(retrySeconds),
+      });
+      if (subchunks.length <= 1) throw chunkError;
+      log(`  分段 ${index + 1}/${chunks.length} 仍解析失败，再切为 ${subchunks.length} 个 ${retrySeconds}s 小段`);
+      const suboutputs = await mapWithConcurrency(subchunks, 1, (subchunkPath, subindex) => (
+        analyzeVideoWithDoubao(videoDir, {
+          ...chunkMeta,
+          title: `${analysisMeta.title || ''} [分段 ${index + 1}.${subindex + 1}]`,
+          files: { ...(analysisMeta.files || {}), videoPath: subchunkPath },
+        })
+      ));
+      return mergeChunkDoubaoOutputs(suboutputs);
+    }
+  });
   return mergeChunkDoubaoOutputs(outputs);
 }
 
