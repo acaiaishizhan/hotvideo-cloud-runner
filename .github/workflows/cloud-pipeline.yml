@@ -82,7 +82,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '24'
 
       - name: Verify local runtime hashes
         run: node scripts/verify-runtime-sync.mjs
