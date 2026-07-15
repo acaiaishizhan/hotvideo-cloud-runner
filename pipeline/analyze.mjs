@@ -3,8 +3,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { prepareAnalysisVideoProxy } from './analysis-video-proxy.mjs';
-import { analyzeVideoWithDoubao } from './doubao-analyzer.mjs';
+import {
+  prepareAnalysisVideoChunks,
+  prepareAnalysisVideoProxy,
+} from './analysis-video-proxy.mjs';
+import {
+  analyzeVideoWithDoubao,
+  shouldFallbackToFileId,
+} from './doubao-analyzer.mjs';
 import { writeJsonAtomic } from './json-file.mjs';
 import { CONTENT_TYPES, TOPICS } from './prompt.mjs';
 import { isValidVideoFile, resolveVideoPath } from './video-file.mjs';
@@ -148,6 +154,56 @@ export async function mapWithConcurrency(items, concurrency, worker) {
   return results;
 }
 
+export function mergeChunkDoubaoOutputs(outputs) {
+  const results = outputs.map(output => output.result);
+  const spoken = results.filter(result => result?.has_spoken_audio === true);
+  const relevant = results.filter(result => result?.relevant === true);
+  const primary = relevant[0] || spoken[0] || results[0] || {};
+  const unique = values => [...new Set(values.flat().filter(Boolean))];
+  return {
+    result: {
+      has_spoken_audio: spoken.length > 0,
+      relevant: relevant.length > 0,
+      filter_reason: relevant.length > 0
+        ? ''
+        : unique(results.map(result => result?.filter_reason || '')).join('；') || '分段均不符合收录标准',
+      summary: primary.summary || '',
+      content_type: primary.content_type || '其他',
+      topics: unique(results.map(result => result?.topics || [])).slice(0, 3),
+      tags: unique(results.map(result => result?.tags || [])).slice(0, 5),
+      hook: primary.hook || '',
+      viral_reason: primary.viral_reason || '',
+      imitation_angle: primary.imitation_angle || '',
+      read_evidence: results.map(result => result?.read_evidence || '').filter(Boolean).join('；'),
+      full_video_copy: spoken.map(result => result.full_video_copy || '').filter(Boolean).join('\n'),
+    },
+    runtime: {
+      provider: 'doubao',
+      model: outputs[0]?.runtime?.model || '',
+      baseUrl: outputs[0]?.runtime?.baseUrl || '',
+      videoInput: 'chunked_data_url',
+      chunkCount: outputs.length,
+    },
+  };
+}
+
+async function analyzeWithChunkFallback(videoDir, analysisMeta, error) {
+  if (process.env.HOTVIDEO_DOUBAO_CHUNK_FALLBACK_ENABLED !== '1'
+    || !shouldFallbackToFileId(error, 'data_url')) throw error;
+  const videoPath = resolveVideoPath(videoDir, analysisMeta);
+  const chunks = prepareAnalysisVideoChunks(videoPath);
+  const concurrency = Number.parseInt(process.env.HOTVIDEO_ANALYZE_CHUNK_CONCURRENCY || '2', 10);
+  log(`  整段解析失败，切为 ${chunks.length} 个视频分段，concurrency=${concurrency}`);
+  const outputs = await mapWithConcurrency(chunks, concurrency, (chunkPath, index) => (
+    analyzeVideoWithDoubao(videoDir, {
+      ...analysisMeta,
+      title: `${analysisMeta.title || ''} [分段 ${index + 1}/${chunks.length}]`,
+      files: { ...(analysisMeta.files || {}), videoPath: chunkPath },
+    })
+  ));
+  return mergeChunkDoubaoOutputs(outputs);
+}
+
 export async function runAnalyze(sourceName) {
   const config = await loadSourceConfig(sourceName);
   const lane = resolveAnalyzeLane();
@@ -214,7 +270,12 @@ export async function runAnalyze(sourceName) {
         };
       }
 
-      const output = await analyzeVideoWithDoubao(videoDir, analysisMeta);
+      let output;
+      try {
+        output = await analyzeVideoWithDoubao(videoDir, analysisMeta);
+      } catch (error) {
+        output = await analyzeWithChunkFallback(videoDir, analysisMeta, error);
+      }
       const analysis = normalizeDoubaoAnalysis(output.result);
       const elapsedMs = Date.now() - startedAt;
       const next = {

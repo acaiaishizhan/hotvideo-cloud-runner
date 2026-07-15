@@ -7,6 +7,7 @@ const DEFAULT_AUDIO_KBPS = 32;
 const DEFAULT_MIN_VIDEO_KBPS = 48;
 const DEFAULT_MAX_VIDEO_KBPS = 300;
 const DEFAULT_TIMEOUT_MS = 1800000;
+const DEFAULT_CHUNK_SECONDS = 180;
 const MIN_VALID_BYTES = 1024;
 
 function positiveInt(value, fallback) {
@@ -45,6 +46,9 @@ export function buildAnalysisProxyArgs(inputPath, outputPath, options) {
     '-preset', 'veryfast',
     '-profile:v', 'main',
     '-pix_fmt', 'yuv420p',
+    '-g', '240',
+    '-keyint_min', '240',
+    '-sc_threshold', '0',
     '-b:v', `${options.videoKbps}k`,
     '-maxrate', `${options.videoKbps}k`,
     '-bufsize', `${options.videoKbps * 2}k`,
@@ -57,6 +61,51 @@ export function buildAnalysisProxyArgs(inputPath, outputPath, options) {
     '-movflags', '+faststart',
     outputPath,
   ];
+}
+
+export function buildAnalysisChunkArgs(inputPath, outputPattern, segmentSeconds = DEFAULT_CHUNK_SECONDS) {
+  return [
+    '-hide_banner',
+    '-loglevel', 'error',
+    '-y',
+    '-i', inputPath,
+    '-map', '0:v:0?',
+    '-map', '0:a:0?',
+    '-c', 'copy',
+    '-f', 'segment',
+    '-segment_time', String(segmentSeconds),
+    '-reset_timestamps', '1',
+    outputPattern,
+  ];
+}
+
+export function prepareAnalysisVideoChunks(videoPath, env = process.env) {
+  const segmentSeconds = positiveInt(env.HOTVIDEO_ANALYZE_CHUNK_SECONDS, DEFAULT_CHUNK_SECONDS);
+  const timeoutMs = positiveInt(env.HOTVIDEO_ANALYZE_PROXY_TIMEOUT_MS, DEFAULT_TIMEOUT_MS);
+  const ffmpeg = env.HOTVIDEO_ANALYZE_PROXY_FFMPEG || 'ffmpeg';
+  const chunksDir = path.join(path.dirname(videoPath), '.hotvideo-analysis-chunks');
+  const outputPattern = path.join(chunksDir, 'chunk-%03d.mp4');
+  fs.rmSync(chunksDir, { recursive: true, force: true });
+  fs.mkdirSync(chunksDir, { recursive: true });
+  try {
+    execFileSync(ffmpeg, buildAnalysisChunkArgs(videoPath, outputPattern, segmentSeconds), {
+      stdio: ['ignore', 'ignore', 'pipe'],
+      timeout: timeoutMs,
+      windowsHide: true,
+      maxBuffer: 8 * 1024 * 1024,
+    });
+    const chunks = fs.readdirSync(chunksDir)
+      .filter(name => /^chunk-\d+\.mp4$/.test(name))
+      .sort()
+      .map(name => path.join(chunksDir, name))
+      .filter(filePath => fs.statSync(filePath).size >= MIN_VALID_BYTES);
+    if (chunks.length === 0) throw new Error('未生成有效分段');
+    return chunks;
+  } catch (error) {
+    fs.rmSync(chunksDir, { recursive: true, force: true });
+    const stderr = Buffer.isBuffer(error?.stderr) ? error.stderr.toString('utf-8').trim() : '';
+    throw new Error(`生成分析分段失败: ${stderr || error.message}`);
+  }
 }
 
 function validCachedProxy(proxyPath, sourceStat) {
