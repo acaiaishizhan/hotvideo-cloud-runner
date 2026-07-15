@@ -5,12 +5,15 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { setTimeout as sleep } from 'node:timers/promises';
 
 const DEFAULT_FILES_BASE_URL = 'https://ark.cn-beijing.volces.com/api/v3';
 const DEFAULT_UPLOAD_TIMEOUT_MS = 1800000;
 const DEFAULT_POLL_INTERVAL_MS = 1500;
 const DEFAULT_ACTIVE_TIMEOUT_MS = 120000;
 const DEFAULT_PREPROCESS_FPS = 1;
+const DEFAULT_OPERATION_RETRIES = 2;
+const DEFAULT_RETRY_DELAY_MS = 10_000;
 
 function pickFileId(data) {
   return data?.id || data?.data?.id || data?.file?.id || '';
@@ -25,6 +28,8 @@ export function resolveDoubaoFilesOptions(env = process.env) {
   const activeTimeoutMs = Number.parseInt(env.HOTVIDEO_DOUBAO_FILE_ACTIVE_TIMEOUT_MS || '', 10);
   const pollIntervalMs = Number.parseInt(env.HOTVIDEO_DOUBAO_FILE_POLL_INTERVAL_MS || '', 10);
   const preprocessFps = Number.parseFloat(env.HOTVIDEO_DOUBAO_FILE_PREPROCESS_FPS || '');
+  const operationRetries = Number.parseInt(env.HOTVIDEO_DOUBAO_FILE_RETRIES || '', 10);
+  const retryDelayMs = Number.parseInt(env.HOTVIDEO_DOUBAO_FILE_RETRY_DELAY_MS || '', 10);
   return {
     apiKey: env.HOTVIDEO_DOUBAO_API_KEY || env.ARK_API_KEY || '',
     filesBaseUrl: (env.HOTVIDEO_DOUBAO_FILES_BASE_URL || DEFAULT_FILES_BASE_URL).replace(/\/+$/, ''),
@@ -40,7 +45,36 @@ export function resolveDoubaoFilesOptions(env = process.env) {
     preprocessFps: Number.isFinite(preprocessFps) && preprocessFps > 0
       ? preprocessFps
       : DEFAULT_PREPROCESS_FPS,
+    operationRetries: Number.isFinite(operationRetries) && operationRetries >= 0
+      ? operationRetries
+      : DEFAULT_OPERATION_RETRIES,
+    retryDelayMs: Number.isFinite(retryDelayMs) && retryDelayMs >= 0
+      ? retryDelayMs
+      : DEFAULT_RETRY_DELAY_MS,
   };
+}
+
+export function isRetryableDoubaoOperationError(error) {
+  if (error?.retryable === true || error?.name === 'AbortError') return true;
+  const code = String(error?.code || error?.cause?.code || '').toUpperCase();
+  if (['ECONNRESET', 'ETIMEDOUT', 'EPIPE', 'ENETRESET', 'UND_ERR_SOCKET'].includes(code)) return true;
+  return /fetch failed|socket|network|connection reset/i.test(String(error?.message || ''));
+}
+
+export async function retryDoubaoOperation(operation, opts = {}) {
+  const retries = Number.isFinite(opts.operationRetries) ? opts.operationRetries : DEFAULT_OPERATION_RETRIES;
+  const delayMs = Number.isFinite(opts.retryDelayMs) ? opts.retryDelayMs : DEFAULT_RETRY_DELAY_MS;
+  let lastError;
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      return await operation();
+    } catch (error) {
+      lastError = error;
+      if (!isRetryableDoubaoOperationError(error) || attempt >= retries) throw error;
+      if (delayMs > 0) await sleep(delayMs * (attempt + 1));
+    }
+  }
+  throw lastError;
 }
 
 async function fetchWithTimeout(url, init, timeoutMs) {
@@ -81,12 +115,14 @@ export async function uploadDoubaoVideoFile(videoPath, opts = {}) {
   form.append('preprocess_configs[video][fps]', String(options.preprocessFps));
   form.append('file', new Blob([buffer], { type: 'video/mp4' }), path.basename(videoPath));
 
-  const res = await fetchWithTimeout(`${options.filesBaseUrl}/files`, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${options.apiKey}` },
-    body: form,
-  }, options.uploadTimeoutMs);
-  const data = await parseJsonResponse(res, 'Doubao Files 上传失败');
+  const data = await retryDoubaoOperation(async () => {
+    const res = await fetchWithTimeout(`${options.filesBaseUrl}/files`, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${options.apiKey}` },
+      body: form,
+    }, options.uploadTimeoutMs);
+    return parseJsonResponse(res, 'Doubao Files 上传失败');
+  }, options);
   const fileId = pickFileId(data);
   if (!fileId) {
     throw new Error(`Doubao Files 上传未返回 file_id: ${JSON.stringify(data).slice(0, 500)}`);
@@ -99,11 +135,13 @@ export async function getDoubaoFile(fileId, opts = {}) {
   if (!options.apiKey) {
     throw new Error('缺少 ARK_API_KEY 或 HOTVIDEO_DOUBAO_API_KEY');
   }
-  const res = await fetchWithTimeout(`${options.filesBaseUrl}/files/${encodeURIComponent(fileId)}`, {
-    method: 'GET',
-    headers: { Authorization: `Bearer ${options.apiKey}` },
-  }, options.uploadTimeoutMs);
-  return parseJsonResponse(res, 'Doubao Files 查询失败');
+  return retryDoubaoOperation(async () => {
+    const res = await fetchWithTimeout(`${options.filesBaseUrl}/files/${encodeURIComponent(fileId)}`, {
+      method: 'GET',
+      headers: { Authorization: `Bearer ${options.apiKey}` },
+    }, options.uploadTimeoutMs);
+    return parseJsonResponse(res, 'Doubao Files 查询失败');
+  }, options);
 }
 
 export async function waitForDoubaoFileActive(fileId, opts = {}) {
@@ -127,9 +165,11 @@ export async function waitForDoubaoFileActive(fileId, opts = {}) {
 export async function deleteDoubaoFile(fileId, opts = {}) {
   const options = { ...resolveDoubaoFilesOptions(), ...opts };
   if (!options.apiKey) return null;
-  const res = await fetchWithTimeout(`${options.filesBaseUrl}/files/${encodeURIComponent(fileId)}`, {
-    method: 'DELETE',
-    headers: { Authorization: `Bearer ${options.apiKey}` },
-  }, options.uploadTimeoutMs);
-  return parseJsonResponse(res, 'Doubao Files 删除失败');
+  return retryDoubaoOperation(async () => {
+    const res = await fetchWithTimeout(`${options.filesBaseUrl}/files/${encodeURIComponent(fileId)}`, {
+      method: 'DELETE',
+      headers: { Authorization: `Bearer ${options.apiKey}` },
+    }, options.uploadTimeoutMs);
+    return parseJsonResponse(res, 'Doubao Files 删除失败');
+  }, options);
 }

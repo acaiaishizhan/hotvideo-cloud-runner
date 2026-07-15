@@ -12,6 +12,7 @@ import { buildSystemPromptForMeta, CONTENT_TYPES, TOPICS } from './prompt.mjs';
 import { isValidVideoFile, resolveVideoPath } from './video-file.mjs';
 import {
   deleteDoubaoFile,
+  isRetryableDoubaoOperationError,
   resolveDoubaoFilesOptions,
   uploadDoubaoVideoFile,
   waitForDoubaoFileActive,
@@ -261,12 +262,20 @@ async function callDoubaoWithRetry(body, options) {
       return await postChatCompletions(body, options);
     } catch (err) {
       lastErr = err;
-      const retryable = err?.retryable || err?.name === 'AbortError';
+      const retryable = isRetryableDoubaoOperationError(err);
       if (!retryable || attempt >= options.retries) break;
       await sleep(options.retryDelayMs * (attempt + 1));
     }
   }
   throw lastErr;
+}
+
+let fileUploadTail = Promise.resolve();
+
+function serializeFileUpload(operation) {
+  const current = fileUploadTail.then(operation, operation);
+  fileUploadTail = current.then(() => undefined, () => undefined);
+  return current;
 }
 
 async function buildVideoUrlForChat(videoPath, stat, options) {
@@ -282,10 +291,10 @@ async function buildVideoUrlForChat(videoPath, stat, options) {
 }
 
 async function uploadVideoForChat(videoPath, options) {
-  const uploaded = await uploadDoubaoVideoFile(videoPath, {
+  const uploaded = await serializeFileUpload(() => uploadDoubaoVideoFile(videoPath, {
     ...options.files,
     apiKey: options.apiKey,
-  });
+  }));
   try {
     await waitForDoubaoFileActive(uploaded.fileId, {
       ...options.files,
@@ -336,6 +345,7 @@ export async function analyzeVideoWithDoubao(videoDir, meta = {}, opts = {}) {
       data = await callDoubaoWithRetry(body, options);
     } catch (error) {
       if (!shouldFallbackToFileId(error, input.inputMode)) throw error;
+      console.warn(`Doubao data URL 解析失败，切换 Files API: ${path.basename(videoPath)}`);
       input = await uploadVideoForChat(videoPath, options);
       body = buildDoubaoChatBody({
         model: options.model,
