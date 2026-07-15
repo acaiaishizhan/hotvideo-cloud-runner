@@ -7,6 +7,7 @@ import {
   analyzeVideoWithDoubao,
   buildDoubaoAnalyzePrompt,
   buildDoubaoChatBody,
+  buildDoubaoRequestDigest,
   extractDoubaoChatJson,
   resolveDoubaoAnalyzerOptions,
 } from './doubao-analyzer.mjs';
@@ -49,6 +50,27 @@ test('buildDoubaoChatBody accepts Files API file_id video input', () => {
   });
 
   assert.deepEqual(body.messages[1].content[0].video_url, { file_id: 'file_123' });
+});
+
+test('buildDoubaoRequestDigest reports comparable hashes without exposing video content', () => {
+  const body = buildDoubaoChatBody({
+    model: 'doubao-test',
+    videoBase64: 'AAAA',
+    meta: { title: '测试视频' },
+    maxTokens: 1800,
+  });
+  const digest = buildDoubaoRequestDigest(body, {
+    inputMode: 'data_url',
+    videoBytes: 3,
+    videoSha256: 'video-sha',
+  });
+
+  assert.equal(digest.videoInput, 'data_url');
+  assert.equal(digest.videoBytes, 3);
+  assert.equal(digest.videoSha256, 'video-sha');
+  assert.equal(digest.payloadSha256.length, 64);
+  assert.ok(digest.payloadBytes > 0);
+  assert.equal(JSON.stringify(digest).includes('AAAA'), false);
 });
 
 test('extractDoubaoChatJson parses fenced and plain JSON content', () => {

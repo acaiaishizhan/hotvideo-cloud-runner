@@ -5,6 +5,7 @@
 // ============================================================
 
 import fs from 'node:fs';
+import crypto from 'node:crypto';
 import https from 'node:https';
 import path from 'node:path';
 import { setTimeout as sleep } from 'node:timers/promises';
@@ -184,6 +185,17 @@ export function buildDoubaoChatBody({ model, videoBase64, videoUrl, meta, maxTok
   };
 }
 
+export function buildDoubaoRequestDigest(body, input = {}) {
+  const payload = JSON.stringify(body);
+  return {
+    payloadBytes: Buffer.byteLength(payload),
+    payloadSha256: crypto.createHash('sha256').update(payload).digest('hex'),
+    videoInput: input.inputMode || '',
+    videoBytes: input.videoBytes || 0,
+    videoSha256: input.videoSha256 || '',
+  };
+}
+
 function requestChatCompletions(url, body, options) {
   const payload = JSON.stringify(body);
   return new Promise((resolve, reject) => {
@@ -261,10 +273,13 @@ async function callDoubaoWithRetry(body, options) {
 
 async function buildVideoUrlForChat(videoPath, stat, options) {
   if (stat.size <= options.maxVideoBytes) {
+    const video = fs.readFileSync(videoPath);
     return {
-      videoUrl: { url: `data:video/mp4;base64,${fs.readFileSync(videoPath).toString('base64')}` },
+      videoUrl: { url: `data:video/mp4;base64,${video.toString('base64')}` },
       uploadedFileId: '',
       inputMode: 'data_url',
+      videoBytes: video.length,
+      videoSha256: crypto.createHash('sha256').update(video).digest('hex'),
     };
   }
 
@@ -311,6 +326,7 @@ export async function analyzeVideoWithDoubao(videoDir, meta = {}, opts = {}) {
       meta,
       maxTokens: options.maxTokens,
     });
+    console.log(`Doubao request digest: ${JSON.stringify(buildDoubaoRequestDigest(body, input))}`);
     let data = await callDoubaoWithRetry(body, options);
     let lengthRetried = false;
     if (data?.choices?.[0]?.finish_reason === 'length') {

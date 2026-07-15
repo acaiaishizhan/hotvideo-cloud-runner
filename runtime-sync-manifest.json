@@ -4,7 +4,7 @@
   "files": {
     "pipeline/analysis-video-proxy.mjs": "9079418697ee0191d401ee9151d21482066f7cee58d2d48ff8059bffa392bb65",
     "pipeline/analyze.mjs": "d73e5aec07b27fd47039de6c7cf6ba6609c97f98324baa907092c94f34ec398f",
-    "pipeline/doubao-analyzer.mjs": "6b7d1ccd189cb40934dc47d1e411edc29593bfb86ea39b6c60311a99f10361c1",
+    "pipeline/doubao-analyzer.mjs": "6461d4448457d0ad61e9c1a3ffa32b1a6144888c886ea39c68faf1e036f2134d",
     "pipeline/doubao-files.mjs": "a0655267428fc02b7d8cace386c7cf15be7aed1c8e3b8be3b2d2bbc92ca8b520",
     "pipeline/doubao-video-copy.mjs": "21c882bd8c1c369c09eab44b5313d7847884a921f37a63ca13428a6ed34cd3e4",
     "pipeline/fetch.mjs": "abb0c0c556c2b66114397c7127513a239789427e0e9d3a81dbf0cd5f65372b4f",
