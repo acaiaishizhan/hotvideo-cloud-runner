@@ -3,7 +3,12 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { manifestScope, materializeManifest, validateManifest } from '../scripts/run-queue.mjs';
+import {
+  manifestScope,
+  materializeManifest,
+  runFetchUntilSettled,
+  validateManifest,
+} from '../scripts/run-queue.mjs';
 
 const item = {
   id: '7662251858534157620',
@@ -50,4 +55,24 @@ test('把新视频和重复榜单更新分别落给管线', t => {
   assert.deepEqual(materializeManifest(manifest, videosDir), { newItems: 1, repeatItems: 1 });
   assert.equal(JSON.parse(fs.readFileSync(path.join(videosDir, 'pending.json'))).items.length, 1);
   assert.equal(JSON.parse(fs.readFileSync(path.join(videosDir, 'repeat-updates.json'))).items.length, 1);
+});
+
+test('下载失败在下载阶段内收敛，不重跑分析和发布', async () => {
+  let calls = 0;
+  await runFetchUntilSettled('douyin-hotspot', '/tmp/videos', {
+    attempts: 3,
+    delayMs: 0,
+    runFetchImpl: async () => { calls++; },
+    hasPendingItemsImpl: () => calls < 3,
+  });
+  assert.equal(calls, 3);
+});
+
+test('下载重试耗尽后明确失败', async () => {
+  await assert.rejects(() => runFetchUntilSettled('douyin-hotspot', '/tmp/videos', {
+    attempts: 2,
+    delayMs: 0,
+    runFetchImpl: async () => {},
+    hasPendingItemsImpl: () => true,
+  }), /仍有 pending\.json/);
 });

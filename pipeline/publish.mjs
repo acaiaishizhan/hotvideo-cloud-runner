@@ -9,6 +9,7 @@ import { execFileSync, execSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { setTimeout as sleep } from 'node:timers/promises';
 import { pathToFileURL } from 'node:url';
 import { writeJsonAtomic } from './json-file.mjs';
 import { videoRecordKey } from './video-url.mjs';
@@ -452,6 +453,27 @@ function attachmentUploadError(resp) {
   return JSON.stringify(resp).substring(0, 200);
 }
 
+export async function uploadAttachmentWithRetry(uploadFn, opts = {}) {
+  const attempts = Math.max(1, Number.parseInt(String(opts.attempts || 3), 10));
+  const delayMs = Math.max(0, Number.parseInt(String(opts.delayMs ?? 15_000), 10));
+  const isAccepted = opts.isAccepted || (() => true);
+  const sleepImpl = opts.sleepImpl || sleep;
+  let lastError = null;
+  let lastResponse = null;
+
+  for (let attempt = 1; attempt <= attempts; attempt++) {
+    try {
+      lastResponse = await uploadFn();
+      if (isAccepted(lastResponse)) return { ok: true, response: lastResponse, attempt };
+      lastError = new Error(opts.responseError?.(lastResponse) || '附件上传响应未被接受');
+    } catch (error) {
+      lastError = error;
+    }
+    if (attempt < attempts && delayMs > 0) await sleepImpl(delayMs);
+  }
+  return { ok: false, response: lastResponse, error: lastError, attempts };
+}
+
 export async function runPublish(sourceName) {
   if (!BASE_TOKEN || !TABLE_ID) {
     throw new Error('缺少 HOTVIDEO_FEISHU_BASE_TOKEN 或 HOTVIDEO_FEISHU_TABLE_ID');
@@ -488,29 +510,34 @@ export async function runPublish(sourceName) {
   const limit = runLimit();
 
   // 给指定 record 上传视频附件，幂等：已上传过则跳过
-  function tryUploadAttachment(meta, recordId, videoDir) {
-    if (!config.feishuAttachmentField) return;
-    if (meta.attachment_uploaded === true) return;
+  async function tryUploadAttachment(meta, recordId, videoDir) {
+    if (!config.feishuAttachmentField) return true;
+    if (meta.attachment_uploaded === true) return true;
 
     const videoPath = meta.files?.videoPath
       ? path.resolve(meta.files.videoPath)
       : path.join(videoDir, 'video.mp4');
-    if (!fs.existsSync(videoPath)) return;
+    if (!fs.existsSync(videoPath)) return true;
 
-    try {
-      log(`  上传视频附件 → ${config.feishuAttachmentField}`);
-      const upResp = larkUploadAttachment(recordId, config.feishuAttachmentField, videoPath);
-      if (!isAttachmentUploadAccepted(upResp)) {
-        log(`  ⚠ 附件上传失败: ${attachmentUploadError(upResp)}`);
-        meta.attachment_uploaded = false;
-      } else {
-        meta.attachment_uploaded = true;
-        attachmentsUploaded++;
-      }
-    } catch (uErr) {
-      log(`  ⚠ 附件上传异常: ${uErr.message}`);
+    log(`  上传视频附件 → ${config.feishuAttachmentField}`);
+    const result = await uploadAttachmentWithRetry(
+      () => larkUploadAttachment(recordId, config.feishuAttachmentField, videoPath),
+      {
+        attempts: process.env.HOTVIDEO_FEISHU_ATTACHMENT_ATTEMPTS || 3,
+        delayMs: process.env.HOTVIDEO_FEISHU_ATTACHMENT_RETRY_DELAY_MS || 15_000,
+        isAccepted: isAttachmentUploadAccepted,
+        responseError: attachmentUploadError,
+      },
+    );
+    if (!result.ok) {
+      log(`  ⚠ 附件上传最终失败: ${result.error?.message || '未知错误'}`);
       meta.attachment_uploaded = false;
+      failed++;
+      return false;
     }
+    meta.attachment_uploaded = true;
+    attachmentsUploaded++;
+    return true;
   }
 
   if (fs.existsSync(repeatUpdatePath)) {
@@ -604,7 +631,7 @@ export async function runPublish(sourceName) {
       }
       if (rid && config.feishuAttachmentField && meta.attachment_uploaded !== true) {
         log(`补附件: ${(meta.title || '').substring(0, 40)}...`);
-        tryUploadAttachment(meta, rid, videoDir);
+        await tryUploadAttachment(meta, rid, videoDir);
         writeJsonAtomic(metaPath, meta);
       } else if (repair.shouldRepair) {
         writeJsonAtomic(metaPath, meta);
@@ -640,7 +667,7 @@ export async function runPublish(sourceName) {
         meta.status = 'published';
         meta.published_to_feishu = true;
         meta.feishu_record_id = rid;
-        tryUploadAttachment(meta, rid, videoDir);
+        await tryUploadAttachment(meta, rid, videoDir);
         writeJsonAtomic(metaPath, meta);
         deduped++;
         updated++;
@@ -673,7 +700,7 @@ export async function runPublish(sourceName) {
       }
 
       meta.feishu_record_id = recordId;
-      tryUploadAttachment(meta, recordId, videoDir);
+      await tryUploadAttachment(meta, recordId, videoDir);
 
       meta.status = 'published';
       meta.published_to_feishu = true;

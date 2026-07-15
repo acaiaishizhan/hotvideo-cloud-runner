@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { setTimeout as sleep } from 'node:timers/promises';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { runFetch } from '../pipeline/fetch.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const ALLOWED_HOSTS = new Set(['douyin.com', 'www.douyin.com']);
@@ -101,6 +102,29 @@ function runPipeline(args) {
   });
 }
 
+function hasPendingItems(videosDir) {
+  const pendingPath = path.join(videosDir, 'pending.json');
+  if (!fs.existsSync(pendingPath)) return false;
+  const pending = JSON.parse(fs.readFileSync(pendingPath, 'utf-8'));
+  return Array.isArray(pending.items) && pending.items.length > 0;
+}
+
+export async function runFetchUntilSettled(sourceName, videosDir, opts = {}) {
+  const attempts = Math.max(1, Number.parseInt(String(opts.attempts || 3), 10));
+  const delayMs = Math.max(0, Number.parseInt(String(opts.delayMs ?? 10_000), 10));
+  const runFetchImpl = opts.runFetchImpl || runFetch;
+  const hasPendingItemsImpl = opts.hasPendingItemsImpl || hasPendingItems;
+  const sleepImpl = opts.sleepImpl || sleep;
+
+  for (let attempt = 1; attempt <= attempts; attempt++) {
+    console.log(`云端下载 attempt ${attempt}/${attempts}`);
+    await runFetchImpl(sourceName);
+    if (!hasPendingItemsImpl(videosDir)) return;
+    if (attempt < attempts && delayMs > 0) await sleepImpl(delayMs);
+  }
+  throw new Error(`下载重试 ${attempts} 次后仍有 pending.json 待处理项`);
+}
+
 export async function main(argv = process.argv.slice(2)) {
   const queueArg = argv[0];
   if (!queueArg) throw new Error('用法: node scripts/run-queue.mjs queue/<run-id>.json');
@@ -130,10 +154,15 @@ export async function main(argv = process.argv.slice(2)) {
   if (scope.categoryProfile) process.env.HOTVIDEO_CATEGORY_PROFILE = scope.categoryProfile;
   if (scope.dateWindow) process.env.HOTVIDEO_DATE_WINDOW = scope.dateWindow;
 
+  await runFetchUntilSettled(manifest.source, videosDir, {
+    attempts: process.env.HOTVIDEO_FETCH_MAX_ATTEMPTS,
+  });
+
   const pipelineArgs = [
     'pipeline/orchestrator.mjs',
     '--source', manifest.source,
     '--skip-scrape',
+    '--skip-fetch',
     '--analyzer', 'doubao',
     '--analyze-lane', 'all',
     '--analyze-concurrency', process.env.HOTVIDEO_ANALYZE_CONCURRENCY,
