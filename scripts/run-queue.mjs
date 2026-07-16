@@ -100,18 +100,35 @@ function runPipeline(args) {
   });
 }
 
-export function buildPipelineArgs(manifest, scope) {
+export function buildPipelineArgs(manifest, scope, { lane = 'fast' } = {}) {
+  if (!['fast', 'slow'].includes(lane)) throw new Error(`不支持的分析车道: ${lane}`);
   const args = [
     'pipeline/orchestrator.mjs',
     '--source', manifest.source,
     '--skip-scrape',
     '--analyzer', 'doubao',
-    '--analyze-lane', 'fast',
-    '--analyze-concurrency', process.env.HOTVIDEO_ANALYZE_CONCURRENCY || '5',
+    '--analyze-lane', lane,
+    '--analyze-concurrency', lane === 'slow'
+      ? '1'
+      : (process.env.HOTVIDEO_ANALYZE_CONCURRENCY || '5'),
   ];
+  if (lane === 'slow') args.splice(4, 0, '--skip-fetch');
   if (scope.categoryProfile) args.push('--category-profile', scope.categoryProfile);
   if (scope.dateWindow) args.push('--date-window', scope.dateWindow);
   return args;
+}
+
+export async function runPipelinePhases(manifest, scope, run = runPipeline) {
+  const fastArgs = buildPipelineArgs(manifest, scope, { lane: 'fast' });
+  console.log(`云端 fast 管线 attempt 1/1`);
+  const fast = await run(fastArgs);
+  if (fast.code !== 0) return { phase: 'fast', result: fast };
+
+  const slowArgs = buildPipelineArgs(manifest, scope, { lane: 'slow' });
+  console.log(`云端 slow 管线 attempt 1/1`);
+  const slow = await run(slowArgs);
+  if (slow.code !== 0) return { phase: 'slow', result: slow };
+  return { phase: 'complete', result: slow };
 }
 
 export async function main(argv = process.argv.slice(2)) {
@@ -142,10 +159,11 @@ export async function main(argv = process.argv.slice(2)) {
   if (scope.categoryProfile) process.env.HOTVIDEO_CATEGORY_PROFILE = scope.categoryProfile;
   if (scope.dateWindow) process.env.HOTVIDEO_DATE_WINDOW = scope.dateWindow;
 
-  const pipelineArgs = buildPipelineArgs(manifest, scope);
-  console.log(`云端管线 attempt 1/1: ${queueArg}`);
-  const result = await runPipeline(pipelineArgs);
-  if (result.code !== 0) throw result.error || new Error(`管线失败，exitCode=${result.code}`);
+  console.log(`云端队列: ${queueArg}`);
+  const outcome = await runPipelinePhases(manifest, scope);
+  if (outcome.result.code !== 0) {
+    throw outcome.result.error || new Error(`${outcome.phase} 管线失败，exitCode=${outcome.result.code}`);
+  }
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
