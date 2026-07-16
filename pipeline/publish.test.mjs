@@ -7,6 +7,7 @@ import {
   hasAttachmentFiles,
   isAttachmentUploadAccepted,
   isLarkRateLimitError,
+  larkExecArgs,
   larkRateLimitRetryDelayMs,
   recordFieldIndex,
   resolvePublishedRecordRepair,
@@ -65,6 +66,38 @@ test('runWithLarkRateLimitRetry does not retry non-429 errors', () => {
   assert.deepEqual(sleeps, []);
   assert.equal(isLarkRateLimitError({ ok: false, error: { message: 'HTTP 429' } }), true);
   assert.equal(larkRateLimitRetryDelayMs('HTTP 429 retry after 0.5'), 500);
+});
+
+test('larkExecArgs retries a non-JSON HTTP 429 body and then parses success', () => {
+  let attempts = 0;
+  const sleeps = [];
+  const result = larkExecArgs(['base', '+record-list'], 30000, {
+    execute: () => {
+      attempts++;
+      return attempts === 1
+        ? '<html>HTTP 429 Too Many Requests</html>'
+        : JSON.stringify({ ok: true, data: { rows: 1 } });
+    },
+    sleep: ms => sleeps.push(ms),
+    onRetry: () => {},
+  });
+
+  assert.deepEqual(result, { ok: true, data: { rows: 1 } });
+  assert.equal(attempts, 2);
+  assert.deepEqual(sleeps, [3000]);
+});
+
+test('larkExecArgs does not retry an unrelated non-JSON response', () => {
+  let attempts = 0;
+  assert.throws(() => larkExecArgs(['base', '+record-list'], 30000, {
+    execute: () => {
+      attempts++;
+      return '<html>gateway broke</html>';
+    },
+    sleep: () => {},
+    onRetry: () => {},
+  }), /返回非 JSON/);
+  assert.equal(attempts, 1);
 });
 
 test('buildRecord writes source type, billboard names, and date window fields', () => {

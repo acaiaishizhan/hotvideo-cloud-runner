@@ -7,6 +7,7 @@ import {
   isAgyAuthFailureResult,
   isRetryableAgyAnalyzeResult,
   PIPELINE_STAGES,
+  shouldEscalateStageFailures,
   summarizeStageFailures,
 } from './orchestrator.mjs';
 
@@ -98,6 +99,13 @@ test('summarizeStageFailures reports non-fatal stage failure counts', () => {
     { stage: 'fetch', failed: 2 },
     { stage: 'analyze', failed: 1 },
   ]);
+});
+
+test('run-result envelope mode keeps item failures out of the stage-level exit path', () => {
+  const failures = [{ stage: 'analyze', failed: 2 }];
+  assert.equal(shouldEscalateStageFailures(failures, {}), true);
+  assert.equal(shouldEscalateStageFailures(failures, { HOTVIDEO_RESULT_ENVELOPE_MODE: '1' }), false);
+  assert.equal(shouldEscalateStageFailures([], {}), false);
 });
 
 test('isRetryableAgyAnalyzeResult only accepts agy transient failures', () => {

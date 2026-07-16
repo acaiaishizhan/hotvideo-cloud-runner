@@ -55,6 +55,11 @@ export function isRetryableAgyAnalyzeResult(result) {
   return /hotvideo-agy|analysis\.json|timeout waiting for response|无法解析 JSON|JSON/.test(text);
 }
 
+export function shouldEscalateStageFailures(stageFailures, env = process.env) {
+  return (stageFailures || []).length > 0
+    && !/^(1|true|yes)$/i.test(String(env.HOTVIDEO_RESULT_ENVELOPE_MODE || ''));
+}
+
 export function isAgyAuthFailureResult(result) {
   if (Number(result?.failed || 0) <= 0) return false;
   const text = (result?.failureReasons || []).map(item => String(item || '')).join('\n');
@@ -158,8 +163,11 @@ async function runOneSource(sourceName, flags) {
   }
 
   const stageFailures = summarizeStageFailures(stageResults);
-  if (stageFailures.length > 0) {
+  if (shouldEscalateStageFailures(stageFailures)) {
     throw new Error(`阶段存在单项失败: ${stageFailures.map(f => `${f.stage}=${f.failed}`).join(', ')}`);
+  }
+  if (stageFailures.length > 0) {
+    log(`>>> [${sourceName}] 单项失败已交给 run-result 信封: ${stageFailures.map(f => `${f.stage}=${f.failed}`).join(', ')}`);
   }
 }
 

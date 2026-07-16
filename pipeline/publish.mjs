@@ -320,11 +320,34 @@ export function runWithLarkRateLimitRetry(operation, {
   throw new Error('飞书限流重试状态异常');
 }
 
-function larkExecArgs(args, timeout = 30000) {
-  const result = process.platform === 'win32'
+export function larkExecArgs(args, timeout = 30000, {
+  execute = null,
+  sleep = sleepSync,
+  onRetry = ({ attempt, maxAttempts, delayMs }) => {
+    log(`  飞书限流，${delayMs}ms 后重试 lark-cli（${attempt + 1}/${maxAttempts}）`);
+  },
+} = {}) {
+  const run = execute || (() => process.platform === 'win32'
     ? execSync([LARK_CLI_BIN, ...args].map(winCmdQuote).join(' '), { encoding: 'utf-8', timeout, maxBuffer: LARK_MAX_BUFFER })
-    : execFileSync(LARK_CLI_BIN, args, { encoding: 'utf-8', timeout, maxBuffer: LARK_MAX_BUFFER });
-  return JSON.parse(result);
+    : execFileSync(LARK_CLI_BIN, args, { encoding: 'utf-8', timeout, maxBuffer: LARK_MAX_BUFFER }));
+
+  return runWithLarkRateLimitRetry(() => {
+    const result = run();
+    let parsed;
+    try {
+      parsed = JSON.parse(result);
+    } catch (cause) {
+      const error = new Error(`lark-cli 返回非 JSON: ${String(result).slice(0, 300)}`, { cause });
+      error.stdout = result;
+      throw error;
+    }
+    if (isLarkRateLimitError(parsed)) {
+      const error = new Error(`lark-cli 请求被限流: ${JSON.stringify(parsed).slice(0, 300)}`);
+      error.stdout = result;
+      throw error;
+    }
+    return parsed;
+  }, { sleep, onRetry });
 }
 
 function larkExecJsonArgs(args, payload, timeout = 30000) {
