@@ -5,9 +5,18 @@ import test from 'node:test';
 
 const workflow = fs.readFileSync(path.join(import.meta.dirname, "..", ".github", "workflows", "cloud-pipeline.yml"), 'utf-8');
 
-test('workflow uses immutable unique artifact names and 90-day retention', () => {
-  assert.match(workflow, /name: run-result-\$\{\{ github\.run_id \}\}-\$\{\{ hashFiles\(matrix\.queue_file\) \}\}/);
+test('workflow artifact identity includes run attempt and path-derived queue key', () => {
+  assert.match(workflow, /name: run-result-\$\{\{ github\.run_id \}\}-\$\{\{ github\.run_attempt \}\}-\$\{\{ steps\.artifact_identity\.outputs\.queue_path_key \}\}/);
+  assert.match(workflow, /printf '%s' "\$QUEUE_FILE" \| sha256sum \| cut -c1-16/);
+  assert.doesNotMatch(workflow, /hashFiles\(matrix\.queue_file\)/);
   assert.match(workflow, /retention-days: 90/);
+});
+
+test('push prepare selects the complete before..head range so two local commits both enter matrix', () => {
+  assert.match(workflow, /fetch-depth: 0/);
+  assert.match(workflow, /PUSH_BEFORE_SHA: \$\{\{ github\.event\.before \}\}/);
+  assert.match(workflow, /git diff --name-only "\$PUSH_BEFORE_SHA" "\$GITHUB_SHA" -- 'queue\/\*\.json'/);
+  assert.doesNotMatch(workflow, /git diff-tree --no-commit-id --name-only -r "\$GITHUB_SHA"/);
 });
 
 test('workflow always uploads the envelope and fails when it is missing', () => {

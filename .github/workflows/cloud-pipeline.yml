@@ -30,18 +30,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
       - name: Select queue manifests
         id: queue_files
         shell: bash
         env:
           MANUAL_QUEUE_FILE: ${{ inputs.queue_file }}
+          PUSH_BEFORE_SHA: ${{ github.event.before }}
         run: |
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             files=("$MANUAL_QUEUE_FILE")
+          elif [[ "$PUSH_BEFORE_SHA" =~ ^0+$ ]]; then
+            mapfile -t files < <(git diff-tree --root --no-commit-id --name-only -r "$GITHUB_SHA" -- 'queue/*.json')
           else
-            mapfile -t files < <(git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA" -- 'queue/*.json')
+            mapfile -t files < <(git diff --name-only "$PUSH_BEFORE_SHA" "$GITHUB_SHA" -- 'queue/*.json')
           fi
 
           if [[ ${#files[@]} -eq 0 ]]; then
@@ -131,11 +134,21 @@ jobs:
         shell: bash
         run: node scripts/run-queue.mjs "${{ matrix.queue_file }}"
 
+      - name: Derive queue artifact identity
+        id: artifact_identity
+        if: always()
+        shell: bash
+        env:
+          QUEUE_FILE: ${{ matrix.queue_file }}
+        run: |
+          queue_path_key="$(printf '%s' "$QUEUE_FILE" | sha256sum | cut -c1-16)"
+          echo "queue_path_key=$queue_path_key" >> "$GITHUB_OUTPUT"
+
       - name: Upload terminal run-result envelope
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: run-result-${{ github.run_id }}-${{ hashFiles(matrix.queue_file) }}
+          name: run-result-${{ github.run_id }}-${{ github.run_attempt }}-${{ steps.artifact_identity.outputs.queue_path_key }}
           path: out/run-result.json
           if-no-files-found: error
           retention-days: 90
