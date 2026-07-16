@@ -36,6 +36,8 @@ const INTERACTION_FIELDS = [
 ];
 const LARK_CLI_BIN = process.platform === 'win32' ? 'lark-cli.cmd' : 'lark-cli';
 const LARK_MAX_BUFFER = 64 * 1024 * 1024;
+const LARK_RATE_LIMIT_MAX_ATTEMPTS = 3;
+const LARK_RATE_LIMIT_FALLBACK_MS = 3000;
 
 function log(msg) {
   const ts = new Date().toLocaleString('zh-CN', { hour12: false });
@@ -268,6 +270,56 @@ function winCmdQuote(value) {
   return `"${String(value).replace(/"/g, '\\"')}"`;
 }
 
+function larkErrorText(error) {
+  if (typeof error === 'string') return error;
+  if (error instanceof Error) {
+    return [error.message, error.stdout, error.stderr]
+      .filter(Boolean)
+      .map(value => String(value))
+      .join('\n');
+  }
+  try {
+    return JSON.stringify(error);
+  } catch {
+    return String(error || '');
+  }
+}
+
+export function isLarkRateLimitError(error) {
+  return /(?:HTTP|status(?:Code)?)\s*[:=]?\s*429\b|\b429\s+Too Many Requests\b|\b99991400\b/i.test(larkErrorText(error));
+}
+
+export function larkRateLimitRetryDelayMs(error, fallbackMs = LARK_RATE_LIMIT_FALLBACK_MS) {
+  const match = larkErrorText(error).match(/retry[- ]?after\s*(?::|=|\s)\s*(\d+(?:\.\d+)?)/i);
+  if (!match) return fallbackMs;
+  return Math.max(0, Math.round(Number(match[1]) * 1000));
+}
+
+function sleepSync(ms) {
+  if (ms <= 0) return;
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+}
+
+export function runWithLarkRateLimitRetry(operation, {
+  maxAttempts = LARK_RATE_LIMIT_MAX_ATTEMPTS,
+  fallbackMs = LARK_RATE_LIMIT_FALLBACK_MS,
+  sleep = sleepSync,
+  onRetry = () => {},
+} = {}) {
+  const attempts = Math.max(1, Number.parseInt(String(maxAttempts), 10) || 1);
+  for (let attempt = 1; attempt <= attempts; attempt++) {
+    try {
+      return operation();
+    } catch (error) {
+      if (!isLarkRateLimitError(error) || attempt >= attempts) throw error;
+      const delayMs = larkRateLimitRetryDelayMs(error, fallbackMs);
+      onRetry({ attempt, maxAttempts: attempts, delayMs });
+      sleep(delayMs);
+    }
+  }
+  throw new Error('飞书限流重试状态异常');
+}
+
 function larkExecArgs(args, timeout = 30000) {
   const result = process.platform === 'win32'
     ? execSync([LARK_CLI_BIN, ...args].map(winCmdQuote).join(' '), { encoding: 'utf-8', timeout, maxBuffer: LARK_MAX_BUFFER })
@@ -470,10 +522,20 @@ function larkUpsert(record, recordId = '') {
   fs.writeFileSync(tmpName, JSON.stringify(record), 'utf-8');
 
   try {
-    const recordArg = recordId ? ` --record-id ${recordId}` : '';
-    const cmd = `lark-cli base +record-upsert --base-token ${BASE_TOKEN} --table-id ${TABLE_ID} --as ${LARK_IDENTITY}${recordArg} --json @${tmpName}`;
-    const result = execSync(cmd, { encoding: 'utf-8', timeout: 30000 });
-    return JSON.parse(result);
+    return runWithLarkRateLimitRetry(() => {
+      const recordArg = recordId ? ` --record-id ${recordId}` : '';
+      const cmd = `lark-cli base +record-upsert --base-token ${BASE_TOKEN} --table-id ${TABLE_ID} --as ${LARK_IDENTITY}${recordArg} --json @${tmpName}`;
+      const result = execSync(cmd, { encoding: 'utf-8', timeout: 30000 });
+      const response = JSON.parse(result);
+      if (isLarkRateLimitError(response)) {
+        throw new Error(JSON.stringify(response));
+      }
+      return response;
+    }, {
+      onRetry: ({ attempt, maxAttempts, delayMs }) => {
+        log(`  飞书限流，${delayMs}ms 后重试 record-upsert（${attempt + 1}/${maxAttempts}）`);
+      },
+    });
   } finally {
     try { fs.unlinkSync(tmpName); } catch (_) {}
   }

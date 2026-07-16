@@ -1,0 +1,43 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-07-16T02:50:00.000Z",
+  "items": [],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-07-15T20:00:18.715Z",
+    "items": [
+      {
+        "id": "7653783679084285225",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7653783679084285225",
+        "title": "Codex 第一期：为什么大家开始重视它？ 这是我的 AI 分享系列第一篇。我会站在博士生和日常生活的视角，从 OpenClaw 和 Codex 的差别讲起，解释为什么大众开始重视 Coding Agent；也会分享我自己使用 Codex 的三个真实场景。\n后面这个系列，我会继续和大家一起追逐前沿，至少要和时代潮流同步。\n#Codex #vibecoding  #青年创作者成长计划 #AI新星计划 #抖音前沿科技首发计划 #vibecoding大赏",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "AI",
+          "categoryProfile": "tech-kepu",
+          "sourceType": "科技/科技科普",
+          "dateWindow": 1,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 16
+            }
+          ],
+          "firstRepeatedAt": "2026-07-15T20:00:18.715Z",
+          "score": 164,
+          "likeCount": 188,
+          "likeRate": 0.0529,
+          "followCount": 49,
+          "followRate": 0.01379,
+          "lastRepeatedAt": "2026-07-15T20:00:18.715Z",
+          "hotspotDetail": {
+            "likeCount": 180743,
+            "commentCount": 1372,
+            "shareCount": 18046
+          }
+        }
+      }
+    ]
+  }
+}

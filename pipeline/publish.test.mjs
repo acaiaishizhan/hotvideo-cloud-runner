@@ -6,11 +6,66 @@ import {
   buildRepeatUpdateRecord,
   hasAttachmentFiles,
   isAttachmentUploadAccepted,
+  isLarkRateLimitError,
+  larkRateLimitRetryDelayMs,
   recordFieldIndex,
   resolvePublishedRecordRepair,
+  runWithLarkRateLimitRetry,
   shouldUploadAttachment,
   shouldPublishMetaInScope,
 } from './publish.mjs';
+
+test('runWithLarkRateLimitRetry honors Retry-After and succeeds on the next attempt', () => {
+  let attempts = 0;
+  const sleeps = [];
+  const result = runWithLarkRateLimitRetry(() => {
+    attempts++;
+    if (attempts === 1) {
+      const error = new Error('HTTP 429 Too Many Requests');
+      error.stderr = 'Retry-After: 2';
+      throw error;
+    }
+    return { ok: true };
+  }, {
+    sleep: ms => sleeps.push(ms),
+  });
+
+  assert.deepEqual(result, { ok: true });
+  assert.equal(attempts, 2);
+  assert.deepEqual(sleeps, [2000]);
+});
+
+test('runWithLarkRateLimitRetry uses bounded fallback delays and then fails', () => {
+  let attempts = 0;
+  const sleeps = [];
+  assert.throws(() => runWithLarkRateLimitRetry(() => {
+    attempts++;
+    throw new Error('SDK invalid response (HTTP 429)');
+  }, {
+    maxAttempts: 3,
+    fallbackMs: 1500,
+    sleep: ms => sleeps.push(ms),
+  }), /HTTP 429/);
+
+  assert.equal(attempts, 3);
+  assert.deepEqual(sleeps, [1500, 1500]);
+});
+
+test('runWithLarkRateLimitRetry does not retry non-429 errors', () => {
+  let attempts = 0;
+  const sleeps = [];
+  assert.throws(() => runWithLarkRateLimitRetry(() => {
+    attempts++;
+    throw new Error('HTTP 400 参数不合法');
+  }, {
+    sleep: ms => sleeps.push(ms),
+  }), /HTTP 400/);
+
+  assert.equal(attempts, 1);
+  assert.deepEqual(sleeps, []);
+  assert.equal(isLarkRateLimitError({ ok: false, error: { message: 'HTTP 429' } }), true);
+  assert.equal(larkRateLimitRetryDelayMs('HTTP 429 retry after 0.5'), 500);
+});
 
 test('buildRecord writes source type, billboard names, and date window fields', () => {
   const record = buildRecord({
