@@ -100,6 +100,19 @@ test('larkExecArgs does not retry an unrelated non-JSON response', () => {
   assert.equal(attempts, 1);
 });
 
+test('resolveRecordTitle 用分析摘要兜底占位符标题，正常标题原样保留', () => {
+  assert.equal(
+    buildRecord({ title: '抖音视频_7661961288540622099', analysis: { summary: '讲解易经与现代生活的关系' } })['标题'],
+    '讲解易经与现代生活的关系（无原标题）',
+  );
+  assert.equal(
+    buildRecord({ title: '', analysis: { summary: 'x'.repeat(60) } })['标题'],
+    `${'x'.repeat(50)}…（无原标题）`,
+  );
+  assert.equal(buildRecord({ title: '正常标题', analysis: { summary: '摘要' } })['标题'], '正常标题');
+  assert.equal(buildRecord({ title: '抖音视频_123', analysis: {} })['标题'], '抖音视频_123');
+});
+
 test('buildRecord writes source type, billboard names, and date window fields', () => {
   const record = buildRecord({
     id: '7650122231460220160',
@@ -113,7 +126,7 @@ test('buildRecord writes source type, billboard names, and date window fields', 
     scraped: {
       sourceType: '科技/科技科普',
       likeRate: 0.1,
-      hotspotDetail: { likeCount: 10, commentCount: 2, shareCount: 3 },
+      hotspotDetail: { likeCount: 10, commentCount: 2, shareCount: 3, newFansCount: 755 },
       billboards: [
         { name: '视频总榜', rank: 1 },
         { name: '高完播率', rank: 2 },
@@ -140,6 +153,7 @@ test('buildRecord writes source type, billboard names, and date window fields', 
   assert.equal(record['评论数'], 2);
   assert.equal(record['收藏数'], undefined);
   assert.equal(record['分享数'], 3);
+  assert.equal(record['涨粉数'], 755);
   assert.equal(record['播放量'], undefined);
   assert.equal(record['完整视频文案'], '完整口播字幕');
 });
@@ -270,6 +284,7 @@ test('buildRepeatUpdateRecord only contains fields safe to refresh for an existi
         likeCount: 11812,
         commentCount: 215,
         shareCount: 2875,
+        newFansCount: 755,
       },
     },
     analysis: {
@@ -289,6 +304,7 @@ test('buildRepeatUpdateRecord only contains fields safe to refresh for an existi
     '点赞率': 0.12,
     '评论数': 215,
     '分享数': 2875,
+    '涨粉数': 755,
   });
 });
 

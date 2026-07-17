@@ -33,6 +33,14 @@ const INTERACTION_FIELDS = [
       style: { type: 'plain', precision: 0, percentage: false, thousands_separator: true },
     },
   },
+  {
+    name: '涨粉数',
+    json: {
+      type: 'number',
+      name: '涨粉数',
+      style: { type: 'plain', precision: 0, percentage: false, thousands_separator: true },
+    },
+  },
 ];
 const LARK_CLI_BIN = process.platform === 'win32' ? 'lark-cli.cmd' : 'lark-cli';
 const LARK_MAX_BUFFER = 64 * 1024 * 1024;
@@ -192,6 +200,7 @@ export function buildInteractionUpdateRecord(meta) {
     setPositiveNumber(record, '点赞数', hotspotDetail.likeCount);
     setPositiveNumber(record, '评论数', hotspotDetail.commentCount);
     setPositiveNumber(record, '分享数', hotspotDetail.shareCount);
+    setPositiveNumber(record, '涨粉数', hotspotDetail.newFansCount);
   } else {
     setPositiveNumber(record, '点赞数', stats.likeCount, metrics.like_count, metrics.likeCount, scraped.likeCount, scraped.like_count);
     setPositiveNumber(record, '评论数', stats.commentCount, metrics.comment_count, metrics.commentCount, scraped.commentCount, scraped.comment_count);
@@ -202,6 +211,17 @@ export function buildInteractionUpdateRecord(meta) {
   if (likeRate > 0) record['点赞率'] = likeRate;
 
   return record;
+}
+
+// 视频无文案时下载器会造 "抖音视频_<id>" 占位符；用分析摘要兜底，避免无信息标题入表
+export function resolveRecordTitle(meta) {
+  const raw = String(meta.title || '').trim();
+  const isPlaceholder = !raw || /^抖音视频_\d+$/.test(raw);
+  if (!isPlaceholder) return raw;
+  const summary = String(meta.analysis?.summary || '').trim();
+  if (!summary) return raw;
+  const clipped = summary.length > 50 ? `${summary.slice(0, 50)}…` : summary;
+  return `${clipped}（无原标题）`;
 }
 
 // 兼容新 camelCase 和旧 snake_case 两种 meta schema
@@ -216,7 +236,7 @@ export function buildRecord(meta) {
   const publishedAt = meta.publishedAt ?? meta.publish_time;
   const platform = meta.platform || (meta.source?.startsWith('douyin') ? 'douyin' : '');
   const record = {
-    '标题': meta.title || '',
+    '标题': resolveRecordTitle(meta),
     '视频链接': meta.url || '',
     '平台': PLATFORM_MAP[platform] || platform || '其他',
     '类型': sourceTypeFromMeta(meta),
@@ -252,6 +272,7 @@ export function buildRepeatUpdateRecord(meta) {
     '点赞率',
     '评论数',
     '分享数',
+    '涨粉数',
   ];
   const record = {};
 
