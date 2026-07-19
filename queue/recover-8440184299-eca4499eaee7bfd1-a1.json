@@ -1,0 +1,38 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-07-19T08:26:44.138Z",
+  "items": [
+    {
+      "id": "7662686179552169259",
+      "url": "https://www.douyin.com/video/7662686179552169259",
+      "billboards": [
+        {
+          "name": "高涨粉率",
+          "rank": 17
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-sheke",
+        "sourceType": "人文社科/社科",
+        "dateWindow": 24,
+        "score": 1940,
+        "likeCount": 1562,
+        "likeRate": 0.033468,
+        "followCount": 442,
+        "followRate": 0.01059
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "8440184299",
+        "sourceRunId": "29673999845",
+        "recoveryKey": "7662686179552169259:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-07-19T08:26:44.138Z",
+    "items": []
+  }
+}
