@@ -1,0 +1,44 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-07-21T16:23:56.395Z",
+  "items": [
+    {
+      "id": "7664255108602924294",
+      "url": "https://www.douyin.com/video/7664255108602924294",
+      "billboards": [
+        {
+          "name": "高涨粉率",
+          "rank": 26
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 1,
+        "score": 150,
+        "likeCount": 40,
+        "likeRate": 0.03364,
+        "followCount": 12,
+        "followRate": 0.01009,
+        "hotspotDetail": {
+          "likeCount": 8923,
+          "commentCount": 123,
+          "shareCount": 1979,
+          "newFansCount": 1269
+        }
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "8502286924",
+        "sourceRunId": "29837213360",
+        "recoveryKey": "7664255108602924294:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-07-21T16:23:56.395Z",
+    "items": []
+  }
+}
