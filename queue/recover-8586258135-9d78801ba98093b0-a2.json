@@ -1,0 +1,38 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-07-24T04:08:36.977Z",
+  "items": [
+    {
+      "id": "7664920838138826036",
+      "url": "https://www.douyin.com/video/7664920838138826036",
+      "billboards": [
+        {
+          "name": "视频总榜",
+          "rank": 7
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-sheke",
+        "sourceType": "人文社科/社科",
+        "dateWindow": 24,
+        "score": 21987,
+        "likeCount": 33793,
+        "likeRate": 0.038621,
+        "followCount": 6204,
+        "followRate": 0.00784
+      },
+      "recovery": {
+        "attempt": 2,
+        "sourceArtifactId": "8586258135",
+        "sourceRunId": "30060597994",
+        "recoveryKey": "7664920838138826036:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-07-24T04:08:36.977Z",
+    "items": []
+  }
+}
