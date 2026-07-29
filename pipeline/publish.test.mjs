@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import config from '../sources/douyin-hotspot/config.mjs';
 import {
   buildInteractionUpdateRecord,
   buildRecord,
@@ -11,10 +12,15 @@ import {
   larkRateLimitRetryDelayMs,
   recordFieldIndex,
   resolvePublishedRecordRepair,
+  isExpiredTechRetentionMeta,
   runWithLarkRateLimitRetry,
   shouldUploadAttachment,
   shouldPublishMetaInScope,
 } from './publish.mjs';
+
+test('hotvideo publishes structured data without uploading video attachments', () => {
+  assert.equal(config.feishuAttachmentField, null);
+});
 
 test('runWithLarkRateLimitRetry honors Retry-After and succeeds on the next attempt', () => {
   let attempts = 0;
@@ -405,4 +411,27 @@ test('resolvePublishedRecordRepair rebuilds a published row missing from URL loo
     shouldRepair: false,
     createNew: false,
   });
+});
+
+test('isExpiredTechRetentionMeta blocks only tech records published to Base over 168 hours ago', () => {
+  const now = Date.parse('2026-07-26T12:00:00.000Z');
+  assert.equal(isExpiredTechRetentionMeta({
+    source: 'douyin-hotspot',
+    scraped: { sourceType: '科技/科技科普' },
+    published_at: '2026-07-19T11:59:59.000Z',
+  }, { now }), true);
+  assert.equal(isExpiredTechRetentionMeta({
+    source: 'douyin-hotspot',
+    scraped: { sourceType: '科技/科技科普' },
+    published_at: '2026-07-19T12:00:01.000Z',
+  }, { now }), false);
+  assert.equal(isExpiredTechRetentionMeta({
+    source: 'douyin-hotspot',
+    scraped: { sourceType: '人文国学/国学' },
+    published_at: '2026-06-01T00:00:00.000Z',
+  }, { now }), false);
+  assert.equal(isExpiredTechRetentionMeta({
+    source: 'douyin-hotspot',
+    scraped: { sourceType: '科技/科技科普' },
+  }, { now }), false);
 });

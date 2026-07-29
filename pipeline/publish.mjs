@@ -46,6 +46,8 @@ const LARK_CLI_BIN = process.platform === 'win32' ? 'lark-cli.cmd' : 'lark-cli';
 const LARK_MAX_BUFFER = 64 * 1024 * 1024;
 const LARK_RATE_LIMIT_MAX_ATTEMPTS = 3;
 const LARK_RATE_LIMIT_FALLBACK_MS = 3000;
+const TECH_SOURCE_TYPE = '科技/科技科普';
+const TECH_RETENTION_HOURS = 168;
 
 function log(msg) {
   const ts = new Date().toLocaleString('zh-CN', { hour12: false });
@@ -131,6 +133,16 @@ export function shouldPublishMetaInScope(meta, scope) {
   if (scope.sourceType && sourceTypeFromMeta(meta) !== scope.sourceType) return false;
   if (scope.dateWindow && String(scraped.dateWindow ?? meta.dateWindow ?? '') !== String(scope.dateWindow)) return false;
   return true;
+}
+
+export function isExpiredTechRetentionMeta(meta, {
+  now = Date.now(),
+  retentionHours = TECH_RETENTION_HOURS,
+} = {}) {
+  if (sourceTypeFromMeta(meta) !== TECH_SOURCE_TYPE) return false;
+  const createdAt = Date.parse(meta?.published_at || '');
+  if (!Number.isFinite(createdAt)) return false;
+  return now - createdAt > retentionHours * 60 * 60 * 1000;
 }
 
 function billboardNamesFromMeta(meta) {
@@ -779,6 +791,11 @@ export async function runPublish(sourceName) {
 
     // 已 published 的：补 record_id + 补附件（之前没上传过）
     if (meta.status === 'published') {
+      if (isExpiredTechRetentionMeta(meta)) {
+        skipped++;
+        log(`  跳过已过科技保留期记录: ${(meta.title || '').substring(0, 40)}...`);
+        continue;
+      }
       if (limit) {
         skipped++;
         continue;
