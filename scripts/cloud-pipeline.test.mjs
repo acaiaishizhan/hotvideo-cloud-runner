@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
+import config from '../sources/douyin-hotspot/config.mjs';
 
 const workflow = fs.readFileSync(path.join(import.meta.dirname, "..", ".github", "workflows", "cloud-pipeline.yml"), 'utf-8');
 
@@ -28,4 +29,9 @@ test('workflow keeps queue:max and exposes manual queue identity for missing-art
   assert.match(workflow, /queue: max/);
   assert.match(workflow, /run-name: hotvideo-\$\{\{ inputs\.queue_file \|\| github\.sha \}\}/);
   assert.match(workflow, /name: process-\$\{\{ matrix\.queue_file \}\}/);
+});
+
+test('hotvideo publishes structured data without uploading video attachments', () => {
+  assert.equal(config.feishuAttachmentField, null);
+  assert.doesNotMatch(workflow, /HOTVIDEO_FEISHU_ATTACHMENT_FIELD/);
 });
