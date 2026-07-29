@@ -7,7 +7,8 @@ export default {
   videoInfraCmd: process.env.PYTHON || 'python',
   videoInfraArgs: ['-m', 'video_infra'],
   videoInfraCwd: path.join(ROOT, 'video-infra'),
-  feishuAttachmentField: process.env.HOTVIDEO_FEISHU_ATTACHMENT_FIELD || 'fldgReMdHu',
+  // Hotvideo 只回传结构化数据，不再上传视频附件。
+  feishuAttachmentField: null,
   categoryProfiles: {
     'tech-kepu': { label: '科技/科技科普' },
     'renwen-guoxue': { label: '人文社科/国学' },

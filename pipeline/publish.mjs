@@ -12,8 +12,8 @@ import { pathToFileURL } from 'node:url';
 import { writeJsonAtomic } from './json-file.mjs';
 import { videoRecordKey } from './video-url.mjs';
 
-const BASE_TOKEN = process.env.HOTVIDEO_FEISHU_BASE_TOKEN || 'BEpkbvDBKaYlU8sM0dFcUpGMnTe';
-const TABLE_ID = process.env.HOTVIDEO_FEISHU_TABLE_ID || 'tblriyRwHWVF1IHt';
+const BASE_TOKEN = process.env.HOTVIDEO_FEISHU_BASE_TOKEN || 'OCrJbRfFFaOdApsoQ4Hc8qBnned';
+const TABLE_ID = process.env.HOTVIDEO_FEISHU_TABLE_ID || 'tblSsUlkFRHZdjyi';
 const LARK_IDENTITY = process.env.HOTVIDEO_FEISHU_IDENTITY || 'user';
 const FULL_VIDEO_COPY_FIELD = '完整视频文案';
 const INTERACTION_FIELDS = [
