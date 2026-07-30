@@ -1,0 +1,44 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-07-30T20:26:46.569Z",
+  "items": [
+    {
+      "id": "7667952980074745151",
+      "url": "https://www.douyin.com/video/7667952980074745151",
+      "billboards": [
+        {
+          "name": "高点赞率",
+          "rank": 14
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 1,
+        "score": 659,
+        "likeCount": 608,
+        "likeRate": 0.06295,
+        "followCount": 52,
+        "followRate": 0.00538,
+        "hotspotDetail": {
+          "likeCount": 6827,
+          "commentCount": 98,
+          "shareCount": 1283,
+          "newFansCount": 776
+        }
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "8773907680",
+        "sourceRunId": "30577374957",
+        "recoveryKey": "7667952980074745151:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-07-30T20:26:46.569Z",
+    "items": []
+  }
+}
