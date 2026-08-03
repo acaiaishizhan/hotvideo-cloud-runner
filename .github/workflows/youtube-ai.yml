@@ -1,0 +1,81 @@
+name: youtube-ai
+run-name: youtube-ai-${{ github.event_name }}-${{ github.run_number }}
+
+on:
+  schedule:
+    # GitHub cron 使用 UTC：11:00/23:00 UTC = 北京时间 19:00/次日 07:00
+    - cron: '0 11,23 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hotvideo-youtube-ai
+  cancel-in-progress: false
+
+jobs:
+  collect-analyze-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+      ARK_API_KEY: ${{ secrets.ARK_API_KEY }}
+      LARK_APP_ID: ${{ secrets.LARK_APP_ID }}
+      LARK_APP_SECRET: ${{ secrets.LARK_APP_SECRET }}
+      HOTVIDEO_FEISHU_BASE_TOKEN: ${{ secrets.HOTVIDEO_FEISHU_BASE_TOKEN }}
+      HOTVIDEO_FEISHU_TABLE_ID: ${{ secrets.HOTVIDEO_FEISHU_TABLE_ID }}
+      HOTVIDEO_FEISHU_IDENTITY: bot
+      HOTVIDEO_ANALYZE_LANE: all
+      HOTVIDEO_ANALYZE_CONCURRENCY: '3'
+      HOTVIDEO_YOUTUBE_MAX_CLASSIFY: '40'
+      HOTVIDEO_YOUTUBE_MAX_PENDING: '10'
+      HOTVIDEO_YOUTUBE_MIN_VIEW_COUNT: '1000'
+      HOTVIDEO_PIPELINE_ATTEMPTS: '1'
+      HOTVIDEO_DOUBAO_HTTP_TRANSPORT: fetch
+      HOTVIDEO_DOUBAO_FORCE_FILE_INPUT_ON_CLOUD: '1'
+      HOTVIDEO_DOUBAO_FILE_UPLOAD_TRANSPORT: https
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install runtime
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends ffmpeg
+          python -m pip install --disable-pip-version-check -e ./video-infra
+          npm install --global @larksuite/cli@1.0.53
+
+      - name: Configure Feishu bot
+        shell: bash
+        run: |
+          test -n "$YOUTUBE_API_KEY"
+          test -n "$ARK_API_KEY"
+          test -n "$LARK_APP_ID"
+          test -n "$LARK_APP_SECRET"
+          printf '%s' "$LARK_APP_SECRET" | lark-cli config init \
+            --app-id "$LARK_APP_ID" \
+            --app-secret-stdin \
+            --brand feishu
+
+      - name: Run YouTube AI pipeline
+        run: node pipeline/orchestrator.mjs --source youtube-ai --analyzer doubao --analyze-lane all --analyze-concurrency 3
+
+      - name: Upload discovery report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: youtube-ai-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            videos/youtube-ai/discovery-report.json
+            logs/
+          if-no-files-found: ignore
+          retention-days: 14

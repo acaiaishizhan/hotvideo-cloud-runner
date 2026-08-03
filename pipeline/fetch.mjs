@@ -36,11 +36,17 @@ async function loadSourceConfig(sourceName) {
   return mod.default;
 }
 
+export function buildVideoInfraDownloadArgs(config, url, outputDir) {
+  const args = [url, '--output-dir', outputDir];
+  if (config.videoInfraFormatId) args.push('--format-id', config.videoInfraFormatId);
+  return args;
+}
+
 function callVideoInfra(config, url, outputDir) {
-  const invocation = buildVideoInfraInvocation(config, 'download', [url, '--output-dir', outputDir]);
+  const invocation = buildVideoInfraInvocation(config, 'download', buildVideoInfraDownloadArgs(config, url, outputDir));
   const raw = execFileSync(invocation.command, invocation.args, {
     encoding: 'utf-8',
-    timeout: 120000,
+    timeout: config.videoInfraTimeoutMs || 120000,
     cwd: config.videoInfraCwd,
     env: { ...process.env, PYTHONIOENCODING: 'utf-8', PYTHONUTF8: '1' },
   });

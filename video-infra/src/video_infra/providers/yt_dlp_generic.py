@@ -73,6 +73,7 @@ class YtDlpGenericProvider(VideoProvider):
     def parse(self, url: str) -> VideoResult:
         opts = {
             "quiet": True,
+            "noprogress": True,
             "no_warnings": True,
             "extract_flat": False,
             "noplaylist": True,
@@ -125,6 +126,7 @@ class YtDlpGenericProvider(VideoProvider):
             "format": fmt,
             "outtmpl": str(target_dir / "%(title).90B.%(ext)s"),
             "quiet": True,
+            "noprogress": True,
             "no_warnings": True,
             "noplaylist": True,
             "merge_output_format": "mp4",

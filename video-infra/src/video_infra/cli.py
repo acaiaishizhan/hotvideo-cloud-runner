@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+from contextlib import redirect_stdout
 
 from .router import VideoRouter
 from .schema import VideoResult, error_result
@@ -64,12 +65,14 @@ def main(argv: list[str] | None = None) -> int:
     router = VideoRouter()
     try:
         if args.command == "parse":
-            result = router.parse(args.url, args.platform)
+            with redirect_stdout(sys.stderr):
+                result = router.parse(args.url, args.platform)
             _write_meta_if_needed(result, args.output_dir, args.write_meta)
             return _print(result)
 
         if args.command in {"download", "fetch"}:
-            result = router.download(args.url, args.platform, args.output_dir, args.format_id)
+            with redirect_stdout(sys.stderr):
+                result = router.download(args.url, args.platform, args.output_dir, args.format_id)
             _write_meta_if_needed(result, args.output_dir, not args.no_write_meta)
             return _print(result)
 

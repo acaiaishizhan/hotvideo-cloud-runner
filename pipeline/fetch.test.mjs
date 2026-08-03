@@ -2,11 +2,21 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import {
   buildFilteredMeta,
+  buildVideoInfraDownloadArgs,
   isTerminalFetchError,
   isTerminalDownloadResult,
   shouldRetryExistingMeta,
   updatePendingAfterFetch,
 } from './fetch.mjs';
+
+test('buildVideoInfraDownloadArgs 只在 source 配置后追加下载规格', () => {
+  assert.deepEqual(buildVideoInfraDownloadArgs({}, 'https://example.com/v', 'F:/out'), [
+    'https://example.com/v', '--output-dir', 'F:/out',
+  ]);
+  assert.deepEqual(buildVideoInfraDownloadArgs({ videoInfraFormatId: 'best[height<=480]' }, 'https://example.com/v', 'F:/out'), [
+    'https://example.com/v', '--output-dir', 'F:/out', '--format-id', 'best[height<=480]',
+  ]);
+});
 
 test('isTerminalDownloadResult treats image/audio posts as non-video terminal failures', () => {
   assert.equal(isTerminalDownloadResult({
