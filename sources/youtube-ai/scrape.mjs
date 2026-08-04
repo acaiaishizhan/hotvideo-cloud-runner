@@ -167,7 +167,7 @@ export function filterCandidatesByPublishWindow(candidates, {
   });
 }
 
-async function discoverCandidates(api, now) {
+export async function discoverCandidates(api, now) {
   const discoveryHours = integerEnv('HOTVIDEO_YOUTUBE_WINDOW_HOURS', config.discoveryWindowHours);
   const popularHours = integerEnv('HOTVIDEO_YOUTUBE_POPULAR_WINDOW_HOURS', config.popularWindowHours);
   const publishedAfter = new Date(now - discoveryHours * 3600000).toISOString();
@@ -196,10 +196,17 @@ async function discoverCandidates(api, now) {
     }
   }
 
+  searchLanes:
   for (const regionCode of config.regionCodes) {
     for (const query of config.searchQueries) {
-      groups.push(await api.searchVideos({ query, publishedAfter, order: 'date', regionCode }));
-      groups.push(await api.searchVideos({ query, publishedAfter, order: 'viewCount', regionCode }));
+      for (const order of ['date', 'viewCount']) {
+        try {
+          groups.push(await api.searchVideos({ query, publishedAfter, order, regionCode }));
+        } catch (error) {
+          log(`跳过搜索通道: region=${regionCode} order=${order} (${error.message})`);
+          if (/HTTP 429|quota exceeded/i.test(error.message)) break searchLanes;
+        }
+      }
     }
   }
 

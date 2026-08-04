@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { classifyCandidates, normalizeClassification, shouldKeepCandidate } from './classifier.mjs';
 import {
   existingYoutubeIdsFromResponses,
+  discoverCandidates,
   filterCandidatesByPublishWindow,
   routeCandidatesForClassification,
   selectCandidatesForClassification,
@@ -30,6 +31,23 @@ test('发布时间窗口覆盖两次任务之间的间隔并保留两小时重�
     { id: 'missing' },
   ], { now, lookbackHours: 14 });
   assert.deepEqual(result.map(item => item.id), ['13h', '14h']);
+});
+
+test('搜索额度耗尽后停止搜索请求，但保留热门榜和重点频道候选', async () => {
+  const now = Date.parse('2026-08-04T12:00:00Z');
+  let searchCalls = 0;
+  const api = {
+    popularVideos: async () => [{ id: 'popular', publishedAt: '2026-08-04T11:00:00Z', lanes: ['popular:US:28'] }],
+    channelUploads: async () => [{ id: 'focused', publishedAt: '2026-08-04T10:00:00Z', lanes: ['channel:focused'] }],
+    searchVideos: async () => {
+      searchCalls++;
+      throw new Error('YouTube API search HTTP 429: Quota exceeded');
+    },
+    hydrateVideos: async items => items,
+  };
+  const result = await discoverCandidates(api, now);
+  assert.equal(searchCalls, 1);
+  assert.deepEqual(result.map(item => item.id).sort(), ['focused', 'popular']);
 });
 
 test('AI 议题保留，纯 AI 娱乐过滤，重点频道不确定项留给视频复审', () => {
