@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { classifyCandidates, normalizeClassification, shouldKeepCandidate } from './classifier.mjs';
 import {
   existingYoutubeIdsFromResponses,
+  filterCandidatesByPublishWindow,
   routeCandidatesForClassification,
   selectCandidatesForClassification,
   selectPendingCandidates,
@@ -17,6 +18,18 @@ test('mergeCandidates 合并同一视频的多路召回来源', () => {
   assert.equal(result.length, 1);
   assert.deepEqual(result[0].lanes.sort(), ['channel:focused', 'search:date']);
   assert.equal(result[0].title, 'A2');
+});
+
+test('发布时间窗口覆盖两次任务之间的间隔并保留两小时重叠', () => {
+  const now = Date.parse('2026-08-04T12:00:00Z');
+  const result = filterCandidatesByPublishWindow([
+    { id: '13h', publishedAt: '2026-08-03T23:00:00Z' },
+    { id: '14h', publishedAt: '2026-08-03T22:00:00Z' },
+    { id: '15h', publishedAt: '2026-08-03T21:00:00Z' },
+    { id: 'future', publishedAt: '2026-08-04T12:01:00Z' },
+    { id: 'missing' },
+  ], { now, lookbackHours: 14 });
+  assert.deepEqual(result.map(item => item.id), ['13h', '14h']);
 });
 
 test('AI 议题保留，纯 AI 娱乐过滤，重点频道不确定项留给视频复审', () => {

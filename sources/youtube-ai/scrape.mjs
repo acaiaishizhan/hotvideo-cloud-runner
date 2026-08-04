@@ -156,6 +156,17 @@ export function routeCandidatesForClassification(candidates) {
   return { direct, needsModel };
 }
 
+export function filterCandidatesByPublishWindow(candidates, {
+  now = Date.now(),
+  lookbackHours = config.discoveryWindowHours,
+} = {}) {
+  const earliest = now - lookbackHours * 3600000;
+  return (candidates || []).filter(candidate => {
+    const publishedAt = Date.parse(candidate.publishedAt || '');
+    return Number.isFinite(publishedAt) && publishedAt >= earliest && publishedAt <= now;
+  });
+}
+
 async function discoverCandidates(api, now) {
   const discoveryHours = integerEnv('HOTVIDEO_YOUTUBE_WINDOW_HOURS', config.discoveryWindowHours);
   const popularHours = integerEnv('HOTVIDEO_YOUTUBE_POPULAR_WINDOW_HOURS', config.popularWindowHours);
@@ -192,7 +203,8 @@ async function discoverCandidates(api, now) {
     }
   }
 
-  return api.hydrateVideos(mergeCandidates(groups));
+  const hydrated = await api.hydrateVideos(mergeCandidates(groups));
+  return filterCandidatesByPublishWindow(hydrated, { now, lookbackHours: discoveryHours });
 }
 
 export async function runScrape({ now = Date.now(), api, classify = classifyCandidates } = {}) {
@@ -247,7 +259,7 @@ export async function runScrape({ now = Date.now(), api, classify = classifyCand
       billboards: item.lanes.map(name => ({ name, rank: index + 1 })),
       context: {
         sourceType: config.sourceType,
-        dateWindow: 24,
+        dateWindow: integerEnv('HOTVIDEO_DATE_WINDOW', config.dateWindowHours),
         discoveryLanes: item.lanes,
         channelId: item.channelId,
         channelTitle: item.channelTitle,
