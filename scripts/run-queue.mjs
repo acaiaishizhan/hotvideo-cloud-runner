@@ -177,7 +177,9 @@ function newVideoOutcome(item, videosDir) {
 
 export function shouldFailRunResultEnvelope(envelope) {
   const successes = envelope.items.filter(item => item.status === 'success').length;
-  return envelope.items.length > 0 && successes === 0;
+  const queueFile = String(envelope.queueFile || '').replaceAll('\\', '/');
+  const isRecoveryQueue = /^queue\/recover-[^/]+-a\d+\.json$/.test(queueFile);
+  return envelope.items.length > 0 && successes === 0 && !isRecoveryQueue;
 }
 
 export function collectRunResultItems(manifest, videosDir) {

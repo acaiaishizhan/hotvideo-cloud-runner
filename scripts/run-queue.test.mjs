@@ -69,10 +69,21 @@ test('fast 失败也继续执行 slow phase', async () => {
   assert.equal(result.slow.code, 0);
 });
 
-test('0 成功即使信封已持久化也按阶段级故障退出', () => {
+test('普通队列 0 成功即使信封已持久化也按阶段级故障退出', () => {
   assert.equal(shouldFailRunResultEnvelope({ items: [{ status: 'failure' }] }), true);
   assert.equal(shouldFailRunResultEnvelope({ items: [{ status: 'failure' }, { status: 'success' }] }), false);
   assert.equal(shouldFailRunResultEnvelope({ items: [] }), false);
+});
+
+test('恢复队列 0 成功但信封完整时正常退出，由本地回收器继续重试或死信', () => {
+  assert.equal(shouldFailRunResultEnvelope({
+    queueFile: 'queue/recover-8907558206-b618ecab11356cca-a1.json',
+    items: [{ status: 'failure' }],
+  }), false);
+  assert.equal(shouldFailRunResultEnvelope({
+    queueFile: 'queue\\recover-8910508878-2b1821d0a811c95a-a2.json',
+    items: [{ status: 'failure' }],
+  }), false);
 });
 
 test('published 但附件明确失败仍是 recoverable failure', t => {
