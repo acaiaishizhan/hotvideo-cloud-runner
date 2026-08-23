@@ -11,6 +11,8 @@ import {
   validateRunResultEnvelope,
 } from './run-queue.mjs';
 
+const runQueueSource = fs.readFileSync(new URL('./run-queue.mjs', import.meta.url), 'utf-8');
+
 function manifest() {
   return {
     source: 'douyin-hotspot',
@@ -67,6 +69,13 @@ test('fast 失败也继续执行 slow phase', async () => {
   assert.equal(calls.length, 2);
   assert.equal(result.fast.code, 1);
   assert.equal(result.slow.code, 0);
+});
+
+test('阶段失败判定发生在 run-result 持久化之后', () => {
+  const writeIndex = runQueueSource.indexOf('writeEnvelope(outputPath, envelope)');
+  const phaseFailureIndex = runQueueSource.indexOf('if (phaseFailure)', writeIndex);
+  assert.ok(writeIndex !== -1);
+  assert.ok(phaseFailureIndex > writeIndex);
 });
 
 test('普通队列 0 成功即使信封已持久化也按阶段级故障退出', () => {

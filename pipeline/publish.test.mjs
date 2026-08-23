@@ -10,8 +10,10 @@ import {
   isLarkRateLimitError,
   larkExecArgs,
   larkRateLimitRetryDelayMs,
+  mapRecordRows,
   recordFieldIndex,
   resolvePublishedRecordRepair,
+  selectCanonicalRecordState,
   isExpiredTechRetentionMeta,
   runWithLarkRateLimitRetry,
   shouldUploadAttachment,
@@ -379,6 +381,34 @@ test('recordFieldIndex accepts field names and field IDs from Lark JSON response
   assert.equal(recordFieldIndex(fields, fieldIds, 'missing'), -1);
 });
 
+test('duplicate Feishu video rows choose a stable canonical record without blocking the table', () => {
+  const url = 'https://www.douyin.com/video/7672542774759132486';
+  const rows = mapRecordRows({
+    ok: true,
+    data: {
+      fields: ['视频链接', '创建时间'],
+      field_id_list: ['fld_url', 'fld_created'],
+      data: [
+        [url, '2026-08-13T22:05:31.000+08:00'],
+        [url, '2026-08-13T22:04:50.000+08:00'],
+      ],
+      record_id_list: ['rec_later', 'rec_earlier'],
+    },
+  });
+
+  const state = rows.get('douyin:7672542774759132486');
+  assert.equal(state.recordId, 'rec_earlier');
+  assert.deepEqual(state.duplicateRecordIds, ['rec_later']);
+});
+
+test('canonical duplicate selection prefers the row that already owns the attachment', () => {
+  const selected = selectCanonicalRecordState(
+    { recordId: 'rec_old', hasAttachment: false, createdAtMs: 1 },
+    { recordId: 'rec_with_file', hasAttachment: true, createdAtMs: 2 },
+  );
+  assert.equal(selected.recordId, 'rec_with_file');
+});
+
 test('shouldPublishMetaInScope filters stale analyzed records outside the active category profile', () => {
   const scope = { sourceType: '人文社科/社科', dateWindow: 24 };
 
@@ -393,12 +423,20 @@ test('shouldPublishMetaInScope filters stale analyzed records outside the active
   }, scope), true);
 });
 
-test('resolvePublishedRecordRepair rebuilds a published row missing from URL lookup', () => {
+test('resolvePublishedRecordRepair reuses a saved record id when list visibility is delayed', () => {
   assert.deepEqual(resolvePublishedRecordRepair({
     status: 'published',
     feishu_record_id: 'rec_blank',
   }, ''), {
     recordId: 'rec_blank',
+    shouldRepair: true,
+    createNew: false,
+  });
+
+  assert.deepEqual(resolvePublishedRecordRepair({
+    status: 'published',
+  }, ''), {
+    recordId: '',
     shouldRepair: true,
     createNew: true,
   });

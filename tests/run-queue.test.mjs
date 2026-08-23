@@ -108,11 +108,12 @@ test('fast 成功后按顺序进入 slow 阶段', async () => {
     },
   );
 
-  assert.equal(outcome.phase, 'complete');
+  assert.equal(outcome.fast.code, 0);
+  assert.equal(outcome.slow.code, 0);
   assert.deepEqual(calls.map(args => args[args.indexOf('--analyze-lane') + 1]), ['fast', 'slow']);
 });
 
-test('fast 失败时不进入 slow 阶段', async () => {
+test('fast 失败时仍进入 slow 阶段，让结果信封覆盖全部项', async () => {
   const calls = [];
   const outcome = await runPipelinePhases(
     { source: 'douyin-hotspot' },
@@ -123,8 +124,9 @@ test('fast 失败时不进入 slow 阶段', async () => {
     },
   );
 
-  assert.equal(outcome.phase, 'fast');
-  assert.equal(calls.length, 1);
+  assert.equal(outcome.fast.code, 1);
+  assert.equal(outcome.slow.code, 1);
+  assert.equal(calls.length, 2);
 });
 
 test('slow 失败时返回 slow 阶段失败', async () => {
@@ -135,7 +137,7 @@ test('slow 失败时返回 slow 阶段失败', async () => {
     async () => ({ code: ++call === 1 ? 0 : 1 }),
   );
 
-  assert.equal(outcome.phase, 'slow');
-  assert.equal(outcome.result.code, 1);
+  assert.equal(outcome.fast.code, 0);
+  assert.equal(outcome.slow.code, 1);
   assert.equal(call, 2);
 });

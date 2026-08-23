@@ -278,16 +278,15 @@ export async function main(argv = process.argv.slice(2), env = process.env) {
   console.log(`云端队列: ${queueArg}`);
   const phases = await runPipelinePhases(manifest, scope);
   const phaseFailure = ['fast', 'slow'].find(name => phases[name].code !== 0);
-  if (phaseFailure) {
-    throw phases[phaseFailure].error || new Error(`${phaseFailure} 管线阶段级失败，exitCode=${phases[phaseFailure].code}`);
-  }
-
   const envelope = buildRunResultEnvelope({ manifest, queueFile: queueArg, videosDir, env, startedAt });
   const outputPath = path.resolve(ROOT, env.HOTVIDEO_RUN_RESULT_PATH || 'out/run-result.json');
   writeEnvelope(outputPath, envelope);
   const successes = envelope.items.filter(item => item.status === 'success').length;
   const failures = envelope.items.length - successes;
   console.log(`run-result 已持久化: ${successes} 成功, ${failures} 失败 → ${outputPath}`);
+  if (phaseFailure) {
+    throw phases[phaseFailure].error || new Error(`${phaseFailure} 管线阶段级失败，exitCode=${phases[phaseFailure].code}`);
+  }
   if (shouldFailRunResultEnvelope(envelope)) {
     throw new Error('本 manifest 0 项成功，按阶段级故障退出');
   }

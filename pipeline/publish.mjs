@@ -16,6 +16,7 @@ const BASE_TOKEN = process.env.HOTVIDEO_FEISHU_BASE_TOKEN || 'OCrJbRfFFaOdApsoQ4
 const TABLE_ID = process.env.HOTVIDEO_FEISHU_TABLE_ID || 'tblSsUlkFRHZdjyi';
 const LARK_IDENTITY = process.env.HOTVIDEO_FEISHU_IDENTITY || 'user';
 const FULL_VIDEO_COPY_FIELD = '完整视频文案';
+const CREATED_AT_FIELD = '创建时间';
 const INTERACTION_FIELDS = [
   {
     name: '评论数',
@@ -178,11 +179,12 @@ function likeRateFromMeta(meta) {
 }
 
 export function resolvePublishedRecordRepair(meta, existingRecordId) {
-  const recordId = existingRecordId || meta?.feishu_record_id || '';
+  const savedRecordId = meta?.feishu_record_id || '';
+  const recordId = existingRecordId || savedRecordId;
   return {
     recordId,
     shouldRepair: !existingRecordId,
-    createNew: !existingRecordId,
+    createNew: !existingRecordId && !savedRecordId,
   };
 }
 
@@ -460,12 +462,47 @@ export function recordFieldIndex(fields, fieldIds, fieldNameOrId) {
   return nameIndex !== -1 ? nameIndex : fieldIds.indexOf(fieldNameOrId);
 }
 
-function recordState(recordId, attachmentValue, attachmentKnown) {
+function recordState(recordId, attachmentValue, attachmentKnown, createdAtValue = '') {
+  const createdAtMs = Date.parse(String(createdAtValue || ''));
   return {
     recordId,
     attachmentKnown,
     hasAttachment: attachmentKnown ? hasAttachmentFiles(attachmentValue) : false,
+    createdAtMs: Number.isFinite(createdAtMs) ? createdAtMs : null,
+    duplicateRecordIds: [],
   };
+}
+
+export function selectCanonicalRecordState(left, right) {
+  if (!left) return right;
+  if (!right) return left;
+  if (left.hasAttachment !== right.hasAttachment) {
+    return left.hasAttachment ? left : right;
+  }
+  if (left.createdAtMs != null && right.createdAtMs != null && left.createdAtMs !== right.createdAtMs) {
+    return left.createdAtMs < right.createdAtMs ? left : right;
+  }
+  if (left.createdAtMs != null && right.createdAtMs == null) return left;
+  if (right.createdAtMs != null && left.createdAtMs == null) return right;
+  return String(left.recordId).localeCompare(String(right.recordId)) <= 0 ? left : right;
+}
+
+function mergeRecordState(map, key, candidate) {
+  const existing = map.get(key);
+  if (!existing || existing.recordId === candidate.recordId) {
+    map.set(key, candidate);
+    return;
+  }
+  const canonical = selectCanonicalRecordState(existing, candidate);
+  const duplicateIds = new Set([
+    ...(existing.duplicateRecordIds || []),
+    ...(candidate.duplicateRecordIds || []),
+    existing.recordId,
+    candidate.recordId,
+  ]);
+  duplicateIds.delete(canonical.recordId);
+  canonical.duplicateRecordIds = [...duplicateIds].sort();
+  map.set(key, canonical);
 }
 
 function extractRawUrl(value) {
@@ -475,9 +512,10 @@ function extractRawUrl(value) {
   return rawUrl;
 }
 
-function mapRecordRows(resp, attachmentField = '') {
+export function mapRecordRows(resp, attachmentField = '') {
   const { fields, fieldIds, rows, recordIds } = parseRecordRows(resp);
   const urlIdx = recordFieldIndex(fields, fieldIds, '视频链接');
+  const createdAtIdx = recordFieldIndex(fields, fieldIds, CREATED_AT_FIELD);
   const attachmentIdx = attachmentField
     ? recordFieldIndex(fields, fieldIds, attachmentField)
     : -1;
@@ -491,10 +529,12 @@ function mapRecordRows(resp, attachmentField = '') {
     const rid = recordIds[i];
     const key = videoRecordKey(extractRawUrl(rows[i]?.[urlIdx]));
     if (!key || !rid) continue;
-    if (map.has(key) && map.get(key).recordId !== rid) {
-      throw new Error(`飞书存在重复视频记录，拒绝自动选择: ${key}`);
-    }
-    map.set(key, recordState(rid, rows[i]?.[attachmentIdx], Boolean(attachmentField)));
+    mergeRecordState(map, key, recordState(
+      rid,
+      rows[i]?.[attachmentIdx],
+      Boolean(attachmentField),
+      createdAtIdx === -1 ? '' : rows[i]?.[createdAtIdx],
+    ));
   }
   return map;
 }
@@ -514,6 +554,7 @@ export function loadExistingRecords(attachmentField = '') {
       '--as', LARK_IDENTITY,
       '--format', 'json',
       '--field-id', '视频链接',
+      '--field-id', CREATED_AT_FIELD,
       '--limit', String(limit),
       '--offset', String(offset),
     ];
@@ -521,17 +562,19 @@ export function loadExistingRecords(attachmentField = '') {
     const resp = larkExecArgs(args);
     const page = mapRecordRows(resp, attachmentField);
     for (const [key, value] of page) {
-      if (map.has(key) && map.get(key).recordId !== value.recordId) {
-        throw new Error(`飞书存在重复视频记录，拒绝自动选择: ${key}`);
-      }
-      map.set(key, value);
+      mergeRecordState(map, key, value);
     }
 
     if (!resp.data.has_more) break;
     offset += limit;
   }
 
+  const duplicateCount = [...map.values()]
+    .reduce((total, state) => total + (state.duplicateRecordIds?.length || 0), 0);
   log(`  已有 ${map.size} 条记录`);
+  if (duplicateCount > 0) {
+    log(`  ⚠ 发现 ${duplicateCount} 条重复记录，已按附件优先、最早创建规则选择主记录，本轮继续`);
+  }
   return map;
 }
 
@@ -547,6 +590,7 @@ function findExistingRecordByUrl(url, attachmentField = '') {
     '--keyword', keyword,
     '--search-field', '视频链接',
     '--field-id', '视频链接',
+    '--field-id', CREATED_AT_FIELD,
     '--limit', '20',
   ];
   if (attachmentField) args.push('--field-id', attachmentField);
@@ -814,25 +858,25 @@ export async function runPublish(sourceName) {
       let rid = repair.recordId;
       if (repair.shouldRepair) {
         try {
-          const resp = larkUpsert(buildRecord(meta));
+          const resp = larkUpsert(buildRecord(meta), repair.createNew ? '' : repair.recordId);
           if (!resp.ok) {
             failed++;
             log(`  修复空记录失败: ${JSON.stringify(resp).substring(0, 200)}`);
             continue;
           }
-          const createdRecordId = extractRecordId(resp);
-          if (!createdRecordId) {
+          const repairedRecordId = repair.createNew ? extractRecordId(resp) : repair.recordId;
+          if (!repairedRecordId) {
             failed++;
             log(`  修复空记录失败: 未拿到新 record_id, resp=${JSON.stringify(resp).substring(0, 200)}`);
             continue;
           }
-          rid = createdRecordId;
-          meta.feishu_record_id = createdRecordId;
+          rid = repairedRecordId;
+          meta.feishu_record_id = repairedRecordId;
           meta.attachment_uploaded = false;
           existingState = recordState(rid, null, true);
           existingRecords.set(recordKey, existingState);
           updated++;
-          log(`  已重建缺失记录 old_record_id=${repair.recordId || '(无)'} new_record_id=${rid}: ${(meta.title || '').substring(0, 40)}...`);
+          log(`  ${repair.createNew ? '已重建缺失记录' : '已按本地 record_id 修复列表延迟'} record_id=${rid}: ${(meta.title || '').substring(0, 40)}...`);
         } catch (err) {
           failed++;
           log(`  修复空记录异常: ${err.message}`);
