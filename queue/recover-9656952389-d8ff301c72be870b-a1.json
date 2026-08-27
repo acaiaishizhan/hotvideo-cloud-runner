@@ -1,0 +1,44 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-08-27T17:14:59.341Z",
+  "items": [
+    {
+      "id": "7677981673238601457",
+      "url": "https://www.douyin.com/video/7677981673238601457",
+      "billboards": [
+        {
+          "name": "高完播率",
+          "rank": 31
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 3813,
+        "likeCount": 270,
+        "likeRate": 0.00278,
+        "followCount": 229,
+        "followRate": 0.002365,
+        "hotspotDetail": {
+          "likeCount": 292,
+          "commentCount": 649,
+          "shareCount": 55,
+          "newFansCount": 12
+        }
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "9656952389",
+        "sourceRunId": "33093966551",
+        "recoveryKey": "7677981673238601457:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-08-27T17:14:59.341Z",
+    "items": []
+  }
+}
