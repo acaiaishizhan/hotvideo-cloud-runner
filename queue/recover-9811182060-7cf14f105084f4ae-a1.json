@@ -1,0 +1,48 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-01T16:56:58.234Z",
+  "items": [
+    {
+      "id": "7679836280037691810",
+      "url": "https://www.douyin.com/video/7679836280037691810",
+      "billboards": [
+        {
+          "name": "低粉爆款",
+          "rank": 39
+        },
+        {
+          "name": "高点赞率",
+          "rank": 30
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 4953,
+        "likeCount": 5389,
+        "likeRate": 0.081627,
+        "followCount": 293,
+        "followRate": 0.00993,
+        "hotspotDetail": {
+          "likeCount": 5523,
+          "commentCount": 5018,
+          "shareCount": 47,
+          "newFansCount": 267
+        }
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "9811182060",
+        "sourceRunId": "33533181724",
+        "recoveryKey": "7679836280037691810:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-01T16:56:58.234Z",
+    "items": []
+  }
+}
