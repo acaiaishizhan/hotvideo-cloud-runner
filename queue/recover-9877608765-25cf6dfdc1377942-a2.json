@@ -1,0 +1,44 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-03T03:57:07.004Z",
+  "items": [
+    {
+      "id": "7680363803145773242",
+      "url": "https://www.douyin.com/video/7680363803145773242",
+      "billboards": [
+        {
+          "name": "高涨粉率",
+          "rank": 30
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 2064,
+        "likeCount": 374,
+        "likeRate": 0.005141,
+        "followCount": 1155,
+        "followRate": 0.018465,
+        "hotspotDetail": {
+          "likeCount": 634,
+          "commentCount": 763,
+          "shareCount": 44,
+          "newFansCount": 64
+        }
+      },
+      "recovery": {
+        "attempt": 2,
+        "sourceArtifactId": "9877608765",
+        "sourceRunId": "33706627022",
+        "recoveryKey": "7680363803145773242:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-03T03:57:07.004Z",
+    "items": []
+  }
+}
