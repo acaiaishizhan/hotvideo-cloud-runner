@@ -15,7 +15,21 @@
     "pipeline/transcribe-video-copy.mjs": "f4d4e0cf892949da43854370c5460f23de4c93b9810462d0f75aa736064e12b4",
     "pipeline/video-copy-provider.mjs": "daae972b1af438326ed48bc581e08df2cacbb3f3a10900f5a26f59e6bd8fd987",
     "pipeline/video-infra-command.mjs": "c6f9f853c4408681b9673bb75ed95f7e3da72e90f86c64affda9fbf05b51851f",
-    "pipeline/video-url.mjs": "1014fc327212d4c2378d1c4a265aebcf57d89afd2cabfc6ff1bf4f21934ce968"
+    "pipeline/video-url.mjs": "1014fc327212d4c2378d1c4a265aebcf57d89afd2cabfc6ff1bf4f21934ce968",
+    "video-infra/pyproject.toml": "67e7c53a2c1bfa9f40010753f4024c7247b1348c14fc9acdc8359af62b4e97de",
+    "video-infra/src/video_infra/__init__.py": "e2dfdcaf386b2ee9befa8ca8c14331b63053cd4b56a7ba114c5db67b012f246e",
+    "video-infra/src/video_infra/__main__.py": "c2ee4ddb093c9af060cafaf68219907f8a6b7b301ed3f8bea75db7555adec987",
+    "video-infra/src/video_infra/cli.py": "c4b1c4c76b67bb4d8398f74418266b6629f6b835632eb938161a7eb2e4403c65",
+    "video-infra/src/video_infra/config.py": "04afc63af788c2d3cf047458083027ab0eb8a933a6775456420914567f3f34dc",
+    "video-infra/src/video_infra/router.py": "3104fe5b8f9880f2f654f4a2be972b4e2f63239a98d6eb6cf303b058f69d3e4c",
+    "video-infra/src/video_infra/schema.py": "06ac03be083ea98a4471eadde95dd56a7d5ce17c9fa5476c181c0062ebdb07b5",
+    "video-infra/src/video_infra/providers/__init__.py": "5123e41c6f8ca82b53d752fca7166205722bf8cbcde57f3d3e174acb91290021",
+    "video-infra/src/video_infra/providers/base.py": "7c7c041779e990c5cecef5960d56aa6bd5281446b8fa7dbd0e1b64d72584e56b",
+    "video-infra/src/video_infra/providers/douyin.py": "810a8e21f85c0c3fb490d0f236f0f7173eb4340e02bf17c49ca913ba7cb50386",
+    "video-infra/src/video_infra/providers/yt_dlp_generic.py": "bd012a3d0e03ef17e51f77fbea6da955df62e8c2c902725b059dcc68fb51bd44",
+    "video-infra/src/video_infra/storage/__init__.py": "75ad4f4c2943325f88064ad2beae890b59674be2bf0404b30afc5584dc4de4bb",
+    "video-infra/src/video_infra/storage/metadata.py": "4eac2323f4a07128344defa6164104349efcc12df76b7d7e2748eb858371b09d",
+    "video-infra/src/video_infra/storage/paths.py": "28a4d00c33dee72cf26e564c5589025100d8cb33fe091b037fa7360638e8c3fc"
   },
   "allowedCloudAdapters": [
     "scripts/run-queue.mjs",

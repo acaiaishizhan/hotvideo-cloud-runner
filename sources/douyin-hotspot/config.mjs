@@ -7,6 +7,7 @@ export default {
   videoInfraCmd: process.env.PYTHON || 'python',
   videoInfraArgs: ['-m', 'video_infra'],
   videoInfraCwd: path.join(ROOT, 'video-infra'),
+  videoInfraTimeoutMs: 180000,
   // Hotvideo 只回传结构化数据，不再上传视频附件。
   feishuAttachmentField: null,
   categoryProfiles: {

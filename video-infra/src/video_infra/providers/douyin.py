@@ -3,9 +3,15 @@ from __future__ import annotations
 import base64
 import hashlib
 import json
+import os
 import re
+import shutil
+import subprocess
+import tempfile
 import time
+from contextlib import contextmanager
 from pathlib import Path
+from typing import Any, Callable, Iterator
 from urllib.parse import parse_qs, urlparse
 
 import requests
@@ -13,6 +19,7 @@ import requests
 from ..schema import Author, Media, Stats, VideoResult
 from ..storage.paths import safe_name
 from .base import VideoProvider
+from .yt_dlp_generic import YtDlpGenericProvider
 
 
 URL_PATTERN = re.compile(r"https?://[^\s]+", re.IGNORECASE)
@@ -37,10 +44,11 @@ class DouyinProvider(VideoProvider):
     platform = "douyin"
     api_url = "https://www.iesdouyin.com/web/api/v2/aweme/iteminfo/"
 
-    def __init__(self):
+    def __init__(self, fallback: YtDlpGenericProvider | None = None):
         self.session = requests.Session()
         self.session.headers.update(DEFAULT_HEADERS)
         self.timeout = (10, 30)
+        self.fallback = fallback or YtDlpGenericProvider(self._yt_dlp_cookie_options)
 
     def supports(self, url: str) -> bool:
         try:
@@ -50,6 +58,15 @@ class DouyinProvider(VideoProvider):
         return any(domain in host for domain in DOUYIN_DOMAINS)
 
     def parse(self, url: str) -> VideoResult:
+        try:
+            return self._parse_direct(url)
+        except Exception as direct_error:
+            try:
+                return self._run_fallback(lambda: self.fallback.parse(url))
+            except Exception as fallback_error:
+                raise ValueError(f"抖音解析失败: direct={direct_error}; yt-dlp={fallback_error}") from fallback_error
+
+    def _parse_direct(self, url: str) -> VideoResult:
         source_url = self._extract_url(url)
         resolved_url = self._resolve_redirect(source_url)
         video_id = self._extract_video_id(resolved_url)
@@ -57,18 +74,110 @@ class DouyinProvider(VideoProvider):
         return self._build_result(item, video_id, source_url, resolved_url)
 
     def download(self, url: str, output_dir: Path | None = None, format_id: str | None = None) -> VideoResult:
-        result = self.parse(url)
-        media_url = result.media.directUrl
-        if not media_url:
-            raise ValueError("douyin media direct url is empty")
+        try:
+            result = self._parse_direct(url)
+            media_url = result.media.directUrl
+            if not media_url:
+                raise ValueError("douyin media direct url is empty")
 
-        target_dir = output_dir or Path.cwd()
-        target_dir.mkdir(parents=True, exist_ok=True)
-        filename = "video.mp4" if output_dir else f"{safe_name(result.title, result.id)}.mp4"
-        filepath = target_dir / filename
-        self._download_file(media_url, filepath)
-        result.files.videoPath = str(filepath)
-        return result
+            target_dir = output_dir or Path.cwd()
+            target_dir.mkdir(parents=True, exist_ok=True)
+            filename = "video.mp4" if output_dir else f"{safe_name(result.title, result.id)}.mp4"
+            filepath = target_dir / filename
+            self._download_file(media_url, filepath)
+            result.files.videoPath = str(filepath)
+            return result
+        except Exception as direct_error:
+            try:
+                return self._run_fallback(lambda: self.fallback.download(url, output_dir, format_id))
+            except Exception as fallback_error:
+                raise ValueError(f"抖音下载失败: direct={direct_error}; yt-dlp={fallback_error}") from fallback_error
+
+    @staticmethod
+    def _is_cookie_challenge_error(error: Exception) -> bool:
+        message = str(error).lower()
+        return any(marker in message for marker in (
+            "fresh cookies",
+            "unable to extract render data",
+            "unable to extract webpage video data",
+            "jsvm",
+        ))
+
+    def _run_fallback(self, action: Callable[[], VideoResult]) -> VideoResult:
+        attempts = 1 if os.environ.get("VIDEO_INFRA_DOUYIN_BROWSER_PROFILE", "").strip() else 2
+        for attempt in range(attempts):
+            try:
+                return action()
+            except Exception as exc:
+                if attempt + 1 >= attempts or not self._is_cookie_challenge_error(exc):
+                    raise
+        raise ValueError("抖音 yt-dlp fallback 未返回结果")
+
+    @staticmethod
+    def _configured_browser_profile() -> Path | None:
+        explicit = os.environ.get("VIDEO_INFRA_DOUYIN_BROWSER_PROFILE", "").strip()
+        if explicit:
+            path = Path(explicit).expanduser().resolve()
+            if not path.exists():
+                raise ValueError(f"VIDEO_INFRA_DOUYIN_BROWSER_PROFILE 不存在: {path}")
+            return path
+        return None
+
+    @staticmethod
+    def _chrome_executable() -> str:
+        explicit = os.environ.get("VIDEO_INFRA_CHROME_BIN", "").strip()
+        if explicit:
+            if not Path(explicit).exists():
+                raise ValueError(f"VIDEO_INFRA_CHROME_BIN 不存在: {explicit}")
+            return explicit
+        for name in ("google-chrome", "google-chrome-stable", "chromium", "chromium-browser"):
+            if found := shutil.which(name):
+                return found
+        if os.name == "nt":
+            for root_name in ("PROGRAMFILES", "PROGRAMFILES(X86)"):
+                root = os.environ.get(root_name)
+                if not root:
+                    continue
+                candidate = Path(root) / "Google" / "Chrome" / "Application" / "chrome.exe"
+                if candidate.exists():
+                    return str(candidate)
+        raise ValueError("未找到 Chrome/Chromium，无法生成抖音 fresh cookies")
+
+    @classmethod
+    def _prime_fresh_profile(cls, profile: Path, url: str) -> None:
+        args = [
+            cls._chrome_executable(),
+            "--headless=new",
+            "--disable-gpu",
+            "--no-first-run",
+            "--no-default-browser-check",
+            f"--user-data-dir={profile}",
+            "--virtual-time-budget=8000",
+            "--dump-dom",
+        ]
+        if os.name != "nt":
+            args.append("--no-sandbox")
+        args.append(url)
+        try:
+            subprocess.run(
+                args,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+                timeout=30,
+                check=False,
+            )
+        except subprocess.TimeoutExpired as exc:
+            raise ValueError("Chrome 生成抖音 fresh cookies 超时") from exc
+
+    @contextmanager
+    def _yt_dlp_cookie_options(self, url: str) -> Iterator[dict[str, Any]]:
+        if configured := self._configured_browser_profile():
+            yield {"cookiesfrombrowser": ("chrome", str(configured), None, None)}
+            return
+        profile = Path(tempfile.gettempdir()) / f"video-infra-douyin-{os.getppid()}"
+        profile.mkdir(parents=True, exist_ok=True)
+        self._prime_fresh_profile(profile, url)
+        yield {"cookiesfrombrowser": ("chrome", str(profile), None, None)}
 
     def _extract_url(self, text: str) -> str:
         match = URL_PATTERN.search(text)
