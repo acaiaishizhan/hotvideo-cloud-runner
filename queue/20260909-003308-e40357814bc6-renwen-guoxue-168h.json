@@ -1,0 +1,4444 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T16:33:08.260Z",
+  "items": [
+    {
+      "id": "7680184617039847525",
+      "url": "https://www.douyin.com/video/7680184617039847525",
+      "billboards": [
+        {
+          "name": "高涨粉率",
+          "rank": 29
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 168,
+        "thumbnailUrl": "https://p3-sign.douyinpic.com/tos-cn-p-0015c000-ce/oM3VZ5gKeAQft0JQWG7VYmDwfIJQLBXVjvCgSa~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790092800&x-signature=a%2BG7boNRu9leQBDaqnsXsIR33Ag%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=20260909003320D2995B4A107B1EC9ECB2",
+        "publishedAt": 1788246000,
+        "lastSeenAt": "2026-09-08T16:33:08.260Z",
+        "score": 10610,
+        "likeCount": 6176,
+        "likeRate": 0.040328,
+        "followCount": 239,
+        "followRate": 0.002104
+      }
+    },
+    {
+      "id": "7680523452771889787",
+      "url": "https://www.douyin.com/video/7680523452771889787",
+      "billboards": [
+        {
+          "name": "高涨粉率",
+          "rank": 31
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 168,
+        "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-0813c000-ce/osCAca05IEPETvX1DMaiAWBnubiEhApY5AsAy~tplv-dy-resize-walign-adapt-aq:720:q75.jpeg?lk3s=138a59ce&x-expires=1790092800&x-signature=mkmi1QniNsqU3LOlSdKqp2FzGKQ%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260909003320D2995B4A107B1EC9ECB2",
+        "publishedAt": 1788261219,
+        "lastSeenAt": "2026-09-08T16:33:08.260Z",
+        "score": 10325,
+        "likeCount": 2340,
+        "likeRate": 0.016971,
+        "followCount": 1991,
+        "followRate": 0.013079
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T16:33:08.260Z",
+    "items": [
+      {
+        "id": "7682328646229715313",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7682328646229715313",
+        "title": "人性本善 #孔孟之道教你做人 #孟夫子 #国学知识科普 #新儒家思想",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 1
+            },
+            {
+              "name": "高点赞率",
+              "rank": 1
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 404032,
+          "likeCount": 242786,
+          "likeRate": 0.08338,
+          "followCount": 1041,
+          "followRate": 0.000382,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788681524,
+          "hotspotDetail": {
+            "likeCount": 323295,
+            "commentCount": 12574,
+            "shareCount": 220012,
+            "newFansCount": 1423,
+            "publishedAt": 1788681524,
+            "capturedAt": "2026-09-08T16:31:18.247Z"
+          }
+        }
+      },
+      {
+        "id": "7681629988574989587",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681629988574989587",
+        "title": "我们是世界的孩子，当然会有世界的影子 素材来源：@一丁点儿世界；李安年 #文案  #分享  #有趣   #我是万物",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 2
+            },
+            {
+              "name": "高点赞率",
+              "rank": 2
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 387793,
+          "likeCount": 685175,
+          "likeRate": 0.11333,
+          "followCount": 2672,
+          "followRate": 0.000513,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788520267
+        }
+      },
+      {
+        "id": "7679698052974306019",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7679698052974306019",
+        "title": "这九条可以保命的民间规矩，你一定要牢记 #国学修行 #道家文化 #民俗文化 #迷鹿师叔 #玄学提醒",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 3
+            },
+            {
+              "name": "高点赞率",
+              "rank": 3
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 128080,
+          "likeCount": 184801,
+          "likeRate": 0.101816,
+          "followCount": 6081,
+          "followRate": 0.003625,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788069041,
+          "hotspotDetail": {
+            "likeCount": 373865,
+            "commentCount": 230556,
+            "shareCount": 52389,
+            "newFansCount": 12588,
+            "publishedAt": 1788069041,
+            "capturedAt": "2026-09-08T16:31:18.247Z"
+          }
+        }
+      },
+      {
+        "id": "7679654046765372618",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7679654046765372618",
+        "title": "“你总说缘分看天，事在人为，其实是你自己不愿意。”#学习圣贤文化传播正能量 #不讲玄学只讲实话 #道家知识 #中国传统智慧里的普世观",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 4
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 1
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 120066,
+          "likeCount": 12530,
+          "likeRate": 0.00359,
+          "followCount": 3309,
+          "followRate": 0.000909,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788058795,
+          "hotspotDetail": {
+            "likeCount": 12825,
+            "commentCount": 88690,
+            "shareCount": 4717,
+            "newFansCount": 511,
+            "publishedAt": 1788058795,
+            "capturedAt": "2026-09-08T16:31:28.217Z"
+          }
+        }
+      },
+      {
+        "id": "7680495656196197668",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680495656196197668",
+        "title": "记住道德经里的这句话，你的人生会突然变好！ #随拍 #目清师兄 #道家文化 #人生",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 5
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 102569,
+          "likeCount": 328523,
+          "likeRate": 0.049353,
+          "followCount": 13323,
+          "followRate": 0.002045,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788254752
+        }
+      },
+      {
+        "id": "7680368678155734326",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680368678155734326",
+        "title": "九条古老智慧，修好自身磁场财运自然向你靠拢 #磁场能量  #玄学智慧  #事以密成  #认知觉醒  #修心改运",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 6
+            },
+            {
+              "name": "高点赞率",
+              "rank": 4
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 89103,
+          "likeCount": 96054,
+          "likeRate": 0.080172,
+          "followCount": 5962,
+          "followRate": 0.006034,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788225188,
+          "hotspotDetail": {
+            "likeCount": 99401,
+            "commentCount": 84340,
+            "shareCount": 15027,
+            "newFansCount": 6134,
+            "publishedAt": 1788225188,
+            "capturedAt": "2026-09-08T16:31:23.218Z"
+          }
+        }
+      },
+      {
+        "id": "7680409440704630016",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680409440704630016",
+        "title": "",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 7
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 73432,
+          "likeCount": 97439,
+          "likeRate": 0.042273,
+          "followCount": 13386,
+          "followRate": 0.00621,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788285600
+        }
+      },
+      {
+        "id": "7681228976718679334",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681228976718679334",
+        "title": "天之道与人之道，揭开贫富差距背后的古老智慧 #历史 #用AI打开人文新视界  #传统文化 #道德经 #贫富差距",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 8
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 59316,
+          "likeCount": 123090,
+          "likeRate": 0.029835,
+          "followCount": 22312,
+          "followRate": 0.005992,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788425490,
+          "hotspotDetail": {
+            "likeCount": 139504,
+            "commentCount": 2962,
+            "shareCount": 34991,
+            "newFansCount": 26598,
+            "publishedAt": 1788425490,
+            "capturedAt": "2026-09-08T16:31:20.765Z"
+          }
+        }
+      },
+      {
+        "id": "7680841675636768497",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680841675636768497",
+        "title": "#道观日常 #inmyfeelings #",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 9
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 2
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 57963,
+          "likeCount": 62920,
+          "likeRate": 0.040596,
+          "followCount": 1087,
+          "followRate": 0.000654,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788335311,
+          "hotspotDetail": {
+            "likeCount": 66245,
+            "commentCount": 27094,
+            "shareCount": 11827,
+            "newFansCount": 1116,
+            "publishedAt": 1788335311,
+            "capturedAt": "2026-09-08T16:31:23.218Z"
+          }
+        }
+      },
+      {
+        "id": "7677059527380679025",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7677059527380679025",
+        "title": "《道德经》三句真言，避开90%的人际无妄之灾#道德经#人际交往 #国学文化 #通透#人生智慧",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 10
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 56865,
+          "likeCount": 41673,
+          "likeRate": 0.024679,
+          "followCount": 3072,
+          "followRate": 0.002452,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1787454712,
+          "hotspotDetail": {
+            "likeCount": 271484,
+            "commentCount": 233419,
+            "shareCount": 46839,
+            "newFansCount": 17467,
+            "publishedAt": 1787454712,
+            "capturedAt": "2026-09-08T16:31:25.706Z"
+          }
+        }
+      },
+      {
+        "id": "7681171454285664165",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681171454285664165",
+        "title": "#这养宅秘诀绝了！气场全开好运来~",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 11
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 3
+            },
+            {
+              "name": "高完播率",
+              "rank": 1
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 56112,
+          "likeCount": 40566,
+          "likeRate": 0.036707,
+          "followCount": 3629,
+          "followRate": 0.003203,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788412094
+        }
+      },
+      {
+        "id": "7680713238505982874",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680713238505982874",
+        "title": "人死后七七四十九天的由来",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 12
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 4
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 52960,
+          "likeCount": 38196,
+          "likeRate": 0.007518,
+          "followCount": 5503,
+          "followRate": 0.001004,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788305408,
+          "hotspotDetail": {
+            "likeCount": 38460,
+            "commentCount": 2044,
+            "shareCount": 24051,
+            "newFansCount": 5407,
+            "publishedAt": 1788305408,
+            "capturedAt": "2026-09-08T16:31:20.765Z"
+          }
+        }
+      },
+      {
+        "id": "7682026396033568000",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7682026396033568000",
+        "title": "《带娃尽头是玄学》。那些老一辈口口相传的带娃讲究，你家还在照做吗？看看你中了几个！#育儿 #玄学 #民间习俗 #育儿知识 #新手爸妈",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 13
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 51861,
+          "likeCount": 16323,
+          "likeRate": 0.011893,
+          "followCount": 1098,
+          "followRate": 0.000907,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788611169
+        }
+      },
+      {
+        "id": "7682688022434166921",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7682688022434166921",
+        "title": "人生翻盘 三处关键 #道家文化 #人生感悟",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 14
+            },
+            {
+              "name": "高点赞率",
+              "rank": 5
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 51536,
+          "likeCount": 68365,
+          "likeRate": 0.061775,
+          "followCount": 2485,
+          "followRate": 0.003369,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788765198,
+          "hotspotDetail": {
+            "likeCount": 154308,
+            "commentCount": 127545,
+            "shareCount": 13208,
+            "newFansCount": 6147,
+            "publishedAt": 1788765198,
+            "capturedAt": "2026-09-08T16:30:43.453Z"
+          }
+        }
+      },
+      {
+        "id": "7681219442093549395",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681219442093549395",
+        "title": "被篡改过的民间老话！看下你知道哪个？#老人的古话智慧 #民间俗语 #国学经典漫画",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 15
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 5
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 51513,
+          "likeCount": 93746,
+          "likeRate": 0.042232,
+          "followCount": 1414,
+          "followRate": 0.000637,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788423267
+        }
+      },
+      {
+        "id": "7681879760322244507",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681879760322244507",
+        "title": "第 49 集｜《道德经》三句真言，能帮你避开人生当中90%以上的人际无妄之灾。#人际关系#历史人物#人生忠告#人生智慧#道德经#人生智慧",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 16
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 50868,
+          "likeCount": 30930,
+          "likeRate": 0.033089,
+          "followCount": 2260,
+          "followRate": 0.002634,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788577010,
+          "hotspotDetail": {
+            "likeCount": 40899,
+            "commentCount": 50267,
+            "shareCount": 7011,
+            "newFansCount": 2956,
+            "publishedAt": 1788577010,
+            "capturedAt": "2026-09-08T16:31:18.247Z"
+          }
+        }
+      },
+      {
+        "id": "7680500989216753984",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680500989216753984",
+        "title": "信则有，不信则无。",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 17
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 6
+            },
+            {
+              "name": "高完播率",
+              "rank": 2
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 49855,
+          "likeCount": 51798,
+          "likeRate": 0.025504,
+          "followCount": 1431,
+          "followRate": 0.000674,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788255991
+        }
+      },
+      {
+        "id": "7682285494453885519",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7682285494453885519",
+        "title": "#传统文化",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 18
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 7
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 49748,
+          "likeCount": 33798,
+          "likeRate": 0.011878,
+          "followCount": 1142,
+          "followRate": 0.000408,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788671477,
+          "hotspotDetail": {
+            "likeCount": 41988,
+            "commentCount": 1532,
+            "shareCount": 39978,
+            "newFansCount": 1335,
+            "publishedAt": 1788671477,
+            "capturedAt": "2026-09-08T16:30:43.453Z"
+          }
+        }
+      },
+      {
+        "id": "7679989827626632923",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7679989827626632923",
+        "title": "每个人身上有三处风水:口德、格局、善心！#静能生慧心静则身安",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 19
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 8
+            },
+            {
+              "name": "高完播率",
+              "rank": 3
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 48306,
+          "likeCount": 54187,
+          "likeRate": 0.045924,
+          "followCount": 4723,
+          "followRate": 0.004297,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788136975,
+          "hotspotDetail": {
+            "likeCount": 55308,
+            "commentCount": 12292,
+            "shareCount": 18762,
+            "newFansCount": 4692,
+            "publishedAt": 1788136975,
+            "capturedAt": "2026-09-08T16:31:30.653Z"
+          }
+        }
+      },
+      {
+        "id": "7681815751745465210",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681815751745465210",
+        "title": "自建房不起眼的台阶，藏着家宅峦头讲究。 大门台阶，宜阳数忌阴数。 1、3、5、7为阳，适合家宅入户； 2、4、6、8属阴，不适合入户大门。 这栋新房，入户四级台阶，属于阴数，纳气有……版本过低，升级后可展示全部信息",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 20
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 9
+            },
+            {
+              "name": "高完播率",
+              "rank": 4
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 48270,
+          "likeCount": 4134,
+          "likeRate": 0.00402,
+          "followCount": 213,
+          "followRate": 0.000208,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788562107,
+          "hotspotDetail": {
+            "likeCount": 4144,
+            "commentCount": 33624,
+            "shareCount": 65,
+            "newFansCount": 205,
+            "publishedAt": 1788562107,
+            "capturedAt": "2026-09-08T16:31:20.765Z"
+          }
+        }
+      },
+      {
+        "id": "7680118884409691402",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680118884409691402",
+        "title": "为什么人一定千万不能炫耀？ #修行 #觉醒开悟 #人生感悟 #认知 #国学文化",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 21
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 46241,
+          "likeCount": 26075,
+          "likeRate": 0.029171,
+          "followCount": 2992,
+          "followRate": 0.003454,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788167028
+        }
+      },
+      {
+        "id": "7679358190211428005",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7679358190211428005",
+        "title": "梦到这些事千万不要告诉别人#梦魇 #做梦 #传统文化 #国学智慧 #水",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 22
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 10
+            },
+            {
+              "name": "高点赞率",
+              "rank": 6
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 44402,
+          "likeCount": 75670,
+          "likeRate": 0.062607,
+          "followCount": 5133,
+          "followRate": 0.004369,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1787989910
+        }
+      },
+      {
+        "id": "7680524763265528497",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680524763265528497",
+        "title": "#风水玄学 #地理 #山东李氏地理风水 #山东李氏祖传地理风水 #李长卿地理风水",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 23
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 11
+            },
+            {
+              "name": "高完播率",
+              "rank": 5
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 43116,
+          "likeCount": 61293,
+          "likeRate": 0.038374,
+          "followCount": 5001,
+          "followRate": 0.003004,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788261524
+        }
+      },
+      {
+        "id": "7680428489053289827",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680428489053289827",
+        "title": "一路坦途#国学智慧#修心修行#家长必看#开悟#智慧",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 24
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 12
+            },
+            {
+              "name": "高点赞率",
+              "rank": 7
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 42303,
+          "likeCount": 43793,
+          "likeRate": 0.107019,
+          "followCount": 1531,
+          "followRate": 0.005288,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788239109
+        }
+      },
+      {
+        "id": "7673445407275826917",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7673445407275826917",
+        "title": "孩子不自律却要自由，让孔先生和他对话。 你以为的自由，是没人管你；真正的自由，是没人管你的时候，你依然管得住自己。自律不是束缚，是你留给未来的一把钥匙——有能力、有信用，才有资格选……版本过低，升级后可展示全部信息",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 25
+            },
+            {
+              "name": "高涨粉率",
+              "rank": 1
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 38919,
+          "likeCount": 28650,
+          "likeRate": 0.033437,
+          "followCount": 8347,
+          "followRate": 0.010608,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1786613233,
+          "hotspotDetail": {
+            "likeCount": 161924,
+            "commentCount": 1731,
+            "shareCount": 169339,
+            "newFansCount": 45963,
+            "publishedAt": 1786613233,
+            "capturedAt": "2026-09-08T16:31:38.792Z"
+          }
+        }
+      },
+      {
+        "id": "7678646148341841499",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7678646148341841499",
+        "title": "同性亦可是正缘 #传统文化 #国学文化 #道系青年 #缘分",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 26
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 13
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 38451,
+          "likeCount": 23324,
+          "likeRate": 0.032691,
+          "followCount": 1338,
+          "followRate": 0.001958,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1787824126
+        }
+      },
+      {
+        "id": "7682215980281819385",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7682215980281819385",
+        "title": "众善奉行，诸恶莫作🙏🙏🙏",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 27
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 14
+            },
+            {
+              "name": "高完播率",
+              "rank": 6
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 38156,
+          "likeCount": 29965,
+          "likeRate": 0.027859,
+          "followCount": 4208,
+          "followRate": 0.003538,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788655293,
+          "hotspotDetail": {
+            "likeCount": 31687,
+            "commentCount": 9028,
+            "shareCount": 8695,
+            "newFansCount": 4345,
+            "publishedAt": 1788655293,
+            "capturedAt": "2026-09-08T16:30:43.453Z"
+          }
+        }
+      },
+      {
+        "id": "7680126890216742906",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680126890216742906",
+        "title": "脸上九种贵骨，你有几个？ #面相 #骨相 #传统文化 #面部结构 #识人术",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 28
+            },
+            {
+              "name": "高完播率",
+              "rank": 7
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 37764,
+          "likeCount": 47782,
+          "likeRate": 0.009686,
+          "followCount": 8736,
+          "followRate": 0.001655,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788168888,
+          "hotspotDetail": {
+            "likeCount": 64236,
+            "commentCount": 2895,
+            "shareCount": 16429,
+            "newFansCount": 11115,
+            "publishedAt": 1788168888,
+            "capturedAt": "2026-09-08T16:31:30.653Z"
+          }
+        }
+      },
+      {
+        "id": "7677176584368950538",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7677176584368950538",
+        "title": "为了让新的东西到来，旧的东西必须离去 #道德经 #断舍离 #人生智慧 #如果说",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 29
+            },
+            {
+              "name": "高点赞率",
+              "rank": 8
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 37420,
+          "likeCount": 67233,
+          "likeRate": 0.068722,
+          "followCount": 3683,
+          "followRate": 0.003569,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1787481974,
+          "hotspotDetail": {
+            "likeCount": 215845,
+            "commentCount": 32633,
+            "shareCount": 28635,
+            "newFansCount": 10423,
+            "publishedAt": 1787481974,
+            "capturedAt": "2026-09-08T16:31:25.706Z"
+          }
+        }
+      },
+      {
+        "id": "7677887388496093795",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7677887388496093795",
+        "title": "#玄学#情感咨询",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 30
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 15
+            },
+            {
+              "name": "高完播率",
+              "rank": 8
+            },
+            {
+              "name": "高点赞率",
+              "rank": 9
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 34595,
+          "likeCount": 29262,
+          "likeRate": 0.062879,
+          "followCount": 98,
+          "followRate": 0.000191,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1787647464,
+          "hotspotDetail": {
+            "likeCount": 123842,
+            "commentCount": 8738,
+            "shareCount": 51321,
+            "newFansCount": 241,
+            "publishedAt": 1787647464,
+            "capturedAt": "2026-09-08T16:31:34.798Z"
+          }
+        }
+      },
+      {
+        "id": "7677515935191764251",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7677515935191764251",
+        "title": "香灰烫手是提醒#传统文化 #国学 ",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 31
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 34028,
+          "likeCount": 30861,
+          "likeRate": 0.026813,
+          "followCount": 1103,
+          "followRate": 0.001086,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788254880,
+          "hotspotDetail": {
+            "likeCount": 42329,
+            "commentCount": 27662,
+            "shareCount": 3840,
+            "newFansCount": 1571,
+            "publishedAt": 1788254880,
+            "capturedAt": "2026-09-08T16:30:43.453Z"
+          }
+        }
+      },
+      {
+        "id": "7680761356644413105",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680761356644413105",
+        "title": "逢凶化吉，刷到即是机缘。#民间智慧 #逢凶化吉 #生活预兆 #直觉",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 32
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 16
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 33351,
+          "likeCount": 68201,
+          "likeRate": 0.040796,
+          "followCount": 971,
+          "followRate": 0.000535,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788316611
+        }
+      },
+      {
+        "id": "7680766352315304113",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680766352315304113",
+        "title": "人一定要积攒自己的福报。",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 33
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 17
+            },
+            {
+              "name": "高完播率",
+              "rank": 9
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 32571,
+          "likeCount": 44849,
+          "likeRate": 0.038695,
+          "followCount": 6648,
+          "followRate": 0.005114,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788317776
+        }
+      },
+      {
+        "id": "7681319225717710964",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681319225717710964",
+        "title": "#旧物 #内容过于真实 #鞋子",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 34
+            },
+            {
+              "name": "高完播率",
+              "rank": 10
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 32331,
+          "likeCount": 21740,
+          "likeRate": 0.01854,
+          "followCount": 1652,
+          "followRate": 0.001373,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788446501
+        }
+      },
+      {
+        "id": "7679430353156607284",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7679430353156607284",
+        "title": "我们避之不及的“4”，古人却用它丈量天地 #热点小助手 #用vibecoding打开人文新视界 #用ai打开人文新视界 #抖音创作者大会",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 35
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 31957,
+          "likeCount": 29857,
+          "likeRate": 0.018986,
+          "followCount": 1028,
+          "followRate": 0.000674,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788078600
+        }
+      },
+      {
+        "id": "7682426332127831461",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7682426332127831461",
+        "title": "今日提醒9月7日。我们是愚人节那天认识的，好像我们的感情本来就是一场玩笑#今日提醒#磁场能量#玄学#识人术",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 36
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 18
+            },
+            {
+              "name": "高完播率",
+              "rank": 11
+            },
+            {
+              "name": "高点赞率",
+              "rank": 10
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 31732,
+          "likeCount": 54771,
+          "likeRate": 0.073423,
+          "followCount": 878,
+          "followRate": 0.00101,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788704268,
+          "hotspotDetail": {
+            "likeCount": 58393,
+            "commentCount": 7505,
+            "shareCount": 6600,
+            "newFansCount": 957,
+            "publishedAt": 1788704268,
+            "capturedAt": "2026-09-08T16:30:43.453Z"
+          }
+        }
+      },
+      {
+        "id": "7680115546243334578",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680115546243334578",
+        "title": "诸邪必退#道家文学 #国学修行 #古韵道观 #传统文化修心",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 37
+            },
+            {
+              "name": "高点赞率",
+              "rank": 11
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 31375,
+          "likeCount": 46465,
+          "likeRate": 0.085814,
+          "followCount": 2169,
+          "followRate": 0.003817,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788166246
+        }
+      },
+      {
+        "id": "7673840000462638362",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7673840000462638362",
+        "title": "人身上的风水可比房子的风水重要多了 #国学 #智慧人生 #传统文化",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 38
+            },
+            {
+              "name": "高点赞率",
+              "rank": 12
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 31314,
+          "likeCount": 53390,
+          "likeRate": 0.070653,
+          "followCount": 4258,
+          "followRate": 0.00735,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1786834800
+        }
+      },
+      {
+        "id": "7680465230438909876",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680465230438909876",
+        "title": "看不清身边的人。#道家文化 #拒绝封建迷信弘扬传统文化",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 39
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 19
+            },
+            {
+              "name": "高涨粉率",
+              "rank": 2
+            },
+            {
+              "name": "高点赞率",
+              "rank": 13
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 31215,
+          "likeCount": 17032,
+          "likeRate": 0.042098,
+          "followCount": 2569,
+          "followRate": 0.006085,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788247663,
+          "hotspotDetail": {
+            "likeCount": 18199,
+            "commentCount": 18484,
+            "shareCount": 542,
+            "newFansCount": 2485,
+            "publishedAt": 1788247663,
+            "capturedAt": "2026-09-08T16:31:38.792Z"
+          }
+        }
+      },
+      {
+        "id": "7680332861576428219",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680332861576428219",
+        "title": "人不是到老才会走，是把自己的福报用完了….",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 40
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 20
+            },
+            {
+              "name": "高完播率",
+              "rank": 12
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 30852,
+          "likeCount": 42243,
+          "likeRate": 0.036949,
+          "followCount": 7529,
+          "followRate": 0.005725,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788216846
+        }
+      },
+      {
+        "id": "7680102325059253681",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680102325059253681",
+        "title": "经历过就不一样#国学#国学经典#国学文化",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 41
+            },
+            {
+              "name": "高涨粉率",
+              "rank": 3
+            },
+            {
+              "name": "高点赞率",
+              "rank": 14
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 30685,
+          "likeCount": 31306,
+          "likeRate": 0.114726,
+          "followCount": 1873,
+          "followRate": 0.007572,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788163168,
+          "hotspotDetail": {
+            "likeCount": 36088,
+            "commentCount": 21390,
+            "shareCount": 1761,
+            "newFansCount": 1926,
+            "publishedAt": 1788163168,
+            "capturedAt": "2026-09-08T16:31:42.794Z"
+          }
+        }
+      },
+      {
+        "id": "7677068715251789042",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7677068715251789042",
+        "title": "守住自身财富 牢牢记住九点 #道家文化 #人生感悟",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 42
+            },
+            {
+              "name": "高点赞率",
+              "rank": 15
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 29410,
+          "likeCount": 23475,
+          "likeRate": 0.052147,
+          "followCount": 1550,
+          "followRate": 0.003422,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1787456851
+        }
+      },
+      {
+        "id": "7681634448039583625",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681634448039583625",
+        "title": "都收到！#道家文化 #传统文化 #正能量",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "视频总榜",
+              "rank": 43
+            },
+            {
+              "name": "低粉爆款",
+              "rank": 21
+            },
+            {
+              "name": "高点赞率",
+              "rank": 16
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 28892,
+          "likeCount": 85660,
+          "likeRate": 0.062158,
+          "followCount": 1003,
+          "followRate": 0.000775,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788519895,
+          "hotspotDetail": {
+            "likeCount": 98770,
+            "commentCount": 13267,
+            "shareCount": 4231,
+            "newFansCount": 2074,
+            "publishedAt": 1788519895,
+            "capturedAt": "2026-09-08T16:30:46.013Z"
+          }
+        }
+      },
+      {
+        "id": "7682619430957927721",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7682619430957927721",
+        "title": "愿你福运相伴，财源滚滚来#传统文化 #涨知识 #干货分享 #好运连连 #知识分享",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 22
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 28627,
+          "likeCount": 23809,
+          "likeRate": 0.042831,
+          "followCount": 432,
+          "followRate": 0.000763,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788749232,
+          "hotspotDetail": {
+            "likeCount": 58194,
+            "commentCount": 22349,
+            "shareCount": 18968,
+            "newFansCount": 869,
+            "publishedAt": 1788749232,
+            "capturedAt": "2026-09-08T16:30:46.013Z"
+          }
+        }
+      },
+      {
+        "id": "7680503232271316389",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680503232271316389",
+        "title": "#弘扬和传承国学传统文化",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 23
+            },
+            {
+              "name": "高涨粉率",
+              "rank": 4
+            },
+            {
+              "name": "高点赞率",
+              "rank": 17
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 28599,
+          "likeCount": 31987,
+          "likeRate": 0.097436,
+          "followCount": 6374,
+          "followRate": 0.021824,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788256511,
+          "hotspotDetail": {
+            "likeCount": 37587,
+            "commentCount": 23792,
+            "shareCount": 203,
+            "newFansCount": 6578,
+            "publishedAt": 1788256511,
+            "capturedAt": "2026-09-08T16:31:28.217Z"
+          }
+        }
+      },
+      {
+        "id": "7680427184355953521",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680427184355953521",
+        "title": "谁家都没有你家好#国学智慧 #国学文化 #正能量 #儿子 #国学大师曾仕强",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 24
+            },
+            {
+              "name": "高点赞率",
+              "rank": 18
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 27975,
+          "likeCount": 43791,
+          "likeRate": 0.077474,
+          "followCount": 1031,
+          "followRate": 0.004264,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788238806
+        }
+      },
+      {
+        "id": "7681885853622209818",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681885853622209818",
+        "title": "静候佳音 #粤语 #国学智慧 #司徒法正 #静候佳音",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 25
+            },
+            {
+              "name": "高点赞率",
+              "rank": 21
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 27100,
+          "likeCount": 16719,
+          "likeRate": 0.05072,
+          "followCount": 408,
+          "followRate": 0.001586,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788578431,
+          "hotspotDetail": {
+            "likeCount": 19451,
+            "commentCount": 25465,
+            "shareCount": 135,
+            "newFansCount": 464,
+            "publishedAt": 1788578431,
+            "capturedAt": "2026-09-08T16:31:23.218Z"
+          }
+        }
+      },
+      {
+        "id": "7681300651834415717",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681300651834415717",
+        "title": "敬而不迷，信而不执。#人生感悟人间清醒#接纳所有#心态修炼",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 26
+            },
+            {
+              "name": "高完播率",
+              "rank": 13
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 26254,
+          "likeCount": 25994,
+          "likeRate": 0.016651,
+          "followCount": 183,
+          "followRate": 0.000112,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788442175,
+          "hotspotDetail": {
+            "likeCount": 26041,
+            "commentCount": 5338,
+            "shareCount": 8201,
+            "newFansCount": 183,
+            "publishedAt": 1788442175,
+            "capturedAt": "2026-09-08T16:31:23.218Z"
+          }
+        }
+      },
+      {
+        "id": "7680815396194733499",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680815396194733499",
+        "title": "福运相伴，财运滚滚来！！！#传统文化 #知识分享 #悬疑 #好运连连",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 27
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 25994,
+          "likeCount": 22381,
+          "likeRate": 0.024255,
+          "followCount": 435,
+          "followRate": 0.000586,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788329193
+        }
+      },
+      {
+        "id": "7680760917491235557",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680760917491235557",
+        "title": "2026年9月3号 #黄历",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 28
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 25653,
+          "likeCount": 19244,
+          "likeRate": 0.021022,
+          "followCount": 1518,
+          "followRate": 0.001715,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788316509
+        }
+      },
+      {
+        "id": "7681187332111837907",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681187332111837907",
+        "title": "口袋放三样，不富人也旺！",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 29
+            },
+            {
+              "name": "高完播率",
+              "rank": 14
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 24112,
+          "likeCount": 24497,
+          "likeRate": 0.022459,
+          "followCount": 1916,
+          "followRate": 0.001709,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788415791
+        }
+      },
+      {
+        "id": "7679838179825831220",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7679838179825831220",
+        "title": "你家开了吗？#国学文化 #财门 #千禧堂 #新房",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 30
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 23976,
+          "likeCount": 15562,
+          "likeRate": 0.023111,
+          "followCount": 1379,
+          "followRate": 0.002762,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788108900
+        }
+      },
+      {
+        "id": "7680223424036183675",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680223424036183675",
+        "title": "今日提醒9月1号 #今日提醒#磁场能量#备忘录",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 31
+            },
+            {
+              "name": "高完播率",
+              "rank": 16
+            },
+            {
+              "name": "高点赞率",
+              "rank": 23
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 23798,
+          "likeCount": 26957,
+          "likeRate": 0.075064,
+          "followCount": 320,
+          "followRate": 0.000884,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788191364
+        }
+      },
+      {
+        "id": "7680004112360902473",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680004112360902473",
+        "title": "很多人忙着买各种风水摆件装饰自己的房子，缺忽略了人本身就是最好的风水。",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 32
+            },
+            {
+              "name": "高完播率",
+              "rank": 17
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 23461,
+          "likeCount": 24325,
+          "likeRate": 0.036164,
+          "followCount": 3081,
+          "followRate": 0.004281,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788140302,
+          "hotspotDetail": {
+            "likeCount": 32216,
+            "commentCount": 6863,
+            "shareCount": 6871,
+            "newFansCount": 4126,
+            "publishedAt": 1788140302,
+            "capturedAt": "2026-09-08T16:31:23.218Z"
+          }
+        }
+      },
+      {
+        "id": "7681644212908060325",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681644212908060325",
+        "title": "九月节节走高。#国学文化 #国学智慧 #曾老智慧 #传统文化",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 33
+            },
+            {
+              "name": "高涨粉率",
+              "rank": 5
+            },
+            {
+              "name": "高点赞率",
+              "rank": 24
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 22940,
+          "likeCount": 20410,
+          "likeRate": 0.09072,
+          "followCount": 813,
+          "followRate": 0.006194,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788522167
+        }
+      },
+      {
+        "id": "7680538824154105329",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680538824154105329",
+        "title": "#仙境云海 #自渡自愈 #向内求 #修行 #人间清醒",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 34
+            },
+            {
+              "name": "高完播率",
+              "rank": 18
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 22315,
+          "likeCount": 26064,
+          "likeRate": 0.022967,
+          "followCount": 4237,
+          "followRate": 0.00334,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788264799
+        }
+      },
+      {
+        "id": "7681816319105653094",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681816319105653094",
+        "title": "#六朵花 #心想事成 #国学文化",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 35
+            },
+            {
+              "name": "高点赞率",
+              "rank": 25
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 22236,
+          "likeCount": 10336,
+          "likeRate": 0.048148,
+          "followCount": 560,
+          "followRate": 0.002749,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788562238
+        }
+      },
+      {
+        "id": "7681220648324173090",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681220648324173090",
+        "title": "脑袋里有不好的想法，该怎么对付？ #国学文化#传统文化#国家智慧#人生感悟",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 36
+            },
+            {
+              "name": "高点赞率",
+              "rank": 26
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 22227,
+          "likeCount": 24560,
+          "likeRate": 0.03135,
+          "followCount": 1325,
+          "followRate": 0.001635,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788561000
+        }
+      },
+      {
+        "id": "7680748759613796346",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680748759613796346",
+        "title": "#赵宗瑞老师 #传统文化",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 37
+            },
+            {
+              "name": "高涨粉率",
+              "rank": 6
+            },
+            {
+              "name": "高点赞率",
+              "rank": 27
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 21930,
+          "likeCount": 28017,
+          "likeRate": 0.061738,
+          "followCount": 3824,
+          "followRate": 0.011183,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788313678,
+          "hotspotDetail": {
+            "likeCount": 31747,
+            "commentCount": 6275,
+            "shareCount": 8782,
+            "newFansCount": 4520,
+            "publishedAt": 1788313678,
+            "capturedAt": "2026-09-08T16:31:42.794Z"
+          }
+        }
+      },
+      {
+        "id": "7682027968584143973",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7682027968584143973",
+        "title": "善/恶。#人性认知 #阴阳之道 #国学智慧 #悟人生之道 #人性真相",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 38
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 21718,
+          "likeCount": 37392,
+          "likeRate": 0.021705,
+          "followCount": 963,
+          "followRate": 0.000526,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788611517,
+          "hotspotDetail": {
+            "likeCount": 41132,
+            "commentCount": 4064,
+            "shareCount": 6230,
+            "newFansCount": 1038,
+            "publishedAt": 1788611517,
+            "capturedAt": "2026-09-08T16:31:25.706Z"
+          }
+        }
+      },
+      {
+        "id": "7680805367210682353",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680805367210682353",
+        "title": "玄学提醒 口袋放三样，不富人也旺。 #玄学 #城市舒适区 #好运连连财源滚滚",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 39
+            },
+            {
+              "name": "高完播率",
+              "rank": 20
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 20881,
+          "likeCount": 22004,
+          "likeRate": 0.028628,
+          "followCount": 2113,
+          "followRate": 0.00282,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788326858
+        }
+      },
+      {
+        "id": "7681642074059361590",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681642074059361590",
+        "title": "不要强行续缘 #道家文化 #传统文化 #国学文化 #科普 #缘分",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 40
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 19877,
+          "likeCount": 24032,
+          "likeRate": 0.013181,
+          "followCount": 1998,
+          "followRate": 0.001266,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788580800,
+          "hotspotDetail": {
+            "likeCount": 24328,
+            "commentCount": 771,
+            "shareCount": 10019,
+            "newFansCount": 1995,
+            "publishedAt": 1788580800,
+            "capturedAt": "2026-09-08T16:31:25.706Z"
+          }
+        }
+      },
+      {
+        "id": "7680107327802625258",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680107327802625258",
+        "title": "#道家文学",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 41
+            },
+            {
+              "name": "高点赞率",
+              "rank": 29
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 19637,
+          "likeCount": 20463,
+          "likeRate": 0.046048,
+          "followCount": 705,
+          "followRate": 0.001877,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788164333
+        }
+      },
+      {
+        "id": "7680585924845471808",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680585924845471808",
+        "title": "相信儿子很优秀#国学智慧#国学文化#曾老智慧#正能量",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 42
+            },
+            {
+              "name": "高点赞率",
+              "rank": 30
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 19215,
+          "likeCount": 21058,
+          "likeRate": 0.089192,
+          "followCount": 459,
+          "followRate": 0.002777,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788275767
+        }
+      },
+      {
+        "id": "7680948992725353359",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680948992725353359",
+        "title": "2026年9月3日黄历分享#老黄历 #每日运势",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 43
+            },
+            {
+              "name": "高完播率",
+              "rank": 22
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 18959,
+          "likeCount": 9801,
+          "likeRate": 0.027942,
+          "followCount": 884,
+          "followRate": 0.00319,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788360298
+        }
+      },
+      {
+        "id": "7682241743128099691",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7682241743128099691",
+        "title": "什么才是顶级的清醒 #国学文化 #国学智慧 #曾老智慧 #清醒",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 44
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 18466,
+          "likeCount": 18464,
+          "likeRate": 0.030227,
+          "followCount": 1197,
+          "followRate": 0.002264,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788661291,
+          "hotspotDetail": {
+            "likeCount": 23372,
+            "commentCount": 1166,
+            "shareCount": 11731,
+            "newFansCount": 1426,
+            "publishedAt": 1788661291,
+            "capturedAt": "2026-09-08T16:31:20.765Z"
+          }
+        }
+      },
+      {
+        "id": "7680912418058820250",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680912418058820250",
+        "title": "#国学修行",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "低粉爆款",
+              "rank": 45
+            },
+            {
+              "name": "高点赞率",
+              "rank": 31
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 18203,
+          "likeCount": 11825,
+          "likeRate": 0.088301,
+          "followCount": 1122,
+          "followRate": 0.009894,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788351783
+        }
+      },
+      {
+        "id": "7681250259859923048",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681250259859923048",
+        "title": "",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 15
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 24039,
+          "likeCount": 13021,
+          "likeRate": 0.010275,
+          "followCount": 536,
+          "followRate": 0.000405,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788430442
+        }
+      },
+      {
+        "id": "7680490413379336680",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680490413379336680",
+        "title": "",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 19
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 21683,
+          "likeCount": 8240,
+          "likeRate": 0.019414,
+          "followCount": 361,
+          "followRate": 0.00082,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788253528
+        }
+      },
+      {
+        "id": "7679520395520012913",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7679520395520012913",
+        "title": "一朝悟道见真我，何惧昔日旧枷锁#王阳明",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 21
+            },
+            {
+              "name": "高点赞率",
+              "rank": 28
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 20332,
+          "likeCount": 53636,
+          "likeRate": 0.077254,
+          "followCount": 165,
+          "followRate": 0.000247,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788027682
+        }
+      },
+      {
+        "id": "7669716196941927579",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7669716196941927579",
+        "title": "#感悟人生之道 #创作者中心 #国学文化 #认知 #提升自己∨",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 23
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 18362,
+          "likeCount": 14276,
+          "likeRate": 0.033073,
+          "followCount": 81,
+          "followRate": 0.000179,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1785744960
+        }
+      },
+      {
+        "id": "7679687898702724992",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7679687898702724992",
+        "title": "顺风顺水！#运气越来越好的关键 #人生感悟分享",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 24
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 17051,
+          "likeCount": 12040,
+          "likeRate": 0.02169,
+          "followCount": 434,
+          "followRate": 0.000749,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788066677
+        }
+      },
+      {
+        "id": "7679977650550584314",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7679977650550584314",
+        "title": "#玄学 #国学智慧 #传统文化 #吸引力法则",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 25
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 16316,
+          "likeCount": 11098,
+          "likeRate": 0.038736,
+          "followCount": 102,
+          "followRate": 0.000362,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788134141
+        }
+      },
+      {
+        "id": "7681265076788515569",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681265076788515569",
+        "title": "农村自建房门对门本就忌讳，邻居把关公对着我家大门，有没有懂的讲讲？#邻里纠纷 #装修与国学智慧 #宅基地知识 #家门难题",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 26
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 15959,
+          "likeCount": 1425,
+          "likeRate": 0.002406,
+          "followCount": 67,
+          "followRate": 0.000112,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788433892
+        }
+      },
+      {
+        "id": "7680725972726922105",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680725972726922105",
+        "title": "",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 27
+            },
+            {
+              "name": "高涨粉率",
+              "rank": 10
+            },
+            {
+              "name": "高点赞率",
+              "rank": 41
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 15683,
+          "likeCount": 18345,
+          "likeRate": 0.056634,
+          "followCount": 4095,
+          "followRate": 0.011191,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788308372
+        }
+      },
+      {
+        "id": "7680796467975717306",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680796467975717306",
+        "title": "",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 28
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 15151,
+          "likeCount": 5923,
+          "likeRate": 0.023385,
+          "followCount": 374,
+          "followRate": 0.001629,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788324786
+        }
+      },
+      {
+        "id": "7681377641513474298",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681377641513474298",
+        "title": "#万人体育场 #深夜治愈时刻 #随手拍 #认知 #格局",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 29
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 15045,
+          "likeCount": 13188,
+          "likeRate": 0.020764,
+          "followCount": 1869,
+          "followRate": 0.002614,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788460101,
+          "hotspotDetail": {
+            "likeCount": 24676,
+            "commentCount": 1882,
+            "shareCount": 6985,
+            "newFansCount": 2906,
+            "publishedAt": 1788460101,
+            "capturedAt": "2026-09-08T16:31:25.706Z"
+          }
+        }
+      },
+      {
+        "id": "7680725211629952889",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680725211629952889",
+        "title": "",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 30
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 14657,
+          "likeCount": 15101,
+          "likeRate": 0.014429,
+          "followCount": 2339,
+          "followRate": 0.001952,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788308195
+        }
+      },
+      {
+        "id": "7681644951201847802",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681644951201847802",
+        "title": "阿紫。告诉大家阿紫可能已经出现了就在我们身边",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 31
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 13311,
+          "likeCount": 8642,
+          "likeRate": 0.017688,
+          "followCount": 535,
+          "followRate": 0.001186,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788522339,
+          "hotspotDetail": {
+            "likeCount": 9533,
+            "commentCount": 7113,
+            "shareCount": 328,
+            "newFansCount": 539,
+            "publishedAt": 1788522339,
+            "capturedAt": "2026-09-08T16:31:30.653Z"
+          }
+        }
+      },
+      {
+        "id": "7682366425939896997",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7682366425939896997",
+        "title": "贵人撑腰 #朱砂#国学修行 #锦鲤 #显化 #好运",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 32
+            },
+            {
+              "name": "高涨粉率",
+              "rank": 15
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 13144,
+          "likeCount": 8827,
+          "likeRate": 0.122056,
+          "followCount": 2346,
+          "followRate": 0.031208,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788690320,
+          "hotspotDetail": {
+            "likeCount": 12301,
+            "commentCount": 9063,
+            "shareCount": 216,
+            "newFansCount": 2891,
+            "publishedAt": 1788690320,
+            "capturedAt": "2026-09-08T16:31:20.765Z"
+          }
+        }
+      },
+      {
+        "id": "7681547330764841573",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681547330764841573",
+        "title": "扔旧鞋破局#扔旧鞋 #破局 #玄学",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 33
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 13126,
+          "likeCount": 5169,
+          "likeRate": 0.015592,
+          "followCount": 396,
+          "followRate": 0.001159,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788499610
+        }
+      },
+      {
+        "id": "7680173043658373797",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680173043658373797",
+        "title": "",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 34
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 12789,
+          "likeCount": 9472,
+          "likeRate": 0.043413,
+          "followCount": 783,
+          "followRate": 0.003967,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788179633,
+          "hotspotDetail": {
+            "likeCount": 9995,
+            "commentCount": 5933,
+            "shareCount": 2186,
+            "newFansCount": 827,
+            "publishedAt": 1788179633,
+            "capturedAt": "2026-09-08T16:31:38.792Z"
+          }
+        }
+      },
+      {
+        "id": "7680756272937807990",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680756272937807990",
+        "title": "#曾老智慧  #国学智慧  #智慧人生  #悟人生之道  #曾仕强",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 35
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 12502,
+          "likeCount": 16376,
+          "likeRate": 0.072627,
+          "followCount": 442,
+          "followRate": 0.003876,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788315428,
+          "hotspotDetail": {
+            "likeCount": 16811,
+            "commentCount": 17448,
+            "shareCount": 276,
+            "newFansCount": 437,
+            "publishedAt": 1788315428,
+            "capturedAt": "2026-09-08T16:31:38.792Z"
+          }
+        }
+      },
+      {
+        "id": "7682438469482435904",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7682438469482435904",
+        "title": "六亲缘浅，是福亦是劫 修的是无人可依，修的是两不相欠 缘分皆断裂，从此不欠人间 世间亲情淡薄，只为归途圆满 最后一世，再不入红尘轮回",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 36
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 12376,
+          "likeCount": 11449,
+          "likeRate": 0.007177,
+          "followCount": 709,
+          "followRate": 0.000425,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788707094,
+          "hotspotDetail": {
+            "likeCount": 20230,
+            "commentCount": 3522,
+            "shareCount": 5765,
+            "newFansCount": 1242,
+            "publishedAt": 1788707094,
+            "capturedAt": "2026-09-08T16:30:48.512Z"
+          }
+        }
+      },
+      {
+        "id": "7681113485321456634",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681113485321456634",
+        "title": "",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 37
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 12186,
+          "likeCount": 6930,
+          "likeRate": 0.019203,
+          "followCount": 482,
+          "followRate": 0.0021,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788398598
+        }
+      },
+      {
+        "id": "7680573131341504436",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680573131341504436",
+        "title": "农历八月忌出行日",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 38
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 12009,
+          "likeCount": 3290,
+          "likeRate": 0.010003,
+          "followCount": 202,
+          "followRate": 0.000769,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788272787
+        }
+      },
+      {
+        "id": "7680582453900237285",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680582453900237285",
+        "title": "今日提醒9月2日。我是一个很喜欢给生活配乐的人，遇到喜欢的人，和他相处的过程，哪怕开电瓶车前往学校的路上，我都会听着音乐，每个人每件事都有一个固定的音乐，可当我在某段时间很爱听某些……版本过低，升级后可展示全部信息",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 39
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 11758,
+          "likeCount": 12141,
+          "likeRate": 0.042102,
+          "followCount": 189,
+          "followRate": 0.000632,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788274956
+        }
+      },
+      {
+        "id": "7680054979465383194",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680054979465383194",
+        "title": "你知道什么才算风水宝地吗 ",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 40
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 10544,
+          "likeCount": 20323,
+          "likeRate": 0.017102,
+          "followCount": 2898,
+          "followRate": 0.002693,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788152150
+        }
+      },
+      {
+        "id": "7680361276300706025",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680361276300706025",
+        "title": "家里搭有棚子的，不管是在院里面还是院外面， 如果能拆就拆，如果实在拆不了你可以这么去做，准备一斤食用盐，一斤糯米一大把花椒和白芷这些混在一起，放在一个小红布袋子里面封好口挂在棚子的……版本过低，升级后可展示全部信息",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高完播率",
+              "rank": 41
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 10539,
+          "likeCount": 5142,
+          "likeRate": 0.015046,
+          "followCount": 211,
+          "followRate": 0.000639,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788223460
+        }
+      },
+      {
+        "id": "7679340958089088307",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7679340958089088307",
+        "title": "荣格对话王阳明：如何度过人生的迷茫时期（奥德赛时期）? 王阳明说：需在事上磨。荣格说：人生需经历一场黑化。#王阳明 #荣格 #奥德赛时期 #心学 #心理学",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 7
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 20960,
+          "likeCount": 32996,
+          "likeRate": 0.031112,
+          "followCount": 7020,
+          "followRate": 0.007083,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788007500,
+          "hotspotDetail": {
+            "likeCount": 71153,
+            "commentCount": 2644,
+            "shareCount": 18578,
+            "newFansCount": 14759,
+            "publishedAt": 1788007500,
+            "capturedAt": "2026-09-08T16:31:42.794Z"
+          }
+        }
+      },
+      {
+        "id": "7680832857686598777",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680832857686598777",
+        "title": "真正留得住财富的人 都明白一个道理#蔡伯励之子蔡尔雅 #蔡伯励书院 #国学文化",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 8
+            },
+            {
+              "name": "高点赞率",
+              "rank": 34
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 16866,
+          "likeCount": 9708,
+          "likeRate": 0.048373,
+          "followCount": 1252,
+          "followRate": 0.006388,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788333258
+        }
+      },
+      {
+        "id": "7680748855561850150",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680748855561850150",
+        "title": "共修365天第92课：守住本心 坚守善良 #国学智慧 #信念的力量 #诸事顺利平安喜乐 #翻盘 #善良",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 9
+            },
+            {
+              "name": "高点赞率",
+              "rank": 38
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 16153,
+          "likeCount": 14935,
+          "likeRate": 0.094618,
+          "followCount": 1489,
+          "followRate": 0.009327,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788313702
+        }
+      },
+      {
+        "id": "7680552065243959178",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680552065243959178",
+        "title": "#道家知识 #人间清醒语录 #用古人智慧解当下困惑",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 11
+            },
+            {
+              "name": "高点赞率",
+              "rank": 42
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 15131,
+          "likeCount": 11875,
+          "likeRate": 0.111397,
+          "followCount": 1567,
+          "followRate": 0.018094,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788267883
+        }
+      },
+      {
+        "id": "7680901878774820709",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680901878774820709",
+        "title": "一定会有贵人相助。。。#国学智慧  #传统养生  #生活感悟  #传统文化",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 12
+            },
+            {
+              "name": "高点赞率",
+              "rank": 43
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 14975,
+          "likeCount": 12687,
+          "likeRate": 0.112879,
+          "followCount": 1143,
+          "followRate": 0.014246,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788349328
+        }
+      },
+      {
+        "id": "7681263749239724153",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681263749239724153",
+        "title": "喜事悄悄到来，愿孩子遇见良人，得一份安稳美好的缘分#子女姻缘 #美好祝愿 #家庭祈福@抖加🔥上热门🔥dou+🔥热点宝",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 13
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 14373,
+          "likeCount": 20527,
+          "likeRate": 0.081266,
+          "followCount": 1895,
+          "followRate": 0.015492,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788433583,
+          "hotspotDetail": {
+            "likeCount": 23433,
+            "commentCount": 21698,
+            "shareCount": 192,
+            "newFansCount": 1888,
+            "publishedAt": 1788433583,
+            "capturedAt": "2026-09-08T16:31:46.802Z"
+          }
+        }
+      },
+      {
+        "id": "7681572869242909419",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681572869242909419",
+        "title": "大音希声，大象无形，谦受益 满招损 锋芒不可外露#国学文化 #人生智慧 #成功思维",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 14
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 14269,
+          "likeCount": 13889,
+          "likeRate": 0.114905,
+          "followCount": 1736,
+          "followRate": 0.015019,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788505556,
+          "hotspotDetail": {
+            "likeCount": 15692,
+            "commentCount": 8527,
+            "shareCount": 235,
+            "newFansCount": 1909,
+            "publishedAt": 1788505556,
+            "capturedAt": "2026-09-08T16:31:46.802Z"
+          }
+        }
+      },
+      {
+        "id": "7680399391580684495",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680399391580684495",
+        "title": "愿善待所有隐忍善良的女孩子，熬过风雨，前路坦途#修心修行禅悟人生 #修心修行修自己 #国学文化",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 16
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 12888,
+          "likeCount": 13679,
+          "likeRate": 0.10087,
+          "followCount": 2263,
+          "followRate": 0.017273,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788232334
+        }
+      },
+      {
+        "id": "7681113936141721201",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681113936141721201",
+        "title": "#国学传统文化知识解读 #九月运势爆棚",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 17
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 12714,
+          "likeCount": 6054,
+          "likeRate": 0.040401,
+          "followCount": 2419,
+          "followRate": 0.016513,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788665040,
+          "hotspotDetail": {
+            "likeCount": 6169,
+            "commentCount": 5916,
+            "shareCount": 90,
+            "newFansCount": 394,
+            "publishedAt": 1788665040,
+            "capturedAt": "2026-09-08T16:31:38.792Z"
+          }
+        }
+      },
+      {
+        "id": "7680159190844738868",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680159190844738868",
+        "title": "你女儿 中秋之前 #国学文化 #女性智慧 #女儿 #中秋 #父母必看",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 18
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 12690,
+          "likeCount": 15897,
+          "likeRate": 0.106918,
+          "followCount": 1555,
+          "followRate": 0.016718,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788212400
+        }
+      },
+      {
+        "id": "7680478631247858959",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680478631247858959",
+        "title": "如果大运真的来了 到底应该做什么 #蔡尔雅 #感悟人生",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 19
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 11882,
+          "likeCount": 11419,
+          "likeRate": 0.063878,
+          "followCount": 922,
+          "followRate": 0.007655,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788250790
+        }
+      },
+      {
+        "id": "7681237133591432488",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681237133591432488",
+        "title": "天师大印 你见过一道印，盖在纸上比阎王爷的生死簿还要让万鬼胆寒吗",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 20
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 11851,
+          "likeCount": 13202,
+          "likeRate": 0.024173,
+          "followCount": 4848,
+          "followRate": 0.012411,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788427392
+        }
+      },
+      {
+        "id": "7659025837076860179",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7659025837076860179",
+        "title": "",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 21
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 11848,
+          "likeCount": 10816,
+          "likeRate": 0.258108,
+          "followCount": 4282,
+          "followRate": 0.084027,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1783255928
+        }
+      },
+      {
+        "id": "7679899629018799217",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7679899629018799217",
+        "title": "暴富别慌 九法止漏 #财经 #人生感悟 #传统文化 #干货分享 #普陀山",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 22
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 11559,
+          "likeCount": 12572,
+          "likeRate": 0.200715,
+          "followCount": 1271,
+          "followRate": 0.025394,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788346800
+        }
+      },
+      {
+        "id": "7680149303133850920",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680149303133850920",
+        "title": "一个视频告诉你，袁了凡改命的秘密#人生智慧 #袁了凡 #改命 #心力",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 23
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 11362,
+          "likeCount": 11451,
+          "likeRate": 0.042767,
+          "followCount": 2394,
+          "followRate": 0.010253,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788174114
+        }
+      },
+      {
+        "id": "7680099219772289721",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680099219772289721",
+        "title": "#道家文化 #我要上热门🔥",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 24
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 11266,
+          "likeCount": 8757,
+          "likeRate": 0.162377,
+          "followCount": 4845,
+          "followRate": 0.085314,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788162445
+        }
+      },
+      {
+        "id": "7682523471385504614",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7682523471385504614",
+        "title": "",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 25
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 11265,
+          "likeCount": 7101,
+          "likeRate": 0.068452,
+          "followCount": 1211,
+          "followRate": 0.012836,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788726888,
+          "hotspotDetail": {
+            "likeCount": 7418,
+            "commentCount": 6616,
+            "shareCount": 102,
+            "newFansCount": 1243,
+            "publishedAt": 1788726888,
+            "capturedAt": "2026-09-08T16:30:48.512Z"
+          }
+        }
+      },
+      {
+        "id": "7681246774305240689",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681246774305240689",
+        "title": "回复 @安瑜的评论 #涨知识 #正能量 #道家文化 #传统文化",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 26
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 11259,
+          "likeCount": 10360,
+          "likeRate": 0.04567,
+          "followCount": 3723,
+          "followRate": 0.016503,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788429631,
+          "hotspotDetail": {
+            "likeCount": 12903,
+            "commentCount": 5070,
+            "shareCount": 1227,
+            "newFansCount": 1618,
+            "publishedAt": 1788429631,
+            "capturedAt": "2026-09-08T16:31:46.802Z"
+          }
+        }
+      },
+      {
+        "id": "7681296184896114010",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681296184896114010",
+        "title": "富不过三代，穷也不过三代 #国学智慧 #传统文化 #玄学 #命运",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 27
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 10846,
+          "likeCount": 21867,
+          "likeRate": 0.115651,
+          "followCount": 5119,
+          "followRate": 0.030497,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788441135,
+          "hotspotDetail": {
+            "likeCount": 24546,
+            "commentCount": 4671,
+            "shareCount": 441,
+            "newFansCount": 5182,
+            "publishedAt": 1788441135,
+            "capturedAt": "2026-09-08T16:31:46.802Z"
+          }
+        }
+      },
+      {
+        "id": "7680933553077474789",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680933553077474789",
+        "title": "#悟人生之道 #老祖宗的智慧",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 28
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 10725,
+          "likeCount": 11778,
+          "likeRate": 0.041549,
+          "followCount": 2056,
+          "followRate": 0.007722,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788393600
+        }
+      },
+      {
+        "id": "7679493572769610659",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7679493572769610659",
+        "title": "九条守财法则 守住自身财富  #道家文化 #人生感悟 #财富 #福生无量",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 30
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 10508,
+          "likeCount": 7550,
+          "likeRate": 0.232365,
+          "followCount": 1934,
+          "followRate": 0.094406,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788021432
+        }
+      },
+      {
+        "id": "7681346328006765233",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681346328006765233",
+        "title": "生命智慧#道德经",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 32
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 10297,
+          "likeCount": 11768,
+          "likeRate": 0.061743,
+          "followCount": 2278,
+          "followRate": 0.01035,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788452810
+        }
+      },
+      {
+        "id": "7681316659014162362",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681316659014162362",
+        "title": "好运来#赵苧序 #国学文化 #传统文化",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 33
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 10177,
+          "likeCount": 6698,
+          "likeRate": 0.352341,
+          "followCount": 4048,
+          "followRate": 0.194578,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788445902,
+          "hotspotDetail": {
+            "likeCount": 8528,
+            "commentCount": 3685,
+            "shareCount": 350,
+            "newFansCount": 4600,
+            "publishedAt": 1788445902,
+            "capturedAt": "2026-09-08T16:31:30.653Z"
+          }
+        }
+      },
+      {
+        "id": "7679764110136888585",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7679764110136888585",
+        "title": "有福报才能刷到！老一辈传下28条生活避坑指南，守住自家气运#居家风水 #老辈智慧 #福气自来 #生活避坑",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 34
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 9915,
+          "likeCount": 6715,
+          "likeRate": 0.096805,
+          "followCount": 1059,
+          "followRate": 0.014294,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788152400
+        }
+      },
+      {
+        "id": "7681297204627487080",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681297204627487080",
+        "title": "#语言的力量 #传统文化 #国学智慧",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 35
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 9439,
+          "likeCount": 8141,
+          "likeRate": 0.13508,
+          "followCount": 748,
+          "followRate": 0.015266,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788441373
+        }
+      },
+      {
+        "id": "7681959101367525989",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681959101367525989",
+        "title": "#道教文化 #太上感应篇 #传统文化",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 36
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 9378,
+          "likeCount": 10559,
+          "likeRate": 0.066065,
+          "followCount": 2152,
+          "followRate": 0.015916,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788601200,
+          "hotspotDetail": {
+            "likeCount": 12496,
+            "commentCount": 1593,
+            "shareCount": 2803,
+            "newFansCount": 2463,
+            "publishedAt": 1788601200,
+            "capturedAt": "2026-09-08T16:31:42.794Z"
+          }
+        }
+      },
+      {
+        "id": "7681210970278546664",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681210970278546664",
+        "title": "#弘扬和传承国学传统文化 #弘扬国学经典文化 #国学传统文化知识解读 #国学大师曾仕强",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 37
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 9268,
+          "likeCount": 9680,
+          "likeRate": 0.070926,
+          "followCount": 962,
+          "followRate": 0.01035,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788421295
+        }
+      },
+      {
+        "id": "7680087589130747002",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680087589130747002",
+        "title": "#国学文化",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 38
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 9076,
+          "likeCount": 7860,
+          "likeRate": 0.121059,
+          "followCount": 2368,
+          "followRate": 0.035013,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788159738
+        }
+      },
+      {
+        "id": "7680399222836234985",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680399222836234985",
+        "title": "#传统文化涨知识 #国学传统文化知识解读 #住宅布局 #弘扬国学文化拒绝封建迷信 #国学文化大讲堂",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 39
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 8983,
+          "likeCount": 9322,
+          "likeRate": 0.033659,
+          "followCount": 3223,
+          "followRate": 0.013399,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788232296
+        }
+      },
+      {
+        "id": "7681449480060125371",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681449480060125371",
+        "title": "上上签 #财源滚滚 #好运连连 #国学文化",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高涨粉率",
+              "rank": 40
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 8892,
+          "likeCount": 4832,
+          "likeRate": 0.077701,
+          "followCount": 487,
+          "followRate": 0.007878,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788476828
+        }
+      },
+      {
+        "id": "7681104939985542075",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681104939985542075",
+        "title": "#女性智慧#星座#国学智慧 #生活#传统文化",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高点赞率",
+              "rank": 19
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 27860,
+          "likeCount": 23739,
+          "likeRate": 0.054036,
+          "followCount": 833,
+          "followRate": 0.001914,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788396608
+        }
+      },
+      {
+        "id": "7682602173242560625",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7682602173242560625",
+        "title": "#弘扬传统文化从我做起 #弘扬和传承国学传统文化 #我是国学传承人 #弘扬传统文化传播正能量",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高点赞率",
+              "rank": 20
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 27194,
+          "likeCount": 38056,
+          "likeRate": 0.096418,
+          "followCount": 2850,
+          "followRate": 0.007819,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788745210,
+          "hotspotDetail": {
+            "likeCount": 62656,
+            "commentCount": 31216,
+            "shareCount": 209,
+            "newFansCount": 3883,
+            "publishedAt": 1788745210,
+            "capturedAt": "2026-09-08T16:30:46.013Z"
+          }
+        }
+      },
+      {
+        "id": "7680449708438916378",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680449708438916378",
+        "title": "生活里很多不起眼的小异象，往往是命运给出的提前警示。九条老祖宗流传的保命规矩，读懂身体与环境的信号，遇事多一份警觉，便可避祸消灾。传统文化仅供参考，理性看待，相信科学。愿大家平安顺遂，逢凶化吉。#传统文化  #民间智慧  #趋吉避凶  #老祖宗的智慧  #心性修行",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高点赞率",
+              "rank": 22
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 24623,
+          "likeCount": 24877,
+          "likeRate": 0.083959,
+          "followCount": 1362,
+          "followRate": 0.005439,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788254400
+        }
+      },
+      {
+        "id": "7680845030138875162",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680845030138875162",
+        "title": "大运真的来到的时候，如何接才能接得稳 #人生 #命运 #国学智慧",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高点赞率",
+              "rank": 32
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 17644,
+          "likeCount": 15503,
+          "likeRate": 0.077142,
+          "followCount": 1251,
+          "followRate": 0.007185,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788336095
+        }
+      },
+      {
+        "id": "7677057243985181834",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7677057243985181834",
+        "title": "总能够化险为夷，或许有人在暗中替你挡灾#传统文化 #涨知识",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高点赞率",
+              "rank": 33
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 17600,
+          "likeCount": 18447,
+          "likeRate": 0.064852,
+          "followCount": 905,
+          "followRate": 0.00304,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1787454180
+        }
+      },
+      {
+        "id": "7680425222545549794",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680425222545549794",
+        "title": "转机已至#国学智慧#修心修行#觉醒开悟#智慧",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高点赞率",
+              "rank": 35
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 16789,
+          "likeCount": 21768,
+          "likeRate": 0.086051,
+          "followCount": 338,
+          "followRate": 0.002722,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788238349
+        }
+      },
+      {
+        "id": "7679094265837882650",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7679094265837882650",
+        "title": "你期待的事，正在发生#国学文化 #国学智慧 #国学经典",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高点赞率",
+              "rank": 36
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 16597,
+          "likeCount": 18415,
+          "likeRate": 0.05917,
+          "followCount": 1323,
+          "followRate": 0.006445,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788681600,
+          "hotspotDetail": {
+            "likeCount": 26598,
+            "commentCount": 16131,
+            "shareCount": 172,
+            "newFansCount": 1601,
+            "publishedAt": 1788681600,
+            "capturedAt": "2026-09-08T16:30:48.512Z"
+          }
+        }
+      },
+      {
+        "id": "7680480117677053625",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7680480117677053625",
+        "title": "渡过低谷，从此顺风顺水！！！#传统文化 #知识分享 #悬疑 #好运连连",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高点赞率",
+              "rank": 37
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 16475,
+          "likeCount": 10376,
+          "likeRate": 0.060739,
+          "followCount": 215,
+          "followRate": 0.001417,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788251131
+        }
+      },
+      {
+        "id": "7681482455128125386",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681482455128125386",
+        "title": "",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高点赞率",
+              "rank": 39
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 16125,
+          "likeCount": 12078,
+          "likeRate": 0.052175,
+          "followCount": 635,
+          "followRate": 0.002786,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788484504
+        }
+      },
+      {
+        "id": "7681127009003625076",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7681127009003625076",
+        "title": "《太乙金华宗旨》讲人体内有两个我 ，一个识神一个元神各有所用 #元神 #炼炁#修行#太乙金华宗旨 #丹道",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高点赞率",
+              "rank": 40
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 16031,
+          "likeCount": 46146,
+          "likeRate": 0.072291,
+          "followCount": 3461,
+          "followRate": 0.007241,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788401746
+        }
+      },
+      {
+        "id": "7682134604178991461",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7682134604178991461",
+        "title": "我最近才慢慢意识到，人生有五关，每过一关上一层。  #传统文化涨知识 #传统文化学习分享 #国学传统文化知识解读 #装修与国学智慧 #传统文化科普",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高点赞率",
+              "rank": 44
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 14855,
+          "likeCount": 10027,
+          "likeRate": 0.080324,
+          "followCount": 334,
+          "followRate": 0.002697,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1788653280
+        }
+      },
+      {
+        "id": "7677911599469940004",
+        "platform": "douyin",
+        "source": "douyin-hotspot",
+        "url": "https://www.douyin.com/video/7677911599469940004",
+        "title": "你的长相其实是你灵魂的模样！#王小亚 #传统文化 #人生智慧 #修行 ",
+        "status": "repeat",
+        "scraped": {
+          "keyword": "",
+          "categoryProfile": "renwen-guoxue",
+          "sourceType": "人文社科/国学",
+          "dateWindow": 168,
+          "billboards": [
+            {
+              "name": "高点赞率",
+              "rank": 45
+            }
+          ],
+          "firstRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "score": 14399,
+          "likeCount": 17239,
+          "likeRate": 0.065237,
+          "followCount": 535,
+          "followRate": 0.002766,
+          "lastRepeatedAt": "2026-09-08T16:33:08.260Z",
+          "publishedAt": 1787653105
+        }
+      }
+    ]
+  }
+}
