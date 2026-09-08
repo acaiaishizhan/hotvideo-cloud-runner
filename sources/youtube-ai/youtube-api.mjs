@@ -24,6 +24,8 @@ function candidateFromVideo(video, lane) {
     channelTitle: snippet.channelTitle || '',
     categoryId: snippet.categoryId || '',
     publishedAt: snippet.publishedAt || '',
+    thumbnailUrl: Object.values(snippet.thumbnails || {})
+      .sort((a, b) => (b.width || 0) - (a.width || 0))[0]?.url || '',
     durationSec: parseDurationSeconds(video?.contentDetails?.duration),
     viewCount: asNumber(stats.viewCount),
     likeCount: asNumber(stats.likeCount),

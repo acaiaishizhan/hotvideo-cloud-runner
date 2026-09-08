@@ -11,6 +11,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { writeJsonAtomic } from './json-file.mjs';
 import { videoRecordKey } from './video-url.mjs';
+import { uploadRequestedCover } from './cover.mjs';
 
 const BASE_TOKEN = process.env.HOTVIDEO_FEISHU_BASE_TOKEN || 'OCrJbRfFFaOdApsoQ4Hc8qBnned';
 const TABLE_ID = process.env.HOTVIDEO_FEISHU_TABLE_ID || 'tblSsUlkFRHZdjyi';
@@ -597,7 +598,7 @@ function findExistingRecordByUrl(url, attachmentField = '') {
   return mapRecordRows(larkExecArgs(args), attachmentField).get(key) || null;
 }
 
-function loadRecordAttachmentState(recordId, attachmentField) {
+export function loadRecordAttachmentState(recordId, attachmentField) {
   const resp = larkExecArgs([
     'base', '+record-get',
     '--base-token', BASE_TOKEN,
@@ -654,7 +655,7 @@ function extractRecordId(resp) {
 
 // 大文件用 lark-cli 自带的 multipart，超时给宽点（156MB 约需 1-2 分钟）
 // lark-cli 1.0.23 的 --file 只接受 cwd 下的相对路径，所以先 chdir 到视频目录再调用
-function larkUploadAttachment(recordId, fieldId, filePath) {
+export function larkUploadAttachment(recordId, fieldId, filePath) {
   const absPath = path.resolve(filePath);
   const fileDir = path.dirname(absPath);
   const fileName = path.basename(absPath);
@@ -740,6 +741,17 @@ export async function runPublish(sourceName) {
 
   // 远端附件单元格是唯一真源；每次上传前重新读取，未知状态一律不上传。
   function tryUploadAttachment(meta, state, videoDir) {
+    try {
+      uploadRequestedCover(meta, {
+        config, videoDir, recordId: state.recordId,
+        readAttachment: loadRecordAttachmentState,
+        uploadAttachment: larkUploadAttachment,
+        accepted: isAttachmentUploadAccepted,
+      });
+    } catch (error) {
+      failed++;
+      log(`  封面上传失败: ${error.message}`);
+    }
     if (!config.feishuAttachmentField) return true;
 
     try {
@@ -883,7 +895,7 @@ export async function runPublish(sourceName) {
           continue;
         }
       }
-      if (rid && config.feishuAttachmentField) {
+      if (rid && (config.feishuAttachmentField || (config.feishuCoverField && meta.cover_requested))) {
         log(`补附件: ${(meta.title || '').substring(0, 40)}...`);
         tryUploadAttachment(meta, existingState || recordState(rid, null, false), videoDir);
         writeJsonAtomic(metaPath, meta);

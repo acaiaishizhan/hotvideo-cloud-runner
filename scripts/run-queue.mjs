@@ -149,6 +149,7 @@ function readJson(filePath) {
 function errorSummaryForMeta(meta, errorClass) {
   return String(
     meta?.errorSummary
+      || meta?.cover_error
       || meta?.analysis_error
       || meta?.last_error
       || `${errorClass} 未达到终态`,
@@ -159,7 +160,7 @@ function newVideoOutcome(item, videosDir) {
   const meta = readJson(path.join(videosDir, String(item.id), 'meta.json'));
   const status = String(meta?.status || 'missing');
   const terminal = status === 'filtered'
-    || (status === 'published' && meta?.attachment_uploaded !== false);
+    || (status === 'published' && meta?.attachment_uploaded !== false && meta?.cover_uploaded !== false);
   const base = {
     recoveryKey: recoveryKey(item, 'new-video'),
     status: terminal ? 'success' : 'failure',

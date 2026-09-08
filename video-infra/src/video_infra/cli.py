@@ -9,6 +9,7 @@ from .router import VideoRouter
 from .schema import VideoResult, error_result
 from .storage.metadata import write_metadata
 from .storage.paths import build_paths
+from .storage.thumbnail import download_thumbnail
 
 # Windows 默认 stdout 是 GBK，遇到 emoji 会抛 UnicodeEncodeError；
 # 这里强制 UTF-8，避免上游 Node/PowerShell 调用时拿到的是异常而不是 JSON。
@@ -37,6 +38,10 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="video-infra", description="Video metadata and download infrastructure.")
     sub = parser.add_subparsers(dest="command", required=True)
 
+    thumbnail_cmd = sub.add_parser("thumbnail", help="Download an original thumbnail URL without downloading video.")
+    thumbnail_cmd.add_argument("url")
+    thumbnail_cmd.add_argument("--output-dir", required=True)
+
     parse_cmd = sub.add_parser("parse", help="Parse video metadata without downloading.")
     parse_cmd.add_argument("url")
     parse_cmd.add_argument("--platform", default="auto")
@@ -64,6 +69,11 @@ def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     router = VideoRouter()
     try:
+        if args.command == "thumbnail":
+            result = VideoResult(thumbnailUrl=args.url)
+            result.files.thumbnailPath = str(download_thumbnail(args.url, args.output_dir))
+            return _print(result)
+
         if args.command == "parse":
             with redirect_stdout(sys.stderr):
                 result = router.parse(args.url, args.platform)

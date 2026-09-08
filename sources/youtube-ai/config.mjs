@@ -36,6 +36,7 @@ export default {
   videoInfraTimeoutMs: 600000,
   videoInfraFormatId: 'bestvideo[height<=480]+bestaudio/best[height<=480]',
   feishuAttachmentField: null,
+  feishuCoverField: '封面',
   sourceType: '科技/科技科普',
   regionCodes: ['US'],
   popularCategoryIds: ['28', '25', '22', '24', '26'],

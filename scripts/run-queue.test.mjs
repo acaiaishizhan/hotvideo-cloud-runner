@@ -103,3 +103,14 @@ test('published 但附件明确失败仍是 recoverable failure', t => {
   fs.writeFileSync(path.join(videosDir, one.items[0].id, 'meta.json'), JSON.stringify({ status: 'published', attachment_uploaded: false }));
   assert.equal(collectRunResultItems(one, videosDir)[0].status, 'failure');
 });
+
+test('published 但封面失败不能被标成云端成功', t => {
+  const videosDir = fs.mkdtempSync(path.join(os.tmpdir(), 'run-result-cover-'));
+  t.after(() => fs.rmSync(videosDir, { recursive: true, force: true }));
+  const one = { ...manifest(), items: [manifest().items[0]], repeatUpdates: { items: [] } };
+  fs.mkdirSync(path.join(videosDir, one.items[0].id));
+  fs.writeFileSync(path.join(videosDir, one.items[0].id, 'meta.json'), JSON.stringify({ status: 'published', cover_uploaded: false, cover_error: 'HTTP 403' }));
+  const result = collectRunResultItems(one, videosDir)[0];
+  assert.equal(result.status, 'failure');
+  assert.equal(result.errorSummary, 'HTTP 403');
+});

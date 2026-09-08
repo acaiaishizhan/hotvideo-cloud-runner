@@ -11,6 +11,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { writeJsonAtomic } from './json-file.mjs';
 import { buildVideoInfraInvocation } from './video-infra-command.mjs';
+import { ensureCoverFile } from './cover.mjs';
 
 function log(msg) {
   const ts = new Date().toLocaleString('zh-CN', { hour12: false });
@@ -278,6 +279,15 @@ export async function runFetch(sourceName) {
 
       const meta = buildMeta(result, item, pending.source);
       fs.mkdirSync(videoDir, { recursive: true });
+      if (config.feishuCoverField) {
+        meta.cover_requested = true;
+        try {
+          ensureCoverFile(meta, config, videoDir);
+        } catch (error) {
+          meta.cover_error = error.message;
+          log(`  封面暂未下载，推送时重试: ${error.message}`);
+        }
+      }
       writeJsonAtomic(metaPath, meta);
       completedIds.add(item.id);
       downloaded++;

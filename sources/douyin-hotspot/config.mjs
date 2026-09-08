@@ -10,6 +10,7 @@ export default {
   videoInfraTimeoutMs: 180000,
   // Hotvideo 只回传结构化数据，不再上传视频附件。
   feishuAttachmentField: null,
+  feishuCoverField: '封面',
   categoryProfiles: {
     'tech-kepu': { label: '科技/科技科普' },
     'renwen-guoxue': { label: '人文社科/国学' },
