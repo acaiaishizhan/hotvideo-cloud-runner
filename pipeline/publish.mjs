@@ -12,6 +12,7 @@ import { pathToFileURL } from 'node:url';
 import { writeJsonAtomic } from './json-file.mjs';
 import { videoRecordKey } from './video-url.mjs';
 import { uploadRequestedCover } from './cover.mjs';
+import { parseFeishuDate } from './refresh-policy.mjs';
 
 const BASE_TOKEN = process.env.HOTVIDEO_FEISHU_BASE_TOKEN || 'OCrJbRfFFaOdApsoQ4Hc8qBnned';
 const TABLE_ID = process.env.HOTVIDEO_FEISHU_TABLE_ID || 'tblSsUlkFRHZdjyi';
@@ -19,6 +20,9 @@ const LARK_IDENTITY = process.env.HOTVIDEO_FEISHU_IDENTITY || 'user';
 const FULL_VIDEO_COPY_FIELD = '完整视频文案';
 const CREATED_AT_FIELD = '创建时间';
 const INTERACTION_FIELDS = [
+  ...['最近上榜时间', '数据刷新时间'].map(name => ({
+    name, json: { type: 'datetime', name, style: { format: 'yyyy-MM-dd HH:mm' } },
+  })),
   {
     name: '评论数',
     json: {
@@ -69,12 +73,37 @@ function formatDuration(sec) {
 }
 
 function formatPublishTime(ts) {
-  if (!ts) return null;
-  const num = Number(ts);
-  if (!num) return null;
-  const d = new Date(num * 1000);
-  const pad = n => String(n).padStart(2, '0');
-  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+  const date = parseFeishuDate(ts);
+  return date ? new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(date) : null;
+}
+
+export function buildStatisticsRefreshRecord({ platform, metrics = {}, publishedAt, refreshedAt, lastSeenAt }) {
+  const record = {};
+  const fields = [['likeCount', '点赞数'], ['commentCount', '评论数']];
+  if (platform === 'youtube') fields.push(['viewCount', '播放量（真实）']);
+  if (platform === 'douyin') fields.push(['shareCount', '分享数'], ['newFansCount', '涨粉数']);
+  for (const [key, field] of fields) {
+    const raw = metrics[key];
+    if (raw == null || raw === '' || typeof raw === 'boolean' || (typeof raw === 'string' && !raw.trim())) continue;
+    const value = Number(raw);
+    if (Number.isFinite(value) && value >= 0) record[field] = value;
+  }
+  if (!Object.keys(record).length) return record;
+  for (const [value, name] of [[publishedAt, '发布时间'], [refreshedAt, '数据刷新时间'], [lastSeenAt, '最近上榜时间']]) {
+    const formatted = formatPublishTime(value);
+    if (formatted) record[name] = formatted;
+  }
+  if (platform === 'youtube' && record['播放量（真实）'] > 0 && record['点赞数'] != null) {
+    record['点赞率'] = record['点赞数'] / record['播放量（真实）'];
+  }
+  return record;
+}
+
+export function loadRefreshRecordPage({ offset = 0, limit = 200 } = {}) {
+  const fields = ['标题', '视频链接', '平台', '类型', '发布时间', '创建时间', '最近上榜时间', '数据刷新时间', '点赞数', '评论数', '分享数', '播放量（真实）'];
+  return larkExecArgs(['base', '+record-list', '--base-token', BASE_TOKEN, '--table-id', TABLE_ID,
+    '--as', LARK_IDENTITY, '--format', 'json', '--limit', String(limit), '--offset', String(offset),
+    ...fields.flatMap(field => ['--field-id', field])]);
 }
 
 const PLATFORM_MAP = {
@@ -248,7 +277,7 @@ export function buildRecord(meta) {
     : (meta.author || '');
   const durationSec = meta.durationSec
     ?? (typeof meta.duration === 'number' ? Math.round(meta.duration / 1000) : 0);
-  const publishedAt = meta.publishedAt ?? meta.publish_time;
+  const publishedAt = [scraped.publishedAt, scraped.hotspotDetail?.publishedAt, scraped.published_at, meta.publishedAt, meta.publish_time].find(value => parseFeishuDate(value));
   const platform = meta.platform || (meta.source?.startsWith('douyin') ? 'douyin' : '');
   const record = {
     '标题': resolveRecordTitle(meta),
@@ -271,6 +300,9 @@ export function buildRecord(meta) {
   };
 
   Object.assign(record, buildInteractionUpdateRecord(meta));
+  if (record['发布时间'] == null) delete record['发布时间'];
+  const seenAt = formatPublishTime(scraped.lastSeenAt || scraped.lastRepeatedAt);
+  if (seenAt) record['最近上榜时间'] = seenAt;
   return record;
 }
 
@@ -283,6 +315,8 @@ export function buildRepeatUpdateRecord(meta) {
     '类型',
     '榜单',
     '时间段',
+    '发布时间',
+    '最近上榜时间',
     '点赞数',
     '点赞率',
     '评论数',

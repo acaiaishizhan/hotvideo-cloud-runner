@@ -271,6 +271,7 @@ export async function runScrape({ now = Date.now(), api, classify = classifyCand
         channelId: item.channelId,
         channelTitle: item.channelTitle,
         publishedAt: item.publishedAt,
+        lastSeenAt: new Date(now).toISOString(),
         thumbnailUrl: item.thumbnailUrl || '',
         playCount: item.viewCount,
         likeCount: item.likeCount,
