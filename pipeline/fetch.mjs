@@ -43,8 +43,22 @@ export function buildVideoInfraDownloadArgs(config, url, outputDir) {
   return args;
 }
 
-function callVideoInfra(config, url, outputDir) {
-  const invocation = buildVideoInfraInvocation(config, 'download', buildVideoInfraDownloadArgs(config, url, outputDir));
+export function buildPendingDownloadInvocation(config, item, outputDir) {
+  if (item.context?.videoDownloadError) throw new Error(item.context.videoDownloadError);
+  const mediaUrl = item.context?.mediaDownloadUrl;
+  if (mediaUrl) {
+    const metadata = item.context.videoMetadata;
+    if (!metadata || String(metadata.id) !== String(item.id)) throw new Error('视频直链元数据与候选 ID 不一致');
+    fs.mkdirSync(outputDir, { recursive: true });
+    const metadataPath = path.resolve(outputDir, 'direct-video-metadata.json');
+    writeJsonAtomic(metadataPath, metadata);
+    return buildVideoInfraInvocation(config, 'download-direct', [mediaUrl, '--output-dir', path.resolve(outputDir), '--metadata-file', metadataPath]);
+  }
+  return buildVideoInfraInvocation(config, 'download', buildVideoInfraDownloadArgs(config, item.url, outputDir));
+}
+
+function callVideoInfra(config, item, outputDir) {
+  const invocation = buildPendingDownloadInvocation(config, item, outputDir);
   const raw = execFileSync(invocation.command, invocation.args, {
     encoding: 'utf-8',
     timeout: config.videoInfraTimeoutMs || 120000,
@@ -254,7 +268,7 @@ export async function runFetch(sourceName) {
 
     log(`  下载: ${item.url}`);
     try {
-      const result = callVideoInfra(config, item.url, videoDir);
+      const result = callVideoInfra(config, item, videoDir);
       if (!result.ok) {
         throw new Error(result.error || 'video-infra 返回错误');
       }

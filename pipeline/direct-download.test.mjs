@@ -1,0 +1,21 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { buildPendingDownloadInvocation } from './fetch.mjs';
+test('有效直链只走直链下载，且传递匹配的视频元数据', t => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'direct-invocation-'));
+  t.after(() => fs.rmSync(dir, { recursive: true, force: true }));
+  const config = { videoInfraCmd: 'python', videoInfraArgs: ['-m','video_infra'] };
+  const item = { id: '123', url: 'https://example.com/video/123', context: { mediaDownloadUrl: 'https://cdn.example/video', videoMetadata: { id: '123', title: '原视频' } } };
+  const result = buildPendingDownloadInvocation(config, item, dir);
+  assert.equal(result.args[2], 'download-direct');
+  assert.equal(result.args[3], item.context.mediaDownloadUrl);
+  assert.equal(JSON.parse(fs.readFileSync(result.args.at(-1))).title, '原视频');
+  item.context.videoDownloadError = '无法取得直链';
+  assert.throws(() => buildPendingDownloadInvocation(config, item, dir), /无法取得直链/);
+  delete item.context.videoDownloadError;
+  item.context.videoMetadata.id = '456';
+  assert.throws(() => buildPendingDownloadInvocation(config, item, dir), /不一致/);
+});

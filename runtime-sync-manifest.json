@@ -7,7 +7,7 @@
     "pipeline/doubao-analyzer.mjs": "6d139d303e68f3d8262080fc97ad38e6dd50cced56d41a90a5302417e1d0d17a",
     "pipeline/doubao-files.mjs": "ddaf5cf9074aaa24c908ed4e4fd6d4a3af9a837c9065874f4bfa12b13bee148c",
     "pipeline/doubao-video-copy.mjs": "21c882bd8c1c369c09eab44b5313d7847884a921f37a63ca13428a6ed34cd3e4",
-    "pipeline/fetch.mjs": "221594af315974fe0492109eb4df092a5d628f118aea9ad9dd9f1f42bb89471e",
+    "pipeline/fetch.mjs": "a3b699457abf50042a6e04230c8e6f3e928f0b539188e44b25563d1594799110",
     "pipeline/json-file.mjs": "1e7a3b7be1c2102687b46680c6f5d75175c931dd34128993324890047522a338",
     "pipeline/orchestrator.mjs": "bce5a2b63806d06e01a8809369a99737ff6ff69b251f08381062bd65e29a2364",
     "pipeline/prompt.mjs": "9bf055a95d8c3f60b80861a5cd006dc398b82035938c1eab0e3c70d4948c5302",
@@ -20,7 +20,7 @@
     "video-infra/pyproject.toml": "67e7c53a2c1bfa9f40010753f4024c7247b1348c14fc9acdc8359af62b4e97de",
     "video-infra/src/video_infra/__init__.py": "e2dfdcaf386b2ee9befa8ca8c14331b63053cd4b56a7ba114c5db67b012f246e",
     "video-infra/src/video_infra/__main__.py": "c2ee4ddb093c9af060cafaf68219907f8a6b7b301ed3f8bea75db7555adec987",
-    "video-infra/src/video_infra/cli.py": "193d25830005d9d31772e745a261f34e6f5f2571e246f29774cdad13dbf391e0",
+    "video-infra/src/video_infra/cli.py": "ba61d44c176cb19dae710aa90e3a6b6d4c1fc720e57f99cf339417a0874cb9a0",
     "video-infra/src/video_infra/config.py": "04afc63af788c2d3cf047458083027ab0eb8a933a6775456420914567f3f34dc",
     "video-infra/src/video_infra/router.py": "3104fe5b8f9880f2f654f4a2be972b4e2f63239a98d6eb6cf303b058f69d3e4c",
     "video-infra/src/video_infra/schema.py": "06ac03be083ea98a4471eadde95dd56a7d5ce17c9fa5476c181c0062ebdb07b5",
@@ -35,7 +35,8 @@
     "sources/youtube-ai/config.mjs": "becb33071f268530d803b4806daa56a24968a2714adb60e9466a9dc89f2e9adc",
     "sources/youtube-ai/scrape.mjs": "051015f91388edd1e7448255c0e5a40e9033e8cadf71c3789347c0adefb9b9bd",
     "sources/youtube-ai/youtube-api.mjs": "e9d40f024994046aea4a0d0a23d4a0afbe407672177a478cd82d49362a3d4816",
-    "video-infra/src/video_infra/storage/thumbnail.py": "35c42df336099579b09b175792b777ae0c1c01a6ed5c95317e4acfaf38ed5d0a"
+    "video-infra/src/video_infra/storage/thumbnail.py": "35c42df336099579b09b175792b777ae0c1c01a6ed5c95317e4acfaf38ed5d0a",
+    "video-infra/src/video_infra/storage/direct_video.py": "52b995bba8e32033638fe5969b74646668c1ccd57015501ba69437d6e54517b2"
   },
   "allowedCloudAdapters": [
     "scripts/run-queue.mjs",

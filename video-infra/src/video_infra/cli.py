@@ -8,6 +8,7 @@ from contextlib import redirect_stdout
 from .router import VideoRouter
 from .schema import VideoResult, error_result
 from .storage.metadata import write_metadata
+from .storage.direct_video import download_direct_video
 from .storage.paths import build_paths
 from .storage.thumbnail import download_thumbnail
 
@@ -62,6 +63,11 @@ def build_parser() -> argparse.ArgumentParser:
     fetch_cmd.add_argument("--format-id", default=None)
     fetch_cmd.add_argument("--no-write-meta", action="store_true")
 
+    direct_cmd = sub.add_parser("download-direct", help="Download an already-resolved public media URL.")
+    direct_cmd.add_argument("media_url")
+    direct_cmd.add_argument("--output-dir", required=True)
+    direct_cmd.add_argument("--metadata-file", required=True)
+
     return parser
 
 
@@ -84,6 +90,13 @@ def main(argv: list[str] | None = None) -> int:
             with redirect_stdout(sys.stderr):
                 result = router.download(args.url, args.platform, args.output_dir, args.format_id)
             _write_meta_if_needed(result, args.output_dir, not args.no_write_meta)
+            return _print(result)
+
+        if args.command == "download-direct":
+            with open(args.metadata_file, "r", encoding="utf-8") as file:
+                metadata = json.load(file)
+            with redirect_stdout(sys.stderr):
+                result = download_direct_video(args.media_url, args.output_dir, metadata)
             return _print(result)
 
         return _print(error_result(f"unknown command: {args.command}"))
