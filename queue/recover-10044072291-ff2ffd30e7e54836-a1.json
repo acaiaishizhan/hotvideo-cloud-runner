@@ -1,0 +1,62 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7681596072074434222",
+      "url": "https://www.douyin.com/video/7681596072074434222",
+      "billboards": [
+        {
+          "name": "高完播率",
+          "rank": 25
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 3069,
+        "likeCount": 2745,
+        "likeRate": 0.009245,
+        "followCount": 401,
+        "followRate": 0.002632,
+        "hotspotDetail": {
+          "likeCount": 2951,
+          "commentCount": 156,
+          "shareCount": 1089,
+          "newFansCount": 402
+        },
+        "mediaDownloadUrl": "https://sf11-cdn-tos.douyinstatic.com/obj/ies-music/7571406993710697257.mp3",
+        "mediaResolvedAt": "2026-09-11T23:38:06.926Z",
+        "videoMetadata": {
+          "id": "7681596072074434222",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7681596072074434222",
+          "title": "#传统文化涨知识 #国学文化",
+          "description": "#传统文化涨知识 #国学文化",
+          "author": {
+            "id": "MS4wLjABAAAAhDPAomFLkKLd9yujNVsRjytNU7XcCFIaoq9g4lSKBisV3s0aqn0NnOgexFV_8fI5",
+            "name": "焱上君"
+          },
+          "durationSec": null,
+          "publishedAt": 1788510958,
+          "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-0813c001/ocCBXuGMLAYHNgajA72eAEKBgJtEIaAeAVQfEI~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790377200&x-signature=bPJsbE%2Fl9tfLuzLz8bhkCJZWKVA%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=2026091207380635AFF7D424CDAB7DD1C8"
+        },
+        "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-0813c001/ocCBXuGMLAYHNgajA72eAEKBgJtEIaAeAVQfEI~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790377200&x-signature=bPJsbE%2Fl9tfLuzLz8bhkCJZWKVA%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=2026091207380635AFF7D424CDAB7DD1C8",
+        "publishedAt": 1788510958
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7681596072074434222:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
