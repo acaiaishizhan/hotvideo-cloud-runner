@@ -1,0 +1,62 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7681602836978732297",
+      "url": "https://www.douyin.com/video/7681602836978732297",
+      "billboards": [
+        {
+          "name": "高点赞率",
+          "rank": 35
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 3958,
+        "likeCount": 2293,
+        "likeRate": 0.05085,
+        "followCount": 95,
+        "followRate": 0.002117,
+        "hotspotDetail": {
+          "likeCount": 5789,
+          "commentCount": 661,
+          "shareCount": 659,
+          "newFansCount": 365
+        },
+        "mediaDownloadUrl": "https://v26-wha.douyinvod.com/95fb35e8223cce56af46b0c57587410d/6aa4a356/video/tos/cn/tos-cn-ve-15/ogikvQCpqQ4PBaISI4AZaHDFTp0EpIAQd9iyU/?a=1128&ch=10010&cr=3&dr=0&lr=all&cd=0%7C0%7C0%7C3&cv=1&br=686&bt=686&cs=0&ds=6&ft=vwbdHCJrBBkq8ZmoNy.wk_vjVQWw&mime_type=video_mp4&qs=0&rc=MzRoNTg4aTQ7NGg4Z2RoNkBpam47OGw5cnc7ZDMzNGkzM0AwYDJhYmEtXy0xNGIyLTMzYSMuYy1wMmRrZWFhLS1kLWFzcw%3D%3D&btag=c0010e000af000&cquery=105O_103Q_103W_103Y_100b&dy_q=1789170789&feature_id=f0150a16a324336cda5d6dd0b69ed299&l=20260912075309D939474FD5F8909005AE",
+        "mediaResolvedAt": "2026-09-11T23:53:10.925Z",
+        "videoMetadata": {
+          "id": "7681602836978732297",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7681602836978732297",
+          "title": "新时代新文化 新时代新文化：读懂百年历史，明白中国出路从何而来#郭继承",
+          "description": "新时代新文化 新时代新文化：读懂百年历史，明白中国出路从何而来#郭继承",
+          "author": {
+            "id": "MS4wLjABAAAAKiyIlbdK7D6lEluyzCK6SrZh9S8WsbHt6kWNIEb3HfO1f91WrUqb8lCzn3uWw7xx",
+            "name": "继承之道青少年"
+          },
+          "durationSec": 225,
+          "publishedAt": 1788685200,
+          "thumbnailUrl": "https://p11-sign.douyinpic.com/tos-cn-i-dy/2f63027f9aa842fbb7a4d7deebb7e89d~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790377200&x-signature=gByUlubwVlfuemTxhfIRDAIKZgA%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=20260912075309D939474FD5F8909005AE"
+        },
+        "thumbnailUrl": "https://p11-sign.douyinpic.com/tos-cn-i-dy/2f63027f9aa842fbb7a4d7deebb7e89d~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790377200&x-signature=gByUlubwVlfuemTxhfIRDAIKZgA%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=20260912075309D939474FD5F8909005AE",
+        "publishedAt": 1788685200
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7681602836978732297:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
