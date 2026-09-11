@@ -1,0 +1,62 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-07T16:07:46.870Z",
+  "items": [
+    {
+      "id": "7682252463671381291",
+      "url": "https://www.douyin.com/video/7682252463671381291",
+      "billboards": [
+        {
+          "name": "低粉爆款",
+          "rank": 6
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 1,
+        "score": 20,
+        "likeCount": 1,
+        "likeRate": 0.00195,
+        "followCount": 0,
+        "followRate": 0,
+        "hotspotDetail": {
+          "likeCount": 169,
+          "commentCount": 16,
+          "shareCount": 59,
+          "newFansCount": 4
+        },
+        "mediaDownloadUrl": "https://v5-coldy.douyinvod.com/0c6f692e9af34ebd4fed1e1278049954/6aa48db4/video/tos/cn/tos-cn-ve-15/okeFkABPIE9NqcJSUfoFdENbq2PjvDymnQEgAA/?a=1128&ch=10010&cr=3&dr=0&lr=all&cd=0%7C0%7C0%7C3&cv=1&br=810&bt=810&cs=0&ds=6&ft=r5QvG77JWH6BMpnXNJr0PD1IN&mime_type=video_mp4&qs=0&rc=aTRkMzZmZjg8OWUzODg0Z0BpM3hwZ245cjdnZDMzNGkzM0A2Yy02LzZeXi8xYzA0YV8uYSNmY3EuMmRrYmJhLS1kLWFzcw%3D%3D&btag=c0010e000ad000&cquery=103Y_100b_105O_103Q_103W&dy_q=1789165383&feature_id=f0150a16a324336cda5d6dd0b69ed299&l=20260912062303FE48FB60F73F1F731F59",
+        "mediaResolvedAt": "2026-09-11T22:23:01.985Z",
+        "videoMetadata": {
+          "id": "7682252463671381291",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7682252463671381291",
+          "title": "AI现在真的能画板了吗 测评最新模型的画板效果#AI #AI画板 #PCB设计",
+          "description": "AI现在真的能画板了吗 测评最新模型的画板效果#AI #AI画板 #PCB设计",
+          "author": {
+            "id": "MS4wLjABAAAAnmKVQZJ1KFY8EHVdbdMsZWZqEOMaIcnkuwl1hdZF4EQ",
+            "name": "诗的结尾"
+          },
+          "durationSec": 93,
+          "publishedAt": 1788663791,
+          "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-dy/a38082d7baa24c75bf65780ccc544f33~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790373600&x-signature=2pBjqJTZ61tb35N0XjCfOaoEAuo%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=20260912062303FE48FB60F73F1F731F59"
+        },
+        "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-dy/a38082d7baa24c75bf65780ccc544f33~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790373600&x-signature=2pBjqJTZ61tb35N0XjCfOaoEAuo%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=20260912062303FE48FB60F73F1F731F59",
+        "publishedAt": 1788663791
+      },
+      "recovery": {
+        "attempt": 2,
+        "sourceArtifactId": "10026147777",
+        "sourceRunId": "34132031296",
+        "recoveryKey": "7682252463671381291:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-07T16:07:46.870Z",
+    "items": []
+  }
+}
