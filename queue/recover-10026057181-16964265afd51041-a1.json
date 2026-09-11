@@ -1,0 +1,64 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-07T16:04:45.576Z",
+  "items": [
+    {
+      "id": "7682691566124764470",
+      "url": "https://www.douyin.com/video/7682691566124764470",
+      "billboards": [
+        {
+          "name": "低粉爆款",
+          "rank": 8
+        },
+        {
+          "name": "高点赞率",
+          "rank": 30
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 1,
+        "score": 27,
+        "likeCount": 112,
+        "likeRate": 0.05873,
+        "followCount": 0,
+        "followRate": 0,
+        "hotspotDetail": {
+          "likeCount": 480,
+          "commentCount": 2
+        },
+        "mediaDownloadUrl": "https://v11-cold.douyinvod.com/604879a96ca6967395bb562c26e45153/6aa4866b/video/tos/cn/tos-cn-ve-15/oQkplbg2QIg2gfIBMzVB8GsCPICuG9JeAAfL07/?a=1128&ch=10010&cr=3&dr=0&lr=all&cd=0%7C0%7C0%7C3&cv=1&br=1110&bt=1110&cs=0&ds=3&ft=r5QvG77JWH6BMICXNJr0PD1IN&mime_type=video_mp4&qs=0&rc=Nzs0OzZmaTdpOGZoOTs2NEBpampnd3A5cmc5ZDMzNGkzM0BhMi9iM2JgNS0xMy4wMjJfYSNhcW9zMmQ0NmNhLS1kLTBzcw%3D%3D&btag=c0010e0009d000&cquery=103Y_100b_105O_103Q_103W&dy_q=1789163581&feature_id=f5241e7604dff1d9d6c943fd20bd51a2&l=20260912055301789F9532D4729B99E330",
+        "mediaResolvedAt": "2026-09-11T21:52:59.989Z",
+        "videoMetadata": {
+          "id": "7682691566124764470",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7682691566124764470",
+          "title": "\"AI上天津\"网络精品共创邀请赛🔥火热开启中 用AI讲好津派文化，用创意点亮天津故事\n✨更多活动详情，请移步官网\n#纳米大片流水线",
+          "description": "\"AI上天津\"网络精品共创邀请赛🔥火热开启中 用AI讲好津派文化，用创意点亮天津故事\n✨更多活动详情，请移步官网\n#纳米大片流水线",
+          "author": {
+            "id": "MS4wLjABAAAAQEhyDv1h5LdMcKucJ2Mi_aSsUOuAitIWzeUqvXttkXk",
+            "name": "纳米大片流水线"
+          },
+          "durationSec": 30,
+          "publishedAt": 1788766028,
+          "thumbnailUrl": "https://p11-sign.douyinpic.com/tos-cn-i-dy/e6453c9deb854d1cbd794d66a77b647a~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790370000&x-signature=PB4IhyZOaILOwovAO935l0re6wI%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=20260912055301789F9532D4729B99E330"
+        },
+        "thumbnailUrl": "https://p11-sign.douyinpic.com/tos-cn-i-dy/e6453c9deb854d1cbd794d66a77b647a~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790370000&x-signature=PB4IhyZOaILOwovAO935l0re6wI%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=20260912055301789F9532D4729B99E330",
+        "publishedAt": 1788766028
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10026057181",
+        "sourceRunId": "34132031296",
+        "recoveryKey": "7682691566124764470:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-07T16:04:45.576Z",
+    "items": []
+  }
+}
