@@ -1,0 +1,66 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7681694596418843763",
+      "url": "https://www.douyin.com/video/7681694596418843763",
+      "billboards": [
+        {
+          "name": "视频总榜",
+          "rank": 17
+        },
+        {
+          "name": "低粉爆款",
+          "rank": 6
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 15957,
+        "likeCount": 10588,
+        "likeRate": 0.044203,
+        "followCount": 230,
+        "followRate": 0.001652,
+        "hotspotDetail": {
+          "likeCount": 27509,
+          "commentCount": 42580,
+          "shareCount": 142,
+          "newFansCount": 453
+        },
+        "mediaDownloadUrl": "https://v11-whb.douyinvod.com/137dca76894b71a7b50ca76418a3f114/6aa49b79/video/tos/cn/tos-cn-ve-15/oIPHRIYatASIx6yB3APbIc3zTArSXpQiQECAi/?a=1128&ch=10010&cr=3&dr=0&lr=all&cd=0%7C0%7C0%7C3&cv=1&br=1247&bt=1247&cs=0&ds=6&ft=vwbdHCJrBBkq8Zmo9Iiwk_vjVQWw&mime_type=video_mp4&qs=0&rc=Ojs5OTc2NDk5ZWY2OzM4O0BpajM0ZWs5cnFnZDMzNGkzM0AvMjBgNTQ0Ni0xMzUxNGMtYSNtL19xMmQ0a2FhLS1kLWFzcw%3D%3D&btag=c0010e00095000&cquery=100b_105O_103Q_103R_103S&dy_q=1789168983&feature_id=f0150a16a324336cda5d6dd0b69ed299&l=20260912072303E96A98798B30C07E4B3B",
+        "mediaResolvedAt": "2026-09-11T23:23:03.918Z",
+        "videoMetadata": {
+          "id": "7681694596418843763",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7681694596418843763",
+          "title": "一切顺遂 福生无量 #国学修行 #传统文化里的生活智慧 #不求不应有求必应 #积德行善必得后福 #道家文化",
+          "description": "一切顺遂 福生无量 #国学修行 #传统文化里的生活智慧 #不求不应有求必应 #积德行善必得后福 #道家文化",
+          "author": {
+            "id": "MS4wLjABAAAARIIs7uOZffNpOgDt-IAebOzQkvtlhWCCL3sX5mvxv2yzqDSJURA3qdTGiYA5Tzyo",
+            "name": "婉赢"
+          },
+          "durationSec": 19,
+          "publishedAt": 1788615060,
+          "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-p-0015/owEib6IxPiI3QzTgA3BrYIkRWbBEtA6aapAPd~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790377200&x-signature=9DFUZBWTtXXaW7q6FjxhwzaXsEw%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=20260912072303E96A98798B30C07E4B3B"
+        },
+        "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-p-0015/owEib6IxPiI3QzTgA3BrYIkRWbBEtA6aapAPd~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790377200&x-signature=9DFUZBWTtXXaW7q6FjxhwzaXsEw%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=20260912072303E96A98798B30C07E4B3B",
+        "publishedAt": 1788615060
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7681694596418843763:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
