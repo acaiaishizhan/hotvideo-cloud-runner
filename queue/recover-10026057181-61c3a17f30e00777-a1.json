@@ -1,0 +1,61 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-07T16:04:45.576Z",
+  "items": [
+    {
+      "id": "7682742680666194038",
+      "url": "https://www.douyin.com/video/7682742680666194038",
+      "billboards": [
+        {
+          "name": "视频总榜",
+          "rank": 26
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 1,
+        "score": 268,
+        "likeCount": 3,
+        "likeRate": 0.00511,
+        "followCount": 0,
+        "followRate": 0,
+        "hotspotDetail": {
+          "likeCount": 17,
+          "commentCount": 16,
+          "shareCount": 24
+        },
+        "mediaDownloadUrl": "https://sf11-cdn-tos.douyinstatic.com/obj/ies-music/7633732056126720777.mp3",
+        "mediaResolvedAt": "2026-09-11T21:07:58.977Z",
+        "videoMetadata": {
+          "id": "7682742680666194038",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7682742680666194038",
+          "title": "#ai",
+          "description": "#ai",
+          "author": {
+            "id": "MS4wLjABAAAAEBe9T0S9D4EviqPVaKgVtVqW9ZXXM0MEjMFgiS6yriIWOC5Dlpx-FP0FR3O5nqVl",
+            "name": "黑猪ai总管🅥"
+          },
+          "durationSec": null,
+          "publishedAt": 1788777924,
+          "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-0813c001/ogIAeqbAPCpAYg9YkqQAEFEAXlD1OnAJEfcCcN~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790370000&x-signature=kSRWHiPEBCN4YmvOW9zJkqOCzdQ%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=2026091205075967C2E564DCC24193A4F3"
+        },
+        "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-0813c001/ogIAeqbAPCpAYg9YkqQAEFEAXlD1OnAJEfcCcN~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790370000&x-signature=kSRWHiPEBCN4YmvOW9zJkqOCzdQ%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=2026091205075967C2E564DCC24193A4F3",
+        "publishedAt": 1788777924
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10026057181",
+        "sourceRunId": "34132031296",
+        "recoveryKey": "7682742680666194038:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-07T16:04:45.576Z",
+    "items": []
+  }
+}
