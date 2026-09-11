@@ -1,0 +1,62 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-07T16:11:03.470Z",
+  "items": [
+    {
+      "id": "7679323296466275619",
+      "url": "https://www.douyin.com/video/7679323296466275619",
+      "billboards": [
+        {
+          "name": "高完播率",
+          "rank": 22
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 1,
+        "score": 35,
+        "likeCount": 14,
+        "likeRate": 0.00448,
+        "followCount": 2,
+        "followRate": 0.00064,
+        "hotspotDetail": {
+          "likeCount": 2578,
+          "commentCount": 8,
+          "shareCount": 22,
+          "newFansCount": 62
+        },
+        "mediaDownloadUrl": "https://v11-whb.douyinvod.com/e206bbb07bf349fa196195da2d9b664c/6aa49126/video/tos/cn/tos-cn-ve-15/okDIq8DHIFAfEnCJkQEEuhBJBfNlf7iSVpPKA4/?a=1128&ch=10010&cr=3&dr=0&lr=all&cd=0%7C0%7C0%7C3&cv=1&br=1053&bt=1053&cs=0&ds=6&ft=vwbdHCJrBBkq8ZmoRfiwk_vjVQWw&mime_type=video_mp4&qs=0&rc=ZGZkNjpoaDZlNGZoO2g8OUBpM3I7dHk5cms5ZDMzNGkzM0BhMjE2Y2EvXjExMzRgMjFhYSNmZWAuMmRzczZhLS1kLS9zcw%3D%3D&btag=c0010e000ad000&cquery=105O_103Q_103W_103Y_100b&dy_q=1789166283&feature_id=f0150a16a324336cda5d6dd0b69ed299&l=2026091206380327402971697193830F44",
+        "mediaResolvedAt": "2026-09-11T22:38:01.979Z",
+        "videoMetadata": {
+          "id": "7679323296466275619",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7679323296466275619",
+          "title": "我的媳妇我来疼9 苏春杏自幼受后娘王桂枝苛待，被一百块彩礼嫁给村里名声凶狠的周大川。她本以为又入苦海，却发现周大川嘴硬心软，处处护她、疼她，还把家里的钱交给她做主。在丈夫支持下，春杏逐渐学会反抗欺负，并凭亡母留下的枣糕方子从摆摊做到供销社供货。面对娘家索取、同行陷害，夫妻始终并肩扛事，最终揭穿假货阴谋，生下孩子，在县城开起属于自己的食品店。#ai漫剧推荐",
+          "description": "我的媳妇我来疼9 苏春杏自幼受后娘王桂枝苛待，被一百块彩礼嫁给村里名声凶狠的周大川。她本以为又入苦海，却发现周大川嘴硬心软，处处护她、疼她，还把家里的钱交给她做主。在丈夫支持下，春杏逐渐学会反抗欺负，并凭亡母留下的枣糕方子从摆摊做到供销社供货。面对娘家索取、同行陷害，夫妻始终并肩扛事，最终揭穿假货阴谋，生下孩子，在县城开起属于自己的食品店。#ai漫剧推荐",
+          "author": {
+            "id": "MS4wLjABAAAAz2qVGNSy-VZPJQVdvcnI2krhQ13hVcdfRlmLOL_kOH0zQeM2w7TfaADCLbL7bsp8",
+            "name": "云朵漫剧"
+          },
+          "durationSec": 76,
+          "publishedAt": 1787981793,
+          "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-dy/dccfb716858e4806932b888bb3a3dfa1~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790373600&x-signature=jzOfSAFEXBzrOpEG0XEAZuRtyxQ%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=2026091206380327402971697193830F44"
+        },
+        "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-dy/dccfb716858e4806932b888bb3a3dfa1~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790373600&x-signature=jzOfSAFEXBzrOpEG0XEAZuRtyxQ%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=2026091206380327402971697193830F44",
+        "publishedAt": 1787981793
+      },
+      "recovery": {
+        "attempt": 2,
+        "sourceArtifactId": "10026243304",
+        "sourceRunId": "34132031296",
+        "recoveryKey": "7679323296466275619:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-07T16:11:03.470Z",
+    "items": []
+  }
+}
