@@ -1,0 +1,62 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-07T16:17:13.741Z",
+  "items": [
+    {
+      "id": "7682258220526597062",
+      "url": "https://www.douyin.com/video/7682258220526597062",
+      "billboards": [
+        {
+          "name": "低粉爆款",
+          "rank": 13
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 1,
+        "score": 13,
+        "likeCount": 12,
+        "likeRate": 0.0096,
+        "followCount": 0,
+        "followRate": 0,
+        "hotspotDetail": {
+          "likeCount": 332,
+          "commentCount": 5,
+          "shareCount": 19,
+          "newFansCount": 11
+        },
+        "mediaDownloadUrl": "https://sf6-cdn-tos.douyinstatic.com/obj/tos-cn-ve-2774/ogGQQ9veDGsgtgABp0LuAEYIzFzfPxJeaZCTFb",
+        "mediaResolvedAt": "2026-09-11T23:08:03.927Z",
+        "videoMetadata": {
+          "id": "7682258220526597062",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7682258220526597062",
+          "title": "ai时代，基本功还重要吗？我觉得408还是很顶啊  #计算机 #ai #程序员 #大学生 #实习",
+          "description": "ai时代，基本功还重要吗？我觉得408还是很顶啊  #计算机 #ai #程序员 #大学生 #实习",
+          "author": {
+            "id": "MS4wLjABAAAATSsm--oA700OHCZM3rFJEG_8gRXXoQZ-qHde4eE33oaTwKWk7G-DzEkv6Tnk-uqG",
+            "name": "c/c++练习生"
+          },
+          "durationSec": null,
+          "publishedAt": 1788665127,
+          "thumbnailUrl": "https://p11-sign.douyinpic.com/tos-cn-i-0813c000-ce/oI5E7AfwnTIAZ3eCA8w4E2iiLkAkA1cPBAEmCU~tplv-dy-resize-walign-adapt-aq:720:q75.jpeg?lk3s=138a59ce&x-expires=1790377200&x-signature=AFsXTKUOe46hJHCjYNK0iT0J4Wg%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912070802FE95F9D5C88773BA6C16"
+        },
+        "thumbnailUrl": "https://p11-sign.douyinpic.com/tos-cn-i-0813c000-ce/oI5E7AfwnTIAZ3eCA8w4E2iiLkAkA1cPBAEmCU~tplv-dy-resize-walign-adapt-aq:720:q75.jpeg?lk3s=138a59ce&x-expires=1790377200&x-signature=AFsXTKUOe46hJHCjYNK0iT0J4Wg%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912070802FE95F9D5C88773BA6C16",
+        "publishedAt": 1788665127
+      },
+      "recovery": {
+        "attempt": 2,
+        "sourceArtifactId": "10026426567",
+        "sourceRunId": "34132031296",
+        "recoveryKey": "7682258220526597062:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-07T16:17:13.741Z",
+    "items": []
+  }
+}
