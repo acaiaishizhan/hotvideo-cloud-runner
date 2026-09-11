@@ -1,0 +1,60 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-07T16:04:45.576Z",
+  "items": [
+    {
+      "id": "7682763681037710821",
+      "url": "https://www.douyin.com/video/7682763681037710821",
+      "billboards": [
+        {
+          "name": "高完播率",
+          "rank": 14
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 1,
+        "score": 36,
+        "likeCount": 9,
+        "likeRate": 0.00367,
+        "followCount": 0,
+        "followRate": 0,
+        "hotspotDetail": {
+          "likeCount": 15,
+          "commentCount": 3
+        },
+        "mediaDownloadUrl": "https://lf26-music-east.douyinstatic.com/obj/ies-music-hj/7665176280324705073.mp3",
+        "mediaResolvedAt": "2026-09-11T21:22:56.988Z",
+        "videoMetadata": {
+          "id": "7682763681037710821",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7682763681037710821",
+          "title": "腾讯给混元和workbuddy的资源馋哭。#大模型 #workbuddy #agent #deepseek#ai",
+          "description": "腾讯给混元和workbuddy的资源馋哭。#大模型 #workbuddy #agent #deepseek#ai",
+          "author": {
+            "id": "MS4wLjABAAAA8GYEPE9Y-eBtBWexcstfOP18ndpa5Ai7YTs1OFbbBxw",
+            "name": "Mr.Liao - AI创客-共同进步"
+          },
+          "durationSec": null,
+          "publishedAt": 1788782813,
+          "thumbnailUrl": "https://p3-sign.douyinpic.com/tos-cn-i-0813c000-ce/ooEIAAlqEFAbdnAwQ9fDeTOMqLUAj0q9KEKfEa~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790370000&x-signature=Xn7F2xeZQwfE93u%2FFSXeGzhyn0E%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912052257E30D0E65FF01279F3036"
+        },
+        "thumbnailUrl": "https://p3-sign.douyinpic.com/tos-cn-i-0813c000-ce/ooEIAAlqEFAbdnAwQ9fDeTOMqLUAj0q9KEKfEa~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790370000&x-signature=Xn7F2xeZQwfE93u%2FFSXeGzhyn0E%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912052257E30D0E65FF01279F3036",
+        "publishedAt": 1788782813
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10026057181",
+        "sourceRunId": "34132031296",
+        "recoveryKey": "7682763681037710821:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-07T16:04:45.576Z",
+    "items": []
+  }
+}
