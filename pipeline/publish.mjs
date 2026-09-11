@@ -269,7 +269,27 @@ export function resolveRecordTitle(meta) {
 }
 
 // 兼容新 camelCase 和旧 snake_case 两种 meta schema
-export function buildRecord(meta) {
+function statisticsCapturedAt(meta) {
+  const scraped = meta?.scraped || {};
+  if (meta?.source === 'douyin-hotspot' || Object.keys(scraped.hotspotDetail || {}).length > 0) {
+    return scraped.hotspotDetail?.capturedAt || null;
+  }
+  if (meta?.platform === 'youtube' || meta?.source === 'youtube-ai') {
+    return scraped.lastSeenAt || meta.fetchedAt || null;
+  }
+  return null;
+}
+
+function shouldPreserveExistingStatistics(existingRefreshedAt, incomingCapturedAt) {
+  const existing = parseFeishuDate(existingRefreshedAt);
+  if (!existing) return false;
+  const incoming = parseFeishuDate(incomingCapturedAt);
+  return !incoming || incoming < existing;
+}
+
+const STATISTICS_FIELDS = new Set(['点赞数', '点赞率', '评论数', '分享数', '涨粉数', '播放量（真实）', '每小时播放量']);
+
+export function buildRecord(meta, { existingRefreshedAt = undefined } = {}) {
   const a = meta.analysis || {};
   const scraped = meta.scraped || {};
   const author = typeof meta.author === 'object' && meta.author !== null
@@ -299,15 +319,25 @@ export function buildRecord(meta) {
     [FULL_VIDEO_COPY_FIELD]: a.full_video_copy || '',
   };
 
-  Object.assign(record, buildInteractionUpdateRecord(meta));
+  const interaction = buildInteractionUpdateRecord(meta);
+  const incomingCapturedAt = statisticsCapturedAt(meta);
+  if (shouldPreserveExistingStatistics(existingRefreshedAt, incomingCapturedAt)) {
+    for (const field of STATISTICS_FIELDS) delete interaction[field];
+  } else {
+    const refreshedAt = formatPublishTime(incomingCapturedAt);
+    if (refreshedAt && Object.keys(interaction).some(field => STATISTICS_FIELDS.has(field))) {
+      interaction['数据刷新时间'] = refreshedAt;
+    }
+  }
+  Object.assign(record, interaction);
   if (record['发布时间'] == null) delete record['发布时间'];
   const seenAt = formatPublishTime(scraped.lastSeenAt || scraped.lastRepeatedAt);
   if (seenAt) record['最近上榜时间'] = seenAt;
   return record;
 }
 
-export function buildRepeatUpdateRecord(meta) {
-  const full = buildRecord(meta);
+export function buildRepeatUpdateRecord(meta, options = {}) {
+  const full = buildRecord(meta, options);
   const refreshFields = [
     '标题',
     '视频链接',
@@ -317,6 +347,7 @@ export function buildRepeatUpdateRecord(meta) {
     '时间段',
     '发布时间',
     '最近上榜时间',
+    '数据刷新时间',
     '点赞数',
     '点赞率',
     '评论数',
@@ -497,15 +528,17 @@ export function recordFieldIndex(fields, fieldIds, fieldNameOrId) {
   return nameIndex !== -1 ? nameIndex : fieldIds.indexOf(fieldNameOrId);
 }
 
-function recordState(recordId, attachmentValue, attachmentKnown, createdAtValue = '') {
+function recordState(recordId, attachmentValue, attachmentKnown, createdAtValue = '', refreshedAtValue = undefined) {
   const createdAtMs = Date.parse(String(createdAtValue || ''));
-  return {
+  const state = {
     recordId,
     attachmentKnown,
     hasAttachment: attachmentKnown ? hasAttachmentFiles(attachmentValue) : false,
     createdAtMs: Number.isFinite(createdAtMs) ? createdAtMs : null,
     duplicateRecordIds: [],
   };
+  if (refreshedAtValue !== undefined) state.refreshedAt = refreshedAtValue;
+  return state;
 }
 
 export function selectCanonicalRecordState(left, right) {
@@ -551,6 +584,7 @@ export function mapRecordRows(resp, attachmentField = '') {
   const { fields, fieldIds, rows, recordIds } = parseRecordRows(resp);
   const urlIdx = recordFieldIndex(fields, fieldIds, '视频链接');
   const createdAtIdx = recordFieldIndex(fields, fieldIds, CREATED_AT_FIELD);
+  const refreshedAtIdx = recordFieldIndex(fields, fieldIds, '数据刷新时间');
   const attachmentIdx = attachmentField
     ? recordFieldIndex(fields, fieldIds, attachmentField)
     : -1;
@@ -569,6 +603,7 @@ export function mapRecordRows(resp, attachmentField = '') {
       rows[i]?.[attachmentIdx],
       Boolean(attachmentField),
       createdAtIdx === -1 ? '' : rows[i]?.[createdAtIdx],
+      refreshedAtIdx === -1 ? undefined : rows[i]?.[refreshedAtIdx],
     ));
   }
   return map;
@@ -590,6 +625,7 @@ export function loadExistingRecords(attachmentField = '') {
       '--format', 'json',
       '--field-id', '视频链接',
       '--field-id', CREATED_AT_FIELD,
+      '--field-id', '数据刷新时间',
       '--limit', String(limit),
       '--offset', String(offset),
     ];
@@ -626,6 +662,7 @@ function findExistingRecordByUrl(url, attachmentField = '') {
     '--search-field', '视频链接',
     '--field-id', '视频链接',
     '--field-id', CREATED_AT_FIELD,
+    '--field-id', '数据刷新时间',
     '--limit', '20',
   ];
   if (attachmentField) args.push('--field-id', attachmentField);
@@ -833,14 +870,15 @@ export async function runPublish(sourceName) {
     const repeatUpdates = JSON.parse(fs.readFileSync(repeatUpdatePath, 'utf-8'));
     const remainingRepeatItems = [];
     for (const item of repeatUpdates.items || []) {
-      const rid = existingRecords.get(videoRecordKey(item.url))?.recordId;
+      const existingState = existingRecords.get(videoRecordKey(item.url));
+      const rid = existingState?.recordId;
       if (!rid) {
         skipped++;
         log(`  重复更新跳过（飞书未找到记录）: ${(item.title || item.id || '').substring(0, 40)}...`);
         continue;
       }
 
-      const record = buildRepeatUpdateRecord(item);
+      const record = buildRepeatUpdateRecord(item, { existingRefreshedAt: existingState.refreshedAt });
       if (Object.keys(record).length === 0) {
         skipped++;
         continue;
@@ -904,7 +942,7 @@ export async function runPublish(sourceName) {
       let rid = repair.recordId;
       if (repair.shouldRepair) {
         try {
-          const resp = larkUpsert(buildRecord(meta), repair.createNew ? '' : repair.recordId);
+          const resp = larkUpsert(buildRecord(meta, { existingRefreshedAt: existingState?.refreshedAt }), repair.createNew ? '' : repair.recordId);
           if (!resp.ok) {
             failed++;
             log(`  修复空记录失败: ${JSON.stringify(resp).substring(0, 200)}`);
@@ -963,7 +1001,7 @@ export async function runPublish(sourceName) {
     if (existingState) {
       const rid = existingState.recordId;
       try {
-        const resp = larkUpsert(buildRecord(meta), rid);
+        const resp = larkUpsert(buildRecord(meta, { existingRefreshedAt: existingState.refreshedAt }), rid);
         if (!resp.ok) {
           failed++;
           log(`  更新已有记录失败: ${JSON.stringify(resp).substring(0, 200)}`);

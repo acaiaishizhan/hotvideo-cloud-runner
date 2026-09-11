@@ -11,7 +11,7 @@
     "pipeline/json-file.mjs": "1e7a3b7be1c2102687b46680c6f5d75175c931dd34128993324890047522a338",
     "pipeline/orchestrator.mjs": "bce5a2b63806d06e01a8809369a99737ff6ff69b251f08381062bd65e29a2364",
     "pipeline/prompt.mjs": "9bf055a95d8c3f60b80861a5cd006dc398b82035938c1eab0e3c70d4948c5302",
-    "pipeline/publish.mjs": "629db2278e2e187b935fb55e519b53870042195dfafcd8f7a0a9e232f24d5260",
+    "pipeline/publish.mjs": "fd6b74b7153d880ca01e7e2858d2d75757379363e0002ee872c89444ef8e43e2",
     "pipeline/refresh-policy.mjs": "7a0848fb05ce5e3c2155b48c82e51bd869ea85a285d29f27cc320f4f30818692",
     "pipeline/transcribe-video-copy.mjs": "f4d4e0cf892949da43854370c5460f23de4c93b9810462d0f75aa736064e12b4",
     "pipeline/video-copy-provider.mjs": "daae972b1af438326ed48bc581e08df2cacbb3f3a10900f5a26f59e6bd8fd987",
