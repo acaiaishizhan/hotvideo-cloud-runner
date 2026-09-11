@@ -1,0 +1,62 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-10T20:00:34.142Z",
+  "items": [
+    {
+      "id": "7683900035603483950",
+      "url": "https://www.douyin.com/video/7683900035603483950",
+      "billboards": [
+        {
+          "name": "低粉爆款",
+          "rank": 2
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 1,
+        "thumbnailUrl": "https://p3-sign.douyinpic.com/tos-cn-i-dy/bf97c54ef3214b15bc80eee228f06c60~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790323200&x-signature=EBGblO6%2BcwuXm5Zb10FWqkVYc2A%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=20260911165542753D780A017E2A41290E",
+        "publishedAt": 1789047399,
+        "lastSeenAt": "2026-09-10T20:00:34.142Z",
+        "score": 60,
+        "likeCount": 39,
+        "likeRate": 0.02792,
+        "followCount": 3,
+        "followRate": 0.00215,
+        "hotspotDetail": {
+          "likeCount": 270,
+          "commentCount": 7,
+          "shareCount": 40,
+          "newFansCount": 29,
+          "publishedAt": 1789047399,
+          "capturedAt": "2026-09-10T20:00:48.090Z"
+        },
+        "repairWave": "direct-media-20260911",
+        "mediaDownloadUrl": "https://v11-whb.douyinvod.com/424449d5b6f6d75f05868cd2f78707a6/6aa3d0c3/video/tos/cn/tos-cn-ve-15/oojIgQDDqBssXJJFEJhriAIyAAgifoTge9Eqai/?a=1128&ch=10010&cr=3&dr=0&lr=all&cd=0%7C0%7C0%7C3&cv=1&br=470&bt=470&cs=0&ds=3&ft=vwbdHCJrBBkq8ZmoPp43k_vjVQWw&mime_type=video_mp4&qs=0&rc=ODhnOWk5NDo5OjgzOjRoaEBpanEzcXA5cjtlZDMzNGkzM0AtMTNeYWNgNS4xM2BjMl9jYSNlZmhgMmRrMWVhLS1kLTBzcw%3D%3D&btag=c0010e000ad000&cquery=100b_105O_103Q_103W_103Y&dy_q=1789116942&feature_id=f5241e7604dff1d9d6c943fd20bd51a2&l=20260911165542753D780A017E2A41290E",
+        "mediaResolvedAt": "2026-09-11T08:55:42.033Z",
+        "videoMetadata": {
+          "id": "7683900035603483950",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7683900035603483950",
+          "title": "0抽卡 全新AI视频工作流 GPT6 + Blender + 即梦 #ai工具  #ai营销  #seedance2 #即梦  #AI工具 #AI营销 #ai电商 #ai视频   #品牌营销 #广告 #TVC #ai视频 #ai广告 #aigc #chatgpt #跨境电商  #image2",
+          "description": "0抽卡 全新AI视频工作流 GPT6 + Blender + 即梦 #ai工具  #ai营销  #seedance2 #即梦  #AI工具 #AI营销 #ai电商 #ai视频   #品牌营销 #广告 #TVC #ai视频 #ai广告 #aigc #chatgpt #跨境电商  #image2",
+          "author": {
+            "id": "MS4wLjABAAAAXtuqsf_xj4hBhR796Kn5umcAJiEpP0pvlFgWDgMOH5Y",
+            "name": "蒋林伶"
+          },
+          "durationSec": 166,
+          "publishedAt": 1789047399,
+          "thumbnailUrl": "https://p3-sign.douyinpic.com/tos-cn-i-dy/bf97c54ef3214b15bc80eee228f06c60~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790323200&x-signature=EBGblO6%2BcwuXm5Zb10FWqkVYc2A%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=20260911165542753D780A017E2A41290E"
+        }
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-10T20:00:34.142Z",
+    "items": []
+  },
+  "restoredFromQueue": "20260911-040034-a689432711aa-tech-kepu-1h.json",
+  "validationProbe": true
+}
