@@ -1,0 +1,62 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-07T16:04:45.576Z",
+  "items": [
+    {
+      "id": "7682656671886082990",
+      "url": "https://www.douyin.com/video/7682656671886082990",
+      "billboards": [
+        {
+          "name": "低粉爆款",
+          "rank": 11
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 1,
+        "score": 57,
+        "likeCount": 9,
+        "likeRate": 0.00571,
+        "followCount": 0,
+        "followRate": 0,
+        "hotspotDetail": {
+          "likeCount": 53,
+          "commentCount": 29,
+          "shareCount": 1,
+          "newFansCount": 1
+        },
+        "mediaDownloadUrl": "https://lf9-music-east.douyinstatic.com/obj/ies-music-hj/7677027734090058553.mp3",
+        "mediaResolvedAt": "2026-09-11T19:52:54.978Z",
+        "videoMetadata": {
+          "id": "7682656671886082990",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7682656671886082990",
+          "title": "法考已报名，考场已定，我要开始预习啦。有没有考前突击的方案，尊贵的律师朋友和优秀法考同学们，给点能过客观的妙招，哈哈。\n我打算那天在我的考点抓几位同学采访，有一个考场的吗？\n#法考 #律师 #律师AI #法考必过",
+          "description": "法考已报名，考场已定，我要开始预习啦。有没有考前突击的方案，尊贵的律师朋友和优秀法考同学们，给点能过客观的妙招，哈哈。\n我打算那天在我的考点抓几位同学采访，有一个考场的吗？\n#法考 #律师 #律师AI #法考必过",
+          "author": {
+            "id": "MS4wLjABAAAARq47UQdLrumA7SjVtMgOGmlTQdZF3lU9GKz_Du2Cv9s",
+            "name": "老张的奋斗记录💪"
+          },
+          "durationSec": null,
+          "publishedAt": 1788757899,
+          "thumbnailUrl": "https://p9-sign.douyinpic.com/tos-cn-i-0813c001/okRIVBQv3AGlA0ArIVEBE4YeeELv7PiI7A5keA~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790362800&x-signature=EVu95aHHcT8OafdRDdoOBREDc%2Fg%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912035256413F3AB312F461AAA3A9"
+        },
+        "thumbnailUrl": "https://p9-sign.douyinpic.com/tos-cn-i-0813c001/okRIVBQv3AGlA0ArIVEBE4YeeELv7PiI7A5keA~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790362800&x-signature=EVu95aHHcT8OafdRDdoOBREDc%2Fg%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912035256413F3AB312F461AAA3A9",
+        "publishedAt": 1788757899
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10026057181",
+        "sourceRunId": "34132031296",
+        "recoveryKey": "7682656671886082990:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-07T16:04:45.576Z",
+    "items": []
+  }
+}
