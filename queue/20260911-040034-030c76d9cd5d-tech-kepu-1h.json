@@ -1,0 +1,62 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-10T20:00:34.142Z",
+  "items": [
+    {
+      "id": "7683943225577459941",
+      "url": "https://www.douyin.com/video/7683943225577459941",
+      "billboards": [
+        {
+          "name": "视频总榜",
+          "rank": 8
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 1,
+        "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-p-0015c000-ce/ooFGgRMFfgVDWdeJR88C7LBV0EgfsbBvAQJIlQ~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790323200&x-signature=XXRCE9t7wirm69e2pYRawKVZsOg%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=202609111643025124A650277FB57F330A",
+        "publishedAt": 1789057448,
+        "lastSeenAt": "2026-09-10T20:00:34.142Z",
+        "score": 256,
+        "likeCount": 100,
+        "likeRate": 0.02121,
+        "followCount": 17,
+        "followRate": 0.00361,
+        "hotspotDetail": {
+          "likeCount": 202,
+          "commentCount": 61,
+          "shareCount": 34,
+          "newFansCount": 32,
+          "publishedAt": 1789057448,
+          "capturedAt": "2026-09-10T20:00:48.090Z"
+        },
+        "repairWave": "direct-media-20260911",
+        "mediaDownloadUrl": "https://v26-wha.douyinvod.com/b23eabc5fff1227cab669f326e99962a/6aa3cd5d/video/tos/cn/tos-cn-ve-15c000-ce/ocALiBJf7tvRAeMVLW648ARGRJEBBQEg89beCH/?a=1128&ch=10010&cr=3&dr=0&lr=all&cd=0%7C0%7C0%7C3&cv=1&br=1275&bt=1275&cs=0&ds=6&ft=vwbdHCJrBBkq8Zmob_G3k_vjVQWw&mime_type=video_mp4&qs=0&rc=OTg5M2Q5MzQ8ZGY1ZGVmZ0BpMztxcGo5cjtnZDMzbGkzNEAvLzBhNi1fNTQxNDMxM2M0YSMuczNkMmQ0ZmVhLS1kLWJzcw%3D%3D&btag=c0010e000a7000&cquery=105O_103Q_103R_103S_100b&dy_q=1789116182&feature_id=f0150a16a324336cda5d6dd0b69ed299&l=202609111643025124A650277FB57F330A",
+        "mediaResolvedAt": "2026-09-11T08:43:03.019Z",
+        "videoMetadata": {
+          "id": "7683943225577459941",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7683943225577459941",
+          "title": "我用 AI 做了一个自动剪辑的工作流，现在开源送给你#ai新星计划#vibecoding大赏#我在抖音学ai#ai小白成长记#coding日常",
+          "description": "我用 AI 做了一个自动剪辑的工作流，现在开源送给你#ai新星计划#vibecoding大赏#我在抖音学ai#ai小白成长记#coding日常",
+          "author": {
+            "id": "MS4wLjABAAAAVTxJioiAYUDBN4b--PQZGF2WuMpTt9t9nGmj8tpBKiCYIn4EIH6qVHzYTb3-RrVT",
+            "name": "及格不及时"
+          },
+          "durationSec": 55,
+          "publishedAt": 1789057448,
+          "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-p-0015c000-ce/ooFGgRMFfgVDWdeJR88C7LBV0EgfsbBvAQJIlQ~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790323200&x-signature=XXRCE9t7wirm69e2pYRawKVZsOg%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=202609111643025124A650277FB57F330A"
+        }
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-10T20:00:34.142Z",
+    "items": []
+  },
+  "restoredFromQueue": "20260911-040034-a689432711aa-tech-kepu-1h.json",
+  "validationProbe": true
+}
