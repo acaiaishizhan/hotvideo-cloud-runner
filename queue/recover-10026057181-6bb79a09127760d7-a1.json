@@ -1,0 +1,62 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-07T16:04:45.576Z",
+  "items": [
+    {
+      "id": "7682682375930708294",
+      "url": "https://www.douyin.com/video/7682682375930708294",
+      "billboards": [
+        {
+          "name": "高点赞率",
+          "rank": 16
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 1,
+        "score": 93,
+        "likeCount": 212,
+        "likeRate": 0.06507,
+        "followCount": 5,
+        "followRate": 0.00153,
+        "hotspotDetail": {
+          "likeCount": 1429,
+          "commentCount": 13,
+          "shareCount": 65,
+          "newFansCount": 34
+        },
+        "mediaDownloadUrl": "https://sf11-cdn-tos.douyinstatic.com/obj/ies-music/7678004916417301286.mp3",
+        "mediaResolvedAt": "2026-09-11T21:37:59.982Z",
+        "videoMetadata": {
+          "id": "7682682375930708294",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7682682375930708294",
+          "title": "AI创作浪潮计划S3全新来袭。技术赋予想象翅膀，好内容永远动人心弦。#AI创作浪潮计划 第三期全新来袭！\n带话题#AI创作浪潮计划 投稿优质内容，有机会获得流量扶持、现金与积分激励，更有行业合作直通机会等你解锁！\n全新单元——浪潮现场，将于近期官宣，敬请期待！\n一起来做时代的造浪者吧！",
+          "description": "AI创作浪潮计划S3全新来袭。技术赋予想象翅膀，好内容永远动人心弦。#AI创作浪潮计划 第三期全新来袭！\n带话题#AI创作浪潮计划 投稿优质内容，有机会获得流量扶持、现金与积分激励，更有行业合作直通机会等你解锁！\n全新单元——浪潮现场，将于近期官宣，敬请期待！\n一起来做时代的造浪者吧！",
+          "author": {
+            "id": "MS4wLjABAAAAqv9uCAoaTPW-ND-clLfI7feIRovYcruiLnHOLBuGXOUrqWYHGaca3XOravX_J_bE",
+            "name": "抖音AI创作浪潮计划"
+          },
+          "durationSec": null,
+          "publishedAt": 1788763884,
+          "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-0813/osQ7GJQerEufAKMZEA8eWrAaA2IgsALFBLPVXB~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790370000&x-signature=FLiz3FXHxSblF%2B7J0rz99brEm98%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=202609120538014D62FFE0A044EFA2DB03"
+        },
+        "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-0813/osQ7GJQerEufAKMZEA8eWrAaA2IgsALFBLPVXB~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790370000&x-signature=FLiz3FXHxSblF%2B7J0rz99brEm98%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=202609120538014D62FFE0A044EFA2DB03",
+        "publishedAt": 1788763884
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10026057181",
+        "sourceRunId": "34132031296",
+        "recoveryKey": "7682682375930708294:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-07T16:04:45.576Z",
+    "items": []
+  }
+}
