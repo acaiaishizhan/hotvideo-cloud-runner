@@ -1,0 +1,66 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7682134604178991461",
+      "url": "https://www.douyin.com/video/7682134604178991461",
+      "billboards": [
+        {
+          "name": "视频总榜",
+          "rank": 25
+        },
+        {
+          "name": "高点赞率",
+          "rank": 9
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 10555,
+        "likeCount": 6727,
+        "likeRate": 0.07456,
+        "followCount": 213,
+        "followRate": 0.002406,
+        "hotspotDetail": {
+          "likeCount": 10067,
+          "commentCount": 7094,
+          "shareCount": 178,
+          "newFansCount": 329
+        },
+        "mediaDownloadUrl": "https://v11-whb.douyinvod.com/4b25e0421809fba16dcb79aab7ab79c4/6aa4c035/video/tos/cn/tos-cn-ve-15c000-ce/osbwKktKA1qAGmnq9SfBERsGrEEYIQFciG4nfD/?a=1128&ch=10010&cr=3&dr=0&lr=all&cd=0%7C0%7C0%7C3&cv=1&br=1127&bt=1127&cs=0&ds=6&ft=vwbdHCJrBBkq8ZmoR0uwk_vjVQWw&mime_type=video_mp4&qs=0&rc=ZWRmOTk8NzY3OjNoNGk0ZEBpamxyPG05cjU5ZDMzbGkzNUAvX18yMl81NTMxXjRhMjRjYSNjZV5hMmRraWJhLS1kLTRzcw%3D%3D&btag=c0010e000b5001&cquery=103R_103S_100b_105O_103Q&dy_q=1789177995&feature_id=f0150a16a324336cda5d6dd0b69ed299&l=202609120953150DB82F88AB2B62971053",
+        "mediaResolvedAt": "2026-09-12T01:53:15.927Z",
+        "videoMetadata": {
+          "id": "7682134604178991461",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7682134604178991461",
+          "title": "我最近才慢慢意识到，人生有五关，每过一关上一层。\n\n#传统文化涨知识 #传统文化学习分享 #国学传统文化知识解读 #装修与国学智慧 #传统文化科普",
+          "description": "我最近才慢慢意识到，人生有五关，每过一关上一层。\n\n#传统文化涨知识 #传统文化学习分享 #国学传统文化知识解读 #装修与国学智慧 #传统文化科普",
+          "author": {
+            "id": "MS4wLjABAAAAqA5YEONQMhYrurzVZbHsbojTIVWtsvEK_c1ZZ1D07D9Nlx5Q9-CjJubkzT_WYVm9",
+            "name": "不执先生"
+          },
+          "durationSec": 411,
+          "publishedAt": 1788653280,
+          "thumbnailUrl": "https://p3-sign.douyinpic.com/tos-cn-p-0015c000-ce/o0qILnJVJGbOYOjc7eLegUQI7ANsCpVeB7DVuN~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790384400&x-signature=DA8GjdjJt9GA2ozBL%2FaP1FyEMZc%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=202609120953150DB82F88AB2B62971053"
+        },
+        "thumbnailUrl": "https://p3-sign.douyinpic.com/tos-cn-p-0015c000-ce/o0qILnJVJGbOYOjc7eLegUQI7ANsCpVeB7DVuN~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790384400&x-signature=DA8GjdjJt9GA2ozBL%2FaP1FyEMZc%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=202609120953150DB82F88AB2B62971053",
+        "publishedAt": 1788653280
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7682134604178991461:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
