@@ -1,0 +1,62 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7681500947680584521",
+      "url": "https://www.douyin.com/video/7681500947680584521",
+      "billboards": [
+        {
+          "name": "高涨粉率",
+          "rank": 11
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 4059,
+        "likeCount": 106,
+        "likeRate": 0.003389,
+        "followCount": 356,
+        "followRate": 0.010932,
+        "hotspotDetail": {
+          "likeCount": 271,
+          "commentCount": 1658,
+          "shareCount": 43,
+          "newFansCount": 20
+        },
+        "mediaDownloadUrl": "https://sf6-cdn-tos.douyinstatic.com/obj/ies-music/7462016915033099035.mp3",
+        "mediaResolvedAt": "2026-09-12T06:38:13.925Z",
+        "videoMetadata": {
+          "id": "7681500947680584521",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7681500947680584521",
+          "title": "跟风弄了个命盘，有懂这个的老师吗。最近看好多人在弄这个命盘，自己也弄了一个但是看不懂啊。",
+          "description": "跟风弄了个命盘，有懂这个的老师吗。最近看好多人在弄这个命盘，自己也弄了一个但是看不懂啊。",
+          "author": {
+            "id": "MS4wLjABAAAAWfoayYr1en3S8nzCgoeZQPvzFjOY0axX02ZpHfBKoeo",
+            "name": "不作不舒服斯基"
+          },
+          "durationSec": null,
+          "publishedAt": 1788488811,
+          "thumbnailUrl": "https://p3-sign.douyinpic.com/tos-cn-i-0813c001/oAC09qAXmEtEAW7eAAQAJmwfRYLg9FIDAJCCki~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790402400&x-signature=MYRpZWqlPcVqYcm41xyFPBnutWU%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=202609121438158F209BD1D4B012BFF4DC"
+        },
+        "thumbnailUrl": "https://p3-sign.douyinpic.com/tos-cn-i-0813c001/oAC09qAXmEtEAW7eAAQAJmwfRYLg9FIDAJCCki~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790402400&x-signature=MYRpZWqlPcVqYcm41xyFPBnutWU%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=202609121438158F209BD1D4B012BFF4DC",
+        "publishedAt": 1788488811
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7681500947680584521:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
