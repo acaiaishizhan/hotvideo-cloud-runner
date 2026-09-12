@@ -1,0 +1,62 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7682026396033568000",
+      "url": "https://www.douyin.com/video/7682026396033568000",
+      "billboards": [
+        {
+          "name": "视频总榜",
+          "rank": 2
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 48525,
+        "likeCount": 14281,
+        "likeRate": 0.011904,
+        "followCount": 937,
+        "followRate": 0.000902,
+        "hotspotDetail": {
+          "likeCount": 16323,
+          "commentCount": 708,
+          "shareCount": 38590,
+          "newFansCount": 1085
+        },
+        "mediaDownloadUrl": "https://sf11-cdn-tos.douyinstatic.com/obj/tos-cn-ve-2774/ocam8MI8vDfRoZ0Q1coDfmAQGeKQLCgyoEkqfY",
+        "mediaResolvedAt": "2026-09-12T03:23:12.944Z",
+        "videoMetadata": {
+          "id": "7682026396033568000",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7682026396033568000",
+          "title": "《带娃尽头是玄学》。那些老一辈口口相传的带娃讲究，你家还在照做吗？看看你中了几个！#育儿 #玄学 #民间习俗 #育儿知识 #新手爸妈",
+          "description": "《带娃尽头是玄学》。那些老一辈口口相传的带娃讲究，你家还在照做吗？看看你中了几个！#育儿 #玄学 #民间习俗 #育儿知识 #新手爸妈",
+          "author": {
+            "id": "MS4wLjABAAAAq-4r6lyJi64vlQikfSOdZj6n1QzafgvaVXftZRnkfQA",
+            "name": "图懂万物"
+          },
+          "durationSec": null,
+          "publishedAt": 1788611169,
+          "thumbnailUrl": "https://p11-sign.douyinpic.com/tos-cn-i-dy/4e9721de03c441eb93c4bab7b1d5f53e~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790391600&x-signature=BDxUlkE38KmGRNMQ9uE4C%2BtaQmI%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912112312618E3F4A6B31C5C1FF0A"
+        },
+        "thumbnailUrl": "https://p11-sign.douyinpic.com/tos-cn-i-dy/4e9721de03c441eb93c4bab7b1d5f53e~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790391600&x-signature=BDxUlkE38KmGRNMQ9uE4C%2BtaQmI%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912112312618E3F4A6B31C5C1FF0A",
+        "publishedAt": 1788611169
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7682026396033568000:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
