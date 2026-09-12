@@ -1,0 +1,62 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7681636924389559168",
+      "url": "https://www.douyin.com/video/7681636924389559168",
+      "billboards": [
+        {
+          "name": "高完播率",
+          "rank": 22
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 3470,
+        "likeCount": 694,
+        "likeRate": 0.004032,
+        "followCount": 35,
+        "followRate": 0.000191,
+        "hotspotDetail": {
+          "likeCount": 796,
+          "commentCount": 930,
+          "shareCount": 249,
+          "newFansCount": 45
+        },
+        "mediaDownloadUrl": "https://sf11-cdn-tos.douyinstatic.com/obj/tos-cn-ve-2774/oMc7VFFU2aQScIMTnqLeBCAzdtJG9yIezCGfah",
+        "mediaResolvedAt": "2026-09-12T06:23:12.917Z",
+        "videoMetadata": {
+          "id": "7681636924389559168",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7681636924389559168",
+          "title": "一切都好。#玄学提醒",
+          "description": "一切都好。#玄学提醒",
+          "author": {
+            "id": "MS4wLjABAAAADy2VtML3geUMfNDBWz46h1Tjer0LJvuMoUAUf2IMQQY",
+            "name": "神武灵拳"
+          },
+          "durationSec": null,
+          "publishedAt": 1788520471,
+          "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-0813c001/o8XBaA5VVCAUWiI1CTifACgE9qvAQuEKeAB3AK~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790402400&x-signature=3vAs65fhvMQGgLovTncCdlckD04%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912142314BF45F80F72CDDD9063C6"
+        },
+        "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-0813c001/o8XBaA5VVCAUWiI1CTifACgE9qvAQuEKeAB3AK~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790402400&x-signature=3vAs65fhvMQGgLovTncCdlckD04%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912142314BF45F80F72CDDD9063C6",
+        "publishedAt": 1788520471
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7681636924389559168:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
