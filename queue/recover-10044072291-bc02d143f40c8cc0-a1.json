@@ -1,0 +1,66 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7681547330764841573",
+      "url": "https://www.douyin.com/video/7681547330764841573",
+      "billboards": [
+        {
+          "name": "视频总榜",
+          "rank": 34
+        },
+        {
+          "name": "高完播率",
+          "rank": 7
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 8941,
+        "likeCount": 3335,
+        "likeRate": 0.015431,
+        "followCount": 299,
+        "followRate": 0.001332,
+        "hotspotDetail": {
+          "likeCount": 5169,
+          "commentCount": 3719,
+          "shareCount": 2438,
+          "newFansCount": 388
+        },
+        "mediaDownloadUrl": "https://lf26-music-east.douyinstatic.com/obj/ies-music-hj/7681225947302906673.mp3",
+        "mediaResolvedAt": "2026-09-12T06:53:17.929Z",
+        "videoMetadata": {
+          "id": "7681547330764841573",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7681547330764841573",
+          "title": "扔旧鞋破局#扔旧鞋 #破局 #玄学",
+          "description": "扔旧鞋破局#扔旧鞋 #破局 #玄学",
+          "author": {
+            "id": "MS4wLjABAAAAVGZWZsdtCcFmdQvy01YTpCgb0UjshH7wQv37TenqCoY",
+            "name": "我是芍药"
+          },
+          "durationSec": null,
+          "publishedAt": 1788499610,
+          "thumbnailUrl": "https://p11-sign.douyinpic.com/tos-cn-i-0813c000-ce/o4aaPAAtlEMpSBpDBUi5WiCAIPVGAURxp7xiA~tplv-dy-resize-walign-adapt-aq:720:q75.jpeg?lk3s=138a59ce&x-expires=1790402400&x-signature=h9yScqiOBTMdOnD9uTWUyS2c9b8%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=2026091214531878C9374A76FE52BFA4AC"
+        },
+        "thumbnailUrl": "https://p11-sign.douyinpic.com/tos-cn-i-0813c000-ce/o4aaPAAtlEMpSBpDBUi5WiCAIPVGAURxp7xiA~tplv-dy-resize-walign-adapt-aq:720:q75.jpeg?lk3s=138a59ce&x-expires=1790402400&x-signature=h9yScqiOBTMdOnD9uTWUyS2c9b8%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=2026091214531878C9374A76FE52BFA4AC",
+        "publishedAt": 1788499610
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7681547330764841573:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
