@@ -1,0 +1,66 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7682328646229715313",
+      "url": "https://www.douyin.com/video/7682328646229715313",
+      "billboards": [
+        {
+          "name": "视频总榜",
+          "rank": 1
+        },
+        {
+          "name": "高点赞率",
+          "rank": 1
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 115031,
+        "likeCount": 56059,
+        "likeRate": 0.060008,
+        "followCount": 212,
+        "followRate": 0.000274,
+        "hotspotDetail": {
+          "likeCount": 246766,
+          "commentCount": 9255,
+          "shareCount": 172439,
+          "newFansCount": 1060
+        },
+        "mediaDownloadUrl": "https://v5-coldp.douyinvod.com/d57073725b3fe49f2c8b4a8d20f34c5d/6aa50c06/video/tos/cn/tos-cn-ve-15c000-ce/o8AFSI0rEDPBMAOL7PZadIST4pdgUii8gxN8q/?a=1128&ch=10010&cr=3&dr=0&lr=all&cd=0%7C0%7C0%7C3&cv=1&br=212&bt=212&cs=0&ds=6&ft=r5QvG77JWH6BMg~_NJr0PD1IN&mime_type=video_mp4&qs=0&rc=Ozs4NThlZ2U8ZztmZTNoN0BpM2dwN3Y5cjZrZDMzbGkzNUBgMV80YWBeXjAxNGEwYjYyYSNwamxpMmQ0bmJhLS1kLTRzcw%3D%3D&btag=c0010e00095000&cquery=105O_103Q_103R_103S_100b&dy_q=1789197795&feature_id=f0150a16a324336cda5d6dd0b69ed299&l=20260912152315249F2680D9A061C98C97",
+        "mediaResolvedAt": "2026-09-12T07:23:13.922Z",
+        "videoMetadata": {
+          "id": "7682328646229715313",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7682328646229715313",
+          "title": "人性本善 #孔孟之道教你做人 #孟夫子 #国学知识科普 #新儒家思想",
+          "description": "人性本善 #孔孟之道教你做人 #孟夫子 #国学知识科普 #新儒家思想",
+          "author": {
+            "id": "MS4wLjABAAAAcYiLBFG2AzUh5LKq5y38FD3lIeHGPpENqHSoGHpeEr5GRfWHZXkahz7jbdJxCJ0l",
+            "name": "赛博孔丘"
+          },
+          "durationSec": 20,
+          "publishedAt": 1788681524,
+          "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-p-0015c000-ce/oIPdrdaNbDx8PMZAP02qTwHAHikApBTiIE42F~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790406000&x-signature=eBfFyaQE7MHZQ6BdBK1ls12Fuww%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=20260912152315249F2680D9A061C98C97"
+        },
+        "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-p-0015c000-ce/oIPdrdaNbDx8PMZAP02qTwHAHikApBTiIE42F~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790406000&x-signature=eBfFyaQE7MHZQ6BdBK1ls12Fuww%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=20260912152315249F2680D9A061C98C97",
+        "publishedAt": 1788681524
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7682328646229715313:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
