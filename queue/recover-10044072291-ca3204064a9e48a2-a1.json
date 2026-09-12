@@ -1,0 +1,70 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7681962158188337329",
+      "url": "https://www.douyin.com/video/7681962158188337329",
+      "billboards": [
+        {
+          "name": "视频总榜",
+          "rank": 35
+        },
+        {
+          "name": "低粉爆款",
+          "rank": 18
+        },
+        {
+          "name": "高完播率",
+          "rank": 8
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 8689,
+        "likeCount": 5513,
+        "likeRate": 0.018053,
+        "followCount": 229,
+        "followRate": 0.001491,
+        "hotspotDetail": {
+          "likeCount": 6130,
+          "commentCount": 903,
+          "shareCount": 5102,
+          "newFansCount": 252
+        },
+        "mediaDownloadUrl": "https://sf11-cdn-tos.douyinstatic.com/obj/ies-music/7479427947155753755.mp3",
+        "mediaResolvedAt": "2026-09-12T06:08:12.919Z",
+        "videoMetadata": {
+          "id": "7681962158188337329",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7681962158188337329",
+          "title": "@山东海纳文化萬卍锦🔥🔥🔥🔥🔥发了一个抖音短视频，你尽管点开，不好看算我输！",
+          "description": "@山东海纳文化萬卍锦🔥🔥🔥🔥🔥发了一个抖音短视频，你尽管点开，不好看算我输！",
+          "author": {
+            "id": "MS4wLjABAAAAn_DdOJsqAsD6H9RlJMo6QwokRLCpu8I-ilam6RV1Nmk",
+            "name": "山东海纳文化萬卍锦🔥🔥🔥🔥🔥"
+          },
+          "durationSec": null,
+          "publishedAt": 1788596195,
+          "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-0813c000-ce/ooIB3FV85FAcJHDCQfH9AOAgE4nC6NughEfA7e~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790402400&x-signature=8d7QmPul2idO3ukUdZauipGBK7Q%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912140814E735EE60FA62D8B89EA4"
+        },
+        "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-0813c000-ce/ooIB3FV85FAcJHDCQfH9AOAgE4nC6NughEfA7e~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790402400&x-signature=8d7QmPul2idO3ukUdZauipGBK7Q%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912140814E735EE60FA62D8B89EA4",
+        "publishedAt": 1788596195
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7681962158188337329:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
