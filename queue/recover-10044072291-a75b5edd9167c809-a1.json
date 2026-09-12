@@ -1,0 +1,70 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7681644951201847802",
+      "url": "https://www.douyin.com/video/7681644951201847802",
+      "billboards": [
+        {
+          "name": "视频总榜",
+          "rank": 30
+        },
+        {
+          "name": "低粉爆款",
+          "rank": 14
+        },
+        {
+          "name": "高完播率",
+          "rank": 6
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 9692,
+        "likeCount": 5045,
+        "likeRate": 0.020971,
+        "followCount": 234,
+        "followRate": 0.001008,
+        "hotspotDetail": {
+          "likeCount": 8669,
+          "commentCount": 6384,
+          "shareCount": 306,
+          "newFansCount": 499
+        },
+        "mediaDownloadUrl": "https://lf9-music-east.douyinstatic.com/obj/ies-music-hj/7629263894766504741.mp3",
+        "mediaResolvedAt": "2026-09-12T07:38:15.920Z",
+        "videoMetadata": {
+          "id": "7681644951201847802",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7681644951201847802",
+          "title": "阿紫。告诉大家阿紫可能已经出现了就在我们身边",
+          "description": "阿紫。告诉大家阿紫可能已经出现了就在我们身边",
+          "author": {
+            "id": "MS4wLjABAAAABDSV7Edv-AJMDYy-p_SzDQLWXgv1J2bfirgaddBw4KY",
+            "name": "紫薇༺ཌ༈圣达༈ད༻"
+          },
+          "durationSec": null,
+          "publishedAt": 1788522339,
+          "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-0813c000-ce/o8AgAe97GJCVLA2BBaIrV1E2NFQI0XfgeD7P7A~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790406000&x-signature=BMUQQ0ZCiZfhR46G0c1Z1v%2FkxEg%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912153817002EA664CF1C28D81D2D"
+        },
+        "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-0813c000-ce/o8AgAe97GJCVLA2BBaIrV1E2NFQI0XfgeD7P7A~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790406000&x-signature=BMUQQ0ZCiZfhR46G0c1Z1v%2FkxEg%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912153817002EA664CF1C28D81D2D",
+        "publishedAt": 1788522339
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7681644951201847802:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
