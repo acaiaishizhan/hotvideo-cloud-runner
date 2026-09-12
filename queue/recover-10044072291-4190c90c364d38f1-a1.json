@@ -1,0 +1,62 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7682049366756426707",
+      "url": "https://www.douyin.com/video/7682049366756426707",
+      "billboards": [
+        {
+          "name": "高完播率",
+          "rank": 38
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 1974,
+        "likeCount": 1340,
+        "likeRate": 0.006749,
+        "followCount": 258,
+        "followRate": 0.001324,
+        "hotspotDetail": {
+          "likeCount": 2099,
+          "commentCount": 125,
+          "shareCount": 539,
+          "newFansCount": 374
+        },
+        "mediaDownloadUrl": "https://sf11-cdn-tos.douyinstatic.com/obj/ies-music/7637206081562757929.mp3",
+        "mediaResolvedAt": "2026-09-12T00:08:08.921Z",
+        "videoMetadata": {
+          "id": "7682049366756426707",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7682049366756426707",
+          "title": "@嘉洋索南发了一个抖音短视频，你尽管点开，不好看算我输！",
+          "description": "@嘉洋索南发了一个抖音短视频，你尽管点开，不好看算我输！",
+          "author": {
+            "id": "MS4wLjABAAAAbrlmKmPlGXUt9FXlqWVY-_dprd3gGuH_ZQ-lwG6_g_o",
+            "name": "嘉洋索南"
+          },
+          "durationSec": null,
+          "publishedAt": 1788616499,
+          "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-0813/okg1CcEAiLyikCHAkgPETHqAefJpBAA1Av7I3N~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790380800&x-signature=J1pmxcLvCL0TT1FK84lZHKNCeWQ%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912080808D6A79D80C8DAF6B52F00"
+        },
+        "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-0813/okg1CcEAiLyikCHAkgPETHqAefJpBAA1Av7I3N~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790380800&x-signature=J1pmxcLvCL0TT1FK84lZHKNCeWQ%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912080808D6A79D80C8DAF6B52F00",
+        "publishedAt": 1788616499
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7682049366756426707:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
