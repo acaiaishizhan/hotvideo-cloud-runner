@@ -1,0 +1,66 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7682027968584143973",
+      "url": "https://www.douyin.com/video/7682027968584143973",
+      "billboards": [
+        {
+          "name": "视频总榜",
+          "rank": 15
+        },
+        {
+          "name": "高完播率",
+          "rank": 4
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 16888,
+        "likeCount": 27432,
+        "likeRate": 0.021886,
+        "followCount": 709,
+        "followRate": 0.000534,
+        "hotspotDetail": {
+          "likeCount": 37553,
+          "commentCount": 3709,
+          "shareCount": 5665,
+          "newFansCount": 933
+        },
+        "mediaDownloadUrl": "https://sf11-cdn-tos.douyinstatic.com/obj/ies-music/7635105621502741284.mp3",
+        "mediaResolvedAt": "2026-09-12T03:53:11.921Z",
+        "videoMetadata": {
+          "id": "7682027968584143973",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7682027968584143973",
+          "title": "善/恶。#人性认知 #阴阳之道 #国学智慧 #悟人生之道 #人性真相",
+          "description": "善/恶。#人性认知 #阴阳之道 #国学智慧 #悟人生之道 #人性真相",
+          "author": {
+            "id": "MS4wLjABAAAAwxqZzQNUHmRSt3Dn1mh5BoLf9tkGbWe5eCMk-ooJ05PAIozad7ezBhCVTvNac6pq",
+            "name": "佑京"
+          },
+          "durationSec": null,
+          "publishedAt": 1788611517,
+          "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-0813c000-ce/oMABAeJSGJJVLAPBnwILBbQsOFOgBY9gbe7fdA~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790391600&x-signature=ks8Gm3%2F1T%2Bn2h%2FxjwBklLzLDaf8%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912115312C85D4F448E8EFFA489EA"
+        },
+        "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-0813c000-ce/oMABAeJSGJJVLAPBnwILBbQsOFOgBY9gbe7fdA~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790391600&x-signature=ks8Gm3%2F1T%2Bn2h%2FxjwBklLzLDaf8%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912115312C85D4F448E8EFFA489EA",
+        "publishedAt": 1788611517
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7682027968584143973:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
