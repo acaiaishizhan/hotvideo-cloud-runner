@@ -1,0 +1,66 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7682051615855998053",
+      "url": "https://www.douyin.com/video/7682051615855998053",
+      "billboards": [
+        {
+          "name": "低粉爆款",
+          "rank": 31
+        },
+        {
+          "name": "高完播率",
+          "rank": 11
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 5968,
+        "likeCount": 3766,
+        "likeRate": 0.0169,
+        "followCount": 267,
+        "followRate": 0.002435,
+        "hotspotDetail": {
+          "likeCount": 3818,
+          "commentCount": 4083,
+          "shareCount": 81,
+          "newFansCount": 280
+        },
+        "mediaDownloadUrl": "https://lf26-music-east.douyinstatic.com/obj/ies-music-hj/7671293049846156069.mp3",
+        "mediaResolvedAt": "2026-09-12T03:38:10.915Z",
+        "videoMetadata": {
+          "id": "7682051615855998053",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7682051615855998053",
+          "title": "2026年9月6日黄历分享#老黄历",
+          "description": "2026年9月6日黄历分享#老黄历",
+          "author": {
+            "id": "MS4wLjABAAAAbbfn8wL02RmfqHklnRhtVWJXZ5l6DFVZ30MTzOVmVUsz6dXf8L7nN9_SvoNttBsV",
+            "name": "田半闲"
+          },
+          "durationSec": null,
+          "publishedAt": 1788617023,
+          "thumbnailUrl": "https://p3-sign.douyinpic.com/tos-cn-i-0813c000-ce/ogICqEIjEADrwuA8EzCAC1wcCoFT9neECAj2fA~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790391600&x-signature=cgH2SztVn8YFvQqoIg%2F7Q0dOSMQ%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=2026091211381053701D4D8D893DA892E9"
+        },
+        "thumbnailUrl": "https://p3-sign.douyinpic.com/tos-cn-i-0813c000-ce/ogICqEIjEADrwuA8EzCAC1wcCoFT9neECAj2fA~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790391600&x-signature=cgH2SztVn8YFvQqoIg%2F7Q0dOSMQ%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=2026091211381053701D4D8D893DA892E9",
+        "publishedAt": 1788617023
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7682051615855998053:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
