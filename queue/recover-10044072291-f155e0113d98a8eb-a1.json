@@ -1,0 +1,62 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7682234932240271589",
+      "url": "https://www.douyin.com/video/7682234932240271589",
+      "billboards": [
+        {
+          "name": "高完播率",
+          "rank": 26
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 3013,
+        "likeCount": 2583,
+        "likeRate": 0.011104,
+        "followCount": 65,
+        "followRate": 0.00027,
+        "hotspotDetail": {
+          "likeCount": 3821,
+          "commentCount": 404,
+          "shareCount": 487,
+          "newFansCount": 59
+        },
+        "mediaDownloadUrl": "https://lf26-music-east.douyinstatic.com/obj/ies-music-hj/7679861687100459825.mp3",
+        "mediaResolvedAt": "2026-09-12T07:53:25.920Z",
+        "videoMetadata": {
+          "id": "7682234932240271589",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7682234932240271589",
+          "title": "丁酉新启，顺时而为，守心自持，万事从容🌿#国学文化 #流月感悟 #十天干 #生活修行 #传统文化",
+          "description": "丁酉新启，顺时而为，守心自持，万事从容🌿#国学文化 #流月感悟 #十天干 #生活修行 #传统文化",
+          "author": {
+            "id": "MS4wLjABAAAAXMWjAFIifzMCYLrVXiLgu_8gYO84hdOaYHEsZ6RdcC1AAosdMS_W8kvT2F3yLs-e",
+            "name": "紫煜"
+          },
+          "durationSec": null,
+          "publishedAt": 1788659705,
+          "thumbnailUrl": "https://p11-sign.douyinpic.com/tos-cn-i-0813c000-ce/o83kEPiOgf77AIofVAQEpdF8BBJ5QYfjF1AIDA~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790406000&x-signature=x511HWMvjwfA%2FEUzB4MnOOEHW2A%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=2026091215532736292226B5CAADD91F4D"
+        },
+        "thumbnailUrl": "https://p11-sign.douyinpic.com/tos-cn-i-0813c000-ce/o83kEPiOgf77AIofVAQEpdF8BBJ5QYfjF1AIDA~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790406000&x-signature=x511HWMvjwfA%2FEUzB4MnOOEHW2A%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=2026091215532736292226B5CAADD91F4D",
+        "publishedAt": 1788659705
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7682234932240271589:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
