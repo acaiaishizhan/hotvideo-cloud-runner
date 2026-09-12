@@ -1,0 +1,62 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7681106099592043109",
+      "url": "https://www.douyin.com/video/7681106099592043109",
+      "billboards": [
+        {
+          "name": "高完播率",
+          "rank": 37
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 1978,
+        "likeCount": 1762,
+        "likeRate": 0.006179,
+        "followCount": 55,
+        "followRate": 0.000664,
+        "hotspotDetail": {
+          "likeCount": 2215,
+          "commentCount": 74,
+          "shareCount": 1865,
+          "newFansCount": 56
+        },
+        "mediaDownloadUrl": "https://lf26-music-east.douyinstatic.com/obj/ies-music-hj/7630083295992236849.mp3",
+        "mediaResolvedAt": "2026-09-12T03:08:11.924Z",
+        "videoMetadata": {
+          "id": "7681106099592043109",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7681106099592043109",
+          "title": "#每天跟我涨知识 #感受到了文字的力量 #知识分享手写 #每日手写打卡 ##肌不可失",
+          "description": "#每天跟我涨知识 #感受到了文字的力量 #知识分享手写 #每日手写打卡 ##肌不可失",
+          "author": {
+            "id": "MS4wLjABAAAAvT2dkH3klOsHqcebBI_NhYSETkG33sENJcId3eg9oZ4t2rgw1QTVaSRhsjmaFhfJ",
+            "name": "阅尽千帆"
+          },
+          "durationSec": null,
+          "publishedAt": 1788396878,
+          "thumbnailUrl": "https://p3-sign.douyinpic.com/tos-cn-i-0813c000-ce/osEiEUI2PiBFxSpHAxAjIMSECDB7sxAaYpAPA~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790391600&x-signature=J2k1CFf5Uibb4dldcET72tdy%2Ft8%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912110811D040BB1B995EAD88B3A6"
+        },
+        "thumbnailUrl": "https://p3-sign.douyinpic.com/tos-cn-i-0813c000-ce/osEiEUI2PiBFxSpHAxAjIMSECDB7sxAaYpAPA~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790391600&x-signature=J2k1CFf5Uibb4dldcET72tdy%2Ft8%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912110811D040BB1B995EAD88B3A6",
+        "publishedAt": 1788396878
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7681106099592043109:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
