@@ -1,0 +1,62 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7672696818195227130",
+      "url": "https://www.douyin.com/video/7672696818195227130",
+      "billboards": [
+        {
+          "name": "高完播率",
+          "rank": 36
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 1979,
+        "likeCount": 379,
+        "likeRate": 0.008814,
+        "followCount": 249,
+        "followRate": 0.005622,
+        "hotspotDetail": {
+          "likeCount": 2792,
+          "commentCount": 2305,
+          "shareCount": 519,
+          "newFansCount": 303
+        },
+        "mediaDownloadUrl": "https://lf9-music-east.douyinstatic.com/obj/ies-music-hj/7572519598382222129.mp3",
+        "mediaResolvedAt": "2026-09-12T01:23:09.924Z",
+        "videoMetadata": {
+          "id": "7672696818195227130",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7672696818195227130",
+          "title": "古相书说，手有通天纹，富贵自天来，这道直通中指的线，是老天给的通关文牒，\n老辈人常说，掌心有一道直直向上的纹路，叫＂通天纹有它的人，大多骨子里不服输，认准的事会一条路走到黑，天生自带贵人缘，哪怕白手起家，也总能在关键时刻有人拉一把古人的智慧能不服吗？我就是这样的人，你们呢？#真实生活分享计划 #修心修行",
+          "description": "古相书说，手有通天纹，富贵自天来，这道直通中指的线，是老天给的通关文牒，\n老辈人常说，掌心有一道直直向上的纹路，叫＂通天纹有它的人，大多骨子里不服输，认准的事会一条路走到黑，天生自带贵人缘，哪怕白手起家，也总能在关键时刻有人拉一把古人的智慧能不服吗？我就是这样的人，你们呢？#真实生活分享计划 #修心修行",
+          "author": {
+            "id": "MS4wLjABAAAASVcBf69aDYCqvsAvCFUgZjqL5G1gy9PhvDtu8g4f3-s",
+            "name": "道好"
+          },
+          "durationSec": null,
+          "publishedAt": 1786438939,
+          "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-0813c000-ce/oIFMyABUeAcHJ0hAE1UuB74E8F6fIa8ABe5gED~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790384400&x-signature=Pfit%2FMYvo4pmKAlnkyi2t7KalXg%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=202609120923097F00746171AD0A9E8547"
+        },
+        "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-0813c000-ce/oIFMyABUeAcHJ0hAE1UuB74E8F6fIa8ABe5gED~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790384400&x-signature=Pfit%2FMYvo4pmKAlnkyi2t7KalXg%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=202609120923097F00746171AD0A9E8547",
+        "publishedAt": 1786438939
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7672696818195227130:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
