@@ -1,0 +1,62 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7681259280280174912",
+      "url": "https://www.douyin.com/video/7681259280280174912",
+      "billboards": [
+        {
+          "name": "高完播率",
+          "rank": 39
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 1962,
+        "likeCount": 194,
+        "likeRate": 0.004857,
+        "followCount": 424,
+        "followRate": 0.009992,
+        "hotspotDetail": {
+          "likeCount": 606,
+          "commentCount": 683,
+          "shareCount": 137,
+          "newFansCount": 124
+        },
+        "mediaDownloadUrl": "https://lf26-music-east.douyinstatic.com/obj/ies-music-hj/7676101183307565861.mp3",
+        "mediaResolvedAt": "2026-09-12T00:53:12.921Z",
+        "videoMetadata": {
+          "id": "7681259280280174912",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7681259280280174912",
+          "title": "亿万富婆的手，一辈子躺平不需要她赚钱养家，她老公没遇到她之前，穷困潦倒还离婚带娃，干什么败什么，遇到她之后平步青云，财运亨通，最少也是月入几十个，好就好在老公听她的话，让他接的活就接，不让他接的活就舍弃，所以有时候听另一半的建议并不可耻，那叫活的通透",
+          "description": "亿万富婆的手，一辈子躺平不需要她赚钱养家，她老公没遇到她之前，穷困潦倒还离婚带娃，干什么败什么，遇到她之后平步青云，财运亨通，最少也是月入几十个，好就好在老公听她的话，让他接的活就接，不让他接的活就舍弃，所以有时候听另一半的建议并不可耻，那叫活的通透",
+          "author": {
+            "id": "MS4wLjABAAAAqEog2Q94nBzw5i4HsSS_XuAIeG3V3HgnvVXcTBG5DQo",
+            "name": "༺༃晨💞枭༃²࿐5*²º"
+          },
+          "durationSec": null,
+          "publishedAt": 1788432543,
+          "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-0813/owNKi4KTgh8eAENJ1AICOsigAZAZDKfUCyAUBA~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790380800&x-signature=PMvXjGRmW9pGlT9MtoMIGCErKs0%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912085311078FB465ADA3B7A273F1"
+        },
+        "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-0813/owNKi4KTgh8eAENJ1AICOsigAZAZDKfUCyAUBA~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790380800&x-signature=PMvXjGRmW9pGlT9MtoMIGCErKs0%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912085311078FB465ADA3B7A273F1",
+        "publishedAt": 1788432543
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7681259280280174912:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
