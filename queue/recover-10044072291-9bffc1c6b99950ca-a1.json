@@ -1,0 +1,62 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7682038156938851418",
+      "url": "https://www.douyin.com/video/7682038156938851418",
+      "billboards": [
+        {
+          "name": "低粉爆款",
+          "rank": 34
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 5542,
+        "likeCount": 5427,
+        "likeRate": 0.015961,
+        "followCount": 811,
+        "followRate": 0.002559,
+        "hotspotDetail": {
+          "likeCount": 5522,
+          "commentCount": 824,
+          "shareCount": 948,
+          "newFansCount": 772
+        },
+        "mediaDownloadUrl": "https://lf9-music-east.douyinstatic.com/obj/ies-music-hj/7667753536725224241.mp3",
+        "mediaResolvedAt": "2026-09-12T02:23:12.928Z",
+        "videoMetadata": {
+          "id": "7682038156938851418",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7682038156938851418",
+          "title": "九天荡魔天尊🙏🙏🙏👁️👁️🇨🇳🕊️道法自然 大道至简",
+          "description": "九天荡魔天尊🙏🙏🙏👁️👁️🇨🇳🕊️道法自然 大道至简",
+          "author": {
+            "id": "MS4wLjABAAAAAjpBAUUHI-3FmRXMW_fA4nUhIlW1LypugdWZYbhXXWTkaZ3U2_l5KuJS9BEypCZP",
+            "name": "🇨🇳宗生👀"
+          },
+          "durationSec": null,
+          "publishedAt": 1788613890,
+          "thumbnailUrl": "https://p11-sign.douyinpic.com/tos-cn-i-0813c000-ce/o8cc6UwnfAEqBTCDAD9qzPE3FEEeFAAe2BAISq~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790388000&x-signature=le5%2FuxR8pOq3lw1Z8iupP1uXlnU%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=202609121023128DD2E4CAF9B837AF73D3"
+        },
+        "thumbnailUrl": "https://p11-sign.douyinpic.com/tos-cn-i-0813c000-ce/o8cc6UwnfAEqBTCDAD9qzPE3FEEeFAAe2BAISq~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790388000&x-signature=le5%2FuxR8pOq3lw1Z8iupP1uXlnU%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=202609121023128DD2E4CAF9B837AF73D3",
+        "publishedAt": 1788613890
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7682038156938851418:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
