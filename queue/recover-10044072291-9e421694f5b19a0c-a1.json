@@ -1,0 +1,62 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7681258207989636326",
+      "url": "https://www.douyin.com/video/7681258207989636326",
+      "billboards": [
+        {
+          "name": "高涨粉率",
+          "rank": 35
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 1883,
+        "likeCount": 1558,
+        "likeRate": 0.042608,
+        "followCount": 605,
+        "followRate": 0.015549,
+        "hotspotDetail": {
+          "likeCount": 5785,
+          "commentCount": 85,
+          "shareCount": 884,
+          "newFansCount": 2005
+        },
+        "mediaDownloadUrl": "https://v5-ex-wha.douyinvod.com/4201a32d0ea7419a54accd229931c3d7/6aa4d505/video/tos/cn/tos-cn-ve-15/oMKBwLjfKb01iAA3IHazePxBgi8ANTRRycTFEV/?a=1128&ch=10010&cr=3&dr=0&lr=all&cd=0%7C0%7C0%7C3&cv=1&br=302&bt=302&cs=0&ds=6&ft=vwbdHCJrBBkq8Zmo1Zuwk_vjVQWw&mime_type=video_mp4&qs=0&rc=Ozk6OTk4ZDVmOjZoNmg8Z0BpamtqN3E5cmtuZDMzNGkzM0AvX19hYjA0X2ExNDI0LTUwYSNta19tMmRzNGBhLS1kLWFzcw%3D%3D&btag=c0010e000b8201&cquery=103S_100b_105O_103Q_103R&dy_q=1789180690&feature_id=f0150a16a324336cda5d6dd0b69ed299&l=20260912103810F49237B4A36789A95EA6",
+        "mediaResolvedAt": "2026-09-12T02:38:10.928Z",
+        "videoMetadata": {
+          "id": "7681258207989636326",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7681258207989636326",
+          "title": "【强者思维】系列第一期：《孙子兵法》深度精读。 两千多年前的兵书，为什么直到今天，依然被军事家、企业家、管理者反复研究？\n因为《孙子兵法》真正研究的，从来不只是战争，而是人在资源有限、信息不完整、局势不断变化的世界里，如何判断、选择与布局。\n从“先算再战”到“胜兵先胜”，从成本、造势、虚实，到信息、变化与克制，这一期重新拆解《孙子兵法》背后的强者思维。\n真正的高手，不是每一仗都赢，而是看得懂局势、算得清代价、找得到优势，也知道什么时候，根本不必出手。#读书 #读书成长 #学习强者思维 #创作者中心 #创作灵感",
+          "description": "【强者思维】系列第一期：《孙子兵法》深度精读。 两千多年前的兵书，为什么直到今天，依然被军事家、企业家、管理者反复研究？\n因为《孙子兵法》真正研究的，从来不只是战争，而是人在资源有限、信息不完整、局势不断变化的世界里，如何判断、选择与布局。\n从“先算再战”到“胜兵先胜”，从成本、造势、虚实，到信息、变化与克制，这一期重新拆解《孙子兵法》背后的强者思维。\n真正的高手，不是每一仗都赢，而是看得懂局势、算得清代价、找得到优势，也知道什么时候，根本不必出手。#读书 #读书成长 #学习强者思维 #创作者中心 #创作灵感",
+          "author": {
+            "id": "MS4wLjABAAAAADCXcs8SN_iMgfoZ4DEodFnEVUl8Bo-Rz3ihx-FjfNeV9diKrUg4xUelHS4vY5z4",
+            "name": "阿冕的书冕"
+          },
+          "durationSec": 3044,
+          "publishedAt": 1788432294,
+          "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-0813c001/okAEbWIAPiazBLizD9AzAI8lQQxAjyvCCAZup~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790388000&x-signature=jPMmwIIARKQvOblgJ39tESvoR3U%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=20260912103810F49237B4A36789A95EA6"
+        },
+        "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-0813c001/okAEbWIAPiazBLizD9AzAI8lQQxAjyvCCAZup~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790388000&x-signature=jPMmwIIARKQvOblgJ39tESvoR3U%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=20260912103810F49237B4A36789A95EA6",
+        "publishedAt": 1788432294
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7681258207989636326:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
