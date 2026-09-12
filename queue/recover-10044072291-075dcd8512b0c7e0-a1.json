@@ -1,0 +1,66 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7682241743128099691",
+      "url": "https://www.douyin.com/video/7682241743128099691",
+      "billboards": [
+        {
+          "name": "视频总榜",
+          "rank": 29
+        },
+        {
+          "name": "低粉爆款",
+          "rank": 13
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 9766,
+        "likeCount": 8499,
+        "likeRate": 0.027377,
+        "followCount": 567,
+        "followRate": 0.002034,
+        "hotspotDetail": {
+          "likeCount": 18643,
+          "commentCount": 940,
+          "shareCount": 9042,
+          "newFansCount": 1181
+        },
+        "mediaDownloadUrl": "https://v5-ex-wha.douyinvod.com/4912d1130f3f2f27ed519edd7274ccae/6aa4de63/video/tos/cn/tos-cn-ve-15/ooG5BaiPd8c7IGAUdgNIAlQgEQpzE9LgiBzNv/?a=1128&ch=10010&cr=3&dr=0&lr=all&cd=0%7C0%7C0%7C3&cv=1&br=965&bt=965&cs=0&ds=6&ft=vwbdHCJrBBkq8ZmowV7wk_vjVQWw&mime_type=video_mp4&qs=0&rc=NmQzZmc8OjlnPGZpNjhpNEBpajlxb3U5cnZmZDMzNGkzM0AvMC0vYzIxX18xYmJgNmExYSNmZi4yMmRrb2JhLS1kLS9zcw%3D%3D&btag=c0010e00098200&cquery=103Q_103R_103S_100b_105O&dy_q=1789186093&feature_id=f0150a16a324336cda5d6dd0b69ed299&l=20260912120813DBC11C79C2A20C9FF66D",
+        "mediaResolvedAt": "2026-09-12T04:08:12.916Z",
+        "videoMetadata": {
+          "id": "7682241743128099691",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7682241743128099691",
+          "title": "什么才是顶级的清醒\n#国学文化 #国学智慧 #曾老智慧 #清醒",
+          "description": "什么才是顶级的清醒\n#国学文化 #国学智慧 #曾老智慧 #清醒",
+          "author": {
+            "id": "MS4wLjABAAAAHmZ3ps7DZvf8QjYQQKn46r__dp4ZHeTEj4B6a7fwmhQ0xE6bNUtg_S4sY83Vof1w",
+            "name": "国学溯观"
+          },
+          "durationSec": 38,
+          "publishedAt": 1788661291,
+          "thumbnailUrl": "https://p3-sign.douyinpic.com/tos-cn-i-0813/o4J7GIAUQMVA4eBJgEzAjELAcOYfOBeZcBA0xP~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790395200&x-signature=zbaCb71BrS%2B0EqZ9uIx5nufUqMQ%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=20260912120813DBC11C79C2A20C9FF66D"
+        },
+        "thumbnailUrl": "https://p3-sign.douyinpic.com/tos-cn-i-0813/o4J7GIAUQMVA4eBJgEzAjELAcOYfOBeZcBA0xP~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790395200&x-signature=zbaCb71BrS%2B0EqZ9uIx5nufUqMQ%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=20260912120813DBC11C79C2A20C9FF66D",
+        "publishedAt": 1788661291
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7682241743128099691:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
