@@ -1,0 +1,62 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7681622684820797922",
+      "url": "https://www.douyin.com/video/7681622684820797922",
+      "billboards": [
+        {
+          "name": "高完播率",
+          "rank": 31
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 2358,
+        "likeCount": 2843,
+        "likeRate": 0.00587,
+        "followCount": 244,
+        "followRate": 0.000754,
+        "hotspotDetail": {
+          "likeCount": 7077,
+          "commentCount": 6,
+          "shareCount": 135,
+          "newFansCount": 492
+        },
+        "mediaDownloadUrl": "https://v11-cold.douyinvod.com/67d4a51d4650032db62df530949ebd21/6aa4f6e1/video/tos/cn/tos-cn-ve-15/okmMJpotDEKTRdesAXFON39FsBfmqpAIEEg4Am/?a=1128&ch=10010&cr=3&dr=0&lr=all&cd=0%7C0%7C0%7C3&cv=1&br=1048&bt=1048&cs=0&ds=6&ft=r5QvG77JWH6BM93ZNJr0PD1IN&mime_type=video_mp4&qs=0&rc=NjM2PGUzPGY6NjpkOztnaEBpamZreHg5cjQ8ZDMzNGkzM0BhMmMvNWIvNV8xYS9hLWEyYSM1Yy5qMmRjamFhLS1kLWFzcw%3D%3D&btag=c0010e0008d000&cquery=100b_105O_103Q_103R_103S&dy_q=1789192394&feature_id=f0150a16a324336cda5d6dd0b69ed299&l=202609121353142421926BDF0527A5A4E4",
+        "mediaResolvedAt": "2026-09-12T05:53:13.923Z",
+        "videoMetadata": {
+          "id": "7681622684820797922",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7681622684820797922",
+          "title": "#装修问题规避 #装修与国学智慧 #家居摆放小常识 #国学智慧",
+          "description": "#装修问题规避 #装修与国学智慧 #家居摆放小常识 #国学智慧",
+          "author": {
+            "id": "MS4wLjABAAAA5SCPvRPMwkSj0MkglMWc0g6SgX4-S_BOIh_JXNxAaLMIYA8uio2t5RJ6ADahKHMK",
+            "name": "苏伟(果清）"
+          },
+          "durationSec": 7,
+          "publishedAt": 1788656880,
+          "thumbnailUrl": "https://p3-sign.douyinpic.com/tos-cn-p-0015/osx7sTEIEAgqFEmf4mFNaFiXRysM3AAtDBp9Be~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790398800&x-signature=f4aewb0IjFHwhBkKdvp8l9PaOQY%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=202609121353142421926BDF0527A5A4E4"
+        },
+        "thumbnailUrl": "https://p3-sign.douyinpic.com/tos-cn-p-0015/osx7sTEIEAgqFEmf4mFNaFiXRysM3AAtDBp9Be~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790398800&x-signature=f4aewb0IjFHwhBkKdvp8l9PaOQY%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=202609121353142421926BDF0527A5A4E4",
+        "publishedAt": 1788656880
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7681622684820797922:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
