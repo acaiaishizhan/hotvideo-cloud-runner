@@ -1,0 +1,70 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7681300651834415717",
+      "url": "https://www.douyin.com/video/7681300651834415717",
+      "billboards": [
+        {
+          "name": "视频总榜",
+          "rank": 14
+        },
+        {
+          "name": "低粉爆款",
+          "rank": 4
+        },
+        {
+          "name": "高完播率",
+          "rank": 3
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 19126,
+        "likeCount": 17262,
+        "likeRate": 0.014116,
+        "followCount": 105,
+        "followRate": 0.000082,
+        "hotspotDetail": {
+          "likeCount": 25995,
+          "commentCount": 5309,
+          "shareCount": 8173,
+          "newFansCount": 180
+        },
+        "mediaDownloadUrl": "https://sf6-cdn-tos.douyinstatic.com/obj/tos-cn-ve-2774/ooZAQIpgMclixqIrWL2iWrdvSBmQcyZqdaWRB",
+        "mediaResolvedAt": "2026-09-12T04:38:11.928Z",
+        "videoMetadata": {
+          "id": "7681300651834415717",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7681300651834415717",
+          "title": "敬而不迷，信而不执。#人生感悟人间清醒#接纳所有#心态修炼",
+          "description": "敬而不迷，信而不执。#人生感悟人间清醒#接纳所有#心态修炼",
+          "author": {
+            "id": "MS4wLjABAAAAiDbhq0n_ZQ9LpAgEh49UZQVJHjocfPPNyhGemxvWWHT-CKW9uOOAzKKBOVHIoqmL",
+            "name": "小布吖"
+          },
+          "durationSec": null,
+          "publishedAt": 1788442175,
+          "thumbnailUrl": "https://p3-sign.douyinpic.com/tos-cn-i-0813c000-ce/osehym5AJAFIA3gue8GJOVQHMIAxf77SuLOBEk~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790395200&x-signature=6NecAcIIwKvaLc9x4thqt%2FUe%2BHc%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912123812F05BC280F17ADFA38C5F"
+        },
+        "thumbnailUrl": "https://p3-sign.douyinpic.com/tos-cn-i-0813c000-ce/osehym5AJAFIA3gue8GJOVQHMIAxf77SuLOBEk~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790395200&x-signature=6NecAcIIwKvaLc9x4thqt%2FUe%2BHc%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912123812F05BC280F17ADFA38C5F",
+        "publishedAt": 1788442175
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7681300651834415717:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
