@@ -1,0 +1,62 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7681843575457848512",
+      "url": "https://www.douyin.com/video/7681843575457848512",
+      "billboards": [
+        {
+          "name": "高完播率",
+          "rank": 16
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 4197,
+        "likeCount": 3020,
+        "likeRate": 0.005946,
+        "followCount": 460,
+        "followRate": 0.000776,
+        "hotspotDetail": {
+          "likeCount": 6835,
+          "commentCount": 459,
+          "shareCount": 1464,
+          "newFansCount": 1086
+        },
+        "mediaDownloadUrl": "https://lf9-music-east.douyinstatic.com/obj/ies-music-hj/7679101886879845179.mp3",
+        "mediaResolvedAt": "2026-09-12T00:38:08.921Z",
+        "videoMetadata": {
+          "id": "7681843575457848512",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7681843575457848512",
+          "title": "#",
+          "description": "#",
+          "author": {
+            "id": "MS4wLjABAAAAHKfA55NVo28o0sykbFi_mTMpBG2DSTp5Nk-oKuMsf-ZvQXLj5eXY-wXlpQNm90oV",
+            "name": "桃夭夭"
+          },
+          "durationSec": null,
+          "publishedAt": 1788568585,
+          "thumbnailUrl": "https://p11-sign.douyinpic.com/tos-cn-i-0813c001/oc9CQFAeAWHfE4m7AqlFAsC2hAIAQAXdD2ytEg~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790380800&x-signature=vkz8yZ4%2BDAWVJzMWZC4fssPmPNg%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912083807CB4F6C7BD9275682F0A1"
+        },
+        "thumbnailUrl": "https://p11-sign.douyinpic.com/tos-cn-i-0813c001/oc9CQFAeAWHfE4m7AqlFAsC2hAIAQAXdD2ytEg~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790380800&x-signature=vkz8yZ4%2BDAWVJzMWZC4fssPmPNg%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912083807CB4F6C7BD9275682F0A1",
+        "publishedAt": 1788568585
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7681843575457848512:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
