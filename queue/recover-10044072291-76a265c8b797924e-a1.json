@@ -1,0 +1,66 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7682202166925522788",
+      "url": "https://www.douyin.com/video/7682202166925522788",
+      "billboards": [
+        {
+          "name": "高完播率",
+          "rank": 17
+        },
+        {
+          "name": "高涨粉率",
+          "rank": 12
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 4043,
+        "likeCount": 413,
+        "likeRate": 0.002063,
+        "followCount": 2797,
+        "followRate": 0.014531,
+        "hotspotDetail": {
+          "likeCount": 527,
+          "commentCount": 1092,
+          "shareCount": 86,
+          "newFansCount": 141
+        },
+        "mediaDownloadUrl": "https://sf11-cdn-tos.douyinstatic.com/obj/ies-music/7653069837115149092.mp3",
+        "mediaResolvedAt": "2026-09-12T09:23:17.670Z",
+        "videoMetadata": {
+          "id": "7682202166925522788",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7682202166925522788",
+          "title": "累了就歇一会。别硬抗，毕竟都是凡人。",
+          "description": "累了就歇一会。别硬抗，毕竟都是凡人。",
+          "author": {
+            "id": "MS4wLjABAAAA9HXlrTbHaim3OU4CCQweFsdhsuMnAsGM7TCDsKfSBxk",
+            "name": "无所不为"
+          },
+          "durationSec": null,
+          "publishedAt": 1788652079,
+          "thumbnailUrl": "https://p11-sign.douyinpic.com/tos-cn-i-0813c001/ogASwtmf9qE3ECAhCXD5knFKAebngAtII0UAQA~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790413200&x-signature=8%2FNfYPtc4Hv5NhXGq6807Gb4WQs%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912172314858BB7A2E4AB8BBEE4E7"
+        },
+        "thumbnailUrl": "https://p11-sign.douyinpic.com/tos-cn-i-0813c001/ogASwtmf9qE3ECAhCXD5knFKAebngAtII0UAQA~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790413200&x-signature=8%2FNfYPtc4Hv5NhXGq6807Gb4WQs%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=20260912172314858BB7A2E4AB8BBEE4E7",
+        "publishedAt": 1788652079
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7682202166925522788:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
