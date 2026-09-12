@@ -1,0 +1,62 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7682363251622942309",
+      "url": "https://www.douyin.com/video/7682363251622942309",
+      "billboards": [
+        {
+          "name": "高涨粉率",
+          "rank": 30
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 2132,
+        "likeCount": 1497,
+        "likeRate": 0.051152,
+        "followCount": 375,
+        "followRate": 0.01307,
+        "hotspotDetail": {
+          "likeCount": 3483,
+          "commentCount": 1641,
+          "shareCount": 68,
+          "newFansCount": 227
+        },
+        "mediaDownloadUrl": "https://v26-cold.douyinvod.com/7ec0e98cd650a232401aa79080d827f6/6aa50890/video/tos/cn/tos-cn-ve-15c000-ce/oEd1eDJA9ExALnrfnWIQ4DDqCRdFEErTBwyxPn/?a=1128&ch=10010&cr=3&dr=0&lr=all&cd=0%7C0%7C0%7C3&cv=1&br=842&bt=842&cs=0&ds=3&ft=r5QvG77JWH6BMg1_NJr0PD1IN&mime_type=video_mp4&qs=0&rc=ZTs6aDU7MztoNjw7NTVnZEBpang6aW05cnRtZDMzbGkzNUBeMl41NTAxNV8xYl8uMjE1YSNiaS1wMmRzbGJhLS1kLTRzcw%3D%3D&btag=c0010e0009f000&cquery=105O_103Q_103R_103S_100b&dy_q=1789196899&feature_id=f5241e7604dff1d9d6c943fd20bd51a2&l=20260912150819533F900EFA7AADC1B984",
+        "mediaResolvedAt": "2026-09-12T07:08:17.917Z",
+        "videoMetadata": {
+          "id": "7682363251622942309",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7682363251622942309",
+          "title": "回复 @梅子吖的评论 #涨知识 #正能量 #道家文化 #传统文化",
+          "description": "回复 @梅子吖的评论 #涨知识 #正能量 #道家文化 #传统文化",
+          "author": {
+            "id": "MS4wLjABAAAAi8o_Zgg28fAtu_76bS0vlR8tnn9kiwPn18PfVQjHMwA",
+            "name": "药王门灵曜"
+          },
+          "durationSec": 30,
+          "publishedAt": 1788689581,
+          "thumbnailUrl": "https://p3-sign.douyinpic.com/tos-cn-p-0015c000-ce/okTBO1rfadWqFEAnExKd9PeDwEKAnsB4xDn9IQ~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790406000&x-signature=s10bU%2FMeRALnX2w%2FsciZsGp24rA%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=20260912150819533F900EFA7AADC1B984"
+        },
+        "thumbnailUrl": "https://p3-sign.douyinpic.com/tos-cn-p-0015c000-ce/okTBO1rfadWqFEAnExKd9PeDwEKAnsB4xDn9IQ~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790406000&x-signature=s10bU%2FMeRALnX2w%2FsciZsGp24rA%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=20260912150819533F900EFA7AADC1B984",
+        "publishedAt": 1788689581
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7682363251622942309:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
