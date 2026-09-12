@@ -1,0 +1,62 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7682052729997821155",
+      "url": "https://www.douyin.com/video/7682052729997821155",
+      "billboards": [
+        {
+          "name": "高完播率",
+          "rank": 27
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 2820,
+        "likeCount": 2783,
+        "likeRate": 0.022486,
+        "followCount": 82,
+        "followRate": 0.002328,
+        "hotspotDetail": {
+          "likeCount": 2841,
+          "commentCount": 3515,
+          "shareCount": 55,
+          "newFansCount": 86
+        },
+        "mediaDownloadUrl": "https://lf9-music-east.douyinstatic.com/obj/ies-music-hj/7671293049846156069.mp3",
+        "mediaResolvedAt": "2026-09-12T05:23:12.927Z",
+        "videoMetadata": {
+          "id": "7682052729997821155",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7682052729997821155",
+          "title": "2026年9月6日黄历分享#老黄历",
+          "description": "2026年9月6日黄历分享#老黄历",
+          "author": {
+            "id": "MS4wLjABAAAAE9jo2Zy_8H36AX_kF7zVkIwvd68eL_nh9chA70gmKDM",
+            "name": "大鹏哥"
+          },
+          "durationSec": null,
+          "publishedAt": 1788617282,
+          "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-0813c001/oMcWAIikZQuw7iBAijApyIaQMACAkIiPAEPFa~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790398800&x-signature=XwB3j%2BsOi8DgYG2baftTZ4qmAQo%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=202609121323138A75340E7C6CEC87BA62"
+        },
+        "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-0813c001/oMcWAIikZQuw7iBAijApyIaQMACAkIiPAEPFa~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790398800&x-signature=XwB3j%2BsOi8DgYG2baftTZ4qmAQo%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_images&l=202609121323138A75340E7C6CEC87BA62",
+        "publishedAt": 1788617282
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7682052729997821155:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
