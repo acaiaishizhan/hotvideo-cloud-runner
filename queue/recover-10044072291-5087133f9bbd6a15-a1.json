@@ -1,0 +1,62 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-08T06:50:34.136Z",
+  "items": [
+    {
+      "id": "7681522107536196069",
+      "url": "https://www.douyin.com/video/7681522107536196069",
+      "billboards": [
+        {
+          "name": "高涨粉率",
+          "rank": 41
+        }
+      ],
+      "context": {
+        "keyword": "",
+        "categoryProfile": "renwen-guoxue",
+        "sourceType": "人文社科/国学",
+        "dateWindow": 24,
+        "score": 1719,
+        "likeCount": 490,
+        "likeRate": 0.061496,
+        "followCount": 710,
+        "followRate": 0.088695,
+        "hotspotDetail": {
+          "likeCount": 2089,
+          "commentCount": 1513,
+          "shareCount": 133,
+          "newFansCount": 164
+        },
+        "mediaDownloadUrl": "https://v5-ex-wha.douyinvod.com/f5e29ff38ea969f4b28a3ce96f7f0932/6aa4e250/video/tos/cn/tos-cn-ve-15c000-ce/oY4Lg8L3i0Oxea7oJAGAR6NO7aVgfDJBoHIGeK/?a=1128&ch=10010&cr=3&dr=0&lr=all&cd=0%7C0%7C0%7C3&cv=1&br=588&bt=588&cs=0&ds=3&ft=vwbdHCJrBBkq8ZmoiD7wk_vjVQWw&mime_type=video_mp4&qs=0&rc=OWc4OGg0PDs8O2Y5N2hnO0BpanA5ZW05cnA2ZDMzbGkzNUAxNjMuLTZhNS0xYWEuY15eYSNrMjVnMmQ0cmFhLS1kLTRzcw%3D%3D&btag=c0010e000a8200&cquery=100b_105O_103Q_103R_103S&dy_q=1789186995&feature_id=f5241e7604dff1d9d6c943fd20bd51a2&l=202609121223153030A8E848D33BB3FFE5",
+        "mediaResolvedAt": "2026-09-12T04:23:14.917Z",
+        "videoMetadata": {
+          "id": "7681522107536196069",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7681522107536196069",
+          "title": "不要对自己有任何灾难化设想，你担心的事情，都不会发生！#道德经#人生智慧#国学文化#认知觉醒#修心修行",
+          "description": "不要对自己有任何灾难化设想，你担心的事情，都不会发生！#道德经#人生智慧#国学文化#认知觉醒#修心修行",
+          "author": {
+            "id": "MS4wLjABAAAAYCDXOptI6K23z1P1JtOlzsDTtOBg6aZZDbxgGV4xB2MEZWmYFFUOyF_fnGSANlwZ",
+            "name": "观心阁"
+          },
+          "durationSec": 141,
+          "publishedAt": 1788493737,
+          "thumbnailUrl": "https://p3-sign.douyinpic.com/tos-cn-p-0015c000-ce/oEQDe7DVzNof6LLbO8ZG0gHBOaJeAxaAGgt0IH~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790395200&x-signature=nHxu39IDdtDBfNQHvzjhW1ZaSpo%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=202609121223153030A8E848D33BB3FFE5"
+        },
+        "thumbnailUrl": "https://p3-sign.douyinpic.com/tos-cn-p-0015c000-ce/oEQDe7DVzNof6LLbO8ZG0gHBOaJeAxaAGgt0IH~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790395200&x-signature=nHxu39IDdtDBfNQHvzjhW1ZaSpo%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=202609121223153030A8E848D33BB3FFE5",
+        "publishedAt": 1788493737
+      },
+      "recovery": {
+        "attempt": 1,
+        "sourceArtifactId": "10044072291",
+        "sourceRunId": "34185728478",
+        "recoveryKey": "7681522107536196069:new-video"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-08T06:50:34.136Z",
+    "items": []
+  }
+}
