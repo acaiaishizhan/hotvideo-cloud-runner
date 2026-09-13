@@ -575,7 +575,9 @@ export async function runAnalyze(sourceName) {
       const { analysis, runtime, transcript } = await analyzeVideoByProvider(videoDir, analysisMeta, analyzer);
       if (analysis) {
         const elapsedMs = Date.now() - startedAt;
-        meta.analysis = analysis;
+          meta.analysis = analysis;
+          delete meta.analysis_error;
+          delete meta.analysis_failed_at;
         if (transcript) meta.transcript = transcript;
         meta.analyzed_at = new Date().toISOString();
         meta.analyzer = analyzer;
@@ -611,6 +613,9 @@ export async function runAnalyze(sourceName) {
     } catch (err) {
       const elapsedMs = Date.now() - startedAt;
       log(`  失败 [${(elapsedMs / 1000).toFixed(1)}s] (${profile}): ${err.message}`);
+      meta.analysis_error = String(err?.message || err);
+      meta.analysis_failed_at = new Date().toISOString();
+      writeJsonAtomic(metaPath, meta);
       return { status: 'failed', reason: String(err?.message || err) };
     }
   };

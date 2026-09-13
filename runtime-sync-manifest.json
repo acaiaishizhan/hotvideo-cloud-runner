@@ -3,7 +3,7 @@
   "source": "solo-company/hotvideo",
   "files": {
     "pipeline/analysis-video-proxy.mjs": "9079418697ee0191d401ee9151d21482066f7cee58d2d48ff8059bffa392bb65",
-    "pipeline/analyze.mjs": "a0c714f3749fb03d1084b6ba65594c6fb06b55cca85be0d66646c76672f4eceb",
+    "pipeline/analyze.mjs": "e22c609fd3eb2352aa484d3cadbd13c2f4deb1d5445d859f924b32d3a508509a",
     "pipeline/doubao-analyzer.mjs": "55b22621036b2c3ad8f3b429cb03f84b368afbbfe3c26c853ddd1a78ad1af9a4",
     "pipeline/doubao-files.mjs": "ddaf5cf9074aaa24c908ed4e4fd6d4a3af9a837c9065874f4bfa12b13bee148c",
     "pipeline/doubao-video-copy.mjs": "21c882bd8c1c369c09eab44b5313d7847884a921f37a63ca13428a6ed34cd3e4",

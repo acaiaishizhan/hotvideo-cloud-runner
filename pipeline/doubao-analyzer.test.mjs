@@ -67,6 +67,22 @@ test('YouTube 在同一次分析里翻译标题，口播保持音频原语言', 
   assert.doesNotMatch(buildDoubaoAnalyzePrompt({platform:'douyin'}),/title_zh/);
 });
 
+test('模型不能把可信音轨原文替换为翻译或摘要', async t => {
+  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'verified-transcript-'));
+  t.after(()=>fs.rmSync(dir,{recursive:true,force:true}));
+  fs.writeFileSync(path.join(dir,'video.mp4'),Buffer.alloc(2048,1));
+  const previous=globalThis.fetch;
+  t.after(()=>{globalThis.fetch=previous;});
+  const text='Hello. This is the exact audio transcript.\nKeep its original wording.';
+  globalThis.fetch=async(_url,init)=>{
+    assert.match(init.body,/exact audio transcript/);
+    return new Response(JSON.stringify({choices:[{message:{content:JSON.stringify({has_spoken_audio:false,relevant:true,full_video_copy:'中文概括',title_zh:'中文标题'})}}]}));
+  };
+  const result=await analyzeVideoWithDoubao(dir,{platform:'youtube',verifiedTranscript:{text,language:'en'}},{apiKey:'test-key',baseUrl:'https://chat.test',transport:'fetch',forceFileInput:false,retries:0});
+  assert.equal(result.result.full_video_copy,text);
+  assert.equal(result.result.has_spoken_audio,true);
+});
+
 test('buildDoubaoChatBody uses chat video_url and json response format', () => {
   const body = buildDoubaoChatBody({
     model: 'doubao-test',

@@ -149,6 +149,7 @@ function readJson(filePath) {
 function errorSummaryForMeta(meta, errorClass) {
   return String(
     meta?.errorSummary
+      || (errorClass === 'analyze' ? meta?.analysis_error : '')
       || meta?.cover_error
       || meta?.analysis_error
       || meta?.last_error
