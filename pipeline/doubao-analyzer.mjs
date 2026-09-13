@@ -20,7 +20,7 @@ import {
 
 const WORKSPACE_ROOT = path.resolve(import.meta.dirname, '..', '..');
 const DEFAULT_BASE_URL = 'https://ark.cn-beijing.volces.com/api/coding/v3';
-const DEFAULT_MODEL = 'doubao-seed-2.0-pro';
+const DEFAULT_MODEL = 'doubao-seed-2.1-turbo';
 const DEFAULT_FAST_TIMEOUT_MS = 360000;
 const DEFAULT_SLOW_TIMEOUT_MS = 900000;
 const DEFAULT_MAX_VIDEO_BYTES = 32 * 1024 * 1024;
@@ -265,6 +265,12 @@ async function postChatCompletions(body, options) {
   return JSON.parse(response.text);
 }
 
+export function isRetryableDoubaoError(err) {
+  if (err?.retryable === false) return false;
+  return err?.retryable === true || ['AbortError', 'TimeoutError'].includes(err?.name)
+    || ['ETIMEDOUT', 'ECONNRESET', 'EAI_AGAIN', 'ECONNREFUSED', 'UND_ERR_CONNECT_TIMEOUT', 'UND_ERR_SOCKET'].includes(err?.code || err?.cause?.code);
+}
+
 async function callDoubaoWithRetry(body, options) {
   let lastErr = null;
   for (let attempt = 0; attempt <= options.retries; attempt++) {
@@ -272,8 +278,9 @@ async function callDoubaoWithRetry(body, options) {
       return await postChatCompletions(body, options);
     } catch (err) {
       lastErr = err;
-      const retryable = err?.retryable || err?.name === 'AbortError';
+      const retryable = isRetryableDoubaoError(err);
       if (!retryable || attempt >= options.retries) break;
+      console.warn(`Doubao 暂时失败，等待 ${options.retryDelayMs * (attempt + 1)}ms 后重试 ${attempt + 1}/${options.retries}: ${err.message}`);
       await sleep(options.retryDelayMs * (attempt + 1));
     }
   }

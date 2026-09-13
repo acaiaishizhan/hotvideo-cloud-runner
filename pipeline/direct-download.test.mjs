@@ -3,7 +3,26 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { buildPendingDownloadInvocation } from './fetch.mjs';
+import { buildPendingDownloadInvocation, runFetch } from './fetch.mjs';
+import config from '../sources/douyin-hotspot/config.mjs';
+
+test('图文候选无需下载即明确过滤，已发布记录不降级', async t => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'nonvideo-fetch-'));
+  const previous = {...config};
+  t.after(() => { Object.assign(config,previous); fs.rmSync(dir,{recursive:true,force:true}); });
+  config.videosDir=dir;
+  config.videoInfraCmd='must-not-spawn-downloader';
+  const items=['new-image','published'].map(id=>({id,url:`https://example.com/${id}`,context:{nonVideoReason:'源站确认图文',videoMetadata:{id,title:'图文'}}}));
+  fs.mkdirSync(path.join(dir,'published'));
+  fs.writeFileSync(path.join(dir,'published','meta.json'),JSON.stringify({id:'published',status:'published',record_id:'existing'}));
+  fs.writeFileSync(path.join(dir,'pending.json'),JSON.stringify({source:'douyin-hotspot',items}));
+  await runFetch('douyin-hotspot');
+  const result=JSON.parse(fs.readFileSync(path.join(dir,'new-image','meta.json')));
+  assert.equal(result.status,'filtered');
+  assert.equal(result.analysis.filter_reason,'源站确认图文');
+  assert.equal(JSON.parse(fs.readFileSync(path.join(dir,'published','meta.json'))).status,'published');
+  assert.equal(fs.existsSync(path.join(dir,'pending.json')),false);
+});
 test('有效直链只走直链下载，且传递匹配的视频元数据', t => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'direct-invocation-'));
   t.after(() => fs.rmSync(dir, { recursive: true, force: true }));

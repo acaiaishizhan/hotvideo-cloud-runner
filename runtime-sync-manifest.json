@@ -4,10 +4,10 @@
   "files": {
     "pipeline/analysis-video-proxy.mjs": "9079418697ee0191d401ee9151d21482066f7cee58d2d48ff8059bffa392bb65",
     "pipeline/analyze.mjs": "d73e5aec07b27fd47039de6c7cf6ba6609c97f98324baa907092c94f34ec398f",
-    "pipeline/doubao-analyzer.mjs": "6d139d303e68f3d8262080fc97ad38e6dd50cced56d41a90a5302417e1d0d17a",
+    "pipeline/doubao-analyzer.mjs": "8afc259eb2b5a5ec8026470a958cbecdf2a37e02841f51da942ef6975408be82",
     "pipeline/doubao-files.mjs": "ddaf5cf9074aaa24c908ed4e4fd6d4a3af9a837c9065874f4bfa12b13bee148c",
     "pipeline/doubao-video-copy.mjs": "21c882bd8c1c369c09eab44b5313d7847884a921f37a63ca13428a6ed34cd3e4",
-    "pipeline/fetch.mjs": "a3b699457abf50042a6e04230c8e6f3e928f0b539188e44b25563d1594799110",
+    "pipeline/fetch.mjs": "bee3011383def450e9ca3a860b80f91fb6a45e9413241a5f7bfb25addeb7c8d2",
     "pipeline/json-file.mjs": "1e7a3b7be1c2102687b46680c6f5d75175c931dd34128993324890047522a338",
     "pipeline/orchestrator.mjs": "bce5a2b63806d06e01a8809369a99737ff6ff69b251f08381062bd65e29a2364",
     "pipeline/prompt.mjs": "9bf055a95d8c3f60b80861a5cd006dc398b82035938c1eab0e3c70d4948c5302",

@@ -11,7 +11,39 @@ import {
   extractDoubaoChatJson,
   resolveDoubaoAnalyzerOptions,
   shouldInlineDoubaoVideo,
+  isRetryableDoubaoError,
 } from './doubao-analyzer.mjs';
+
+test('仅重试限流及短暂网络故障，不重试坏输入或认证错误', () => {
+  assert.equal(isRetryableDoubaoError({retryable:true}),true);
+  assert.equal(isRetryableDoubaoError({cause:{code:'ECONNRESET'}}),true);
+  assert.equal(isRetryableDoubaoError({name:'TimeoutError'}),true);
+  assert.equal(isRetryableDoubaoError({retryable:false,code:'ECONNRESET'}),false);
+  assert.equal(isRetryableDoubaoError(new Error('invalid file')),false);
+});
+
+test('连接重置和 429 可在有界重试内恢复，持续故障不无限重试', async t => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'doubao-retry-'));
+  t.after(()=>fs.rmSync(dir,{recursive:true,force:true}));
+  fs.writeFileSync(path.join(dir,'video.mp4'),Buffer.alloc(2048,1));
+  const previous=globalThis.fetch;
+  t.after(()=>{globalThis.fetch=previous;});
+  let calls=0;
+  globalThis.fetch=async()=>{
+    calls++;
+    if(calls===1) throw new TypeError('fetch failed',{cause:{code:'ECONNRESET'}});
+    if(calls===2) return new Response('rate limited',{status:429});
+    return new Response(JSON.stringify({choices:[{message:{content:JSON.stringify({relevant:true,full_video_copy:'重试后口播'})}}]}));
+  };
+  const options={apiKey:'test-key',baseUrl:'https://chat.test',transport:'fetch',forceFileInput:false,retries:2,retryDelayMs:0};
+  const result=await analyzeVideoWithDoubao(dir,{},options);
+  assert.equal(calls,3);
+  assert.equal(result.result.full_video_copy,'重试后口播');
+  calls=0;
+  globalThis.fetch=async()=>{calls++;throw new TypeError('fetch failed',{cause:{code:'ECONNRESET'}});};
+  await assert.rejects(analyzeVideoWithDoubao(dir,{},options),/fetch failed/);
+  assert.equal(calls,3);
+});
 
 test('buildDoubaoAnalyzePrompt requires an explicit spoken-audio mark and forbids OCR fallback', () => {
   const prompt = buildDoubaoAnalyzePrompt({
@@ -116,6 +148,7 @@ test('resolveDoubaoAnalyzerOptions uses bounded fast-lane requests without inlin
     HOTVIDEO_DOUBAO_API_KEY: 'test-key',
   });
 
+  assert.equal(options.model, 'doubao-seed-2.1-turbo');
   assert.equal(options.timeoutMs, 360000);
   assert.equal(options.retries, 0);
   assert.equal(options.transport, 'https');

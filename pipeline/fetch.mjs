@@ -258,12 +258,23 @@ export async function runFetch(sourceName) {
         log(`  跳过已处理: ${item.id} (${existing.status})`);
         continue;
       }
-      if (existing.files?.videoPath && fs.existsSync(existing.files.videoPath)) {
+      if (!item.context?.nonVideoReason && existing.files?.videoPath && fs.existsSync(existing.files.videoPath)) {
         completedIds.add(item.id);
         skipped++;
         log(`  跳过已下载: ${item.id}`);
         continue;
       }
+    }
+
+    if (item.context?.nonVideoReason) {
+      const meta = buildFilteredMeta({ videoResult: item.context.videoMetadata || {}, pendingItem: item, source: pending.source, reason: item.context.nonVideoReason });
+      meta.analysis.tags = ['非视频内容'];
+      fs.mkdirSync(videoDir, { recursive: true });
+      writeJsonAtomic(metaPath, meta);
+      completedIds.add(item.id);
+      filtered++;
+      log(`  排除非视频: ${item.id} ${item.context.nonVideoReason}`);
+      continue;
     }
 
     log(`  下载: ${item.url}`);
