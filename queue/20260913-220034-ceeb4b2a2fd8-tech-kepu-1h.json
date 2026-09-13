@@ -1,0 +1,60 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-13T14:00:34.936Z",
+  "items": [
+    {
+      "id": "7684510374640635174",
+      "url": "https://www.douyin.com/video/7684510374640635174",
+      "billboards": [
+        {
+          "name": "视频总榜",
+          "rank": 11
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 1,
+        "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-dy/1e7729ec6f894349b9d0080f361a4f38~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790524800&x-signature=cJjRDu2AkE7JQrn4%2FM%2BO6AV40oU%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=20260914001753822B194E483BE126BE2C",
+        "publishedAt": 1789196051,
+        "lastSeenAt": "2026-09-13T14:00:34.936Z",
+        "score": 392,
+        "likeCount": 620,
+        "likeRate": 0.00384,
+        "followCount": 16,
+        "followRate": 0.0001,
+        "hotspotDetail": {
+          "likeCount": 10785,
+          "commentCount": 12,
+          "shareCount": 26,
+          "newFansCount": 30,
+          "publishedAt": 1789196051,
+          "capturedAt": "2026-09-13T14:00:47.209Z"
+        },
+        "mediaResolvedAt": "2026-09-13T16:17:53.117Z",
+        "videoMetadata": {
+          "id": "7684510374640635174",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7684510374640635174",
+          "title": "3秒出片！AI视频还能这么玩？ #AI教程 #AI视频 #AI短片 #aigc #AI动画",
+          "description": "3秒出片！AI视频还能这么玩？ #AI教程 #AI视频 #AI短片 #aigc #AI动画",
+          "author": {
+            "id": "MS4wLjABAAAAq88f7-bGK0rGhXKUJuqHn1Gu6EfHJfv2mPrH5o39UD4",
+            "name": "Ai训练师大宇"
+          },
+          "durationSec": 298,
+          "publishedAt": 1789196051,
+          "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-dy/1e7729ec6f894349b9d0080f361a4f38~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790524800&x-signature=cJjRDu2AkE7JQrn4%2FM%2BO6AV40oU%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=20260914001753822B194E483BE126BE2C"
+        },
+        "mediaDownloadUrl": "https://v5-ex-wha.douyinvod.com/b43a77d21479360ae17fa93139ff29f5/6aa6dbeb/video/tos/cn/tos-cn-ve-15/o4tpDfiiAEtNIzPC9hqgFBFlQp9NAeawGAhm5N/?a=1128&ch=10010&cr=3&dr=0&lr=all&cd=0%7C0%7C0%7C3&cv=1&br=1416&bt=1416&cs=0&ds=6&ft=vwbdHCJrBBkq8ZmoEemwk_vjVQWw&mime_type=video_mp4&qs=0&rc=NzRlZTNpNmllODRmOjc5OUBpMzRsO2s5cnJnZDMzNGkzM0BfXjJfLi5fNjAxM2EvLWJhYSNgbmtjMmRramZhLS1kLWFzcw%3D%3D&btag=c0010e000b0200&cquery=105O_103Q_103W_103Y_100b&dy_q=1789316274&feature_id=f0150a16a324336cda5d6dd0b69ed299&l=20260914001753822B194E483BE126BE2C"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-13T14:00:34.936Z",
+    "items": []
+  },
+  "validationProbe": true
+}
