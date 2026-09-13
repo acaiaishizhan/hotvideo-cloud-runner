@@ -1,0 +1,60 @@
+{
+  "source": "douyin-hotspot",
+  "scrapedAt": "2026-09-13T14:00:34.936Z",
+  "items": [
+    {
+      "id": "7684863418586746175",
+      "url": "https://www.douyin.com/video/7684863418586746175",
+      "billboards": [
+        {
+          "name": "视频总榜",
+          "rank": 2
+        }
+      ],
+      "context": {
+        "keyword": "AI",
+        "categoryProfile": "tech-kepu",
+        "sourceType": "科技/科技科普",
+        "dateWindow": 1,
+        "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-dy/ab6301277dde4ccbad014af8733915e0~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790524800&x-signature=ap0x9QCyLtKGU8%2BYxeuPQz0QOy8%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=202609140007508AB5883B4DE1C50CC2A1",
+        "publishedAt": 1789271704,
+        "lastSeenAt": "2026-09-13T14:00:34.936Z",
+        "score": 1828,
+        "likeCount": 310,
+        "likeRate": 0.02335,
+        "followCount": 12,
+        "followRate": 0.0009,
+        "hotspotDetail": {
+          "likeCount": 1579,
+          "commentCount": 1439,
+          "shareCount": 754,
+          "newFansCount": 68,
+          "publishedAt": 1789271704,
+          "capturedAt": "2026-09-13T14:00:47.209Z"
+        },
+        "mediaResolvedAt": "2026-09-13T16:07:49.718Z",
+        "videoMetadata": {
+          "id": "7684863418586746175",
+          "platform": "douyin",
+          "canonicalUrl": "https://www.douyin.com/video/7684863418586746175",
+          "title": "AI教父辛顿：AI有10%的概率十年内灭掉人类，不是危言耸听 #AI #杰弗里辛顿 #人工智能发展 #AI安全 #Anthropic",
+          "description": "AI教父辛顿：AI有10%的概率十年内灭掉人类，不是危言耸听 #AI #杰弗里辛顿 #人工智能发展 #AI安全 #Anthropic",
+          "author": {
+            "id": "MS4wLjABAAAAHJNhcIVkrqc9aPito5qzgJiyWfBVf6w6OWP2rnfaOiTwbkNDo1Qk_88jBAGcLD4f",
+            "name": "雷老师谈AI"
+          },
+          "durationSec": 307,
+          "publishedAt": 1789271704,
+          "thumbnailUrl": "https://p26-sign.douyinpic.com/tos-cn-i-dy/ab6301277dde4ccbad014af8733915e0~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1790524800&x-signature=ap0x9QCyLtKGU8%2BYxeuPQz0QOy8%3D&from=327834062&s=PackSourceEnum_PUBLISH&se=false&sc=cover&biz_tag=aweme_video&l=202609140007508AB5883B4DE1C50CC2A1"
+        },
+        "mediaDownloadUrl": "https://v11-colds.douyinvod.com/3779b0a8025022a301a090ab044b07a3/6aa6d999/video/tos/cn/tos-cn-ve-15/oseWgf5FDBOVF7oBOmEhC0QTTCEInutAxB7aeA/?a=1128&ch=10010&cr=3&dr=0&lr=all&cd=0%7C0%7C0%7C3&cv=1&br=824&bt=824&cs=0&ds=6&ft=NYGV5HJHH_Myq8Ztj8Q_e2NvjTQ&mime_type=video_mp4&qs=0&rc=N2k5ODZlNzk6Ozc1NWU3OEBpanZrcnI5cjY0ZDMzNGkzM0AzLWAzNDUwNTExNDEuNmNiYSNvYWptMmRrY2dhLS1kLS9zcw%3D%3D&btag=c0010e000b0001&cquery=105O_103Q_103W_103Y_100b&dy_q=1789315670&feature_id=f0150a16a324336cda5d6dd0b69ed299&l=202609140007508AB5883B4DE1C50CC2A1"
+      }
+    }
+  ],
+  "repeatUpdates": {
+    "source": "douyin-hotspot",
+    "scrapedAt": "2026-09-13T14:00:34.936Z",
+    "items": []
+  },
+  "validationProbe": true
+}
