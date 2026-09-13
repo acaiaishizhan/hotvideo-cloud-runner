@@ -22,6 +22,8 @@ export function resolveTranscribeOptions(env = process.env) {
     model: env.HOTVIDEO_TRANSCRIBE_MODEL || 'large-v3',
     device: env.HOTVIDEO_TRANSCRIBE_DEVICE || 'auto',
     computeType: env.HOTVIDEO_TRANSCRIBE_COMPUTE_TYPE || 'auto',
+    language: env.HOTVIDEO_TRANSCRIBE_LANGUAGE || 'zh',
+    vadFilter: env.HOTVIDEO_TRANSCRIBE_VAD_FILTER === '1',
     timeoutMs: Number.parseInt(env.HOTVIDEO_TRANSCRIBE_TIMEOUT_MS || '', 10) || DEFAULT_TIMEOUT_MS,
   };
 }
@@ -117,6 +119,8 @@ function runWhisper(audioPath, outputPath, options) {
     HOTVIDEO_TRANSCRIBE_MODEL: options.model,
     HOTVIDEO_TRANSCRIBE_DEVICE: options.device,
     HOTVIDEO_TRANSCRIBE_COMPUTE_TYPE: options.computeType,
+    HOTVIDEO_TRANSCRIBE_LANGUAGE: options.language,
+    HOTVIDEO_TRANSCRIBE_VAD_FILTER: options.vadFilter ? '1' : '0',
   };
   execFileSync(options.python, [scriptPath(), audioPath, outputPath], {
     encoding: 'utf-8',

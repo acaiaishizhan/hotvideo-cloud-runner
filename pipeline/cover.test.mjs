@@ -7,6 +7,24 @@ import { ensureCoverFile, uploadRequestedCover } from './cover.mjs';
 import { isAttachmentUploadAccepted } from './publish.mjs';
 
 const config = { feishuCoverField: '封面', videoInfraCmd: 'python', videoInfraArgs: ['-m', 'video_infra'] };
+
+test('首选封面明确 404 后使用同作品已解析封面，网络故障不盲目切换', t => {
+  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'cover-fallback-'));
+  t.after(()=>fs.rmSync(dir,{recursive:true,force:true}));
+  const meta={scraped:{thumbnailUrl:'https://cdn.example/uhd.jpg'},thumbnailUrl:'https://cdn.example/max.jpg'};
+  const calls=[];
+  const file=path.join(dir,'cover.jpg');
+  ensureCoverFile(meta,config,dir,(_cmd,args)=>{
+    calls.push(args[3]);
+    if(calls.length===1)throw Error('404 Client Error');
+    fs.writeFileSync(file,Buffer.alloc(200));
+    return JSON.stringify({ok:true,files:{thumbnailPath:file}});
+  });
+  assert.deepEqual(calls,['https://cdn.example/uhd.jpg','https://cdn.example/max.jpg']);
+  let attempts=0;
+  assert.throws(()=>ensureCoverFile({scraped:{thumbnailUrl:'https://cdn.example/uhd.jpg'},thumbnailUrl:'https://cdn.example/max.jpg'},config,dir,()=>{attempts++;throw Error('HTTP 503');}),/503/);
+  assert.equal(attempts,1);
+});
 test('saved cover is reused without accessing an expired URL', t => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'hotvideo-cover-'));
   t.after(() => fs.rmSync(dir, { recursive: true, force: true }));

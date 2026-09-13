@@ -59,6 +59,14 @@ test('buildDoubaoAnalyzePrompt requires an explicit spoken-audio mark and forbid
   assert.match(prompt, /relevant=true 时 filter_reason 必须是空字符串/);
 });
 
+test('YouTube 在同一次分析里翻译标题，口播保持音频原语言', () => {
+  const prompt=buildDoubaoAnalyzePrompt({platform:'youtube',title:'Introducing the Agents API'});
+  assert.match(prompt,/title_zh/);
+  assert.match(prompt,/忠实翻译/);
+  assert.match(prompt,/按实际音频语言逐字转写/);
+  assert.doesNotMatch(buildDoubaoAnalyzePrompt({platform:'douyin'}),/title_zh/);
+});
+
 test('buildDoubaoChatBody uses chat video_url and json response format', () => {
   const body = buildDoubaoChatBody({
     model: 'doubao-test',
@@ -247,6 +255,7 @@ test('analyzeVideoWithDoubao uploads oversized videos through Files API and clea
   assert.equal(output.result.full_video_copy, '测试口播');
   assert.equal(output.runtime.videoInput, 'file_id');
   assert.equal(output.runtime.fileId, 'file_123');
+  assert.equal(output.runtime.videoBytes, 2048);
   assert.deepEqual(
     calls.map(call => `${call.method} ${call.url}`),
     [

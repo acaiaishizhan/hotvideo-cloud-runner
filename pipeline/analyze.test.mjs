@@ -117,11 +117,13 @@ test('normalizeDoubaoAnalysis preserves a valid spoken transcript', () => {
     relevant: true,
     filter_reason: '不应保留',
     full_video_copy: '这是一段有效口播。',
+    title_zh: ' Agents API 介绍 ',
   });
 
   assert.equal(result.has_spoken_audio, true);
   assert.equal(result.relevant, true);
   assert.equal(result.full_video_copy, '这是一段有效口播。');
+  assert.equal(result.title_zh, 'Agents API 介绍');
 });
 
 test('buildUserPrompt falls back to scraped counts when parsed stats counts are zero', () => {

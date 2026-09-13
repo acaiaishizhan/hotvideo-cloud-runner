@@ -259,6 +259,9 @@ export function buildInteractionUpdateRecord(meta) {
 
 // 视频无文案时下载器会造 "抖音视频_<id>" 占位符；用分析摘要兜底，避免无信息标题入表
 export function resolveRecordTitle(meta) {
+  if ((meta.platform === 'youtube' || meta.source === 'youtube-ai') && /[\u3400-\u9fff]/.test(meta.analysis?.title_zh || '')) {
+    return meta.analysis.title_zh.trim();
+  }
   const raw = String(meta.title || '').trim();
   const isPlaceholder = !raw || /^抖音视频_\d+$/.test(raw);
   if (!isPlaceholder) return raw;

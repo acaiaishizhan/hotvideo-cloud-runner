@@ -132,10 +132,16 @@ export function buildDoubaoAnalyzePrompt(meta = {}) {
     '规则：',
     '1 has_spoken_audio 必须明确返回 boolean。能听到承载内容的人声口播/旁白才为 true；只有背景音乐、音效、静音或画面文字时为 false。',
     '2 has_spoken_audio=false 时，必须同时返回 relevant=false、filter_reason="无有效口播"、full_video_copy=""。',
-    '3 has_spoken_audio=true 时，full_video_copy 必须是非空的音频口播逐字转写；禁止 OCR/标题/标签/画面文字。',
+      meta.verifiedTranscript
+        ? '3 已提供实际音轨的语音转写。has_spoken_audio 按转写是否非空判断。full_video_copy 返回空字符串，由程序直接复制原始转写，不要翻译或重新生成。'
+        : '3 has_spoken_audio=true 时，full_video_copy 必须是非空的音频口播逐字转写；禁止 OCR/标题/标签/画面文字。必须覆盖全部口播，英文声音必须输出英文原文，不得用摘要代替。',
+      meta.verifiedTranscript ? `音轨原始转写（${meta.verifiedTranscript.language || 'auto'}）：\n${meta.verifiedTranscript.text}` : '',
     '4 relevant=true 时 filter_reason 必须是空字符串。',
     '5 relevant=false 后也要填 summary/content_type/topics/tags/hook/viral_reason/imitation_angle/read_evidence。',
-    '6 AI/科技/国学社科有知识、观点、案例、教程价值则 true；纯玄学祈福、纯鸡汤、纯展示、纯娱乐、带货引流则 false。',
+      '6 AI/科技/国学社科有知识、观点、案例、教程价值则 true；纯玄学祈福、纯鸡汤、纯展示、纯娱乐、带货引流则 false。',
+      (meta.platform === 'youtube' || meta.source === 'youtube-ai')
+        ? '7 额外返回 title_zh：把原标题忠实翻译为自然中文，保留产品名、人名和版本号，不改写成摘要或夸张标题。中文原标题原样保留；口播 full_video_copy 仍按实际音频语言逐字转写。'
+        : '',
     `字段：has_spoken_audio(boolean),relevant(boolean),filter_reason(string),summary(string<=30字),content_type(one of ${CONTENT_TYPES.join('|')}),topics(array 1-3 of ${TOPICS.join('|')}),tags(array 3-5 string),hook(string),viral_reason(string),imitation_angle(string),read_evidence(string),full_video_copy(string)。`,
   ].join('\n');
 }
@@ -327,6 +333,7 @@ async function buildVideoUrlForChat(videoPath, stat, options) {
     videoUrl: { file_id: uploaded.fileId },
     uploadedFileId: uploaded.fileId,
     inputMode: 'file_id',
+    videoBytes: stat.size,
   };
 }
 
@@ -337,6 +344,14 @@ export async function analyzeVideoWithDoubao(videoDir, meta = {}, opts = {}) {
   }
 
   const options = { ...resolveDoubaoAnalyzerOptions(), ...opts };
+  if ((meta.platform === 'youtube' || meta.source === 'youtube-ai') && opts.forceFileInput == null) {
+    options.forceFileInput = true;
+  }
+  if (!meta.verifiedTranscript && !opts.maxTokens && (meta.platform === 'youtube' || meta.source === 'youtube-ai')) {
+    // 为实际时长留足转写空间，避免长英文口播在短 JSON 预算下被压成摘要。
+    options.maxTokens = Math.max(options.maxTokens, Math.min(16000, Math.ceil(Number(meta.durationSec || 0) * 5 + 1200)));
+    options.lengthRetryMaxTokens = Math.max(options.lengthRetryMaxTokens, 16000);
+  }
   const stat = fs.statSync(videoPath);
   const input = await buildVideoUrlForChat(videoPath, stat, options);
   try {
@@ -373,7 +388,7 @@ export async function analyzeVideoWithDoubao(videoDir, meta = {}, opts = {}) {
       parsed = extractDoubaoChatJson(data);
     }
     return {
-      result: parsed,
+      result: meta.verifiedTranscript ? { ...parsed, has_spoken_audio: Boolean(meta.verifiedTranscript.text.trim()), full_video_copy: meta.verifiedTranscript.text } : parsed,
       runtime: {
         provider: 'doubao',
         model: options.model,
@@ -381,6 +396,7 @@ export async function analyzeVideoWithDoubao(videoDir, meta = {}, opts = {}) {
         httpTransport,
         finishReason: data?.choices?.[0]?.finish_reason || '',
         videoInput: input.inputMode,
+        videoBytes: input.videoBytes,
         fileId: input.uploadedFileId,
         lengthRetried,
         jsonRetried,

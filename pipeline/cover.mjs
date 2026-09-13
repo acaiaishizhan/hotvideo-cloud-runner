@@ -6,21 +6,31 @@ import { buildVideoInfraInvocation } from './video-infra-command.mjs';
 export function ensureCoverFile(meta, config, videoDir, run = execFileSync) {
   const saved = meta.files?.thumbnailPath;
   if (saved && fs.existsSync(saved) && fs.statSync(saved).size >= 100) return saved;
-  const url = meta.scraped?.thumbnailUrl || meta.thumbnailUrl;
-  if (!url) throw new Error('视频没有原封面地址');
-  const invocation = buildVideoInfraInvocation(config, 'thumbnail', [url, '--output-dir', path.resolve(videoDir)]);
-  const result = JSON.parse(run(invocation.command, invocation.args, {
-    encoding: 'utf8', timeout: 60000, cwd: config.videoInfraCwd,
-    env: { ...process.env, PYTHONIOENCODING: 'utf-8', PYTHONUTF8: '1' },
-  }));
-  const file = result.files?.thumbnailPath;
-  if (!result.ok || !file || !fs.existsSync(file) || fs.statSync(file).size < 100) {
-    throw new Error(result.error || '封面下载未产出有效文件');
+  const urls = [...new Set([meta.scraped?.thumbnailUrl, meta.thumbnailUrl].filter(Boolean))];
+  if (!urls.length) throw new Error('视频没有原封面地址');
+  let lastError;
+  for (const url of urls) {
+    try {
+      const invocation = buildVideoInfraInvocation(config, 'thumbnail', [url, '--output-dir', path.resolve(videoDir)]);
+      const result = JSON.parse(run(invocation.command, invocation.args, {
+        encoding: 'utf8', timeout: 60000, cwd: config.videoInfraCwd,
+        env: { ...process.env, PYTHONIOENCODING: 'utf-8', PYTHONUTF8: '1' },
+      }));
+      const file = result.files?.thumbnailPath;
+      if (!result.ok || !file || !fs.existsSync(file) || fs.statSync(file).size < 100) {
+        throw new Error(result.error || '封面下载未产出有效文件');
+      }
+      meta.files ||= {};
+      meta.files.thumbnailPath = file;
+      meta.thumbnailUrl = url;
+      return file;
+    } catch (error) {
+      lastError = error;
+      const detail = `${error.message} ${error.stdout || ''} ${error.stderr || ''}`;
+      if (!/\b(?:404|410)\b/.test(detail)) throw error;
+    }
   }
-  meta.files ||= {};
-  meta.files.thumbnailPath = file;
-  meta.thumbnailUrl = url;
-  return file;
+  throw lastError;
 }
 
 export function uploadRequestedCover(meta, {

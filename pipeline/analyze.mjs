@@ -21,6 +21,7 @@ import {
   isValidVideoFile,
   mergeFullVideoCopy,
   resolveVideoPath,
+  transcribeVideoCopy,
 } from './transcribe-video-copy.mjs';
 import {
   mapWithConcurrency,
@@ -247,6 +248,7 @@ export function normalizeDoubaoAnalysis(result) {
   const normalized = {
     ...normalizeAgyAnalysis(result),
     has_spoken_audio: result.has_spoken_audio,
+    ...(typeof result.title_zh === 'string' ? { title_zh: result.title_zh.trim() } : {}),
   };
 
   if (!normalized.has_spoken_audio) {
@@ -442,6 +444,11 @@ async function analyzeVideoByProvider(videoDir, meta, provider) {
   if (provider === 'doubao') {
     const output = await analyzeVideoWithDoubao(videoDir, meta);
     const analysis = normalizeDoubaoAnalysis(output.result);
+    if (analysis.relevant && (meta.platform === 'youtube' || meta.source === 'youtube-ai')
+      && /[A-Za-z]/.test(meta.title || '') && !/[\u3400-\u9fff]/.test(meta.title || '')
+      && !/[\u3400-\u9fff]/.test(analysis.title_zh || '')) {
+      throw new Error('YouTube 分析缺少中文标题 title_zh，保留待处理，不发布英文标题');
+    }
     analysis.filter_reason = analysis.relevant ? '' : analysis.filter_reason;
     return {
       analysis,
@@ -450,8 +457,9 @@ async function analyzeVideoByProvider(videoDir, meta, provider) {
         ...(meta.transcript || {}),
         status: 'done',
         transcribedAt: new Date().toISOString(),
-        provider: output.runtime.provider,
-        model: output.runtime.model,
+        provider: meta.verifiedTranscript ? 'whisper' : output.runtime.provider,
+        model: meta.verifiedTranscript?.model || output.runtime.model,
+        ...(meta.verifiedTranscript ? { jsonPath: meta.verifiedTranscript.jsonPath, language: meta.verifiedTranscript.language } : {}),
         audioAccess: analysis.has_spoken_audio,
       },
     };
@@ -545,14 +553,18 @@ export async function runAnalyze(sourceName) {
         return { status: 'filtered' };
       }
 
-      let analysisMeta = meta;
+        let analysisMeta = meta;
+        if (config.transcribeBeforeAnalyze) {
+          const transcript = transcribeVideoCopy(videoDir, meta, { language: config.transcribeLanguage || 'auto', vadFilter: true });
+          analysisMeta = { ...meta, verifiedTranscript: { text: transcript.fullVideoCopy, language: transcript.result.language, model: transcript.result.runtime?.model || 'large-v3', jsonPath: transcript.jsonPath } };
+        }
       let proxyRuntime = null;
       if (analyzer === 'doubao' && itemLane === 'slow' && process.env.HOTVIDEO_ANALYZE_PROXY_ENABLED !== '0') {
         log(`  生成长视频分析副本: ${profile}`);
         proxyRuntime = prepareAnalysisVideoProxy(videoPath, durationSec);
         log(`  分析副本${proxyRuntime.cached ? '命中缓存' : '生成完成'}: ${(proxyRuntime.proxyBytes / 1024 / 1024).toFixed(1)}MB`);
-        analysisMeta = {
-          ...meta,
+          analysisMeta = {
+            ...analysisMeta,
           files: {
             ...(meta.files || {}),
             videoPath: proxyRuntime.path,
