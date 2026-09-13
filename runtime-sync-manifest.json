@@ -38,7 +38,7 @@
     "video-infra/src/video_infra/storage/thumbnail.py": "35c42df336099579b09b175792b777ae0c1c01a6ed5c95317e4acfaf38ed5d0a",
     "video-infra/src/video_infra/storage/direct_video.py": "52b995bba8e32033638fe5969b74646668c1ccd57015501ba69437d6e54517b2",
     "pipeline/transcribe-video-copy.py": "a18f0b0af96b2bbf1c6af61d8e11627807844149b8e88b52b1dad1393ae1c8d8",
-    ".github/workflows/cloud-pipeline.yml": "0b86c5d6f8e31730e38715ebdb2f9bbc07e8c364b8c6bcb5fcc21690559489cf"
+    ".github/workflows/cloud-pipeline.yml": "88294211f9a5ace92c95eb0976e576be10ed22379cc756a23b60dc95f7cddc6c"
   },
   "allowedCloudAdapters": [
     "scripts/run-queue.mjs",
